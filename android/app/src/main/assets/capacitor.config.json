@@ -1,0 +1,8 @@
+{
+	"appId": "org.cog.tjrbible",
+	"appName": "COG (T.J.R) Bible",
+	"webDir": "dist",
+	"server": {
+		"androidScheme": "https"
+	}
+}
