@@ -1,0 +1,31 @@
+{
+  "name": "The Church of God Bible",
+  "short_name": "COG Bible",
+  "description": "The Church of God (Truth, Justice, and Righteousness) Bible App featuring Cebuano (Bugna) & English (KJV) parallel text, Bible Quiz, Dictionary, and customizable reading settings.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0E2143",
+  "theme_color": "#1B3A6B",
+  "icons": [
+    {
+      "src": "./app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./app-icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
