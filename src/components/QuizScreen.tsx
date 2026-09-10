@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import confetti from 'canvas-confetti';
-import { Award, Play, RotateCcw, CheckCircle2, XCircle, ArrowRight, HelpCircle, Trophy, Flame } from 'lucide-react';
+import { Award, Play, RotateCcw, CheckCircle2, XCircle, ArrowRight, HelpCircle, Trophy, Flame, X } from 'lucide-react';
 import { QUIZ_QUESTIONS } from '../data/quizQuestions';
 import { QuizQuestion, QuizStats } from '../types';
 
@@ -230,9 +230,10 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
 
             <button
               onClick={handleRestart}
-              className="text-xs text-gray-500 hover:text-red-500 transition-colors flex items-center gap-1 cursor-pointer"
+              className="px-2.5 py-1 rounded-lg border border-red-300/60 dark:border-red-500/30 bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-500/20 active:scale-95 text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs"
             >
-              Quit Quiz
+              <X className="w-3.5 h-3.5" />
+              <span>Quit Quiz</span>
             </button>
           </div>
 

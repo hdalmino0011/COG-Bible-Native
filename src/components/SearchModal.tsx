@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useDeferredValue } from 'react';
 import { motion } from 'motion/react';
-import { Search, X, BookOpen, ArrowRight, Sparkles, BookMarked } from 'lucide-react';
+import { Search, X, BookOpen, ArrowRight, Sparkles, BookMarked, Loader2 } from 'lucide-react';
 import { normalizeBookName, BIBLE_BOOKS, getBookInfo } from '../data/books';
 import { BibleData } from '../types';
 
@@ -28,10 +28,12 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   onNavigateToVerse
 }) => {
   const [query, setQuery] = useState('');
+  const deferredQuery = useDeferredValue(query);
+  const isSearching = query !== deferredQuery;
 
   // 1. Direct Book Match for English or Cebuano names (e.g. "Bugna", "Revelation", "Salmo", "Genesis")
   const matchedBooks = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = deferredQuery.trim().toLowerCase();
     if (!q || q.length < 2) return [];
 
     const norm = normalizeBookName(q);
@@ -47,11 +49,11 @@ export const SearchModal: React.FC<SearchModalProps> = ({
       b.name.toLowerCase().replace(/\s+/g, '').includes(q.replace(/\s+/g, '')) ||
       b.cebName.toLowerCase().replace(/\s+/g, '').includes(q.replace(/\s+/g, ''))
     ).slice(0, 3);
-  }, [query]);
+  }, [deferredQuery]);
 
   // 2. Reference & Full-Text Search Results
   const searchResults = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = deferredQuery.trim().toLowerCase();
     if (!q || q.length < 2) return [];
 
     // Check Reference pattern: "John 3:16", "Bugna 1:5", "Salmo 23:1", "1 Timoteo 3:15", "Mga Buhat 2:38", "Bugna 1"
@@ -112,7 +114,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
     }
 
     return results;
-  }, [query, bibleData]);
+  }, [deferredQuery, bibleData]);
 
   if (!isOpen) return null;
 
@@ -143,7 +145,11 @@ export const SearchModal: React.FC<SearchModalProps> = ({
       >
         {/* Search Input Bar */}
         <div className="flex items-center gap-2.5 px-4 py-3.5 border-b border-[#E2DED2] dark:border-[#22314E] bg-white dark:bg-[#10243E]">
-          <Search className="w-5 h-5 text-[#C9A227] flex-shrink-0" />
+          {isSearching ? (
+            <Loader2 className="w-5 h-5 text-[#C9A227] animate-spin flex-shrink-0" />
+          ) : (
+            <Search className="w-5 h-5 text-[#C9A227] flex-shrink-0" />
+          )}
           <input
             id="modal-search-input"
             type="text"

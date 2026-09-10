@@ -60,10 +60,13 @@ import { BIBLE_BOOKS, normalizeBookName } from './data/books';
 import { BOOK_LOADERS } from './data/bookModules';
 import { getRandomDailyVerse } from './data/dailyVerses';
 import { sendDailyVerseNotification } from './utils/notifications';
+import { speakVerseText, stopSpeakingVerse } from './utils/speech';
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [bibleData, setBibleData] = useState<BibleData>({});
+  const bibleDataRef = useRef<BibleData>({});
+  bibleDataRef.current = bibleData;
   const [isLoadingBible, setIsLoadingBible] = useState(true);
 
   // Navigation & Reading State
@@ -142,10 +145,16 @@ export default function App() {
   const loadSingleBook = useCallback(async (bookName: string): Promise<BookChapters | null> => {
     if (!bookName) return null;
 
+    // 0. Immediate in-memory cache check (0ms Instant)
+    if (bibleDataRef.current[bookName] && isValidBookChapters(bibleDataRef.current[bookName])) {
+      return bibleDataRef.current[bookName];
+    }
+
     // 1. Check local IndexedDB phone storage first
     try {
       const dbContent = await getBookFromIndexedDB(bookName);
       if (isValidBookChapters(dbContent)) {
+        bibleDataRef.current[bookName] = dbContent;
         setBibleData(prev => ({ ...prev, [bookName]: dbContent }));
         return dbContent;
       }
@@ -159,6 +168,7 @@ export default function App() {
         const mod = await BOOK_LOADERS[bookName]();
         const content = (mod && (mod.default || mod)) as BookChapters;
         if (isValidBookChapters(content)) {
+          bibleDataRef.current[bookName] = content;
           setBibleData(prev => ({ ...prev, [bookName]: content }));
           saveBookToIndexedDB(bookName, content).catch(() => {});
           saveBookToCacheStorage(bookName, content).catch(() => {});
@@ -275,10 +285,8 @@ export default function App() {
         setSelectedVerse(null);
         setActiveNoteVerse(null);
         setIsSearchOpen(false);
-        if ('speechSynthesis' in window) {
-          window.speechSynthesis.cancel();
-          setIsSpeaking(false);
-        }
+        stopSpeakingVerse();
+        setIsSpeaking(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -512,14 +520,11 @@ export default function App() {
   };
 
   // Text-To-Speech (TTS)
-  const handleSpeakVerse = () => {
-    if (!selectedVerse || !('speechSynthesis' in window)) {
-      showToast('Speech synthesis not supported on this browser');
-      return;
-    }
+  const handleSpeakVerse = async () => {
+    if (!selectedVerse) return;
 
     if (isSpeaking) {
-      window.speechSynthesis.cancel();
+      await stopSpeakingVerse();
       setIsSpeaking(false);
       return;
     }
@@ -529,14 +534,19 @@ export default function App() {
         ? selectedVerse.verseData.ceb
         : selectedVerse.verseData.en;
 
-    const utterance = new SpeechSynthesisUtterance(textToSpeak);
-    utterance.rate = 0.95;
-    utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = () => setIsSpeaking(false);
+    const lang = readingLayout === 'cebuano' ? 'cebuano' : 'english';
 
     setIsSpeaking(true);
-    window.speechSynthesis.speak(utterance);
     showToast(`Reading ${selectedVerse.book} ${selectedVerse.chapter}:${selectedVerse.verse}...`);
+
+    const result = await speakVerseText(textToSpeak, lang, () => {
+      setIsSpeaking(false);
+    });
+
+    if (!result.success) {
+      setIsSpeaking(false);
+      showToast(result.message || 'Speech could not be started on this device');
+    }
   };
 
   // Note actions
@@ -663,7 +673,7 @@ export default function App() {
         onClose={() => {
           setSelectedVerse(null);
           if (isSpeaking) {
-            window.speechSynthesis.cancel();
+            stopSpeakingVerse();
             setIsSpeaking(false);
           }
         }}
@@ -726,7 +736,7 @@ export default function App() {
           setCurrentScreen(screen);
           setSelectedVerse(null);
           if (isSpeaking) {
-            window.speechSynthesis.cancel();
+            stopSpeakingVerse();
             setIsSpeaking(false);
           }
         }}

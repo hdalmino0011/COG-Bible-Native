@@ -25,6 +25,99 @@ interface BibleReaderProps {
   targetVerseToScroll?: number | null;
 }
 
+interface VerseRowItemProps {
+  verse: VerseItem;
+  book: string;
+  chapter: number;
+  readingLayout: ReadingLayout;
+  isSelected: boolean;
+  highlightColor?: string;
+  isBookmarked: boolean;
+  hasNote: boolean;
+  onSelectVerse: (verse: { book: string; chapter: number; verse: number; verseData: VerseItem }) => void;
+  onTouchStart: (verse: VerseItem) => void;
+  onTouchEnd: () => void;
+}
+
+const VerseRowItem = React.memo<VerseRowItemProps>(({
+  verse,
+  book,
+  chapter,
+  readingLayout,
+  isSelected,
+  highlightColor,
+  isBookmarked,
+  hasNote,
+  onSelectVerse,
+  onTouchStart,
+  onTouchEnd,
+}) => {
+  return (
+    <div
+      id={`verse-row-${verse.v}`}
+      data-verse={verse.v}
+      data-book={book}
+      data-chapter={chapter}
+      onClick={() =>
+        onSelectVerse({
+          book,
+          chapter,
+          verse: verse.v,
+          verseData: verse
+        })
+      }
+      onTouchStart={() => onTouchStart(verse)}
+      onTouchEnd={onTouchEnd}
+      onTouchMove={onTouchEnd}
+      className={`verse-row relative transition-all cursor-pointer border-b border-dashed border-[var(--line)] hover:bg-[#C9A227]/[0.08] ${
+        readingLayout === 'parallel' ? 'grid grid-cols-2' : 'flex flex-col'
+      } ${isSelected ? 'selected' : ''} ${
+        highlightColor ? `highlight-${highlightColor}` : ''
+      }`}
+    >
+      {/* Indicators for bookmark and notes */}
+      {(isBookmarked || hasNote) && (
+        <div className="absolute top-1.5 right-2 flex items-center gap-1 z-10 pointer-events-none">
+          {isBookmarked && (
+            <Bookmark className="w-3.5 h-3.5 text-[#C9A227] fill-[#C9A227]" />
+          )}
+          {hasNote && (
+            <span className="w-2 h-2 rounded-full bg-[#1B3A6B] ring-1 ring-[#C9A227]" />
+          )}
+        </div>
+      )}
+
+      {/* Cebuano Cell (Left) */}
+      {(readingLayout === 'parallel' || readingLayout === 'cebuano') && (
+        <div
+          className={`verse-cell verse-cell-ceb flex items-start gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 leading-relaxed text-[var(--slate)] min-w-0 ${
+            readingLayout === 'parallel' ? 'border-r border-[var(--line)]' : ''
+          }`}
+        >
+          <span className="verse-num inline-block min-w-[24px] sm:min-w-[26px] text-[#C9A227] font-bold text-xs sm:text-sm flex-shrink-0 text-right select-none pt-0.5">
+            {verse.v}
+          </span>
+          <span className="verse-text flex-1 min-w-0 break-words font-normal">
+            {verse.ceb}
+          </span>
+        </div>
+      )}
+
+      {/* English Cell (Right) */}
+      {(readingLayout === 'parallel' || readingLayout === 'english') && (
+        <div className="verse-cell verse-cell-eng flex items-start gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 leading-relaxed text-[var(--slate)] min-w-0">
+          <span className="verse-num inline-block min-w-[24px] sm:min-w-[26px] text-[#C9A227] font-bold text-xs sm:text-sm flex-shrink-0 text-right select-none pt-0.5">
+            {verse.v}
+          </span>
+          <span className="verse-text flex-1 min-w-0 break-words font-normal">
+            {verse.en}
+          </span>
+        </div>
+      )}
+    </div>
+  );
+});
+
 export const BibleReader: React.FC<BibleReaderProps> = ({
   bibleData,
   isLoading,
@@ -245,69 +338,20 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
               const hasNote = notesVerses.has(verse.v);
 
               return (
-                <div
+                <VerseRowItem
                   key={verse.v}
-                  id={`verse-row-${verse.v}`}
-                  data-verse={verse.v}
-                  data-book={currentBook}
-                  data-chapter={currentChapter}
-                  onClick={() =>
-                    onSelectVerse({
-                      book: currentBook,
-                      chapter: currentChapter,
-                      verse: verse.v,
-                      verseData: verse
-                    })
-                  }
-                  onTouchStart={() => handleTouchStart(verse)}
+                  verse={verse}
+                  book={currentBook}
+                  chapter={currentChapter}
+                  readingLayout={readingLayout}
+                  isSelected={isSelected}
+                  highlightColor={highlightData?.color}
+                  isBookmarked={isBookmarked}
+                  hasNote={hasNote}
+                  onSelectVerse={onSelectVerse}
+                  onTouchStart={handleTouchStart}
                   onTouchEnd={handleTouchEnd}
-                  onTouchMove={handleTouchEnd}
-                  className={`verse-row relative transition-all cursor-pointer border-b border-dashed border-[var(--line)] hover:bg-[#C9A227]/[0.08] ${
-                    readingLayout === 'parallel' ? 'grid grid-cols-2' : 'flex flex-col'
-                  } ${isSelected ? 'selected' : ''} ${
-                    highlightData ? `highlight-${highlightData.color}` : ''
-                  }`}
-                >
-                  {/* Indicators for bookmark and notes */}
-                  {(isBookmarked || hasNote) && (
-                    <div className="absolute top-1.5 right-2 flex items-center gap-1 z-10 pointer-events-none">
-                      {isBookmarked && (
-                        <Bookmark className="w-3.5 h-3.5 text-[#C9A227] fill-[#C9A227]" />
-                      )}
-                      {hasNote && (
-                        <span className="w-2 h-2 rounded-full bg-[#1B3A6B] ring-1 ring-[#C9A227]" />
-                      )}
-                    </div>
-                  )}
-
-                  {/* Cebuano Cell (Left) */}
-                  {(readingLayout === 'parallel' || readingLayout === 'cebuano') && (
-                    <div
-                      className={`verse-cell verse-cell-ceb flex items-start gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 leading-relaxed text-[var(--slate)] min-w-0 ${
-                        readingLayout === 'parallel' ? 'border-r border-[var(--line)]' : ''
-                      }`}
-                    >
-                      <span className="verse-num inline-block min-w-[24px] sm:min-w-[26px] text-[#C9A227] font-bold text-xs sm:text-sm flex-shrink-0 text-right select-none pt-0.5">
-                        {verse.v}
-                      </span>
-                      <span className="verse-text flex-1 min-w-0 break-words font-normal">
-                        {verse.ceb}
-                      </span>
-                    </div>
-                  )}
-
-                  {/* English Cell (Right) */}
-                  {(readingLayout === 'parallel' || readingLayout === 'english') && (
-                    <div className="verse-cell verse-cell-eng flex items-start gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 leading-relaxed text-[var(--slate)] min-w-0">
-                      <span className="verse-num inline-block min-w-[24px] sm:min-w-[26px] text-[#C9A227] font-bold text-xs sm:text-sm flex-shrink-0 text-right select-none pt-0.5">
-                        {verse.v}
-                      </span>
-                      <span className="verse-text flex-1 min-w-0 break-words font-normal">
-                        {verse.en}
-                      </span>
-                    </div>
-                  )}
-                </div>
+                />
               );
             })}
           </div>

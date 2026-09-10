@@ -263,6 +263,23 @@ body.size-xxlarge {
   font-weight: 700;
 }
 
+/* High-Performance Rendering & Hardware Compositing */
+.reading-pane {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  transform: translateZ(0);
+}
+
+.verse-rows {
+  contain: layout style;
+}
+
+.verse-row {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 64px;
+  contain: layout style paint;
+}
+
 /* Custom subtle scrollbars */
 ::-webkit-scrollbar {
   width: 6px;

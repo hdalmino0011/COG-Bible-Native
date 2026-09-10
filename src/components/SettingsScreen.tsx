@@ -8,8 +8,7 @@ import {
   BellRing,
   Sparkles,
   Smartphone,
-  HardDrive,
-  CheckCircle2
+  Clock
 } from 'lucide-react';
 import { AppTheme, BibleData, FontFamily, FontSize, UserPreferences } from '../types';
 import { getNotificationPermissionStatus, requestNotificationPermission, sendDailyVerseNotification, isNotificationSupported } from '../utils/notifications';
@@ -58,12 +57,12 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
     { id: 'Arial', label: 'Arial' }
   ];
 
-  const fontSizes: Array<{ id: FontSize; label: string }> = [
-    { id: 'small', label: 'Small' },
-    { id: 'medium', label: 'Medium' },
-    { id: 'large', label: 'Large' },
-    { id: 'xlarge', label: 'X-Large' },
-    { id: 'xxlarge', label: 'XX-Large' }
+  const fontSizes: Array<{ id: FontSize; label: string; preview: string }> = [
+    { id: 'small', label: 'Small', preview: '14px' },
+    { id: 'medium', label: 'Medium', preview: '16px' },
+    { id: 'large', label: 'Large', preview: '18px' },
+    { id: 'xlarge', label: 'X-Large', preview: '20px' },
+    { id: 'xxlarge', label: 'XX-Large', preview: '22px' }
   ];
 
   const handleToggleNotifications = async () => {
@@ -130,22 +129,22 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
 
       {/* Daily Verse Notification & Phone Integration */}
       <div className="bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-2xl p-5 shadow-xs space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-[#C9A227]/15 text-[#C9A227]">
-              <BellRing className="w-4 h-4" />
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex items-start gap-3">
+            <div className="p-2.5 rounded-xl bg-[#C9A227]/15 text-[#C9A227] shrink-0 mt-0.5">
+              <BellRing className="w-5 h-5" />
             </div>
             <div>
               <h3 className="font-serif font-bold text-base" style={{ color: 'var(--ink)' }}>
                 Daily Scripture Notifications
               </h3>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-relaxed">
                 Receive an inspiring verse directly on your phone every day
               </p>
             </div>
           </div>
 
-          <label className="relative inline-flex items-center cursor-pointer">
+          <label className="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
             <input
               type="checkbox"
               checked={!!preferences.dailyVerseNotification}
@@ -157,32 +156,46 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         </div>
 
         {preferences.dailyVerseNotification && (
-          <div className="pt-3 border-t border-gray-100 dark:border-[#22314E] space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
-                Scheduled Daily Time:
-              </span>
+          <div className="pt-3 border-t border-gray-100 dark:border-[#22314E] space-y-3.5">
+            {/* Scheduled Time Row */}
+            <div className="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-[#0E172A]/70 border border-gray-200/80 dark:border-[#22314E]">
+              <div className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-[#C9A227]" />
+                <span className="text-xs font-semibold text-gray-700 dark:text-gray-200">
+                  Scheduled Daily Time
+                </span>
+              </div>
               <input
                 type="time"
                 value={preferences.notificationTime || '07:00'}
                 onChange={(e) => onUpdatePreferences({ notificationTime: e.target.value })}
-                className="px-2.5 py-1 text-xs rounded-lg border border-gray-200 dark:border-[#22314E] bg-gray-50 dark:bg-slate-800 text-gray-800 dark:text-white font-mono focus:outline-none focus:ring-1 focus:ring-[#C9A227]"
+                className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-gray-300 dark:border-[#33476E] bg-white dark:bg-[#142036] text-gray-900 dark:text-white font-mono focus:outline-none focus:ring-1 focus:ring-[#C9A227] cursor-pointer"
               />
             </div>
 
-            <div className="flex items-center justify-between gap-3 pt-1">
-              <span className="text-[11px] text-gray-500 dark:text-gray-400 flex items-center gap-1">
-                <Smartphone className="w-3.5 h-3.5 text-[#C9A227]" />
-                Status: {permStatus === 'granted' ? 'Active & Ready' : 'Permission Required'}
-              </span>
+            {/* Permission Status and Test Button Row */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
+              <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50 dark:bg-[#0E172A]/70 border border-gray-200/80 dark:border-[#22314E]">
+                <Smartphone className="w-4 h-4 text-[#C9A227] shrink-0" />
+                <span className="text-xs text-gray-600 dark:text-gray-300 font-medium">
+                  Status:
+                </span>
+                <span className={`text-[11px] font-bold px-2 py-0.5 rounded-md ${
+                  permStatus === 'granted'
+                    ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300/60 dark:border-emerald-800'
+                    : 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-300/60 dark:border-amber-800'
+                }`}>
+                  {permStatus === 'granted' ? 'Active & Ready' : 'Permission Required'}
+                </span>
+              </div>
 
               <button
                 onClick={handleTestNotification}
                 disabled={isTestingNotification}
-                className="px-3 py-1.5 text-xs font-semibold rounded-xl bg-[#1B3A6B] dark:bg-[#C9A227] text-white dark:text-[#0E1B33] hover:opacity-90 active:scale-95 transition-all flex items-center gap-1.5 shadow-xs cursor-pointer"
+                className="px-4 py-2 text-xs font-bold rounded-xl bg-gradient-to-r from-[#1B3A6B] to-[#2C548F] dark:from-[#C9A227] dark:to-[#E4C765] text-white dark:text-[#0E1B33] hover:opacity-95 active:scale-98 transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer disabled:opacity-50"
               >
                 <Sparkles className="w-3.5 h-3.5" />
-                {isTestingNotification ? 'Sending...' : 'Test Notification'}
+                <span>{isTestingNotification ? 'Sending...' : 'Test Notification'}</span>
               </button>
             </div>
           </div>
@@ -212,44 +225,46 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         </div>
       </div>
 
-      {/* Font Size */}
+      {/* Font Size (Vertically Aligned) */}
       <div className="bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-2xl p-5 shadow-xs space-y-3">
-        <h3 className="font-serif font-bold text-base flex items-center gap-2" style={{ color: 'var(--ink)' }}>
-          <TextQuote className="w-4 h-4 text-[#C9A227]" />
-          Text Size
-        </h3>
-        <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
-          {fontSizes.map((s) => (
-            <button
-              key={s.id}
-              onClick={() => onUpdatePreferences({ fontSize: s.id })}
-              className={`py-2 px-1 text-center rounded-xl border text-xs transition-all cursor-pointer ${
-                preferences.fontSize === s.id
-                  ? 'border-[#C9A227] bg-[#C9A227]/15 text-gray-900 dark:text-amber-200 font-bold shadow-xs ring-1 ring-[#C9A227]'
-                  : 'border-gray-200 dark:border-[#22314E] text-gray-700 dark:text-gray-300 hover:border-[#C9A227] bg-transparent'
-              }`}
-            >
-              {s.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Built-in Offline Scripture Database */}
-      <div className="bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-2xl p-5 shadow-xs space-y-3">
-        <div className="flex items-center justify-between">
+        <div>
           <h3 className="font-serif font-bold text-base flex items-center gap-2" style={{ color: 'var(--ink)' }}>
-            <HardDrive className="w-4 h-4 text-[#C9A227]" />
-            Scripture Database
+            <TextQuote className="w-4 h-4 text-[#C9A227]" />
+            Text Size
           </h3>
-          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 flex items-center gap-1">
-            <CheckCircle2 className="w-3 h-3" /> Built-in Offline
-          </span>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+            Select your preferred reading text size for Bible chapters and verses.
+          </p>
         </div>
 
-        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-          All 66 Old and New Testament books with dual Cebuano (Bugna) &amp; English (KJV) translations are pre-installed directly inside the application. Zero cellular data or internet downloads required.
-        </p>
+        <div className="flex flex-col space-y-2">
+          {fontSizes.map((s) => {
+            const isSelected = preferences.fontSize === s.id;
+            return (
+              <button
+                key={s.id}
+                onClick={() => onUpdatePreferences({ fontSize: s.id })}
+                className={`w-full px-4 py-3 rounded-xl border flex items-center justify-between text-left transition-all cursor-pointer ${
+                  isSelected
+                    ? 'border-[#C9A227] bg-[#C9A227]/15 text-gray-900 dark:text-[#F3DE8A] font-bold shadow-xs ring-1 ring-[#C9A227]'
+                    : 'border-gray-200 dark:border-[#22314E] text-gray-700 dark:text-gray-300 hover:border-[#C9A227]/60 bg-transparent'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`w-4 h-4 rounded-full border flex items-center justify-center transition-all ${
+                    isSelected
+                      ? 'border-[#C9A227] bg-[#C9A227]'
+                      : 'border-gray-300 dark:border-gray-600'
+                  }`}>
+                    {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-[#0E1B33]" />}
+                  </div>
+                  <span className="text-sm">{s.label}</span>
+                </div>
+                <span className="text-xs opacity-70 font-mono">{s.preview}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* About The Church of God */}

@@ -46,39 +46,48 @@ export const SavedScreen: React.FC<SavedScreenProps> = ({
         </h2>
       </div>
 
-      <div className="grid grid-cols-3 gap-1.5 p-1 bg-white/80 dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-xl mb-5 shadow-xs">
+      <div className="flex p-1 bg-white/90 dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-xl mb-4 shadow-2xs gap-1">
         <button
           onClick={() => setActiveTab('highlights')}
-          className={`py-2 px-2.5 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+          className={`flex-1 py-1.5 px-2 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
             activeTab === 'highlights'
-              ? 'bg-[#1B3A6B] dark:bg-[#C9A227] text-white dark:text-[#0E1B33] shadow-xs'
-              : 'text-gray-700 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/10'
+              ? 'bg-[#1B3A6B] dark:bg-[#1B2D4D] text-white dark:text-[#F3DE8A] border border-transparent dark:border-[#C9A227]/40 shadow-xs'
+              : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
           }`}
         >
-          <Highlighter className="w-3.5 h-3.5" />
-          <span>Highlights ({highlightList.length})</span>
+          <Highlighter className="w-3.5 h-3.5 shrink-0" />
+          <span>Highlights</span>
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full font-bold bg-black/10 dark:bg-white/10">
+            {highlightList.length}
+          </span>
         </button>
         <button
           onClick={() => setActiveTab('bookmarks')}
-          className={`py-2 px-2.5 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+          className={`flex-1 py-1.5 px-2 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
             activeTab === 'bookmarks'
-              ? 'bg-[#1B3A6B] dark:bg-[#C9A227] text-white dark:text-[#0E1B33] shadow-xs'
-              : 'text-gray-700 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/10'
+              ? 'bg-[#1B3A6B] dark:bg-[#1B2D4D] text-white dark:text-[#F3DE8A] border border-transparent dark:border-[#C9A227]/40 shadow-xs'
+              : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
           }`}
         >
-          <Bookmark className="w-3.5 h-3.5" />
-          <span>Bookmarks ({bookmarks.length})</span>
+          <Bookmark className="w-3.5 h-3.5 shrink-0" />
+          <span>Bookmarks</span>
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full font-bold bg-black/10 dark:bg-white/10">
+            {bookmarks.length}
+          </span>
         </button>
         <button
           onClick={() => setActiveTab('notes')}
-          className={`py-2 px-2.5 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+          className={`flex-1 py-1.5 px-2 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
             activeTab === 'notes'
-              ? 'bg-[#1B3A6B] dark:bg-[#C9A227] text-white dark:text-[#0E1B33] shadow-xs'
-              : 'text-gray-700 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/10'
+              ? 'bg-[#1B3A6B] dark:bg-[#1B2D4D] text-white dark:text-[#F3DE8A] border border-transparent dark:border-[#C9A227]/40 shadow-xs'
+              : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
           }`}
         >
-          <Edit3 className="w-3.5 h-3.5" />
-          <span>Notes ({notes.length})</span>
+          <Edit3 className="w-3.5 h-3.5 shrink-0" />
+          <span>Notes</span>
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full font-bold bg-black/10 dark:bg-white/10">
+            {notes.length}
+          </span>
         </button>
       </div>
 
@@ -96,7 +105,7 @@ export const SavedScreen: React.FC<SavedScreenProps> = ({
             highlightList.map((item) => (
               <div
                 key={item.id}
-                className="bg-white/90 dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-xl p-4 shadow-xs hover:border-[#C9A227] transition-all space-y-2.5"
+                className="bg-white/90 dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-xl p-3.5 shadow-2xs hover:border-[#C9A227]/60 transition-all space-y-2"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -105,19 +114,19 @@ export const SavedScreen: React.FC<SavedScreenProps> = ({
                       {item.book} {item.chapter}:{item.verse}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5">
                     <button
                       onClick={() => onNavigateToVerse(item.book, item.chapter, item.verse)}
-                      className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-[#1B3A6B] dark:bg-[#C9A227] text-white dark:text-[#0E1B33] hover:opacity-90 flex items-center gap-1 transition-opacity cursor-pointer shadow-xs"
+                      className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-[#1B3A6B]/10 dark:bg-[#C9A227]/15 text-[#1B3A6B] dark:text-[#F3DE8A] hover:bg-[#1B3A6B]/20 dark:hover:bg-[#C9A227]/25 border border-[#1B3A6B]/20 dark:border-[#C9A227]/30 flex items-center gap-1 transition-colors cursor-pointer shadow-2xs"
                     >
                       Jump to verse <ArrowRight className="w-3 h-3" />
                     </button>
                     <button
                       onClick={() => onDeleteHighlight(item.book, item.chapter, item.verse)}
-                      className="p-1.5 text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
+                      className="p-1 text-gray-400 hover:text-red-500 transition-colors cursor-pointer rounded-md hover:bg-red-50 dark:hover:bg-red-950/40"
                       title="Delete highlight"
                     >
-                      <Trash2 className="w-4 h-4" />
+                      <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
@@ -152,7 +161,7 @@ export const SavedScreen: React.FC<SavedScreenProps> = ({
             bookmarks.map((bm) => (
               <div
                 key={bm.id}
-                className="bg-white/90 dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-xl p-4 shadow-xs flex items-center justify-between"
+                className="bg-white/90 dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-xl p-3.5 shadow-2xs flex items-center justify-between hover:border-[#C9A227]/60 transition-all"
               >
                 <div>
                   <h4 className="font-serif font-bold text-sm text-[#1B3A6B] dark:text-[#E4C765]">
@@ -162,18 +171,19 @@ export const SavedScreen: React.FC<SavedScreenProps> = ({
                     Saved {new Date(bm.timestamp).toLocaleDateString()}
                   </p>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5">
                   <button
                     onClick={() => onNavigateToVerse(bm.book, bm.chapter, bm.verse)}
-                    className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-[#1B3A6B] dark:bg-[#C9A227] text-white dark:text-[#0E1B33] hover:opacity-90 flex items-center gap-1 transition-opacity cursor-pointer shadow-xs"
+                    className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-[#1B3A6B]/10 dark:bg-[#C9A227]/15 text-[#1B3A6B] dark:text-[#F3DE8A] hover:bg-[#1B3A6B]/20 dark:hover:bg-[#C9A227]/25 border border-[#1B3A6B]/20 dark:border-[#C9A227]/30 flex items-center gap-1 transition-colors cursor-pointer shadow-2xs"
                   >
                     Open <ArrowRight className="w-3 h-3" />
                   </button>
                   <button
                     onClick={() => onDeleteBookmark(bm.id)}
-                    className="p-1.5 text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
+                    className="p-1 text-gray-400 hover:text-red-500 transition-colors cursor-pointer rounded-md hover:bg-red-50 dark:hover:bg-red-950/40"
+                    title="Delete bookmark"
                   >
-                    <Trash2 className="w-4 h-4" />
+                    <Trash2 className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
@@ -195,28 +205,29 @@ export const SavedScreen: React.FC<SavedScreenProps> = ({
             notes.map((note) => (
               <div
                 key={note.id}
-                className="bg-white/90 dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-xl p-4 shadow-xs space-y-2.5"
+                className="bg-white/90 dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-xl p-3.5 shadow-2xs space-y-2 hover:border-[#C9A227]/60 transition-all"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-serif font-bold text-sm text-[#1B3A6B] dark:text-[#E4C765]">
                     Note on {note.book} {note.chapter}:{note.verse}
                   </span>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5">
                     <button
                       onClick={() => onNavigateToVerse(note.book, note.chapter, note.verse)}
-                      className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-[#1B3A6B] dark:bg-[#C9A227] text-white dark:text-[#0E1B33] hover:opacity-90 flex items-center gap-1 transition-opacity cursor-pointer shadow-xs"
+                      className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-[#1B3A6B]/10 dark:bg-[#C9A227]/15 text-[#1B3A6B] dark:text-[#F3DE8A] hover:bg-[#1B3A6B]/20 dark:hover:bg-[#C9A227]/25 border border-[#1B3A6B]/20 dark:border-[#C9A227]/30 flex items-center gap-1 transition-colors cursor-pointer shadow-2xs"
                     >
                       Open in Bible <ArrowRight className="w-3 h-3" />
                     </button>
                     <button
                       onClick={() => onDeleteNote(note.id)}
-                      className="p-1.5 text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
+                      className="p-1 text-gray-400 hover:text-red-500 transition-colors cursor-pointer rounded-md hover:bg-red-50 dark:hover:bg-red-950/40"
+                      title="Delete note"
                     >
-                      <Trash2 className="w-4 h-4" />
+                      <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
-                <div className="p-3 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-xl text-xs sm:text-sm text-gray-900 dark:text-gray-100 whitespace-pre-wrap leading-relaxed">
+                <div className="p-3 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-lg text-xs sm:text-sm text-gray-900 dark:text-gray-100 whitespace-pre-wrap leading-relaxed">
                   {note.text}
                 </div>
               </div>
