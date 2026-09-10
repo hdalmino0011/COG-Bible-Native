@@ -18,13 +18,17 @@
     --success: #2F7A54;
     --app-font: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-size-base: 15.5px;
+    --sat: var(--safe-area-inset-top, env(safe-area-inset-top, 0px));
+    --sab: var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px));
+    --sat-fallback: 0px;
+    --sab-fallback: 0px;
   }
 
   * {
     box-sizing: border-box;
   }
 
-  html, body {
+  html, body, #root {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -35,6 +39,11 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  body.is-capacitor {
+    --sat-fallback: 34px;
+    --sab-fallback: 14px;
   }
 }
 

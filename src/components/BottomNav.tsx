@@ -51,7 +51,10 @@ export const BottomNav: React.FC<BottomNavProps> = ({
     <nav
       id="main-bottom-nav"
       aria-label="Main Navigation"
-      className="fixed bottom-0 left-0 right-0 z-30 bg-white/95 dark:bg-[#182234]/95 border-t border-[#E3DFD3] dark:border-[#2A3552] backdrop-blur-md px-2 py-1.5 sm:py-2 flex items-center justify-around shadow-lg select-none"
+      className="fixed bottom-0 left-0 right-0 z-30 bg-white/95 dark:bg-[#182234]/95 border-t border-[#E3DFD3] dark:border-[#2A3552] backdrop-blur-md px-2 pt-1.5 sm:pt-2 flex items-center justify-around shadow-lg select-none"
+      style={{
+        paddingBottom: 'calc(max(var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px)), var(--sab-fallback, 0px)) + 0.375rem)'
+      }}
     >
       {navItems.map((item) => {
         const isActive = currentScreen === item.id;

@@ -48,8 +48,16 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-30 flex items-center justify-between px-3 sm:px-4 py-2.5 bg-gradient-to-r from-[#10203D] via-[#1B3A6B] to-[#2C548F] text-white shadow-md select-none">
-      <div className="flex items-center gap-2.5 min-w-0">
+    <header
+      id="main-app-header"
+      className="sticky top-0 z-30 flex flex-col bg-gradient-to-r from-[#10203D] via-[#1B3A6B] to-[#2C548F] text-white shadow-md select-none w-full"
+      style={{
+        paddingTop: 'calc(max(var(--safe-area-inset-top, env(safe-area-inset-top, 0px)), var(--sat-fallback, 0px)) + 0.625rem)',
+        paddingBottom: '0.625rem'
+      }}
+    >
+      <div className="flex items-center justify-between px-3 sm:px-4 w-full">
+        <div className="flex items-center gap-2.5 min-w-0">
         <button
           onClick={onGoToBible}
           className="relative w-8 h-8 rounded-full overflow-hidden border border-[#E4C765]/80 shadow-sm flex-shrink-0 hover:scale-105 transition-transform cursor-pointer"
@@ -160,6 +168,7 @@ export const Header: React.FC<HeaderProps> = ({
             </span>
           )}
         </button>
+      </div>
       </div>
     </header>
   );

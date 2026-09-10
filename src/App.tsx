@@ -16,6 +16,7 @@ import { BottomNav } from './components/BottomNav';
 import { VerseToolbar } from './components/VerseToolbar';
 import { NoteModal } from './components/NoteModal';
 import { SearchModal } from './components/SearchModal';
+import { Capacitor, SystemBars, SystemBarsStyle } from '@capacitor/core';
 
 import {
   BibleData,
@@ -251,6 +252,18 @@ export default function App() {
       saveLastReadPosition(currentBook, currentChapter);
     }
   }, [currentBook, currentChapter]);
+
+  // Handle Capacitor native platform setup (safe area insets, status bar styling)
+  useEffect(() => {
+    if (Capacitor.isNativePlatform()) {
+      document.body.classList.add('is-capacitor');
+      try {
+        SystemBars.setStyle({ style: SystemBarsStyle.Dark }).catch(() => {});
+      } catch {
+        // Fallback if not supported
+      }
+    }
+  }, []);
 
   // Keyboard shortcut listener
   useEffect(() => {
