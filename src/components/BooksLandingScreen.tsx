@@ -149,8 +149,8 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
       {/* 1. Header Hero / Search Banner */}
       <div className="bg-gradient-to-b from-[#142B50] via-[#1B3A6B] to-[#142B50] text-white px-4 py-4 sm:py-5 border-b border-[#C9A227]/30 shadow-md">
         <div className="max-w-3xl mx-auto space-y-3">
-          <div className="flex items-center justify-between gap-2">
-            <p className="text-xs text-blue-100/80">
+          <div className="flex items-center justify-center text-center">
+            <p className="text-xs text-blue-100/80 text-center">
               Cebuano (Bugna) &amp; English (KJV) • The Church of God (T.J.R)
             </p>
           </div>
@@ -312,11 +312,11 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
           /* VIEW B: Genesis to Revelation Books List View */
           <div className="space-y-3.5">
             {/* Filter Tabs (All, Old Testament, New Testament) */}
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-1 bg-[var(--paper)] p-1 rounded-xl border border-[var(--line)] shadow-2xs">
+            <div className="flex flex-col items-center justify-center gap-1.5 w-full">
+              <div className="flex items-center justify-center gap-1 bg-[var(--paper)] p-1 rounded-xl border border-[var(--line)] shadow-2xs mx-auto">
                 <button
                   onClick={() => setTestamentFilter('all')}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all cursor-pointer ${
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium text-center transition-all cursor-pointer ${
                     testamentFilter === 'all'
                       ? 'bg-[#1B3A6B] text-white shadow-xs font-semibold'
                       : 'text-[var(--slate-soft)] hover:text-[var(--ink)]'
@@ -326,7 +326,7 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
                 </button>
                 <button
                   onClick={() => setTestamentFilter('Old')}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all cursor-pointer ${
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium text-center transition-all cursor-pointer ${
                     testamentFilter === 'Old'
                       ? 'bg-[#1B3A6B] text-white shadow-xs font-semibold'
                       : 'text-[var(--slate-soft)] hover:text-[var(--ink)]'
@@ -336,7 +336,7 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
                 </button>
                 <button
                   onClick={() => setTestamentFilter('New')}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all cursor-pointer ${
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium text-center transition-all cursor-pointer ${
                     testamentFilter === 'New'
                       ? 'bg-[#1B3A6B] text-white shadow-xs font-semibold'
                       : 'text-[var(--slate-soft)] hover:text-[var(--ink)]'
@@ -346,7 +346,7 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
                 </button>
               </div>
 
-              <span className="text-[11px] text-[var(--slate-soft)] hidden sm:inline">
+              <span className="text-[11px] text-[var(--slate-soft)] text-center hidden sm:inline">
                 Tap any book for nature photo, author &amp; chapters
               </span>
             </div>

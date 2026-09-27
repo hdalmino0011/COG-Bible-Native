@@ -387,7 +387,7 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
       <div
         ref={containerRef}
         id="reading-pane"
-        className="reading-pane flex-1 min-h-0 overflow-y-auto px-2 sm:px-3 pb-28 scroll-smooth"
+        className="reading-pane flex-1 min-h-0 overflow-y-auto px-2 sm:px-3 pb-20 scroll-smooth"
       >
         {/* Sticky Header Row (Cebuano on left, English on right) */}
         <div className="reading-header-row sticky top-0 z-10 bg-[var(--ivory)] border-b-2 border-[#C9A227] mb-1 pt-2 pb-1">
@@ -463,7 +463,7 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
 
         {/* Bottom Chapter Navigation Bar */}
         {chapterVerses.length > 0 && (
-          <div className="pt-6 pb-20 flex items-center justify-between border-t border-[var(--line)] mt-8 px-2">
+          <div className="pt-3 pb-2 flex items-center justify-between border-t border-[var(--line)] mt-3 px-2">
             <button
               onClick={handlePrevChapter}
               className="px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-[var(--paper)] border border-[var(--line)] text-[var(--ink)] hover:border-[#C9A227] flex items-center gap-1.5 shadow-xs transition-colors cursor-pointer"
