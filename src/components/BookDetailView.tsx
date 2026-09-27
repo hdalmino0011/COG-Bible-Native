@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { ArrowLeft, BookOpen, Compass, Calendar, User, Sparkles, CheckCircle2, ChevronDown } from 'lucide-react';
 import { BIBLE_BOOKS, getBookInfo } from '../data/books';
 import { BOOK_DESCRIPTIONS } from '../data/bookDescriptions';
-import { getRandomNaturePhoto, NATURE_PHOTOS } from '../data/naturePhotos';
+import { getBookNaturePhoto } from '../data/naturePhotos';
 import { getVerseCountForChapter } from '../data/chapterVerseCounts';
 
 interface BookDetailViewProps {
@@ -35,8 +35,8 @@ export const BookDetailView: React.FC<BookDetailViewProps> = ({
     };
   }, [bookInfo]);
 
-  // Each book has its own permanent, deterministic nature photo
-  const currentPhoto = useMemo(() => getRandomNaturePhoto(bookInfo.name), [bookInfo.name]);
+  // Each book has its own permanent, verified offline nature photo matching exact scripture subject
+  const currentPhoto = useMemo(() => getBookNaturePhoto(bookInfo.name), [bookInfo.name]);
 
   // Dropdown states for Chapter and Verse
   const totalChapters = bookInfo.chapters || 1;
@@ -94,24 +94,29 @@ export const BookDetailView: React.FC<BookDetailViewProps> = ({
           </div>
         </div>
 
-        {/* 1. Permanent Nature Photo Card */}
+        {/* 1. Permanent Verified Nature Photo Card */}
         <div
           className="relative rounded-2xl overflow-hidden shadow-lg border border-[var(--line)] bg-[#10203D] group aspect-video sm:aspect-[21/9]"
         >
           <img
             src={currentPhoto.url}
-            alt={currentPhoto.caption}
+            alt={currentPhoto.title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="eager"
+            onError={(e) => {
+              const target = e.currentTarget;
+              target.onerror = null;
+              target.src = './images/nature/genesis.jpg';
+            }}
           />
           {/* Subtle dark gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-3 sm:p-4 text-white">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent flex flex-col justify-end p-3 sm:p-4 text-white pointer-events-none">
             <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-[#E4C765] font-semibold uppercase tracking-wider mb-1">
               <Compass className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-              <span>{currentPhoto.location}</span>
+              <span>{bookInfo.name} • {bookInfo.cebName}</span>
             </div>
-            <p className="text-xs sm:text-sm text-gray-200 line-clamp-2 italic font-serif">
-              "{currentPhoto.caption}"
+            <p className="text-xs sm:text-sm text-gray-100 font-serif italic">
+              "{currentPhoto.title}"
             </p>
           </div>
         </div>
