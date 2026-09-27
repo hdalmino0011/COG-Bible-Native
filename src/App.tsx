@@ -7,6 +7,8 @@ import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Splash } from './components/Splash';
 import { Header } from './components/Header';
+import { BooksLandingScreen } from './components/BooksLandingScreen';
+import { BookDetailView } from './components/BookDetailView';
 import { BibleReader } from './components/BibleReader';
 import { QuizScreen } from './components/QuizScreen';
 import { DictionaryScreen } from './components/DictionaryScreen';
@@ -70,7 +72,8 @@ export default function App() {
   const [isLoadingBible, setIsLoadingBible] = useState(true);
 
   // Navigation & Reading State
-  const [currentScreen, setCurrentScreen] = useState<ScreenType>('bible');
+  const [currentScreen, setCurrentScreen] = useState<ScreenType>('books');
+  const [selectedBookForDetail, setSelectedBookForDetail] = useState<string | null>(null);
   const [currentBook, setCurrentBook] = useState<string>('Genesis');
   const [currentChapter, setCurrentChapter] = useState<number>(1);
   const [targetVerseToScroll, setTargetVerseToScroll] = useState<number | null>(null);
@@ -333,6 +336,7 @@ export default function App() {
     if (!bibleData[matchedBook]) {
       loadSingleBook(matchedBook);
     }
+    setSelectedBookForDetail(null);
     setCurrentScreen('bible');
     setSelectedVerse(null);
     showToast(`Opened ${matchedBook} ${chapter}${verse ? `:${verse}` : ''}`);
@@ -584,7 +588,17 @@ export default function App() {
   return (
     <div className="flex flex-col h-screen w-full max-w-5xl mx-auto overflow-hidden shadow-2xl relative">
       {/* 1. Splash Screen on first load */}
-      {showSplash && <Splash onComplete={() => setShowSplash(false)} />}
+      <AnimatePresence>
+        {showSplash && (
+          <Splash
+            onComplete={() => {
+              setShowSplash(false);
+              setCurrentScreen('books');
+              setSelectedBookForDetail(null);
+            }}
+          />
+        )}
+      </AnimatePresence>
 
       {/* 2. Top Header Bar */}
       <Header
@@ -595,13 +609,32 @@ export default function App() {
         onOpenBookmarks={() => setCurrentScreen('bookmarks')}
         bookmarkCount={bookmarks.length}
         notesCount={notes.length}
-        currentBook={currentBook}
+        currentBook={selectedBookForDetail || currentBook}
         currentChapter={currentChapter}
-        onGoToBible={() => setCurrentScreen('bible')}
+        onGoToBible={() => {
+          setCurrentScreen('books');
+          setSelectedBookForDetail(null);
+        }}
       />
 
       {/* 3. Main Body Screen Views */}
       <main className="flex-1 flex flex-col min-h-0 overflow-hidden relative">
+        {currentScreen === 'books' && (
+          selectedBookForDetail ? (
+            <BookDetailView
+              bookName={selectedBookForDetail}
+              onBack={() => setSelectedBookForDetail(null)}
+              onOpenChapterVerse={(book, ch, v) => handleNavigateToVerse(book, ch, v)}
+            />
+          ) : (
+            <BooksLandingScreen
+              onSelectBook={(bookName) => setSelectedBookForDetail(bookName)}
+              onOpenDirectVerse={(bookName, ch, v) => handleNavigateToVerse(bookName, ch, v)}
+              getBookData={loadSingleBook}
+            />
+          )
+        )}
+
         {currentScreen === 'bible' && (
           <BibleReader
             bibleData={bibleData}
@@ -610,6 +643,10 @@ export default function App() {
             currentChapter={currentChapter}
             onBookChange={handleBookChange}
             onChapterChange={handleChapterChange}
+            onOpenBooksList={() => {
+              setCurrentScreen('books');
+              setSelectedBookForDetail(null);
+            }}
             readingLayout={readingLayout}
             selectedVerse={selectedVerse}
             onSelectVerse={(v) => setSelectedVerse(v)}
@@ -734,6 +771,9 @@ export default function App() {
         currentScreen={currentScreen}
         onSelectScreen={(screen) => {
           setCurrentScreen(screen);
+          if (screen === 'books') {
+            setSelectedBookForDetail(null);
+          }
           setSelectedVerse(null);
           if (isSpeaking) {
             stopSpeakingVerse();

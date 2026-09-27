@@ -1,4 +1,4 @@
-export type ScreenType = 'bible' | 'quiz' | 'dictionary' | 'bookmarks' | 'settings';
+export type ScreenType = 'books' | 'bible' | 'quiz' | 'dictionary' | 'bookmarks' | 'settings';
 
 export type ReadingLayout = 'parallel' | 'cebuano' | 'english';
 

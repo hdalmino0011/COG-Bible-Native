@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, ChevronDown, Bookmark, Loader2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronDown, Bookmark, Loader2, Library } from 'lucide-react';
 import { BIBLE_BOOKS, getBookInfo } from '../data/books';
 import { BibleData, ReadingLayout, SavedHighlight, VerseItem } from '../types';
 
@@ -10,6 +10,7 @@ interface BibleReaderProps {
   currentChapter: number;
   onBookChange: (book: string) => void;
   onChapterChange: (chapter: number) => void;
+  onOpenBooksList?: () => void;
   readingLayout: ReadingLayout;
   selectedVerse: {
     book: string;
@@ -125,6 +126,7 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
   currentChapter,
   onBookChange,
   onChapterChange,
+  onOpenBooksList,
   readingLayout,
   selectedVerse,
   onSelectVerse,
@@ -205,6 +207,18 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
       {/* Selectors Bar */}
       <div className="selectors flex items-center justify-between gap-3 px-3 sm:px-5 py-2.5 bg-[var(--paper)] border-b border-[var(--line)] shadow-xs flex-shrink-0">
         <div className="flex items-center gap-2 sm:gap-3 flex-1 max-w-xl">
+          {onOpenBooksList && (
+            <button
+              onClick={onOpenBooksList}
+              className="mt-4 p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] hover:text-[#C9A227] active:scale-95 transition-all shadow-xs flex items-center gap-1.5 flex-shrink-0 cursor-pointer"
+              title="All Books (Genesis to Revelation)"
+              aria-label="All Books"
+            >
+              <Library className="w-4 h-4 text-[#C9A227]" />
+              <span className="hidden sm:inline text-xs font-bold">Books</span>
+            </button>
+          )}
+
           {/* Book Select */}
           <div className="select-wrap relative flex-1">
             <span className="select-label block text-[10px] sm:text-[11px] font-semibold text-[var(--slate-soft)] uppercase tracking-wider pl-1 mb-0.5">

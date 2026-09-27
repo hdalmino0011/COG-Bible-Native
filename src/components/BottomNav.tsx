@@ -1,5 +1,5 @@
 import React from 'react';
-import { Book, HelpCircle, BookOpen, Bookmark, Settings } from 'lucide-react';
+import { Book, Library, HelpCircle, BookOpen, Bookmark, Settings } from 'lucide-react';
 import { ScreenType } from '../types';
 
 interface BottomNavProps {
@@ -20,8 +20,13 @@ export const BottomNav: React.FC<BottomNavProps> = ({
     badge?: number;
   }> = [
     {
+      id: 'books',
+      label: 'Books',
+      icon: <Library className="w-5 h-5" />
+    },
+    {
       id: 'bible',
-      label: 'Bible',
+      label: 'Reader',
       icon: <Book className="w-5 h-5" />
     },
     {

@@ -32,6 +32,8 @@ export const Header: React.FC<HeaderProps> = ({
 
   const getScreenTitle = () => {
     switch (currentScreen) {
+      case 'books':
+        return 'Books of the Bible';
       case 'bible':
         return currentBook ? `${currentBook} ${currentChapter}` : 'COG (T.J.R) Bible';
       case 'quiz':
