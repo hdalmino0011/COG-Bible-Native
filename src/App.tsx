@@ -62,7 +62,7 @@ import { BIBLE_BOOKS, normalizeBookName } from './data/books';
 import { BOOK_LOADERS } from './data/bookModules';
 import { getRandomDailyVerse } from './data/dailyVerses';
 import { sendDailyVerseNotification } from './utils/notifications';
-import { speakVerseText, stopSpeakingVerse } from './utils/speech';
+import { speakVerseText, stopSpeakingVerse, readChapterContinuously } from './utils/speech';
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -101,6 +101,7 @@ export default function App() {
 
   // Speech TTS state
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [speakingVerse, setSpeakingVerse] = useState<number | null>(null);
 
   // Toast feedback
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -311,6 +312,9 @@ export default function App() {
 
   // Handlers for reading navigation
   const handleBookChange = (book: string) => {
+    stopSpeakingVerse();
+    setIsSpeaking(false);
+    setSpeakingVerse(null);
     setCurrentBook(book);
     setCurrentChapter(1);
     setSelectedVerse(null);
@@ -321,12 +325,18 @@ export default function App() {
   };
 
   const handleChapterChange = (chapter: number) => {
+    stopSpeakingVerse();
+    setIsSpeaking(false);
+    setSpeakingVerse(null);
     setCurrentChapter(chapter);
     setSelectedVerse(null);
     setTargetVerseToScroll(null);
   };
 
   const handleNavigateToVerse = (bookName: string, chapter: number, verse?: number) => {
+    stopSpeakingVerse();
+    setIsSpeaking(false);
+    setSpeakingVerse(null);
     const matchedBook = normalizeBookName(bookName) || bookName;
     setCurrentBook(matchedBook);
     setCurrentChapter(chapter);
@@ -523,34 +533,52 @@ export default function App() {
     }
   };
 
-  // Text-To-Speech (TTS)
-  const handleSpeakVerse = async () => {
-    if (!selectedVerse) return;
+  // Continuous Audio Reading with Male Voice
+  const handleToggleContinuousReading = async (startVerseNum?: number) => {
+    const chapterVerses = bibleData[currentBook]?.[currentChapter] || [];
 
     if (isSpeaking) {
       await stopSpeakingVerse();
       setIsSpeaking(false);
+      setSpeakingVerse(null);
+      showToast('Audio reading stopped');
       return;
     }
 
-    const textToSpeak =
-      readingLayout === 'cebuano'
-        ? selectedVerse.verseData.ceb
-        : selectedVerse.verseData.en;
+    if (chapterVerses.length === 0) {
+      showToast('Scripture text is still loading...');
+      return;
+    }
 
+    const startV = startVerseNum || selectedVerse?.verse || 1;
     const lang = readingLayout === 'cebuano' ? 'cebuano' : 'english';
 
     setIsSpeaking(true);
-    showToast(`Reading ${selectedVerse.book} ${selectedVerse.chapter}:${selectedVerse.verse}...`);
+    setSpeakingVerse(startV);
+    showToast(`Reading ${currentBook} ${currentChapter} aloud from verse ${startV}...`);
 
-    const result = await speakVerseText(textToSpeak, lang, () => {
-      setIsSpeaking(false);
-    });
-
-    if (!result.success) {
-      setIsSpeaking(false);
-      showToast(result.message || 'Speech could not be started on this device');
-    }
+    await readChapterContinuously(
+      chapterVerses,
+      startV,
+      lang,
+      (currentV) => {
+        setSpeakingVerse(currentV);
+        const el = document.getElementById(`verse-row-${currentV}`);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      },
+      () => {
+        setIsSpeaking(false);
+        setSpeakingVerse(null);
+        showToast(`Finished reading ${currentBook} ${currentChapter}`);
+      },
+      (errMsg) => {
+        setIsSpeaking(false);
+        setSpeakingVerse(null);
+        showToast(errMsg);
+      }
+    );
   };
 
   // Note actions
@@ -588,17 +616,15 @@ export default function App() {
   return (
     <div className="flex flex-col h-screen w-full max-w-5xl mx-auto overflow-hidden shadow-2xl relative">
       {/* 1. Splash Screen on first load */}
-      <AnimatePresence>
-        {showSplash && (
-          <Splash
-            onComplete={() => {
-              setShowSplash(false);
-              setCurrentScreen('books');
-              setSelectedBookForDetail(null);
-            }}
-          />
-        )}
-      </AnimatePresence>
+      {showSplash && (
+        <Splash
+          onComplete={() => {
+            setShowSplash(false);
+            setCurrentScreen('books');
+            setSelectedBookForDetail(null);
+          }}
+        />
+      )}
 
       {/* 2. Top Header Bar */}
       <Header
@@ -655,6 +681,9 @@ export default function App() {
             notesVerses={currentChapterNotes}
             onOpenNoteForVerse={(vNum) => setActiveNoteVerse(vNum)}
             targetVerseToScroll={targetVerseToScroll}
+            isSpeaking={isSpeaking}
+            speakingVerse={speakingVerse}
+            onToggleContinuousReading={() => handleToggleContinuousReading()}
           />
         )}
 
@@ -709,17 +738,13 @@ export default function App() {
         selectedVerse={selectedVerse}
         onClose={() => {
           setSelectedVerse(null);
-          if (isSpeaking) {
-            stopSpeakingVerse();
-            setIsSpeaking(false);
-          }
         }}
         onHighlight={handleApplyHighlight}
         onCopy={handleCopyVerse}
         onToggleBookmark={handleToggleBookmark}
         isBookmarked={isSelectedVerseBookmarked}
         onOpenNoteModal={() => setActiveNoteVerse(selectedVerse?.verse || null)}
-        onSpeak={handleSpeakVerse}
+        onSpeak={() => handleToggleContinuousReading(selectedVerse?.verse)}
         isSpeaking={isSpeaking}
       />
 

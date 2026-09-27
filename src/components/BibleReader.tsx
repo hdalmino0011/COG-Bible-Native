@@ -1,5 +1,14 @@
 import React, { useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, ChevronDown, Bookmark, Loader2, Library } from 'lucide-react';
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronDown,
+  Bookmark,
+  Loader2,
+  Library,
+  Volume2,
+  Square
+} from 'lucide-react';
 import { BIBLE_BOOKS, getBookInfo } from '../data/books';
 import { BibleData, ReadingLayout, SavedHighlight, VerseItem } from '../types';
 
@@ -24,6 +33,9 @@ interface BibleReaderProps {
   notesVerses: Set<number>;
   onOpenNoteForVerse: (verseNum: number) => void;
   targetVerseToScroll?: number | null;
+  isSpeaking?: boolean;
+  speakingVerse?: number | null;
+  onToggleContinuousReading?: () => void;
 }
 
 interface VerseRowItemProps {
@@ -32,12 +44,11 @@ interface VerseRowItemProps {
   chapter: number;
   readingLayout: ReadingLayout;
   isSelected: boolean;
+  isBeingSpoken: boolean;
   highlightColor?: string;
   isBookmarked: boolean;
   hasNote: boolean;
   onSelectVerse: (verse: { book: string; chapter: number; verse: number; verseData: VerseItem }) => void;
-  onTouchStart: (verse: VerseItem) => void;
-  onTouchEnd: () => void;
 }
 
 const VerseRowItem = React.memo<VerseRowItemProps>(({
@@ -46,35 +57,83 @@ const VerseRowItem = React.memo<VerseRowItemProps>(({
   chapter,
   readingLayout,
   isSelected,
+  isBeingSpoken,
   highlightColor,
   isBookmarked,
   hasNote,
-  onSelectVerse,
-  onTouchStart,
-  onTouchEnd,
+  onSelectVerse
 }) => {
+  const longPressTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const startPosRef = useRef<{ x: number; y: number } | null>(null);
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    // Only primary clicks/touches
+    if (e.button !== 0 && e.pointerType === 'mouse') return;
+
+    startPosRef.current = { x: e.clientX, y: e.clientY };
+
+    if (longPressTimerRef.current) {
+      clearTimeout(longPressTimerRef.current);
+    }
+
+    // Long press threshold: 450ms
+    longPressTimerRef.current = setTimeout(() => {
+      try {
+        if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+          navigator.vibrate(35);
+        }
+      } catch {}
+
+      onSelectVerse({
+        book,
+        chapter,
+        verse: verse.v,
+        verseData: verse
+      });
+    }, 450);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (startPosRef.current) {
+      const dx = Math.abs(e.clientX - startPosRef.current.x);
+      const dy = Math.abs(e.clientY - startPosRef.current.y);
+      // Cancel long press if user is scrolling or moving finger
+      if (dx > 8 || dy > 8) {
+        if (longPressTimerRef.current) {
+          clearTimeout(longPressTimerRef.current);
+          longPressTimerRef.current = null;
+        }
+      }
+    }
+  };
+
+  const handlePointerCancelOrUp = () => {
+    if (longPressTimerRef.current) {
+      clearTimeout(longPressTimerRef.current);
+      longPressTimerRef.current = null;
+    }
+  };
+
   return (
     <div
       id={`verse-row-${verse.v}`}
       data-verse={verse.v}
       data-book={book}
       data-chapter={chapter}
-      onClick={() =>
-        onSelectVerse({
-          book,
-          chapter,
-          verse: verse.v,
-          verseData: verse
-        })
-      }
-      onTouchStart={() => onTouchStart(verse)}
-      onTouchEnd={onTouchEnd}
-      onTouchMove={onTouchEnd}
-      className={`verse-row relative transition-all cursor-pointer border-b border-dashed border-[var(--line)] hover:bg-[#C9A227]/[0.08] ${
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerCancelOrUp}
+      onPointerCancel={handlePointerCancelOrUp}
+      onPointerLeave={handlePointerCancelOrUp}
+      onContextMenu={(e) => {
+        // Prevent default browser menu on long-press
+        e.preventDefault();
+      }}
+      className={`verse-row relative transition-all border-b border-dashed border-[var(--line)] ${
         readingLayout === 'parallel' ? 'grid grid-cols-2' : 'flex flex-col'
       } ${isSelected ? 'selected' : ''} ${
-        highlightColor ? `highlight-${highlightColor}` : ''
-      }`}
+        isBeingSpoken ? 'bg-[#C9A227]/20 border-l-4 border-l-[#C9A227] shadow-xs' : ''
+      } ${highlightColor ? `highlight-${highlightColor}` : ''}`}
     >
       {/* Indicators for bookmark and notes */}
       {(isBookmarked || hasNote) && (
@@ -133,13 +192,15 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
   highlights,
   bookmarkedVerses,
   notesVerses,
-  targetVerseToScroll
+  targetVerseToScroll,
+  isSpeaking = false,
+  speakingVerse = null,
+  onToggleContinuousReading
 }) => {
   const currentBookInfo = getBookInfo(currentBook);
   const totalChapters = currentBookInfo?.chapters || 1;
   const chapterVerses: VerseItem[] = bibleData[currentBook]?.[currentChapter] || [];
   const containerRef = useRef<HTMLDivElement>(null);
-  const longPressTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Auto scroll to target verse if requested
   useEffect(() => {
@@ -181,24 +242,6 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
         onBookChange(nextBook.name);
         onChapterChange(1);
       }
-    }
-  };
-
-  const handleTouchStart = (verse: VerseItem) => {
-    longPressTimerRef.current = setTimeout(() => {
-      onSelectVerse({
-        book: currentBook,
-        chapter: currentChapter,
-        verse: verse.v,
-        verseData: verse
-      });
-    }, 450);
-  };
-
-  const handleTouchEnd = () => {
-    if (longPressTimerRef.current) {
-      clearTimeout(longPressTimerRef.current);
-      longPressTimerRef.current = null;
     }
   };
 
@@ -273,11 +316,36 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
           </div>
         </div>
 
-        {/* Prev / Next chapter controls */}
+        {/* Audio continuous read trigger & Prev / Next chapter controls */}
         <div className="flex items-center gap-1.5 pt-3">
+          {onToggleContinuousReading && (
+            <button
+              onClick={onToggleContinuousReading}
+              className={`p-2 rounded-xl border transition-all shadow-xs flex items-center gap-1 text-xs font-semibold cursor-pointer ${
+                isSpeaking
+                  ? 'border-rose-400 bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-300 ring-2 ring-rose-400/40 animate-pulse'
+                  : 'border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] active:scale-95'
+              }`}
+              title={isSpeaking ? 'Stop Chapter Audio' : 'Listen to Chapter Continuously'}
+              aria-label="Toggle Continuous Audio Reading"
+            >
+              {isSpeaking ? (
+                <>
+                  <Square className="w-3.5 h-3.5 fill-current" />
+                  <span className="hidden sm:inline">Stop</span>
+                </>
+              ) : (
+                <>
+                  <Volume2 className="w-4 h-4 text-[#C9A227]" />
+                  <span className="hidden sm:inline">Read</span>
+                </>
+              )}
+            </button>
+          )}
+
           <button
             onClick={handlePrevChapter}
-            className="p-2 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] active:scale-95 transition-all shadow-xs"
+            className="p-2 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] active:scale-95 transition-all shadow-xs cursor-pointer"
             title="Previous Chapter"
             aria-label="Previous Chapter"
           >
@@ -285,7 +353,7 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
           </button>
           <button
             onClick={handleNextChapter}
-            className="p-2 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] active:scale-95 transition-all shadow-xs"
+            className="p-2 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] active:scale-95 transition-all shadow-xs cursor-pointer"
             title="Next Chapter"
             aria-label="Next Chapter"
           >
@@ -293,6 +361,27 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
           </button>
         </div>
       </div>
+
+      {/* Floating Active Continuous Reading Banner if speaking */}
+      {isSpeaking && (
+        <div className="bg-gradient-to-r from-[#1B3A6B] to-[#2C548F] text-white px-3 sm:px-4 py-2 flex items-center justify-between shadow-md z-20 text-xs animate-fadeIn">
+          <div className="flex items-center gap-2 min-w-0">
+            <Volume2 className="w-4 h-4 text-[#E4C765] animate-pulse shrink-0" />
+            <span className="truncate">
+              Reading aloud <strong>{currentBook} {currentChapter}:{speakingVerse || 1}</strong>
+            </span>
+          </div>
+          {onToggleContinuousReading && (
+            <button
+              onClick={onToggleContinuousReading}
+              className="flex items-center gap-1 px-2.5 py-1 bg-rose-600 hover:bg-rose-700 text-white rounded-lg text-xs font-bold shrink-0 transition-all cursor-pointer shadow-xs active:scale-95"
+            >
+              <Square className="w-3 h-3 fill-white" />
+              <span>Stop Audio</span>
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Reading Pane Area */}
       <div
@@ -346,6 +435,8 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
                 selectedVerse?.chapter === currentChapter &&
                 selectedVerse?.verse === verse.v;
 
+              const isBeingSpoken = isSpeaking && speakingVerse === verse.v;
+
               const highlightKey = `${currentBook}|${currentChapter}|${verse.v}`;
               const highlightData = highlights[highlightKey];
               const isBookmarked = bookmarkedVerses.has(verse.v);
@@ -359,12 +450,11 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
                   chapter={currentChapter}
                   readingLayout={readingLayout}
                   isSelected={isSelected}
+                  isBeingSpoken={isBeingSpoken}
                   highlightColor={highlightData?.color}
                   isBookmarked={isBookmarked}
                   hasNote={hasNote}
                   onSelectVerse={onSelectVerse}
-                  onTouchStart={handleTouchStart}
-                  onTouchEnd={handleTouchEnd}
                 />
               );
             })}
@@ -376,7 +466,7 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
           <div className="pt-6 pb-20 flex items-center justify-between border-t border-[var(--line)] mt-8 px-2">
             <button
               onClick={handlePrevChapter}
-              className="px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-[var(--paper)] border border-[var(--line)] text-[var(--ink)] hover:border-[#C9A227] flex items-center gap-1.5 shadow-xs transition-colors"
+              className="px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-[var(--paper)] border border-[var(--line)] text-[var(--ink)] hover:border-[#C9A227] flex items-center gap-1.5 shadow-xs transition-colors cursor-pointer"
             >
               <ChevronLeft className="w-4 h-4" />
               Previous
@@ -388,7 +478,7 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
 
             <button
               onClick={handleNextChapter}
-              className="px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-[var(--paper)] border border-[var(--line)] text-[var(--ink)] hover:border-[#C9A227] flex items-center gap-1.5 shadow-xs transition-colors"
+              className="px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-[var(--paper)] border border-[var(--line)] text-[var(--ink)] hover:border-[#C9A227] flex items-center gap-1.5 shadow-xs transition-colors cursor-pointer"
             >
               Next
               <ChevronRight className="w-4 h-4" />

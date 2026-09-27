@@ -6,7 +6,7 @@ import {
   Type,
   TextQuote,
   BellRing,
-  Sparkles,
+  ShieldCheck,
   Smartphone,
   Clock
 } from 'lucide-react';
@@ -171,29 +171,31 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
               />
             </div>
 
-            {/* Permission Status and Test Button Row */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
-              <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50 dark:bg-[#0E172A]/70 border border-gray-200/80 dark:border-[#22314E]">
+            {/* Permission Status */}
+            <div className="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-[#0E172A]/70 border border-gray-200/80 dark:border-[#22314E]">
+              <div className="flex items-center gap-2">
                 <Smartphone className="w-4 h-4 text-[#C9A227] shrink-0" />
                 <span className="text-xs text-gray-600 dark:text-gray-300 font-medium">
                   Status:
                 </span>
-                <span className={`text-[11px] font-bold px-2 py-0.5 rounded-md ${
-                  permStatus === 'granted'
-                    ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300/60 dark:border-emerald-800'
-                    : 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-300/60 dark:border-amber-800'
-                }`}>
-                  {permStatus === 'granted' ? 'Active & Ready' : 'Permission Required'}
-                </span>
               </div>
+              <span className={`text-[11px] font-bold px-2 py-0.5 rounded-md ${
+                permStatus === 'granted'
+                  ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300/60 dark:border-emerald-800'
+                  : 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-300/60 dark:border-amber-800'
+              }`}>
+                {permStatus === 'granted' ? 'Active & Ready' : 'Permission Required'}
+              </span>
+            </div>
 
+            {/* Small Centered Test Notification Button */}
+            <div className="flex justify-center pt-1 pb-0.5">
               <button
                 onClick={handleTestNotification}
                 disabled={isTestingNotification}
-                className="px-4 py-2 text-xs font-bold rounded-xl bg-gradient-to-r from-[#1B3A6B] to-[#2C548F] dark:from-[#C9A227] dark:to-[#E4C765] text-white dark:text-[#0E1B33] hover:opacity-95 active:scale-98 transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer disabled:opacity-50"
+                className="px-4 py-1.5 text-xs font-semibold rounded-lg bg-[#C9A227] hover:bg-[#D4AF37] text-[#0E1B33] active:scale-95 transition-all shadow-xs cursor-pointer disabled:opacity-50"
               >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>{isTestingNotification ? 'Sending...' : 'Test Notification'}</span>
+                {isTestingNotification ? 'Sending...' : 'Test Notification'}
               </button>
             </div>
           </div>
@@ -262,6 +264,53 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
               </button>
             );
           })}
+        </div>
+      </div>
+
+      {/* Privacy & Policy */}
+      <div className="bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-2xl p-5 shadow-xs space-y-3.5">
+        <div className="flex items-center gap-2.5 pb-2 border-b border-gray-100 dark:border-[#22314E]">
+          <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+            <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+          </div>
+          <div>
+            <h3 className="font-serif font-bold text-base" style={{ color: 'var(--ink)' }}>
+              Privacy &amp; Policy
+            </h3>
+            <p className="text-[11px] text-gray-500 dark:text-gray-400">
+              Your personal data and spiritual study remain completely private.
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-2.5 text-xs text-gray-700 dark:text-gray-300 leading-relaxed">
+          <div className="flex items-start gap-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
+            <p>
+              <strong className="text-gray-900 dark:text-white">Zero Data Collection:</strong> This application does not collect, record, track, or monitor any personal user information or usage statistics.
+            </p>
+          </div>
+
+          <div className="flex items-start gap-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
+            <p>
+              <strong className="text-gray-900 dark:text-white">No Third-Party Sharing:</strong> We do not distribute, sell, or share any user details, preferences, or reading activity to any third parties, advertisers, or analytics services.
+            </p>
+          </div>
+
+          <div className="flex items-start gap-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
+            <p>
+              <strong className="text-gray-900 dark:text-white">100% Local On-Device Storage:</strong> All your personal bookmarks, verse highlights, study notes, quiz scores, and app preferences remain stored exclusively on your device's local storage.
+            </p>
+          </div>
+
+          <div className="flex items-start gap-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
+            <p>
+              <strong className="text-gray-900 dark:text-white">Offline Protection:</strong> The entire Bible, search engine, and quiz operate offline without requiring an account, sign-in, or external internet connection.
+            </p>
+          </div>
         </div>
       </div>
 

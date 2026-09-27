@@ -313,12 +313,12 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
           <div className="space-y-3.5">
             {/* Filter Tabs (All, Old Testament, New Testament) */}
             <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-1.5 bg-[var(--paper)] p-1 rounded-xl border border-[var(--line)] shadow-2xs">
+              <div className="flex items-center gap-1 bg-[var(--paper)] p-1 rounded-xl border border-[var(--line)] shadow-2xs">
                 <button
                   onClick={() => setTestamentFilter('all')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all cursor-pointer ${
                     testamentFilter === 'all'
-                      ? 'bg-[#1B3A6B] text-white shadow-xs'
+                      ? 'bg-[#1B3A6B] text-white shadow-xs font-semibold'
                       : 'text-[var(--slate-soft)] hover:text-[var(--ink)]'
                   }`}
                 >
@@ -326,9 +326,9 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
                 </button>
                 <button
                   onClick={() => setTestamentFilter('Old')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all cursor-pointer ${
                     testamentFilter === 'Old'
-                      ? 'bg-[#1B3A6B] text-white shadow-xs'
+                      ? 'bg-[#1B3A6B] text-white shadow-xs font-semibold'
                       : 'text-[var(--slate-soft)] hover:text-[var(--ink)]'
                   }`}
                 >
@@ -336,9 +336,9 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
                 </button>
                 <button
                   onClick={() => setTestamentFilter('New')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all cursor-pointer ${
                     testamentFilter === 'New'
-                      ? 'bg-[#1B3A6B] text-white shadow-xs'
+                      ? 'bg-[#1B3A6B] text-white shadow-xs font-semibold'
                       : 'text-[var(--slate-soft)] hover:text-[var(--ink)]'
                   }`}
                 >

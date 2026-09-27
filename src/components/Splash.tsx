@@ -32,32 +32,29 @@ export const Splash: React.FC<SplashProps> = ({ onComplete }) => {
   }, []);
 
   return (
-    <AnimatePresence>
+    <div
+      id="splash-screen"
+      onClick={triggerFadeOut}
+      style={{
+        opacity: isFadingOut ? 0 : 1,
+        transition: 'opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1)',
+        pointerEvents: isFadingOut ? 'none' : 'auto'
+      }}
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0A1832] bg-gradient-to-b from-[#0A1832] via-[#142B50] to-[#1B3A6B] px-6 text-center select-none cursor-pointer overflow-hidden"
+    >
       <motion.div
-        id="splash-screen"
-        onClick={triggerFadeOut}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isFadingOut ? 0 : 1 }}
-        exit={{ opacity: 0 }}
-        transition={{
-          duration: isFadingOut ? 0.75 : 0.7,
-          ease: isFadingOut ? [0.4, 0, 0.2, 1] : smoothEase
+        initial={{ scale: 0.94, opacity: 0, y: 16 }}
+        animate={{
+          scale: isFadingOut ? 0.98 : 1,
+          opacity: isFadingOut ? 0 : 1,
+          y: isFadingOut ? -8 : 0
         }}
-        className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-b from-[#0A1832] via-[#142B50] to-[#1B3A6B] px-6 text-center select-none cursor-pointer overflow-hidden"
+        transition={{
+          duration: isFadingOut ? 0.7 : 0.85,
+          ease: smoothEase
+        }}
+        className="flex flex-col items-center max-w-sm"
       >
-        <motion.div
-          initial={{ scale: 0.94, opacity: 0, y: 16 }}
-          animate={{
-            scale: isFadingOut ? 0.98 : 1,
-            opacity: isFadingOut ? 0 : 1,
-            y: isFadingOut ? -8 : 0
-          }}
-          transition={{
-            duration: isFadingOut ? 0.7 : 0.85,
-            ease: smoothEase
-          }}
-          className="flex flex-col items-center max-w-sm"
-        >
           {/* Emblem logo with golden halo glow */}
           <div className="relative w-44 h-44 sm:w-52 sm:h-52 mb-6 flex items-center justify-center">
             <motion.div
@@ -126,7 +123,6 @@ export const Splash: React.FC<SplashProps> = ({ onComplete }) => {
             <span className="w-2.5 h-2.5 rounded-full bg-[#E4C765] animate-bounce" />
           </motion.div>
         </motion.div>
-      </motion.div>
-    </AnimatePresence>
+      </div>
   );
 };
