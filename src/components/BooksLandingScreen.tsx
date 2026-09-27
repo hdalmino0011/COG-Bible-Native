@@ -150,14 +150,9 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
       <div className="bg-gradient-to-b from-[#142B50] via-[#1B3A6B] to-[#142B50] text-white px-4 py-4 sm:py-5 border-b border-[#C9A227]/30 shadow-md">
         <div className="max-w-3xl mx-auto space-y-3">
           <div className="flex items-center justify-between gap-2">
-            <div>
-              <h1 className="font-serif text-lg sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
-                <span>Books of the Bible</span>
-              </h1>
-              <p className="text-xs text-blue-100/80 mt-0.5">
-                Cebuano (Bugna) &amp; English (KJV) • The Church of God (T.J.R)
-              </p>
-            </div>
+            <p className="text-xs text-blue-100/80">
+              Cebuano (Bugna) &amp; English (KJV) • The Church of God (T.J.R)
+            </p>
           </div>
 
           {/* Search Bar with live reference & whole bible search */}
