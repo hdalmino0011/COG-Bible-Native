@@ -16,7 +16,7 @@
     --line: #E2DED2;
     --danger: #B3432B;
     --success: #2F7A54;
-    --app-font: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --app-font: 'Times New Roman', Times, Georgia, serif;
     --font-size-base: 15.5px;
     --sat: var(--safe-area-inset-top, env(safe-area-inset-top, 0px));
     --sab: var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px));
@@ -125,20 +125,12 @@ label {
 }
 
 /* Font family variations */
-body.font-Roboto {
-  --app-font: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-}
-
-body.font-Playfair {
-  --app-font: 'Playfair Display', Georgia, serif;
-}
-
-body.font-Georgia {
-  --app-font: Georgia, 'Times New Roman', serif;
-}
-
 body.font-Times {
-  --app-font: 'Times New Roman', Times, serif;
+  --app-font: 'Times New Roman', Times, Georgia, serif;
+}
+
+body.font-ComicSans {
+  --app-font: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
 }
 
 body.font-Arial {

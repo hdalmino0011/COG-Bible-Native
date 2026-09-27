@@ -4,7 +4,7 @@ export type ReadingLayout = 'parallel' | 'cebuano' | 'english';
 
 export type AppTheme = 'light' | 'dark' | 'blue';
 
-export type FontFamily = 'Roboto' | 'Playfair' | 'Georgia' | 'Arial' | 'Times';
+export type FontFamily = 'Times' | 'ComicSans' | 'Arial';
 
 export type FontSize = 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
 

@@ -105,71 +105,73 @@ export const Header: React.FC<HeaderProps> = ({
 
       <div className="flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
         {currentScreen === 'bible' && (
-          <div className="flex items-center bg-white/10 rounded-lg p-0.5 border border-white/15">
+          <>
+            <div className="flex items-center bg-white/10 rounded-lg p-0.5 border border-white/15">
+              <button
+                onClick={() => onLayoutChange('parallel')}
+                className={`px-2 py-1 text-[11px] font-medium rounded-md transition-all flex items-center gap-1 ${
+                  readingLayout === 'parallel'
+                    ? 'bg-[#C9A227] text-white font-semibold shadow-sm'
+                    : 'text-blue-100 hover:bg-white/10'
+                }`}
+                title="Parallel View (Cebuano & English)"
+                aria-label="Parallel Dual Layout"
+              >
+                <Columns className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Parallel</span>
+              </button>
+              <button
+                onClick={() => onLayoutChange('cebuano')}
+                className={`px-2 py-1 text-[11px] font-medium rounded-md transition-all ${
+                  readingLayout === 'cebuano'
+                    ? 'bg-[#C9A227] text-white font-semibold shadow-sm'
+                    : 'text-blue-100 hover:bg-white/10'
+                }`}
+                title="Cebuano Only (Bugna)"
+                aria-label="Cebuano Only"
+              >
+                CEB
+              </button>
+              <button
+                onClick={() => onLayoutChange('english')}
+                className={`px-2 py-1 text-[11px] font-medium rounded-md transition-all ${
+                  readingLayout === 'english'
+                    ? 'bg-[#C9A227] text-white font-semibold shadow-sm'
+                    : 'text-blue-100 hover:bg-white/10'
+                }`}
+                title="English Only (KJV)"
+                aria-label="English Only"
+              >
+                ENG
+              </button>
+            </div>
+
             <button
-              onClick={() => onLayoutChange('parallel')}
-              className={`px-2 py-1 text-[11px] font-medium rounded-md transition-all flex items-center gap-1 ${
-                readingLayout === 'parallel'
-                  ? 'bg-[#C9A227] text-white font-semibold shadow-sm'
-                  : 'text-blue-100 hover:bg-white/10'
-              }`}
-              title="Parallel View (Cebuano & English)"
-              aria-label="Parallel Dual Layout"
+              id="search-toggle-btn"
+              onClick={onOpenSearch}
+              className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 active:scale-95 transition-all text-white cursor-pointer"
+              title="Search Verses & Chapters (Ctrl+K / ⌘K)"
+              aria-label="Search Bible"
             >
-              <Columns className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Parallel</span>
+              <Search className="w-4 h-4" />
             </button>
+
             <button
-              onClick={() => onLayoutChange('cebuano')}
-              className={`px-2 py-1 text-[11px] font-medium rounded-md transition-all ${
-                readingLayout === 'cebuano'
-                  ? 'bg-[#C9A227] text-white font-semibold shadow-sm'
-                  : 'text-blue-100 hover:bg-white/10'
-              }`}
-              title="Cebuano Only (Bugna)"
-              aria-label="Cebuano Only"
+              id="bookmarks-drawer-toggle-btn"
+              onClick={onOpenBookmarks}
+              className="relative w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 active:scale-95 transition-all text-white cursor-pointer"
+              title="Bookmarks, Highlights & Notes"
+              aria-label="View Saved Items"
             >
-              CEB
+              <BookmarkIcon className="w-4 h-4" />
+              {totalSaved > 0 && (
+                <span className="absolute -top-1 -right-1 min-w-[16px] h-4 px-1 rounded-full bg-[#C9A227] text-[9px] font-bold text-white flex items-center justify-center shadow">
+                  {totalSaved}
+                </span>
+              )}
             </button>
-            <button
-              onClick={() => onLayoutChange('english')}
-              className={`px-2 py-1 text-[11px] font-medium rounded-md transition-all ${
-                readingLayout === 'english'
-                  ? 'bg-[#C9A227] text-white font-semibold shadow-sm'
-                  : 'text-blue-100 hover:bg-white/10'
-              }`}
-              title="English Only (KJV)"
-              aria-label="English Only"
-            >
-              ENG
-            </button>
-          </div>
+          </>
         )}
-
-        <button
-          id="search-toggle-btn"
-          onClick={onOpenSearch}
-          className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 active:scale-95 transition-all text-white"
-          title="Search Verses & Chapters (Ctrl+K / ⌘K)"
-          aria-label="Search Bible"
-        >
-          <Search className="w-4 h-4" />
-        </button>
-
-        <button
-          id="bookmarks-drawer-toggle-btn"
-          onClick={onOpenBookmarks}
-          className="relative w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 active:scale-95 transition-all text-white"
-          title="Bookmarks, Highlights & Notes"
-          aria-label="View Saved Items"
-        >
-          <BookmarkIcon className="w-4 h-4" />
-          {totalSaved > 0 && (
-            <span className="absolute -top-1 -right-1 min-w-[16px] h-4 px-1 rounded-full bg-[#C9A227] text-[9px] font-bold text-white flex items-center justify-center shadow">
-              {totalSaved}
-            </span>
-          )}
-        </button>
       </div>
       </div>
     </header>

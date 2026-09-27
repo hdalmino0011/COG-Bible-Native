@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion } from 'motion/react';
-import { ArrowLeft, BookOpen, Compass, Calendar, User, Sparkles, RefreshCw, CheckCircle2, ChevronDown } from 'lucide-react';
+import { ArrowLeft, BookOpen, Compass, Calendar, User, Sparkles, CheckCircle2, ChevronDown } from 'lucide-react';
 import { BIBLE_BOOKS, getBookInfo } from '../data/books';
 import { BOOK_DESCRIPTIONS } from '../data/bookDescriptions';
 import { getRandomNaturePhoto, NATURE_PHOTOS } from '../data/naturePhotos';
@@ -22,7 +22,7 @@ export const BookDetailView: React.FC<BookDetailViewProps> = ({
     return BOOK_DESCRIPTIONS[bookInfo.name] || {
       name: bookInfo.name,
       cebName: bookInfo.cebName,
-      author: 'Inspired Author of God',
+      author: 'Inspired Writer of God',
       authorCeb: 'Dinasig nga Magsusulat sa Dios',
       date: 'Biblical Period',
       theme: 'God\'s Holy Word and Covenant',
@@ -35,13 +35,8 @@ export const BookDetailView: React.FC<BookDetailViewProps> = ({
     };
   }, [bookInfo]);
 
-  // Random photo state initialized with a random seed
-  const [photoIndex, setPhotoIndex] = useState(() => Math.floor(Math.random() * NATURE_PHOTOS.length));
-  const currentPhoto = NATURE_PHOTOS[photoIndex % NATURE_PHOTOS.length];
-
-  const handleShufflePhoto = () => {
-    setPhotoIndex(prev => (prev + 1 + Math.floor(Math.random() * (NATURE_PHOTOS.length - 1))) % NATURE_PHOTOS.length);
-  };
+  // Each book has its own permanent, deterministic nature photo
+  const currentPhoto = useMemo(() => getRandomNaturePhoto(bookInfo.name), [bookInfo.name]);
 
   // Dropdown states for Chapter and Verse
   const totalChapters = bookInfo.chapters || 1;
@@ -97,22 +92,10 @@ export const BookDetailView: React.FC<BookDetailViewProps> = ({
               {bookInfo.cebName} • <span className="text-[var(--slate-soft)] text-xs sm:text-sm">{bookInfo.chapters} Chapters</span>
             </p>
           </div>
-          <button
-            onClick={handleShufflePhoto}
-            className="flex items-center gap-1 text-[11px] font-medium text-[var(--slate-soft)] hover:text-[#1B3A6B] dark:hover:text-[#E4C765] bg-[var(--paper)] border border-[var(--line)] px-2.5 py-1.5 rounded-xl shadow-2xs hover:shadow-xs transition-all cursor-pointer"
-            title="Show another nature photograph"
-          >
-            <RefreshCw className="w-3 h-3 text-[#C9A227]" />
-            <span>New Photo</span>
-          </button>
         </div>
 
-        {/* 1. Nature Photo Card */}
-        <motion.div
-          key={currentPhoto.id}
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4 }}
+        {/* 1. Permanent Nature Photo Card */}
+        <div
           className="relative rounded-2xl overflow-hidden shadow-lg border border-[var(--line)] bg-[#10203D] group aspect-video sm:aspect-[21/9]"
         >
           <img
@@ -131,20 +114,20 @@ export const BookDetailView: React.FC<BookDetailViewProps> = ({
               "{currentPhoto.caption}"
             </p>
           </div>
-        </motion.div>
+        </div>
 
-        {/* 2. Metadata Cards Grid (Author, Date, Category) */}
+        {/* 2. Metadata Cards Grid (Writer, Date, Category) */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
           <div className="p-3 bg-[var(--paper)] rounded-xl border border-[var(--line)] shadow-2xs">
             <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-[#C9A227] font-bold uppercase tracking-wider mb-1">
               <User className="w-3.5 h-3.5" />
-              <span>Author</span>
+              <span>Writer</span>
             </div>
             <div className="text-xs sm:text-sm font-semibold text-[var(--ink)]">
               {bookDetail.author}
             </div>
             <div className="text-[10px] text-[var(--slate-soft)]">
-              {bookDetail.authorCeb}
+              Magsusulat: {bookDetail.authorCeb}
             </div>
           </div>
 

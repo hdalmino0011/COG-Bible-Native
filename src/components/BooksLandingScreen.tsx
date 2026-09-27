@@ -153,9 +153,6 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
             <div>
               <h1 className="font-serif text-lg sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
                 <span>Books of the Bible</span>
-                <span className="text-xs font-sans font-normal text-[#E4C765] bg-[#E4C765]/20 px-2 py-0.5 rounded-full">
-                  Genesis to Revelation
-                </span>
               </h1>
               <p className="text-xs text-blue-100/80 mt-0.5">
                 Cebuano (Bugna) &amp; English (KJV) • The Church of God (T.J.R)
@@ -390,7 +387,7 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
                         <div className="flex items-center gap-2 text-[10px] sm:text-[11px] text-[var(--slate-soft)] mt-0.5 truncate">
                           <span>{book.chapters} Chapters</span>
                           <span>•</span>
-                          <span className="truncate">{bookDetail?.author || book.category}</span>
+                          <span className="truncate">Writer: {bookDetail?.author || book.category}</span>
                         </div>
                       </div>
                     </div>

@@ -11,7 +11,7 @@ const STORAGE_KEYS = {
 
 export const DEFAULT_PREFERENCES: UserPreferences = {
   theme: 'blue',
-  font: 'Roboto',
+  font: 'Times',
   fontSize: 'medium',
   readingLayout: 'parallel',
   showVerseNumbers: true,
@@ -25,8 +25,9 @@ export function getStoredPreferences(): UserPreferences {
     const raw = localStorage.getItem(STORAGE_KEYS.PREFS);
     if (!raw) return DEFAULT_PREFERENCES;
     const parsed = JSON.parse(raw);
-    const validTheme = (parsed.theme === 'light' || parsed.theme === 'dark' || parsed.theme === 'blue') ? parsed.theme : 'light';
-    return { ...DEFAULT_PREFERENCES, ...parsed, theme: validTheme };
+    const validTheme = (parsed.theme === 'light' || parsed.theme === 'dark' || parsed.theme === 'blue') ? parsed.theme : 'blue';
+    const validFont = (parsed.font === 'Times' || parsed.font === 'ComicSans' || parsed.font === 'Arial') ? parsed.font : 'Times';
+    return { ...DEFAULT_PREFERENCES, ...parsed, theme: validTheme, font: validFont };
   } catch (e) {
     return DEFAULT_PREFERENCES;
   }

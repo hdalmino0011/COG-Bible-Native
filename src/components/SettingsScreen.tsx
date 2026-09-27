@@ -50,10 +50,8 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   ];
 
   const fonts: Array<{ id: FontFamily; label: string }> = [
-    { id: 'Roboto', label: 'Roboto (Modern Sans)' },
-    { id: 'Playfair', label: 'Playfair (Classic Serif)' },
-    { id: 'Georgia', label: 'Georgia (Editorial)' },
     { id: 'Times', label: 'Times New Roman' },
+    { id: 'ComicSans', label: 'Comic Sans' },
     { id: 'Arial', label: 'Arial' }
   ];
 
