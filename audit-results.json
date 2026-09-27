@@ -1,0 +1,464 @@
+[
+  {
+    "book": "Genesis",
+    "file": "genesis.jpg",
+    "target": "Misty Meadow at First Light",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Exodus",
+    "file": "exodus.jpg",
+    "target": "Waves Crashing on Rocky Shore",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Leviticus",
+    "file": "leviticus.jpg",
+    "target": "Wildflowers in a Quiet Field",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Numbers",
+    "file": "numbers.jpg",
+    "target": "Starry Sky Over Desert Dunes",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Deuteronomy",
+    "file": "deuteronomy.jpg",
+    "target": "Rolling Hills Under Golden Clouds",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Joshua",
+    "file": "joshua.jpg",
+    "target": "River Bend Through Green Forest",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Judges",
+    "file": "judges.jpg",
+    "target": "Thunderstorm Over Open Plains",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Ruth",
+    "file": "ruth.jpg",
+    "target": "Wheat Field Swaying in the Wind",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "1 Samuel",
+    "file": "1-samuel.jpg",
+    "target": "Sunlight Through Tall Trees",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "2 Samuel",
+    "file": "2-samuel.jpg",
+    "target": "Ancient Cedar Forest in Fog",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "1 Kings",
+    "file": "1-kings.jpg",
+    "target": "Rocky Cliff Above the Sea",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "2 Kings",
+    "file": "2-kings.jpg",
+    "target": "Fiery Sunset Over Mountain Ridge",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "1 Chronicles",
+    "file": "1-chronicles.jpg",
+    "target": "Old Oak Tree in a Meadow",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "2 Chronicles",
+    "file": "2-chronicles.jpg",
+    "target": "Glowing Campfire in the Woods",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Ezra",
+    "file": "ezra.jpg",
+    "target": "Stone Bridge Over a Creek",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Nehemiah",
+    "file": "nehemiah.jpg",
+    "target": "Morning Fog on a Lake",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Esther",
+    "file": "esther.jpg",
+    "target": "Purple Wildflowers in Bloom",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Job",
+    "file": "job.jpg",
+    "target": "Dust Storm on the Horizon",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Psalms",
+    "file": "psalms.jpg",
+    "target": "Calm Lake Reflecting Mountains",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Proverbs",
+    "file": "proverbs.jpg",
+    "target": "Winding Trail Through Pine Forest",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Ecclesiastes",
+    "file": "ecclesiastes.jpg",
+    "target": "Autumn Leaves on a Riverbank",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Song of Solomon",
+    "file": "song-of-solomon.jpg",
+    "target": "Rose Bushes in Full Bloom",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Isaiah",
+    "file": "isaiah.jpg",
+    "target": "Snowy Mountain Peak at Dawn",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Jeremiah",
+    "file": "jeremiah.jpg",
+    "target": "Weeping Willow by a Pond",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Lamentations",
+    "file": "lamentations.jpg",
+    "target": "Raindrops on a Quiet Window",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Ezekiel",
+    "file": "ezekiel.jpg",
+    "target": "Dry Desert Valley at Noon",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Daniel",
+    "file": "daniel.jpg",
+    "target": "Moonlit Cave Entrance",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Hosea",
+    "file": "hosea.jpg",
+    "target": "Vines Climbing a Broken Fence",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Joel",
+    "file": "joel.jpg",
+    "target": "Golden Grasshopper on a Leaf",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Amos",
+    "file": "amos.jpg",
+    "target": "Crooked River Through Flatlands",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Obadiah",
+    "file": "obadiah.jpg",
+    "target": "Eagle Soaring Over Cliffs",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Jonah",
+    "file": "jonah.jpg",
+    "target": "Stormy Ocean Waves at Dusk",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Micah",
+    "file": "micah.jpg",
+    "target": "Rolling Hills Under Starry Sky",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Nahum",
+    "file": "nahum.jpg",
+    "target": "Crumbling Ruins in the Desert",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Habakkuk",
+    "file": "habakkuk.jpg",
+    "target": "Lone Tree on a Hilltop",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Zephaniah",
+    "file": "zephaniah.jpg",
+    "target": "Sunset Behind City Skyline",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Haggai",
+    "file": "haggai.jpg",
+    "target": "Fresh Soil in a Garden Bed",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Zechariah",
+    "file": "zechariah.jpg",
+    "target": "Lantern Glow in the Night",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Malachi",
+    "file": "malachi.jpg",
+    "target": "Bonfire Embers at Twilight",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Matthew",
+    "file": "matthew.jpg",
+    "target": "Bright Star Over Quiet Fields",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Mark",
+    "file": "mark.jpg",
+    "target": "Wild River Through the Wilderness",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Luke",
+    "file": "luke.jpg",
+    "target": "Wooden Barn Under Cloudy Sky",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "John",
+    "file": "john.jpg",
+    "target": "Sunbeam Breaking Through Dark Clouds",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Acts",
+    "file": "acts.jpg",
+    "target": "Wildfire Glow on the Horizon",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Romans",
+    "file": "romans.jpg",
+    "target": "Cobblestone Path Through Autumn Woods",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "1 Corinthians",
+    "file": "1-corinthians.jpg",
+    "target": "Vineyard Rows on a Hillside",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "2 Corinthians",
+    "file": "2-corinthians.jpg",
+    "target": "Clay Pots in a Sunny Field",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Galatians",
+    "file": "galatians.jpg",
+    "target": "Apple Orchard in Bloom",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Ephesians",
+    "file": "ephesians.jpg",
+    "target": "Rocky Coastline at Sunrise",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Philippians",
+    "file": "philippians.jpg",
+    "target": "Green Meadow After Rain",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Colossians",
+    "file": "colossians.jpg",
+    "target": "Milky Way Over Quiet Lake",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "1 Thessalonians",
+    "file": "1-thessalonians.jpg",
+    "target": "Silver Clouds at Daybreak",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "2 Thessalonians",
+    "file": "2-thessalonians.jpg",
+    "target": "Sturdy Oak in a Windstorm",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "1 Timothy",
+    "file": "1-timothy.jpg",
+    "target": "Sheep Grazing in a Valley",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "2 Timothy",
+    "file": "2-timothy.jpg",
+    "target": "Sunrise Over a Campground",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Titus",
+    "file": "titus.jpg",
+    "target": "Rugged Coastline with Blue Water",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Philemon",
+    "file": "philemon.jpg",
+    "target": "Mossy Garden Path",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Hebrews",
+    "file": "hebrews.jpg",
+    "target": "Anchor on a Sandy Beach",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "James",
+    "file": "james.jpg",
+    "target": "Wildflower Beside a Mountain Stream",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "1 Peter",
+    "file": "1-peter.jpg",
+    "target": "Rocks Along a Seashore",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "2 Peter",
+    "file": "2-peter.jpg",
+    "target": "Morning Star Fading Over Hills",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "1 John",
+    "file": "1-john.jpg",
+    "target": "Waterfall in a Sunlit Forest",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "2 John",
+    "file": "2-john.jpg",
+    "target": "Narrow Trail Through the Woods",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "3 John",
+    "file": "3-john.jpg",
+    "target": "Open Gate to a Green Field",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Jude",
+    "file": "jude.jpg",
+    "target": "Waves Crashing Against Sea Cliffs",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  },
+  {
+    "book": "Revelation",
+    "file": "revelation.jpg",
+    "target": "River Through a Golden Valley at Sunset",
+    "status": "ERROR",
+    "error": "{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\"status\":\"NOT_FOUND\"}}"
+  }
+]
