@@ -40,7 +40,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Gitala sa Exodo ang gamhanang pagluwas sa Dios sa Israel gikan sa pagkaulipon sa Ehipto pinaagi kang Moises. Giasoy niini ang napulo ka hampak, ang Pasko sa Pagpalabay, ang pagbahin sa Pulang Dagat, ang Napulo ka Sugo sa Bukid sa Sinai, ug ang pagtukod sa Tabernakulo.',
     keyVerse: 'Exodus 20:2-3',
     keyVerseEn: 'I am the Lord thy God, which have brought thee out of the land of Egypt, out of the house of bondage. Thou shalt have no other gods before me.',
-    keyVerseCeb: 'Ako mao si Jehova nga imong Dios, nga nagbawi kanimo gikan sa yuta sa Ehipto, gikan sa balay sa pagkaulipon. Dili ka magbaton ug lain nga mga dios sa atubangan ko.'
+    keyVerseCeb: 'Ako mao si Ginoo nga imong Dios, nga nagbawi kanimo gikan sa yuta sa Ehipto, gikan sa balay sa pagkaulipon. Dili ka magbaton ug lain nga mga dios sa atubangan ko.'
   },
   Leviticus: {
     name: 'Leviticus',
@@ -54,7 +54,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Ang Levitico mao ang giya sa kabalaan alang sa katawhan sa Dios. Nagtudlo kini sa mga balaod sa mga halad, sa pagka-pari ni Aaron, sa Adlaw sa Pagtabon sa Sala, ug sa tawag sa Ginoo: "Magbalaan kamo, kay ako balaan."',
     keyVerse: 'Leviticus 19:2',
     keyVerseEn: 'Ye shall be holy: for I the Lord your God am holy.',
-    keyVerseCeb: 'Magbalaan kamo: kay balaan man ako nga si Jehova nga inyong Dios.'
+    keyVerseCeb: 'Magbalaan kamo: kay balaan man ako nga si Ginoo nga inyong Dios.'
   },
   Numbers: {
     name: 'Numbers',
@@ -68,7 +68,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Gisaysay sa Numeros ang 40 ka tuig nga pagpanaw sa Israel sa kamingawan gikan sa Sinai paingon sa Yutang Saad. Bisan pa sa pagsuki ug reklamo sa katawhan, ang Dios nagpabiling matinud-anon sa pagtagana kanila.',
     keyVerse: 'Numbers 6:24-26',
     keyVerseEn: 'The Lord bless thee, and keep thee: The Lord make his face shine upon thee, and be gracious unto thee: The Lord lift up his countenance upon thee, and give thee peace.',
-    keyVerseCeb: 'Panalanginan ka ni Jehova, ug pagabantayan ka niya: Pagasidlakon ni Jehova ang iyang nawong sa ibabaw nimo, ug malooy siya kanimo: Iyahat ni Jehova ang iyang nawong kanimo, ug pagahatagan ka niya sa kalinaw.'
+    keyVerseCeb: 'Panalanginan ka ni Ginoo, ug pagabantayan ka niya: Pagasidlakon ni Ginoo ang iyang nawong sa ibabaw nimo, ug malooy siya kanimo: Iyahat ni Ginoo ang iyang nawong kanimo, ug pagahatagan ka niya sa kalinaw.'
   },
   Deuteronomy: {
     name: 'Deuteronomy',
@@ -79,10 +79,10 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     theme: 'Renewal of the Covenant and Loving Obedience',
     themeCeb: 'Pagbag-o sa Pakigsaad ug Paghigugma sa Dios',
     description: 'Deuteronomy means "second law" and contains Moses\' passionate farewell sermons to the new generation poised to enter Canaan. Moses rehearses God\'s mighty deeds, reiterates the Commandments, delivers the Shema, warns against idolatry, and calls Israel to choose life by loving and obeying God with all their heart and soul.',
-    descriptionCeb: 'Ang basahon sa Deuteronomio naglangkob sa mga katapusang mensahe ni Moises sa bag-ong kaliwatan sa Israel sa wala pa mosulod sa Canaan. Gidasig niya sila sa paghigugma kang Jehova sa tibuok kasingkasing, kalag, ug kusog.',
+    descriptionCeb: 'Ang basahon sa Deuteronomio naglangkob sa mga katapusang mensahe ni Moises sa bag-ong kaliwatan sa Israel sa wala pa mosulod sa Canaan. Gidasig niya sila sa paghigugma kang Ginoo sa tibuok kasingkasing, kalag, ug kusog.',
     keyVerse: 'Deuteronomy 6:5',
     keyVerseEn: 'And thou shalt love the Lord thy God with all thine heart, and with all thy soul, and with all thy might.',
-    keyVerseCeb: 'Ug higugmaon mo si Jehova nga imong Dios sa bug-os mong kasingkasing, ug sa bug-os mong kalag, ug sa bug-os mong kusog.'
+    keyVerseCeb: 'Ug higugmaon mo si Ginoo nga imong Dios sa bug-os mong kasingkasing, ug sa bug-os mong kalag, ug sa bug-os mong kusog.'
   },
   Joshua: {
     name: 'Joshua',
@@ -93,10 +93,10 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     theme: 'Conquest of Canaan, Courage, and Fulfillment of Promises',
     themeCeb: 'Pagsakop sa Yutang Saad ug Kaisug sa Pagtoo',
     description: 'Joshua chronicles the conquest of Canaan under Moses\' successor, Joshua. It records the miraculous crossing of the Jordan River, the fall of Jericho, victories across Canaan, the allotment of the land among the twelve tribes, and Joshua\'s famous charge: "Choose you this day whom ye will serve... but as for me and my house, we will serve the Lord."',
-    descriptionCeb: 'Gitala sa Josue ang pagsulod ug pagsakop sa Canaan ubos sa pagpangulo ni Josue. Gipakita niini ang pagtuman sa Dios sa Iyang saad sa mga amahan ug ang hagit ni Josue nga mag-alagad kang Jehova.',
+    descriptionCeb: 'Gitala sa Josue ang pagsulod ug pagsakop sa Canaan ubos sa pagpangulo ni Josue. Gipakita niini ang pagtuman sa Dios sa Iyang saad sa mga amahan ug ang hagit ni Josue nga mag-alagad kang Ginoo.',
     keyVerse: 'Joshua 24:15',
     keyVerseEn: 'Choose you this day whom ye will serve; but as for me and my house, we will serve the Lord.',
-    keyVerseCeb: 'Pilia ninyo karong adlawa kon kinsa ang inyong alagaron; apan alang kanako ug sa akong balay, magaalagad kami kang Jehova.'
+    keyVerseCeb: 'Pilia ninyo karong adlawa kon kinsa ang inyong alagaron; apan alang kanako ug sa akong balay, magaalagad kami kang Ginoo.'
   },
   Judges: {
     name: 'Judges',
@@ -138,7 +138,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Gisaysay sa 1 Samuel ang kaagi sa propetang si Samuel, ang unang hari sa Israel nga si Saul, ug ang pagpili sa Dios sa batan-ong magbalantay sa karnero nga si David nga may kasingkasing alang sa Dios.',
     keyVerse: '1 Samuel 16:7',
     keyVerseEn: 'For the Lord seeth not as man seeth; for man looketh on the outward appearance, but the Lord looketh on the heart.',
-    keyVerseCeb: 'Kay si Jehova wala magtan-aw ingon sa pagtan-aw sa tawo; kay ang tawo nagatan-aw sa panagway sa gawas, apan si Jehova nagatan-aw sa kasingkasing.'
+    keyVerseCeb: 'Kay si Ginoo wala magtan-aw ingon sa pagtan-aw sa tawo; kay ang tawo nagatan-aw sa panagway sa gawas, apan si Ginoo nagatan-aw sa kasingkasing.'
   },
   '2 Samuel': {
     name: '2 Samuel',
@@ -166,7 +166,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Nagsugod kini sa mahimayaong paghari ni Salomon ug sa pagtukod sa Templo. Apan human sa iyang pagkamatay, nabahin ang gingharian ngadto sa Amihanan (Israel) ug Habagatan (Juda), ug mitungha ang maisugong propetang si Elias.',
     keyVerse: '1 Kings 18:21',
     keyVerseEn: 'How long halt ye between two opinions? if the Lord be God, follow him: but if Baal, then follow him.',
-    keyVerseCeb: 'Hangtud anus-a ba kamo magkiangkiang sa duruha ka hunahuna? kong si Jehova mao ang Dios, sumunod kamo kaniya: apan kong si Baal, nan sumunod kamo kaniya.'
+    keyVerseCeb: 'Hangtud anus-a ba kamo magkiangkiang sa duruha ka hunahuna? kong si Ginoo mao ang Dios, sumunod kamo kaniya: apan kong si Baal, nan sumunod kamo kaniya.'
   },
   '2 Kings': {
     name: '2 Kings',
@@ -194,7 +194,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Gisulat aron pagdasig sa mga nanghibalik gikan sa pagkabihag. Naghatag kini og dakong pagtagad sa pagsimba, sa mga Levihanon, ug sa pag-andam ni David sa mga galamiton alang sa Templo.',
     keyVerse: '1 Chronicles 16:34',
     keyVerseEn: 'O give thanks unto the Lord; for he is good; for his mercy endureth for ever.',
-    keyVerseCeb: 'Oh paghatag kamo sa mga pasalamat kang Jehova; kay siya maayo man; kay ang iyang kaluoy nagapadayon sa walay katapusan.'
+    keyVerseCeb: 'Oh paghatag kamo sa mga pasalamat kang Ginoo; kay siya maayo man; kay ang iyang kaluoy nagapadayon sa walay katapusan.'
   },
   '2 Chronicles': {
     name: '2 Chronicles',
@@ -222,7 +222,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Gitala sa Esdras ang pagpauli sa mga binihag gikan sa Babilonia aron tukoron pag-usab ang Templo ug ibalik ang pagtuon ug pagsunod sa Kasugoan sa Dios.',
     keyVerse: 'Ezra 7:10',
     keyVerseEn: 'For Ezra had prepared his heart to seek the law of the Lord, and to do it, and to teach in Israel statutes and judgments.',
-    keyVerseCeb: 'Kay si Esdras nag-andam sa iyang kasingkasing sa pagpangita sa kasugoan ni Jehova, ug sa pagbuhat niini, ug sa pagtudlo sa Israel sa mga patindog ug sa mga paghukom.'
+    keyVerseCeb: 'Kay si Esdras nag-andam sa iyang kasingkasing sa pagpangita sa kasugoan ni Ginoo, ug sa pagbuhat niini, ug sa pagtudlo sa Israel sa mga patindog ug sa mga paghukom.'
   },
   Nehemiah: {
     name: 'Nehemiah',
@@ -236,7 +236,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Gipakita ni Nehemias ang talagsaong pagpangulo ug pag-ampo sa pagtukod pag-usab sa mga paril sa Jerusalem sulod lamang sa 52 ka adlaw taliwala sa mga hulga sa kaaway.',
     keyVerse: 'Nehemiah 8:10',
     keyVerseEn: 'For the joy of the Lord is your strength.',
-    keyVerseCeb: 'Kay ang kalipay ni Jehova mao ang inyong kalig-on.'
+    keyVerseCeb: 'Kay ang kalipay ni Ginoo mao ang inyong kalig-on.'
   },
   Esther: {
     name: 'Esther',
@@ -278,7 +278,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Ang basahon sa mga Salmo naglangkob sa 150 ka sagradong mga alawiton ug pag-ampo sa pagdayeg, paghinulsol, pagpasalamat, ug pagsalig sa Dios sa tanang higayon sa kinabuhi.',
     keyVerse: 'Psalms 23:1',
     keyVerseEn: 'The Lord is my shepherd; I shall not want.',
-    keyVerseCeb: 'Si Jehova mao ang akong magbalantay; walay makulang kanako.'
+    keyVerseCeb: 'Si Ginoo mao ang akong magbalantay; walay makulang kanako.'
   },
   Proverbs: {
     name: 'Proverbs',
@@ -287,12 +287,12 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     authorCeb: 'Haring Salomon, Agur, ug Lemuel',
     date: 'c. 950–700 BC',
     theme: 'The Fear of the Lord, Wisdom, Justice, and Practical Righteousness',
-    themeCeb: 'Kahadlok kang Jehova, Kaalam, Katarong, ug Hustisya',
+    themeCeb: 'Kahadlok kang Ginoo, Kaalam, Katarong, ug Hustisya',
     description: 'Proverbs offers inspired practical wisdom for daily life, family, integrity, speech, and justice. It declares that the fear of the Lord is the beginning of wisdom and guides believers on the path of righteousness.',
-    descriptionCeb: 'Puno sa praktikal nga kaalam alang sa adlaw-adlawng pagkinabuhi, pamilya, pagkamatinud-anon, ug hustisya. Nagtudlo kini nga ang kahadlok kang Jehova mao ang sinugdanan sa kaalam.',
+    descriptionCeb: 'Puno sa praktikal nga kaalam alang sa adlaw-adlawng pagkinabuhi, pamilya, pagkamatinud-anon, ug hustisya. Nagtudlo kini nga ang kahadlok kang Ginoo mao ang sinugdanan sa kaalam.',
     keyVerse: 'Proverbs 3:5-6',
     keyVerseEn: 'Trust in the Lord with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.',
-    keyVerseCeb: 'Sumalig ka kang Jehova sa bug-os mong kasingkasing; ug ayaw pagsalig sa imong kaugalingong pagsabut. Sa tanan nimong mga dalan ilha siya, ug siya magamando sa imong mga alagianan.'
+    keyVerseCeb: 'Sumalig ka kang Ginoo sa bug-os mong kasingkasing; ug ayaw pagsalig sa imong kaugalingong pagsabut. Sa tanan nimong mga dalan ilha siya, ug siya magamando sa imong mga alagianan.'
   },
   Ecclesiastes: {
     name: 'Ecclesiastes',
@@ -348,7 +348,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Nagsangyaw si Jeremias sa wala pa mabihag ang Juda, nagpasiugda sa Kamatuoran, Hustisya, ug Pagkatarong, ug nagtagna sa Bag-ong Pakigsaad nga isulat sa kasingkasing.',
     keyVerse: 'Jeremiah 29:11',
     keyVerseEn: 'For I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and not of evil, to give you an expected end.',
-    keyVerseCeb: 'Kay ako nasayud sa mga hunahuna nga akong gihunahuna alang kaninyo, nagaingon si Jehova, mga hunahuna sa pakigdait, ug dili sa dautan, sa paghatag kaninyo ug paglaum sa inyong kaulahiang katapusan.'
+    keyVerseCeb: 'Kay ako nasayud sa mga hunahuna nga akong gihunahuna alang kaninyo, nagaingon si Ginoo, mga hunahuna sa pakigdait, ug dili sa dautan, sa paghatag kaninyo ug paglaum sa inyong kaulahiang katapusan.'
   },
   Lamentations: {
     name: 'Lamentations',
@@ -362,7 +362,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Mga masulob-ong balak ni Jeremias human malaglag ang Jerusalem, apan nagpadayag sa dakong pagsalig nga ang kaluoy sa Dios bag-o sa matag buntag.',
     keyVerse: 'Lamentations 3:22-23',
     keyVerseEn: 'It is of the Lord\'s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.',
-    keyVerseCeb: 'Tungod sa mga kaluoy ni Jehova kita wala mangahanaw, kay ang iyang mga kalooy dili matapus. Sila mga bag-o sa matag-buntag: daku ang imong pagkamatinumanon.'
+    keyVerseCeb: 'Tungod sa mga kaluoy ni Ginoo kita wala mangahanaw, kay ang iyang mga kalooy dili matapus. Sila mga bag-o sa matag-buntag: daku ang imong pagkamatinumanon.'
   },
   Ezekiel: {
     name: 'Ezekiel',
@@ -413,7 +413,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     authorCeb: 'Joel',
     date: 'c. 835 BC',
     theme: 'The Day of the Lord, Locust Plague, and Outpouring of the Holy Spirit',
-    themeCeb: 'Ang Adlaw ni Jehova ug ang Pagbubo sa Balaang Espiritu',
+    themeCeb: 'Ang Adlaw ni Ginoo ug ang Pagbubo sa Balaang Espiritu',
     description: 'Following a devastating locust invasion, Joel warns that an even greater "Day of the Lord" is coming. He summons national repentance and prophesies the historic outpouring of the Holy Spirit upon all flesh, fulfilled at Pentecost.',
     descriptionCeb: 'Nagsangyaw si Joel human sa dakong peste sa dulon, nagtawag sa paghinulsol ug nagtagna sa pagbubo sa Balaang Espiritu sa tanang katawhan sa ulahing mga adlaw.',
     keyVerse: 'Joel 2:28',
@@ -446,7 +446,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Ang kinamub-ang basahon sa Daang Tugon nagtagna sa silot batok sa Edom tungod sa garbo ug pagtraydor sa Israel, samtang ang bukid sa Sion makadawat og kaluwasan.',
     keyVerse: 'Obadiah 1:21',
     keyVerseEn: 'And saviours shall come up on mount Zion to judge the mount of Esau; and the kingdom shall be the Lord\'s.',
-    keyVerseCeb: 'Ug ang mga manluluwas mangadto sa bukid sa Sion aron sa paghukom sa bukid sa Esau; ug ang gingharian maiya ni Jehova.'
+    keyVerseCeb: 'Ug ang mga manluluwas mangadto sa bukid sa Sion aron sa paghukom sa bukid sa Esau; ug ang gingharian maiya ni Ginoo.'
   },
   Jonah: {
     name: 'Jonah',
@@ -460,7 +460,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Giasoy ang kaagi ni Jonas nga milayas gikan sa tawag sa Dios, gilamoy sa dakong isda, ug sa katapusan misangyaw sa Ninive diin ang tibuok siyudad naghinulsol.',
     keyVerse: 'Jonah 2:9',
     keyVerseEn: 'Salvation is of the Lord.',
-    keyVerseCeb: 'Ang kaluwasan iya man ni Jehova.'
+    keyVerseCeb: 'Ang kaluwasan iya man ni Ginoo.'
   },
   Micah: {
     name: 'Micah',
@@ -474,7 +474,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Gipadayag ni Miqueas ang dapit nga matawhan sa Mesiyas didto sa Bethlehem (5:2) ug gitudlo ang gipangayo sa Dios: pagbuhat sa matarung, paghigugma sa kaluoy, ug pagpaubos.',
     keyVerse: 'Micah 6:8',
     keyVerseEn: 'He hath shewed thee, O man, what is good; and what doth the Lord require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?',
-    keyVerseCeb: 'Gipakita niya kanimo, Oh tawo, kon unsa ang maayo; ug unsa ba ang gikinahanglan ni Jehova gikan kanimo, kondili ang pagbuhat sa matarung, ug ang paghigugma sa kaluoy, ug ang paglakaw nga mapainubsanon uban sa imong Dios?'
+    keyVerseCeb: 'Gipakita niya kanimo, Oh tawo, kon unsa ang maayo; ug unsa ba ang gikinahanglan ni Ginoo gikan kanimo, kondili ang pagbuhat sa matarung, ug ang paghigugma sa kaluoy, ug ang paglakaw nga mapainubsanon uban sa imong Dios?'
   },
   Nahum: {
     name: 'Nahum',
@@ -485,10 +485,10 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     theme: 'The Destruction of Nineveh and God as a Stronghold in Trouble',
     themeCeb: 'Kagun-oban sa Mapintas nga Ninive ug ang Dios nga Dalangpanan',
     description: 'A century after Jonah, Nineveh returned to brutal cruelty. Nahum prophesies the complete destruction of the Assyrian capital, declaring that while the Lord is slow to anger, He is just and a stronghold to those who trust Him.',
-    descriptionCeb: 'Nagsangyaw si Nahum sa dili malikayang pagkapukan sa Ninive tungod sa ilang kapintasan, nagpahinumdom nga si Jehova maayo ug dalangpanan sa adlaw sa kalisod.',
+    descriptionCeb: 'Nagsangyaw si Nahum sa dili malikayang pagkapukan sa Ninive tungod sa ilang kapintasan, nagpahinumdom nga si Ginoo maayo ug dalangpanan sa adlaw sa kalisod.',
     keyVerse: 'Nahum 1:7',
     keyVerseEn: 'The Lord is good, a strong hold in the day of trouble; and he knoweth them that trust in him.',
-    keyVerseCeb: 'Si Jehova maayo, usa ka malig-on nga salipdanan sa adlaw sa kasamok; ug siya nakaila kanila nga nanagsalig kaniya.'
+    keyVerseCeb: 'Si Ginoo maayo, usa ka malig-on nga salipdanan sa adlaw sa kasamok; ug siya nakaila kanila nga nanagsalig kaniya.'
   },
   Habakkuk: {
     name: 'Habakkuk',
@@ -511,12 +511,12 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     authorCeb: 'Sofonias',
     date: 'c. 630 BC',
     theme: 'The Great Day of the Lord and Joyful Restoration of the Remnant',
-    themeCeb: 'Ang Adlaw sa Kasuko ni Jehova ug ang Kalipay sa Naluwas',
+    themeCeb: 'Ang Adlaw sa Kasuko ni Ginoo ug ang Kalipay sa Naluwas',
     description: 'Zephaniah sounds a piercing alarm of the approaching Day of the Lord against Judah and surrounding nations, yet culminates in one of Scripture\'s most joyful promises: God singing over His cleansed, humble remnant with gladness.',
     descriptionCeb: 'Gipasidan-an ni Sofonias ang adlaw sa paghukom sa Dios, apan naghatag usab og maanindot nga saad nga ang Ginoo magakalipay sa Iyang katawhan uban ang pag-awit.',
     keyVerse: 'Zephaniah 3:17',
     keyVerseEn: 'The Lord thy God in the midst of thee is mighty; he will save, he will rejoice over thee with joy; he will rest in his love, he will joy over thee with singing.',
-    keyVerseCeb: 'Si Jehova nga imong Dios anaa sa imong taliwala, ang usa nga gamhanan nga magaluwas; siya magakalipay sa ibabaw nimo uban ang kasadya; siya mopahulay sa iyang gugma, siya magakalipay sa ibabaw nimo uban ang pag-awit.'
+    keyVerseCeb: 'Si Ginoo nga imong Dios anaa sa imong taliwala, ang usa nga gamhanan nga magaluwas; siya magakalipay sa ibabaw nimo uban ang kasadya; siya mopahulay sa iyang gugma, siya magakalipay sa ibabaw nimo uban ang pag-awit.'
   },
   Haggai: {
     name: 'Haggai',
@@ -530,7 +530,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Gihagit ni Hageo ang mga binihag nga unahon ang pagtukod sa Templo sa Dios kaysa sa ilang kaugalingong kaharuhay, nga nagsaad nga ang ulahing himaya mas labaw pa sa una.',
     keyVerse: 'Haggai 1:8',
     keyVerseEn: 'Go up to the mountain, and bring wood, and build the house; and I will take pleasure in it, and I will be glorified, saith the Lord.',
-    keyVerseCeb: 'Tungas kamo sa bukid, ug pagdala ug kahoy, ug tukora ang balay; ug ako magakalipay niana, ug ako pagahimayaon, nagaingon si Jehova.'
+    keyVerseCeb: 'Tungas kamo sa bukid, ug pagdala ug kahoy, ug tukora ang balay; ug ako magakalipay niana, ug ako pagahimayaon, nagaingon si Ginoo.'
   },
   Zechariah: {
     name: 'Zechariah',
@@ -544,7 +544,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Puno sa mga tagna bahin kang Cristo: ang pagsulod sa Hari nga nagsakay sa asno, ang pagbudhi sa katloan ka salapi, ug ang pagluba sa Iyang kilid.',
     keyVerse: 'Zechariah 4:6',
     keyVerseEn: 'Not by might, nor by power, but by my spirit, saith the Lord of hosts.',
-    keyVerseCeb: 'Dili pinaagi sa kusog, ni pinaagi sa gahum, kondili pinaagi sa akong Espiritu, nagaingon si Jehova sa mga panon.'
+    keyVerseCeb: 'Dili pinaagi sa kusog, ni pinaagi sa gahum, kondili pinaagi sa akong Espiritu, nagaingon si Ginoo sa mga panon.'
   },
   Malachi: {
     name: 'Malachi',
@@ -558,7 +558,7 @@ export const BOOK_DESCRIPTIONS: Record<string, BookDetailInfo> = {
     descriptionCeb: 'Ang katapusang basahon sa Daang Tugon nagbadlong sa kakulang sa pagtahod sa mga halad ug ikapulo, ug nagpahibalo sa pag-abot sa mag-uuna ug sa Adlaw sa Katarong.',
     keyVerse: 'Malachi 3:10',
     keyVerseEn: 'Bring ye all the tithes into the storehouse, that there may be meat in mine house, and prove me now herewith, saith the Lord of hosts, if I will not open you the windows of heaven, and pour you out a blessing, that there shall not be room enough to receive it.',
-    keyVerseCeb: 'Dad-a ninyo ang tibook nga ikapulo ngadto sa balay nga tipiganan, aron nga adunay kalan-on diha sa akong balay, ug pinaagi niini sulayi ako karon, nagaingon si Jehova sa mga panon, kong dili ba buksan ko kaninyo ang mga tamboanan sa langit, ug buboan ko kamo sa usa ka panalangin, nga tungod niana wala na unyay dapit nga igo sa pagdawat niini.'
+    keyVerseCeb: 'Dad-a ninyo ang tibook nga ikapulo ngadto sa balay nga tipiganan, aron nga adunay kalan-on diha sa akong balay, ug pinaagi niini sulayi ako karon, nagaingon si Ginoo sa mga panon, kong dili ba buksan ko kaninyo ang mga tamboanan sa langit, ug buboan ko kamo sa usa ka panalangin, nga tungod niana wala na unyay dapit nga igo sa pagdawat niini.'
   },
 
   // NEW TESTAMENT

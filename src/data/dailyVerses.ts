@@ -69,7 +69,7 @@ export const DAILY_VERSES: DailyVerse[] = [
     verse: 1,
     title: "The Lord is My Shepherd",
     theme: "Faith & Comfort",
-    ceb: "Si Jehova mao ang akong magbalantay; Walay makulang kanako.",
+    ceb: "Si Ginoo mao ang akong magbalantay; Walay makulang kanako.",
     en: "The LORD is my shepherd; I shall not want."
   },
   {
@@ -78,7 +78,7 @@ export const DAILY_VERSES: DailyVerse[] = [
     verse: 5,
     title: "Trust in the Lord",
     theme: "Wisdom & Guidance",
-    ceb: "Sumalig ka kang Jehova sa bug-os mong kasingkasing, Ug ayaw pagsalig sa imong kaugagalingong salabutan:",
+    ceb: "Sumalig ka kang Ginoo sa bug-os mong kasingkasing, Ug ayaw pagsalig sa imong kaugagalingong salabutan:",
     en: "Trust in the LORD with all thine heart; and lean not unto thine own understanding."
   },
   {
@@ -105,7 +105,7 @@ export const DAILY_VERSES: DailyVerse[] = [
     verse: 31,
     title: "Renewed Strength",
     theme: "Hope & Renewal",
-    ceb: "Apan kadtong nagabuhat kang Jehova magabag-o sa ilang kusog; sila manlupad pinaagi sa mga pako ingon sa mga agila; sila manalagan, ug dili makapuyan: sila manlakaw, ug dili mangaluya.",
+    ceb: "Apan kadtong nagabuhat kang Ginoo magabag-o sa ilang kusog; sila manlupad pinaagi sa mga pako ingon sa mga agila; sila manalagan, ug dili makapuyan: sila manlakaw, ug dili mangaluya.",
     en: "But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint."
   },
   {
@@ -115,7 +115,7 @@ export const DAILY_VERSES: DailyVerse[] = [
     title: "Truth, Justice, Righteousness",
     theme: "COG Pillar Doctrine",
     doctrineEmphasis: "And thou shalt swear, The LORD liveth, in truth, in judgment, and in righteousness.",
-    ceb: "Ug ikaw magapanumpa: Ingon nga si Jehova buhi, sa kamatuoran, sa justicia, ug sa pagkamatarung; ug ang mga nasud managpanalangin sa ilang kaugalingon diha kaniya, ug diha kaniya sila managhimaya.",
+    ceb: "Ug ikaw magapanumpa: Ingon nga si Ginoo buhi, sa kamatuoran, sa justicia, ug sa pagkamatarung; ug ang mga nasud managpanalangin sa ilang kaugalingon diha kaniya, ug diha kaniya sila managhimaya.",
     en: "And thou shalt swear, The LORD liveth, in truth, in judgment, and in righteousness; and the nations shall bless themselves in him, and in him shall they glory."
   },
   {
@@ -143,7 +143,7 @@ export const DAILY_VERSES: DailyVerse[] = [
     verse: 9,
     title: "Be Strong and Courageous",
     theme: "Courage in Faith",
-    ceb: "Wala ko ba ikaw sugoa? Magmakusganon ka ug magmaisug: ayaw pagkahadlok ug dili ka magmaluya; kay si Jehova nga imong Dios, magauban kanimo bisan asa ikaw paingon.",
+    ceb: "Wala ko ba ikaw sugoa? Magmakusganon ka ug magmaisug: ayaw pagkahadlok ug dili ka magmaluya; kay si Ginoo nga imong Dios, magauban kanimo bisan asa ikaw paingon.",
     en: "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest."
   },
   {
@@ -170,7 +170,7 @@ export const DAILY_VERSES: DailyVerse[] = [
     verse: 3,
     title: "Commit Thy Works",
     theme: "Guidance",
-    ceb: "Itugyan ang imong mga buhat kang Jehova, Ug ang imong mga tuyo mangatuman.",
+    ceb: "Itugyan ang imong mga buhat kang Ginoo, Ug ang imong mga tuyo mangatuman.",
     en: "Commit thy works unto the LORD, and thy thoughts shall be established."
   },
   {
