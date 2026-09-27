@@ -103,6 +103,7 @@ export const BookDetailView: React.FC<BookDetailViewProps> = ({
             alt={currentPhoto.title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="eager"
+            referrerPolicy="no-referrer"
             onError={(e) => {
               const target = e.currentTarget;
               target.onerror = null;

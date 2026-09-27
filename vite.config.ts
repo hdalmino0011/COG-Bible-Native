@@ -26,6 +26,14 @@ function generateOfflineServiceWorker() {
         `./data/${encodeURIComponent(file)}`,
         `data/${encodeURIComponent(file)}`
       ]);
+      const natureDir = path.resolve(projectRoot, 'public/images/nature');
+      const natureFiles = fs.existsSync(natureDir)
+        ? fs.readdirSync(natureDir).filter((f) => f.endsWith('.jpg'))
+        : [];
+      const natureImages = natureFiles.flatMap((file) => [
+        `./images/nature/${file}`,
+        `images/nature/${file}`
+      ]);
       const precache = Array.from(
         new Set([
           './',
@@ -49,6 +57,7 @@ function generateOfflineServiceWorker() {
           '.nojekyll',
           './.nojekyll',
           ...bibleData,
+          ...natureImages,
           ...builtAssets,
         ])
       );

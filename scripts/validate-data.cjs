@@ -107,6 +107,39 @@ if (directoryFiles[0].size !== directoryFiles[1].size || [...directoryFiles[0]].
   errors.push('data and public/data do not contain the same book files');
 }
 
+// Ensure all 66 nature photos exist and sync to android and docs
+const natureDir = path.join(projectRoot, 'public/images/nature');
+if (fs.existsSync(natureDir)) {
+  const naturePhotos = fs.readdirSync(natureDir).filter(f => f.endsWith('.jpg'));
+  if (naturePhotos.length < 66) {
+    errors.push(`Expected 66 nature photos in public/images/nature, found ${naturePhotos.length}`);
+  }
+
+  // Sync to android assets if directory exists
+  const androidNatureDir = path.join(projectRoot, 'android/app/src/main/assets/public/images/nature');
+  const androidPublicDir = path.join(projectRoot, 'android/app/src/main/assets/public');
+  if (fs.existsSync(androidPublicDir)) {
+    if (!fs.existsSync(androidNatureDir)) {
+      fs.mkdirSync(androidNatureDir, { recursive: true });
+    }
+    for (const photo of naturePhotos) {
+      fs.copyFileSync(path.join(natureDir, photo), path.join(androidNatureDir, photo));
+    }
+  }
+
+  // Sync to docs if directory exists
+  const docsNatureDir = path.join(projectRoot, 'docs/images/nature');
+  const docsDir = path.join(projectRoot, 'docs');
+  if (fs.existsSync(docsDir)) {
+    if (!fs.existsSync(docsNatureDir)) {
+      fs.mkdirSync(docsNatureDir, { recursive: true });
+    }
+    for (const photo of naturePhotos) {
+      fs.copyFileSync(path.join(natureDir, photo), path.join(docsNatureDir, photo));
+    }
+  }
+}
+
 if (errors.length > 0) {
   console.error('Bible data validation failed:');
   for (const error of errors) console.error(' - ' + error);
