@@ -183,7 +183,7 @@ public class LocalNotificationsPlugin: CAPPlugin, CAPBridgedPlugin {
         self.handler.plugin = self
     }
 
-    @objc public func checkPermissions(_ call: CAPPluginCall) {
+    @objc override public func checkPermissions(_ call: CAPPluginCall) {
         handler.checkPermissions { status in
             let display: String
             switch status {
@@ -198,7 +198,7 @@ public class LocalNotificationsPlugin: CAPPlugin, CAPBridgedPlugin {
         }
     }
 
-    @objc public func requestPermissions(_ call: CAPPluginCall) {
+    @objc override public func requestPermissions(_ call: CAPPluginCall) {
         handler.requestPermissions { granted, _ in
             let display = granted ? "granted" : "denied"
             call.resolve(["display": display])
