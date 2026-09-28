@@ -33,40 +33,59 @@ jobs:
 
       - name: Prepare and sync Native iOS project
         run: |
-          # If native iOS project or CapApp-SPM is missing or incomplete, initialize fresh platform
-          if [ ! -f "./ios/App/CapApp-SPM/Package.swift" ] || [ ! -f "./ios/App/App.xcodeproj/project.pbxproj" ]; then
+          # 1. If native iOS project or CapApp-SPM is missing or incomplete, initialize fresh platform
+          if [ ! -d "./ios/App/CapApp-SPM" ] || [ ! -f "./ios/App/App.xcodeproj/project.pbxproj" ]; then
             echo "Native iOS project incomplete or CapApp-SPM missing. Initializing fresh iOS platform via Capacitor..."
             rm -rf ios
             npx cap add ios
           fi
 
-          # Ensure fallback Podfile exists if CocoaPods is ever invoked on macOS runners
+          # 2. Ensure authentic fallback Podfile exists if CocoaPods is ever invoked on macOS runners
           if [ ! -f "./ios/App/Podfile" ]; then
             cat << 'EOF' > ./ios/App/Podfile
+require_relative '../../node_modules/@capacitor/ios/scripts/pods_helpers'
+
 platform :ios, '15.0'
 use_frameworks!
 
+install! 'cocoapods', :disable_input_output_paths => true
+
 def capacitor_pods
+  pod 'Capacitor', :path => '../../node_modules/@capacitor/ios'
+  pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
 end
 
 target 'App' do
   capacitor_pods
 end
+
+post_install do |installer|
+  assertDeploymentTarget(installer)
+end
 EOF
           fi
 
-          # Generate Church Logo icons and splash screens
+          # 3. Generate Church Logo icons and splash screens
           node scripts/generate-android-icons.cjs
 
-          # Sync web assets and native plugins into iOS project
+          # 4. Sync web assets and native plugins into iOS project
           npx cap sync ios
 
       - name: Build iOS Application with Xcode
         run: |
           mkdir -p build
+
+          # Select workspace if CocoaPods generated one, otherwise use Xcode project (SPM)
+          BUILD_TARGET="-project ios/App/App.xcodeproj"
+          if [ -d "ios/App/App.xcworkspace" ]; then
+            BUILD_TARGET="-workspace ios/App/App.xcworkspace"
+          fi
+
+          echo "Building iOS with target: $BUILD_TARGET"
+
           # Attempt release archive; fall back to release device build if Xcode signing policy restricts archiving
           xcodebuild archive \
-            -project ios/App/App.xcodeproj \
+            $BUILD_TARGET \
             -scheme App \
             -configuration Release \
             -destination 'generic/platform=iOS' \
@@ -77,7 +96,7 @@ EOF
             CODE_SIGN_STYLE=Manual \
             AD_HOC_CODE_SIGNING_ALLOWED=YES || \
           xcodebuild build \
-            -project ios/App/App.xcodeproj \
+            $BUILD_TARGET \
             -scheme App \
             -configuration Release \
             -destination 'generic/platform=iOS' \
@@ -90,6 +109,8 @@ EOF
       - name: Package iOS Application into IPA
         run: |
           mkdir -p build/Payload
+
+          # Locate the compiled App.app
           if [ -d "build/App.xcarchive/Products/Applications/App.app" ]; then
             echo "Packaging from xcarchive..."
             cp -r build/App.xcarchive/Products/Applications/App.app build/Payload/
@@ -97,11 +118,25 @@ EOF
             echo "Packaging from DerivedData..."
             cp -r build/DerivedData/Build/Products/Release-iphoneos/App.app build/Payload/
           else
-            echo "Error: App.app not found in build outputs!"
-            find build -name "*.app"
-            exit 1
+            echo "Searching for App.app in build output directory..."
+            APP_PATH=$(find build -name "App.app" -type d | head -n 1)
+            if [ -n "$APP_PATH" ]; then
+              echo "Found App.app at: $APP_PATH"
+              cp -r "$APP_PATH" build/Payload/
+            else
+              echo "Error: App.app not found in build outputs!"
+              find build
+              exit 1
+            fi
           fi
 
+          # Apply ad-hoc code signature (standard for sideloadable iOS apps)
+          if command -v codesign &> /dev/null; then
+            echo "Applying ad-hoc code signature..."
+            codesign --force --deep --sign - build/Payload/App.app || true
+          fi
+
+          # Zip Payload into IPA
           cd build
           zip -r -q cog-tjr-bible-offline.ipa Payload
           ls -lh cog-tjr-bible-offline.ipa
