@@ -14,6 +14,7 @@
     "build:android": "npm run build && node scripts/generate-android-icons.cjs && cap sync android",
     "sync:ios": "node scripts/generate-android-icons.cjs && cap sync ios",
     "build:ios": "npm run build && node scripts/generate-android-icons.cjs && cap sync ios",
+    "postinstall": "node scripts/patch-ios-tts.cjs",
     "lint": "tsc --noEmit"
   },
   "dependencies": {

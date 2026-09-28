@@ -71,6 +71,9 @@ jobs:
           # 4. Sync web assets and native plugins into iOS project
           npx cap sync ios
 
+          # 5. Patch TextToSpeechPlugin for Xcode 15/16 and Capacitor compatibility
+          node scripts/patch-ios-tts.cjs
+
       - name: Build iOS Application with Xcode
         run: |
           mkdir -p build
