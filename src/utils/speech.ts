@@ -23,39 +23,96 @@ export async function stopSpeakingVerse(): Promise<void> {
   }
 }
 
-// Select a masculine/male voice from available voices
+// Cache browser voices once loaded
+let cachedWebVoices: SpeechSynthesisVoice[] = [];
+
+if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  const updateVoices = () => {
+    try {
+      const v = window.speechSynthesis.getVoices();
+      if (v && v.length > 0) {
+        cachedWebVoices = v;
+      }
+    } catch {}
+  };
+
+  updateVoices();
+  if ('onvoiceschanged' in window.speechSynthesis) {
+    window.speechSynthesis.onvoiceschanged = updateVoices;
+  }
+}
+
+// Female voice keywords to strictly avoid
+const FEMALE_EXCLUSIONS = [
+  'female', 'woman', 'girl', '#female', 'female_1', 'female_2', 'female_3',
+  'zira', 'susan', 'samantha', 'karen', 'victoria', 'eva', 'hazel',
+  'aria', 'jenny', 'heather', 'alice', 'catherine', 'fiona', 'moira',
+  'tessa', 'veena', 'linda', 'amy', 'emma', 'joanna', 'kendra',
+  'kimberly', 'salli', 'ivy', 'ava', 'stephanie', 'zoe', 'chloe',
+  'serena', 'helena', 'laura', 'siri_female', 'female_standard'
+];
+
+// Wise man, elder, and male narrator identifiers
+const WISE_MALE_KEYWORDS = [
+  // High-fidelity wise narrator voices (Edge, Google, Apple)
+  'christopher', 'guy', 'david', 'mark', 'daniel', 'alex', 'george',
+  'james', 'john', 'matthew', 'thomas', 'richard', 'oliver', 'aaron',
+  'paul', 'peter', 'steven', 'tom', 'fred', 'bruce', 'junior',
+  'ralph', 'arthur', 'edward', 'charles', 'william', 'narrator',
+  'elder', 'wise', 'deep', 'storyteller',
+  // Android Google TTS male identifiers
+  '#male', 'male_1', 'male_2', 'male_3', '-male', 'male',
+  'iom', 'iob', 'tpd', 'iol', 'gpf',
+  'wavenet-b', 'wavenet-d', 'wavenet-i', 'wavenet-j',
+  // Samsung TTS male identifiers
+  'smt-en-us-m', 'smt-en-m', 'male'
+];
+
+function isFemaleVoiceName(name: string): boolean {
+  const lower = name.toLowerCase();
+  return FEMALE_EXCLUSIONS.some(f => lower.includes(f));
+}
+
+function isWiseMaleVoiceName(name: string): boolean {
+  const lower = name.toLowerCase();
+  if (isFemaleVoiceName(lower)) return false;
+  return WISE_MALE_KEYWORDS.some(m => lower.includes(m));
+}
+
+// Select a wise masculine/male voice from available voices
 function getMaleVoice(voices: SpeechSynthesisVoice[], langTag: string): SpeechSynthesisVoice | null {
-  if (!voices || voices.length === 0) return null;
+  const availableVoices = (voices && voices.length > 0) ? voices : cachedWebVoices;
+  if (!availableVoices || availableVoices.length === 0) return null;
 
   const langPrefix = langTag.slice(0, 2).toLowerCase();
-  const langVoices = voices.filter(v => v.lang.toLowerCase().startsWith(langPrefix));
-  const candidatePool = langVoices.length > 0 ? langVoices : voices;
+  const langVoices = availableVoices.filter(v => v.lang.toLowerCase().startsWith(langPrefix));
+  const candidatePool = langVoices.length > 0 ? langVoices : availableVoices;
 
-  // 1. Explicit male keyword or standard male persona voice names
-  const maleKeywords = [
-    'male', 'david', 'mark', 'daniel', 'alex', 'george', 'guy', 'james',
-    'john', 'matthew', 'thomas', 'richard', 'oliver', 'aaron', 'paul',
-    'peter', 'steven', 'tom', 'fred', 'bruce', 'junior', 'ralph',
-    'en-us-x-sfg#male_1', 'natural - english'
-  ];
-
-  for (const kw of maleKeywords) {
-    const match = candidatePool.find(v => v.name.toLowerCase().includes(kw));
+  // 1. First priority: Voices explicitly marked as wise male or recognized male narrators matching language
+  for (const kw of WISE_MALE_KEYWORDS) {
+    const match = langVoices.find(v => {
+      const n = v.name.toLowerCase();
+      return n.includes(kw) && !isFemaleVoiceName(n);
+    });
     if (match) return match;
   }
 
-  // 2. Filter out female-sounding voices
-  const femaleKeywords = [
-    'female', 'woman', 'girl', 'zira', 'susan', 'samantha', 'karen',
-    'victoria', 'eva', 'hazel', 'aria', 'jenny', 'heather', 'alice',
-    'catherine', 'fiona', 'moira', 'tessa', 'veena'
-  ];
+  // 2. Second priority: Any candidate from the broader pool matching wise male keywords
+  for (const kw of WISE_MALE_KEYWORDS) {
+    const match = candidatePool.find(v => {
+      const n = v.name.toLowerCase();
+      return n.includes(kw) && !isFemaleVoiceName(n);
+    });
+    if (match) return match;
+  }
 
-  const nonFemale = candidatePool.filter(
-    v => !femaleKeywords.some(fkw => v.name.toLowerCase().includes(fkw))
-  );
+  // 3. Fallback: Filter out all female-sounding voices in language
+  const nonFemaleLang = langVoices.filter(v => !isFemaleVoiceName(v.name));
+  if (nonFemaleLang.length > 0) return nonFemaleLang[0];
 
-  if (nonFemale.length > 0) return nonFemale[0];
+  // 4. Broader non-female fallback
+  const nonFemaleAny = candidatePool.filter(v => !isFemaleVoiceName(v.name));
+  if (nonFemaleAny.length > 0) return nonFemaleAny[0];
 
   return candidatePool[0] || null;
 }
@@ -73,6 +130,12 @@ export async function speakVerseText(
   const langTag = language === 'cebuano' ? 'fil-PH' : 'en-US';
   currentlySpeaking = true;
 
+  // Wise Man Reader Voice Calibration:
+  // - Pitch: 0.76 (deep, warm, dignified baritone resonance of a wise elder)
+  // - Rate: 0.88 (smooth, deliberate, reverent scripture narration)
+  const WISE_MAN_PITCH = 0.76;
+  const WISE_MAN_RATE = 0.88;
+
   // 1. Try Native Capacitor TTS first
   try {
     if (Capacitor.isNativePlatform()) {
@@ -80,24 +143,44 @@ export async function speakVerseText(
       try {
         const supported = await TextToSpeech.getSupportedVoices();
         if (supported?.voices?.length) {
-          const idx = supported.voices.findIndex(v => {
+          const langPrefix = langTag.slice(0, 2).toLowerCase();
+          const voices = supported.voices;
+
+          // Find best wise male voice index on Android
+          // Step A: Wise male keyword in language
+          let foundIdx = voices.findIndex(v => {
             const n = (v.name || '').toLowerCase();
-            return (
-              (n.includes('male') || n.includes('david') || n.includes('guy') || n.includes('george')) &&
-              !n.includes('female')
-            );
+            const l = (v.lang || '').toLowerCase();
+            return l.startsWith(langPrefix) && isWiseMaleVoiceName(n);
           });
-          if (idx !== -1) {
-            maleVoiceIndex = idx;
+
+          // Step B: Wise male keyword in any voice
+          if (foundIdx === -1) {
+            foundIdx = voices.findIndex(v => isWiseMaleVoiceName(v.name || ''));
+          }
+
+          // Step C: Any non-female voice in language
+          if (foundIdx === -1) {
+            foundIdx = voices.findIndex(v => {
+              const n = (v.name || '').toLowerCase();
+              const l = (v.lang || '').toLowerCase();
+              return l.startsWith(langPrefix) && !isFemaleVoiceName(n);
+            });
+          }
+
+          if (foundIdx !== -1) {
+            maleVoiceIndex = foundIdx;
           }
         }
-      } catch {}
+      } catch (err) {
+        console.warn('Could not query native voices list:', err);
+      }
 
       await TextToSpeech.speak({
         text,
         lang: langTag,
-        rate: 0.95,
-        pitch: 0.85, // Resonant male pitch
+        rate: WISE_MAN_RATE,
+        pitch: WISE_MAN_PITCH, // Resonant baritone of a wise elder
         volume: 1.0,
         voice: maleVoiceIndex
       });
@@ -116,11 +199,15 @@ export async function speakVerseText(
         window.speechSynthesis.cancel();
 
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 0.92;
-        utterance.pitch = 0.85; // Masculine resonance
+        utterance.rate = WISE_MAN_RATE;
+        utterance.pitch = WISE_MAN_PITCH; // Warm wise baritone
         utterance.lang = langTag;
 
-        const voices = window.speechSynthesis.getVoices?.() || [];
+        let voices = window.speechSynthesis.getVoices?.() || [];
+        if ((!voices || voices.length === 0) && cachedWebVoices.length > 0) {
+          voices = cachedWebVoices;
+        }
+
         const maleVoice = getMaleVoice(voices, langTag);
         if (maleVoice) {
           utterance.voice = maleVoice;

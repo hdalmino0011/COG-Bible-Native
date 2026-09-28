@@ -219,6 +219,16 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
     }
   }, [targetVerseToScroll, currentBook, currentChapter, chapterVerses.length]);
 
+  // Smoothly follow active verse during wise man audio narration
+  useEffect(() => {
+    if (isSpeaking && speakingVerse && containerRef.current) {
+      const el = document.getElementById(`verse-row-${speakingVerse}`);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  }, [isSpeaking, speakingVerse]);
+
   const handlePrevChapter = () => {
     if (currentChapter > 1) {
       onChapterChange(currentChapter - 1);
