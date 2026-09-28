@@ -18,6 +18,7 @@ import { BottomNav } from './components/BottomNav';
 import { VerseToolbar } from './components/VerseToolbar';
 import { NoteModal } from './components/NoteModal';
 import { SearchModal } from './components/SearchModal';
+import { NotificationPermissionModal } from './components/NotificationPermissionModal';
 import { Capacitor, SystemBars, SystemBarsStyle } from '@capacitor/core';
 
 import {
@@ -61,7 +62,12 @@ import {
 import { BIBLE_BOOKS, normalizeBookName } from './data/books';
 import { BOOK_LOADERS } from './data/bookModules';
 import { getRandomDailyVerse } from './data/dailyVerses';
-import { sendDailyVerseNotification } from './utils/notifications';
+import {
+  sendDailyVerseNotification,
+  requestNotificationPermission,
+  shouldPromptForNotifications,
+  recordNotificationDecision
+} from './utils/notifications';
 import { speakVerseText, stopSpeakingVerse, readChapterContinuously } from './utils/speech';
 
 export default function App() {
@@ -98,6 +104,7 @@ export default function App() {
 
   const [activeNoteVerse, setActiveNoteVerse] = useState<number | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [showNotificationPrompt, setShowNotificationPrompt] = useState(false);
 
   // Speech TTS state
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -409,6 +416,41 @@ export default function App() {
     };
   }, []);
 
+  // Check and prompt user for notification permissions on app launch
+  useEffect(() => {
+    if (showSplash) return;
+
+    const timer = setTimeout(() => {
+      if (shouldPromptForNotifications()) {
+        setShowNotificationPrompt(true);
+      }
+    }, 1200);
+
+    return () => clearTimeout(timer);
+  }, [showSplash]);
+
+  const handleAllowNotifications = async () => {
+    const granted = await requestNotificationPermission();
+    if (granted === 'granted') {
+      handleUpdatePreferences({ dailyVerseNotification: true });
+      showToast('🔔 Daily Verse Notifications enabled!');
+      // Dispatch immediate welcoming random daily verse
+      const verse = getRandomDailyVerse(bibleDataRef.current);
+      sendDailyVerseNotification(
+        verse,
+        `📖 Daily Verse: ${verse.book} ${verse.chapter}:${verse.verse}`
+      );
+    } else {
+      showToast('You can enable notifications anytime in Settings.');
+    }
+    setShowNotificationPrompt(false);
+  };
+
+  const handleDismissNotificationPrompt = () => {
+    recordNotificationDecision('later');
+    setShowNotificationPrompt(false);
+  };
+
   // Daily notification scheduled trigger
   useEffect(() => {
     if (!preferences.dailyVerseNotification || typeof window === 'undefined') return;
@@ -419,8 +461,17 @@ export default function App() {
         const todayStr = new Date().toDateString();
         const lastSentDate = localStorage.getItem(lastSentKey);
 
-        if (lastSentDate !== todayStr && 'Notification' in window && Notification.permission === 'granted') {
-          const verse = getRandomDailyVerse(bibleData);
+        const targetTime = preferences.notificationTime || '07:00';
+        const [targetHour, targetMin] = targetTime.split(':').map(Number);
+        const now = new Date();
+        const currentHour = now.getHours();
+        const currentMin = now.getMinutes();
+
+        // Check if today's scheduled time has arrived or passed
+        const isTimeToSend = currentHour > targetHour || (currentHour === targetHour && currentMin >= targetMin);
+
+        if (isTimeToSend && lastSentDate !== todayStr && 'Notification' in window && Notification.permission === 'granted') {
+          const verse = getRandomDailyVerse(bibleDataRef.current);
           sendDailyVerseNotification(verse, `📖 Daily Verse: ${verse.book} ${verse.chapter}:${verse.verse}`).then(sent => {
             if (sent) {
               localStorage.setItem(lastSentKey, todayStr);
@@ -432,14 +483,14 @@ export default function App() {
       }
     };
 
-    const initialTimer = setTimeout(checkAndTriggerDailyVerse, 4000);
-    const intervalTimer = setInterval(checkAndTriggerDailyVerse, 60000 * 30);
+    const initialTimer = setTimeout(checkAndTriggerDailyVerse, 3000);
+    const intervalTimer = setInterval(checkAndTriggerDailyVerse, 60000); // Check every minute so it fires right when scheduled
 
     return () => {
       clearTimeout(initialTimer);
       clearInterval(intervalTimer);
     };
-  }, [preferences.dailyVerseNotification, preferences.notificationTime, bibleData]);
+  }, [preferences.dailyVerseNotification, preferences.notificationTime]);
 
   // Preference updates
   const handleUpdatePreferences = (updated: Partial<UserPreferences>) => {
@@ -774,6 +825,13 @@ export default function App() {
         onClose={() => setIsSearchOpen(false)}
         bibleData={bibleData}
         onNavigateToVerse={handleNavigateToVerse}
+      />
+
+      {/* 7. Daily Scripture Notification Permission Modal */}
+      <NotificationPermissionModal
+        isOpen={showNotificationPrompt}
+        onAllow={handleAllowNotifications}
+        onDismiss={handleDismissNotificationPrompt}
       />
 
       {/* 8. Toast Feedback Message */}

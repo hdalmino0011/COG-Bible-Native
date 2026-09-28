@@ -2,20 +2,55 @@ import { DailyVerse, getTodayVerse } from '../data/dailyVerses';
 
 export type NotificationPermissionState = 'granted' | 'denied' | 'default' | 'unsupported';
 
+const PROMPT_DECISION_KEY = 'cog_notifications_prompt_decision';
+
 export function isNotificationSupported(): boolean {
-  return typeof window !== 'undefined' && 'Notification' in window;
+  return typeof window !== 'undefined' && ('Notification' in window || ('serviceWorker' in navigator && 'PushManager' in window));
 }
 
 export function getNotificationPermissionStatus(): NotificationPermissionState {
-  if (!isNotificationSupported()) return 'unsupported';
+  if (typeof window === 'undefined' || !('Notification' in window)) return 'unsupported';
   return Notification.permission as NotificationPermissionState;
 }
 
-export async function requestNotificationPermission(): Promise<NotificationPermissionState> {
-  if (!isNotificationSupported()) return 'unsupported';
+export function shouldPromptForNotifications(): boolean {
+  if (!isNotificationSupported()) return false;
+  const current = getNotificationPermissionStatus();
+  if (current !== 'default') return false;
   try {
-    const permission = await Notification.requestPermission();
-    return permission as NotificationPermissionState;
+    const decision = localStorage.getItem(PROMPT_DECISION_KEY);
+    return decision === null;
+  } catch {
+    return false;
+  }
+}
+
+export function recordNotificationDecision(decision: 'granted' | 'denied' | 'later'): void {
+  try {
+    localStorage.setItem(PROMPT_DECISION_KEY, decision);
+  } catch {}
+}
+
+export async function requestNotificationPermission(): Promise<NotificationPermissionState> {
+  if (typeof window === 'undefined' || !('Notification' in window)) return 'unsupported';
+  try {
+    let result: string;
+    // Handle both Promise-based and legacy callback-based implementations across Safari iOS / Android WebView
+    const requestResult = Notification.requestPermission();
+    if (requestResult && typeof (requestResult as any).then === 'function') {
+      result = await requestResult;
+    } else {
+      result = await new Promise<string>((resolve) => {
+        (Notification as any).requestPermission((perm: string) => resolve(perm));
+      });
+    }
+    const state = (result || 'denied') as NotificationPermissionState;
+    if (state === 'granted') {
+      recordNotificationDecision('granted');
+    } else if (state === 'denied') {
+      recordNotificationDecision('denied');
+    }
+    return state;
   } catch (e) {
     console.error('Error requesting notification permission:', e);
     return 'denied';
@@ -30,7 +65,7 @@ export async function sendDailyVerseNotification(
     return false;
   }
 
-  if (Notification.permission !== 'granted') {
+  if (typeof Notification !== 'undefined' && Notification.permission !== 'granted') {
     const perm = await requestNotificationPermission();
     if (perm !== 'granted') return false;
   }
@@ -48,11 +83,21 @@ export async function sendDailyVerseNotification(
 
   const hashTarget = `bible?book=${encodeURIComponent(v.book)}&chapter=${v.chapter}&verse=${v.verse}`;
 
+  // Use absolute URLs for notification icons so device notification drawers render them cleanly
+  let iconUrl = './logo.png';
+  let badgeUrl = './app-icon-192.png';
+  if (typeof window !== 'undefined') {
+    try {
+      iconUrl = new URL('logo.png', window.location.href).href;
+      badgeUrl = new URL('app-icon-192.png', window.location.href).href;
+    } catch {}
+  }
+
   const options: Record<string, unknown> = {
     body: bodyText,
-    icon: './logo.png',
-    badge: './app-icon-192.png',
-    tag: 'cog-daily-verse',
+    icon: iconUrl,
+    badge: badgeUrl,
+    tag: `cog-daily-verse-${Date.now()}`,
     renotify: true,
     data: {
       url: `./#${hashTarget}`,
@@ -63,7 +108,7 @@ export async function sendDailyVerseNotification(
     vibrate: [200, 100, 200]
   };
 
-  // Try via active service worker registration first for mobile OS lockscreen compatibility
+  // 1. Try via active service worker registration first for mobile OS lockscreen / background compatibility
   if ('serviceWorker' in navigator) {
     try {
       const reg = await navigator.serviceWorker.getRegistration();
@@ -76,24 +121,28 @@ export async function sendDailyVerseNotification(
     }
   }
 
-  // Fallback to standard window Notification constructor
-  try {
-    const n = new Notification(title, options as NotificationOptions);
-    n.onclick = () => {
-      window.focus();
-      n.close();
-      if (typeof window !== 'undefined') {
-        window.location.hash = `bible?book=${encodeURIComponent(v.book)}&chapter=${v.chapter}&verse=${v.verse}`;
-        window.dispatchEvent(
-          new CustomEvent('cog-navigate-verse', {
-            detail: { book: v.book, chapter: v.chapter, verse: v.verse }
-          })
-        );
-      }
-    };
-    return true;
-  } catch (e) {
-    console.error('Error creating Notification instance:', e);
-    return false;
+  // 2. Fallback to standard window Notification constructor
+  if (typeof Notification !== 'undefined') {
+    try {
+      const n = new Notification(title, options as NotificationOptions);
+      n.onclick = () => {
+        window.focus();
+        n.close();
+        if (typeof window !== 'undefined') {
+          window.location.hash = `bible?book=${encodeURIComponent(v.book)}&chapter=${v.chapter}&verse=${v.verse}`;
+          window.dispatchEvent(
+            new CustomEvent('cog-navigate-verse', {
+              detail: { book: v.book, chapter: v.chapter, verse: v.verse }
+            })
+          );
+        }
+      };
+      return true;
+    } catch (e) {
+      console.error('Error creating Notification instance:', e);
+      return false;
+    }
   }
+
+  return false;
 }

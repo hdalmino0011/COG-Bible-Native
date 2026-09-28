@@ -65,16 +65,24 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
 
   const handleToggleNotifications = async () => {
     const nextState = !preferences.dailyVerseNotification;
-    if (nextState && isNotificationSupported() && Notification.permission !== 'granted') {
+    if (nextState && isNotificationSupported() && typeof Notification !== 'undefined' && Notification.permission !== 'granted') {
       const granted = await requestNotificationPermission();
       setPermStatus(granted);
       if (granted !== 'granted') {
-        onShowToast?.('Please enable notifications in your phone browser settings');
+        onShowToast?.('Please allow notification permission in your device settings');
         return;
       }
     }
     onUpdatePreferences({ dailyVerseNotification: nextState });
-    onShowToast?.(nextState ? 'Daily Verse Notifications enabled' : 'Daily Verse Notifications turned off');
+    if (nextState) {
+      const randomVerse = getRandomDailyVerse(bibleData);
+      sendDailyVerseNotification(
+        randomVerse,
+        `📖 Daily Verse: ${randomVerse.book} ${randomVerse.chapter}:${randomVerse.verse}`
+      );
+    }
+    setPermStatus(getNotificationPermissionStatus());
+    onShowToast?.(nextState ? '🔔 Daily Verse Notifications enabled' : 'Daily Verse Notifications turned off');
   };
 
   const handleTestNotification = async () => {

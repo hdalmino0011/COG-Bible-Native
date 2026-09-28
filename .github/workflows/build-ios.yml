@@ -42,27 +42,27 @@ jobs:
 
           # 2. Ensure authentic fallback Podfile exists if CocoaPods is ever invoked on macOS runners
           if [ ! -f "./ios/App/Podfile" ]; then
-            cat << 'EOF' > ./ios/App/Podfile
-require_relative '../../node_modules/@capacitor/ios/scripts/pods_helpers'
-
-platform :ios, '15.0'
-use_frameworks!
-
-install! 'cocoapods', :disable_input_output_paths => true
-
-def capacitor_pods
-  pod 'Capacitor', :path => '../../node_modules/@capacitor/ios'
-  pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
-end
-
-target 'App' do
-  capacitor_pods
-end
-
-post_install do |installer|
-  assertDeploymentTarget(installer)
-end
-EOF
+            mkdir -p ios/App
+            printf "%s\n" \
+              "require_relative '../../node_modules/@capacitor/ios/scripts/pods_helpers'" \
+              "" \
+              "platform :ios, '15.0'" \
+              "use_frameworks!" \
+              "" \
+              "install! 'cocoapods', :disable_input_output_paths => true" \
+              "" \
+              "def capacitor_pods" \
+              "  pod 'Capacitor', :path => '../../node_modules/@capacitor/ios'" \
+              "  pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'" \
+              "end" \
+              "" \
+              "target 'App' do" \
+              "  capacitor_pods" \
+              "end" \
+              "" \
+              "post_install do |installer|" \
+              "  assertDeploymentTarget(installer)" \
+              "end" > ./ios/App/Podfile
           fi
 
           # 3. Generate Church Logo icons and splash screens
