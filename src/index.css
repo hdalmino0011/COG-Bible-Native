@@ -300,6 +300,18 @@ body.size-xxlarge {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Silky smooth loading circles wave */
+@keyframes smoothPulse {
+  0%, 80%, 100% {
+    transform: scale(0.72);
+    opacity: 0.35;
+  }
+  40% {
+    transform: scale(1.22);
+    opacity: 1;
+  }
+}
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;

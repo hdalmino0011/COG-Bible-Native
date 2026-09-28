@@ -6,14 +6,19 @@ interface SplashProps {
   onComplete: () => void;
 }
 
-// Silky smooth easing curve for fluid native mobile feel
+// Silky smooth easing curve for fluid mobile feel
 const smoothEase = [0.16, 1, 0.3, 1] as const;
 
 export const Splash: React.FC<SplashProps> = ({ onComplete }) => {
+  // 1. Initial 1.5-second pure black screen state
+  const [showContent, setShowContent] = useState(false);
+  // 2. Smooth fade-out state after at least 3 seconds of reading
   const [isFadingOut, setIsFadingOut] = useState(false);
+
   const onCompleteRef = useRef(onComplete);
   onCompleteRef.current = onComplete;
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const blackScreenTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const stayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const triggerFadeOut = () => {
     if (isFadingOut) return;
@@ -25,51 +30,65 @@ export const Splash: React.FC<SplashProps> = ({ onComplete }) => {
   };
 
   useEffect(() => {
-    // Show splash for 2.8 seconds, then trigger the graceful fade out
-    timeoutRef.current = setTimeout(triggerFadeOut, 2800);
+    // Stage 1: All black screen for exactly 1.5 seconds (1500ms)
+    blackScreenTimerRef.current = setTimeout(() => {
+      setShowContent(true);
+
+      // Stage 2: Splash screen stays for at least 3.0 seconds (3200ms) for comfortable user readability
+      stayTimerRef.current = setTimeout(() => {
+        triggerFadeOut();
+      }, 3200);
+    }, 1500);
+
     return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (blackScreenTimerRef.current) clearTimeout(blackScreenTimerRef.current);
+      if (stayTimerRef.current) clearTimeout(stayTimerRef.current);
     };
   }, []);
 
   return (
     <div
       id="splash-screen"
-      onClick={triggerFadeOut}
+      onClick={() => {
+        // Allow tap-to-skip only after content has appeared
+        if (showContent) triggerFadeOut();
+      }}
       style={{
         opacity: isFadingOut ? 0 : 1,
-        transform: isFadingOut ? 'scale(1.02)' : 'scale(1)',
-        transition: 'opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)',
+        transition: 'opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1)',
         pointerEvents: isFadingOut ? 'none' : 'auto',
-        willChange: 'opacity, transform',
-        backgroundColor: '#0A1832'
+        willChange: 'opacity',
+        backgroundColor: '#000000'
       }}
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0A1832] bg-gradient-to-b from-[#071326] via-[#0A1832] to-[#122442] px-6 text-center select-none cursor-pointer overflow-hidden"
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black px-6 text-center select-none cursor-pointer overflow-hidden"
     >
+      {/* Background that smoothly transitions from black to deep church navy when content fades in */}
+      <div
+        style={{
+          opacity: showContent && !isFadingOut ? 1 : 0,
+          transition: 'opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1)',
+          willChange: 'opacity'
+        }}
+        className="absolute inset-0 bg-gradient-to-b from-[#061020] via-[#0A1832] to-[#122442]"
+      />
+
+      {/* Main Content with smooth coordinated fade-in intro */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.94 }}
+        initial={false}
         animate={{
-          opacity: isFadingOut ? 0 : 1,
-          scale: isFadingOut ? 1.02 : 1
+          opacity: showContent && !isFadingOut ? 1 : 0,
+          y: showContent && !isFadingOut ? 0 : 16,
+          scale: showContent && !isFadingOut ? 1 : 0.96
         }}
         transition={{
           duration: 0.85,
           ease: smoothEase
         }}
-        className="flex flex-col items-center max-w-sm transform-gpu"
+        className="relative z-10 flex flex-col items-center max-w-sm transform-gpu"
       >
-        {/* Emblem logo with serene luminous golden halo glow */}
+        {/* Emblem logo with crisp gold border badge (halo removed as requested) */}
         <div className="relative w-40 h-40 sm:w-48 sm:h-48 mb-6 flex items-center justify-center">
-          {/* Soft ambient golden light wave */}
-          <div
-            className="absolute inset-0 rounded-full bg-[#C9A227]/20 blur-2xl transform-gpu scale-110 pointer-events-none"
-            style={{
-              animation: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-            }}
-          />
-
-          {/* Golden border badge */}
-          <div className="relative w-full h-full rounded-full p-2 bg-[#0E2040]/90 border border-[#E4C765]/80 shadow-[0_12px_40px_rgba(0,0,0,0.5)] flex items-center justify-center">
+          <div className="relative w-full h-full rounded-full p-2 bg-[#0E2040]/90 border-2 border-[#E4C765] shadow-[0_12px_36px_rgba(0,0,0,0.6)] flex items-center justify-center">
             <img
               src={EMBEDDED_LOGO_DATA_URI}
               alt="COG (T.J.R) Bible Seal"
@@ -89,35 +108,43 @@ export const Splash: React.FC<SplashProps> = ({ onComplete }) => {
           </div>
         </div>
 
-        {/* Title & Organization with smooth coordinated fade */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.15, ease: smoothEase }}
-          className="flex flex-col items-center"
-        >
-          <h1 className="font-serif text-2xl sm:text-3xl font-bold tracking-wide text-white drop-shadow-md">
-            The Church of God
-          </h1>
+        {/* Title & Organization */}
+        <h1 className="font-serif text-2xl sm:text-3xl font-bold tracking-wide text-white drop-shadow-md">
+          The Church of God
+        </h1>
 
-          <p className="text-[#E4C765] text-sm sm:text-base font-medium tracking-wider mt-1 drop-shadow-xs">
-            (Truth, Justice, and Righteousness)
-          </p>
+        <p className="text-[#E4C765] text-sm sm:text-base font-medium tracking-wider mt-1 drop-shadow-xs">
+          (Truth, Justice, and Righteousness)
+        </p>
 
-          <p className="mt-2 text-xs text-white/75 tracking-widest uppercase font-light">
-            Cebuano (Bugna) &amp; English (KJV)
-          </p>
+        <p className="mt-2 text-xs text-white/75 tracking-widest uppercase font-light">
+          Cebuano (Bugna) &amp; English (KJV)
+        </p>
 
-          {/* Elegant luminous golden horizon beam */}
-          <div className="relative mt-7 w-32 h-[2px] overflow-hidden rounded-full bg-white/10">
-            <motion.div
-              initial={{ scaleX: 0, opacity: 0 }}
-              animate={{ scaleX: 1, opacity: 1 }}
-              transition={{ duration: 1.1, delay: 0.3, ease: smoothEase }}
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-[#E4C765] to-transparent origin-center"
-            />
-          </div>
-        </motion.div>
+        {/* Restored Smooth Loading Circles (Horizontal line and halo removed) */}
+        <div className="flex items-center gap-2.5 mt-8" aria-label="Loading application">
+          <span
+            className="w-2.5 h-2.5 rounded-full bg-[#E4C765] shadow-[0_0_8px_rgba(228,199,101,0.6)]"
+            style={{
+              animation: 'smoothPulse 1.4s ease-in-out infinite both',
+              animationDelay: '-0.32s'
+            }}
+          />
+          <span
+            className="w-2.5 h-2.5 rounded-full bg-[#E4C765] shadow-[0_0_8px_rgba(228,199,101,0.6)]"
+            style={{
+              animation: 'smoothPulse 1.4s ease-in-out infinite both',
+              animationDelay: '-0.16s'
+            }}
+          />
+          <span
+            className="w-2.5 h-2.5 rounded-full bg-[#E4C765] shadow-[0_0_8px_rgba(228,199,101,0.6)]"
+            style={{
+              animation: 'smoothPulse 1.4s ease-in-out infinite both',
+              animationDelay: '0s'
+            }}
+          />
+        </div>
       </motion.div>
     </div>
   );
