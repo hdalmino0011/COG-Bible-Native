@@ -28,6 +28,11 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install ImageMagick for icon rendering
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+
       - name: Install npm dependencies
         run: npm install
 

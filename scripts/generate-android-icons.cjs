@@ -39,16 +39,17 @@ function run() {
   }
 
   // Sizing specifications:
-  // Android Adaptive Icon Safe Zone is 66-72dp out of 108dp.
-  // Material Guidelines recommend key logo emblem diameter ~52-55% of the 108dp canvas (~56-60dp).
-  // This guarantees generous, elegant breathing room inside all OEM launcher masks (Samsung squircle, Pixel circle, etc.)
-  // and prevents the oversized, edge-touching look reported on user devices.
+  // Android Adaptive Icon Safe Zone is 66-72dp out of 108dp (288x288px in xxxhdpi).
+  // Material Guidelines recommend key logo emblem diameter ~40-45% of the 108dp canvas (~44-48dp, 176-192px).
+  // Inside the 288px squircle, an 180px emblem occupies ~62.5% of the squircle, leaving a comfortable ~54px margin
+  // of deep Church navy (#10203D) background all around the circular seal.
+  // This completely eliminates the oversized, edge-touching look reported on user devices.
   const DENSITIES = [
-    { name: 'mipmap-mdpi', launcherSize: 48, fgSize: 108, innerFgSize: 58, innerLauncherSize: 36 },
-    { name: 'mipmap-hdpi', launcherSize: 72, fgSize: 162, innerFgSize: 88, innerLauncherSize: 54 },
-    { name: 'mipmap-xhdpi', launcherSize: 96, fgSize: 216, innerFgSize: 116, innerLauncherSize: 72 },
-    { name: 'mipmap-xxhdpi', launcherSize: 144, fgSize: 324, innerFgSize: 176, innerLauncherSize: 108 },
-    { name: 'mipmap-xxxhdpi', launcherSize: 192, fgSize: 432, innerFgSize: 234, innerLauncherSize: 144 },
+    { name: 'mipmap-mdpi', launcherSize: 48, fgSize: 108, innerFgSize: 45, innerLauncherSize: 28 },
+    { name: 'mipmap-hdpi', launcherSize: 72, fgSize: 162, innerFgSize: 68, innerLauncherSize: 42 },
+    { name: 'mipmap-xhdpi', launcherSize: 96, fgSize: 216, innerFgSize: 90, innerLauncherSize: 56 },
+    { name: 'mipmap-xxhdpi', launcherSize: 144, fgSize: 324, innerFgSize: 135, innerLauncherSize: 84 },
+    { name: 'mipmap-xxxhdpi', launcherSize: 192, fgSize: 432, innerFgSize: 180, innerLauncherSize: 112 },
   ];
 
   if (hasConvert && fs.existsSync(sourceImg)) {
@@ -100,9 +101,9 @@ function run() {
 
       // Also generate web & PWA app-icon assets with clean safe zone margins
       const pwaTargets = [
-        { file: 'app-icon.png', size: 512, innerSize: 340, radius: 100 },
-        { file: 'app-icon-maskable.png', size: 512, innerSize: 330, radius: 0 },
-        { file: 'app-icon-192.png', size: 192, innerSize: 130, radius: 38 }
+        { file: 'app-icon.png', size: 512, innerSize: 290, radius: 108 },
+        { file: 'app-icon-maskable.png', size: 512, innerSize: 270, radius: 0 },
+        { file: 'app-icon-192.png', size: 192, innerSize: 110, radius: 38 }
       ];
 
       for (const pwa of pwaTargets) {

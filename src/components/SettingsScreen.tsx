@@ -8,12 +8,14 @@ import {
   BellRing,
   ShieldCheck,
   Smartphone,
-  Clock
+  Clock,
+  Volume2
 } from 'lucide-react';
 import { AppTheme, BibleData, FontFamily, FontSize, UserPreferences } from '../types';
 import { getNotificationPermissionStatus, requestNotificationPermission, sendDailyVerseNotification, isNotificationSupported } from '../utils/notifications';
 import { getRandomDailyVerse } from '../data/dailyVerses';
 import { EMBEDDED_LOGO_DATA_URI } from '../data/logoAsset';
+import { speakVerseText, stopSpeakingVerse } from '../utils/speech';
 
 interface SettingsScreenProps {
   preferences: UserPreferences;
@@ -29,7 +31,25 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   onShowToast
 }) => {
   const [isTestingNotification, setIsTestingNotification] = useState(false);
+  const [isTestingVoice, setIsTestingVoice] = useState(false);
   const [permStatus, setPermStatus] = useState(getNotificationPermissionStatus());
+
+  const handleTestWiseVoice = async () => {
+    if (isTestingVoice) {
+      await stopSpeakingVerse();
+      setIsTestingVoice(false);
+      onShowToast?.('Voice playback stopped');
+      return;
+    }
+
+    setIsTestingVoice(true);
+    onShowToast?.('Testing Wise Elder Man Voice...');
+    await speakVerseText(
+      'The fear of the LORD is the beginning of wisdom: a good understanding have all they that do his commandments.',
+      'english',
+      () => setIsTestingVoice(false)
+    );
+  };
 
   const themes: Array<{ id: AppTheme; label: string; icon: React.ReactNode }> = [
     {
@@ -200,6 +220,48 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
             </div>
           </div>
         )}
+      </div>
+
+      {/* Scripture Narration (Wise Elder Voice) */}
+      <div className="bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-2xl p-5 shadow-xs space-y-3.5">
+        <div className="flex items-center justify-between pb-2 border-b border-gray-100 dark:border-[#22314E]">
+          <div className="flex items-center gap-2">
+            <Volume2 className="w-4 h-4 text-[#C9A227]" />
+            <h3 className="font-serif font-bold text-base" style={{ color: 'var(--ink)' }}>
+              Scripture Audio Narration
+            </h3>
+          </div>
+          <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-[#C9A227]/15 text-amber-800 dark:text-amber-300 border border-[#C9A227]/40">
+            Wise Man Voice Active
+          </span>
+        </div>
+
+        <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+          The reader is calibrated with a deep, reverent baritone of a wise elder, reading scripture with a calm, articulate pace. Female voices are strictly excluded across all devices.
+        </p>
+
+        <div className="flex items-center justify-between pt-1">
+          <div className="flex flex-col">
+            <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">
+              Sample: Psalm 111:10
+            </span>
+            <span className="text-[11px] text-gray-500 dark:text-gray-400">
+              "The fear of the LORD is the beginning of wisdom..."
+            </span>
+          </div>
+
+          <button
+            onClick={handleTestWiseVoice}
+            className={`px-4 py-2 text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-all shadow-xs cursor-pointer active:scale-95 ${
+              isTestingVoice
+                ? 'bg-red-600 hover:bg-red-700 text-white animate-pulse'
+                : 'bg-[#C9A227] hover:bg-[#D4AF37] text-[#0E1B33]'
+            }`}
+          >
+            <Volume2 className="w-3.5 h-3.5" />
+            {isTestingVoice ? 'Stop Sample' : 'Test Wise Voice'}
+          </button>
+        </div>
       </div>
 
       {/* Font Family */}
