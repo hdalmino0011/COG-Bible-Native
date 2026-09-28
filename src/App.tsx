@@ -20,6 +20,7 @@ import { NoteModal } from './components/NoteModal';
 import { SearchModal } from './components/SearchModal';
 import { NotificationPermissionModal } from './components/NotificationPermissionModal';
 import { Capacitor, SystemBars, SystemBarsStyle } from '@capacitor/core';
+import { LocalNotifications } from '@capacitor/local-notifications';
 
 import {
   BibleData,
@@ -66,7 +67,8 @@ import {
   sendDailyVerseNotification,
   requestNotificationPermission,
   shouldPromptForNotifications,
-  recordNotificationDecision
+  recordNotificationDecision,
+  checkHasNotificationPermission
 } from './utils/notifications';
 import { speakVerseText, stopSpeakingVerse, readChapterContinuously } from './utils/speech';
 
@@ -105,6 +107,7 @@ export default function App() {
   const [activeNoteVerse, setActiveNoteVerse] = useState<number | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [showNotificationPrompt, setShowNotificationPrompt] = useState(false);
+  const [booksScrollTop, setBooksScrollTop] = useState(0);
 
   // Speech TTS state
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -451,6 +454,18 @@ export default function App() {
     setShowNotificationPrompt(false);
   };
 
+  // Handle native notification click when app is opened from notification drawer
+  useEffect(() => {
+    if (Capacitor.isNativePlatform()) {
+      LocalNotifications.addListener('localNotificationActionPerformed', (notificationAction) => {
+        const extra = notificationAction.notification.extra;
+        if (extra && extra.book && extra.chapter) {
+          handleNavigateToVerse(extra.book, extra.chapter, extra.verse || 1);
+        }
+      });
+    }
+  }, [handleNavigateToVerse]);
+
   // Daily notification scheduled trigger
   useEffect(() => {
     if (!preferences.dailyVerseNotification || typeof window === 'undefined') return;
@@ -470,11 +485,15 @@ export default function App() {
         // Check if today's scheduled time has arrived or passed
         const isTimeToSend = currentHour > targetHour || (currentHour === targetHour && currentMin >= targetMin);
 
-        if (isTimeToSend && lastSentDate !== todayStr && 'Notification' in window && Notification.permission === 'granted') {
-          const verse = getRandomDailyVerse(bibleDataRef.current);
-          sendDailyVerseNotification(verse, `📖 Daily Verse: ${verse.book} ${verse.chapter}:${verse.verse}`).then(sent => {
-            if (sent) {
-              localStorage.setItem(lastSentKey, todayStr);
+        if (isTimeToSend && lastSentDate !== todayStr) {
+          checkHasNotificationPermission().then((hasPerm) => {
+            if (hasPerm) {
+              const verse = getRandomDailyVerse(bibleDataRef.current);
+              sendDailyVerseNotification(verse, `📖 Daily Verse: ${verse.book} ${verse.chapter}:${verse.verse}`).then(sent => {
+                if (sent) {
+                  localStorage.setItem(lastSentKey, todayStr);
+                }
+              });
             }
           });
         }
@@ -697,19 +716,24 @@ export default function App() {
       {/* 3. Main Body Screen Views */}
       <main className="flex-1 flex flex-col min-h-0 overflow-hidden relative">
         {currentScreen === 'books' && (
-          selectedBookForDetail ? (
-            <BookDetailView
-              bookName={selectedBookForDetail}
-              onBack={() => setSelectedBookForDetail(null)}
-              onOpenChapterVerse={(book, ch, v) => handleNavigateToVerse(book, ch, v)}
-            />
-          ) : (
-            <BooksLandingScreen
-              onSelectBook={(bookName) => setSelectedBookForDetail(bookName)}
-              onOpenDirectVerse={(bookName, ch, v) => handleNavigateToVerse(bookName, ch, v)}
-              getBookData={loadSingleBook}
-            />
-          )
+          <>
+            <div className={`flex flex-col flex-1 min-h-0 ${selectedBookForDetail ? 'hidden' : ''}`}>
+              <BooksLandingScreen
+                onSelectBook={(bookName) => setSelectedBookForDetail(bookName)}
+                onOpenDirectVerse={(bookName, ch, v) => handleNavigateToVerse(bookName, ch, v)}
+                getBookData={loadSingleBook}
+                savedScrollPosition={booksScrollTop}
+                onSaveScrollPosition={(pos) => setBooksScrollTop(pos)}
+              />
+            </div>
+            {selectedBookForDetail && (
+              <BookDetailView
+                bookName={selectedBookForDetail}
+                onBack={() => setSelectedBookForDetail(null)}
+                onOpenChapterVerse={(book, ch, v) => handleNavigateToVerse(book, ch, v)}
+              />
+            )}
+          </>
         )}
 
         {currentScreen === 'bible' && (

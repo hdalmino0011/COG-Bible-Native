@@ -79,6 +79,9 @@ const VerseRowItem = React.memo<VerseRowItemProps>(({
     // Long press threshold: 450ms
     longPressTimerRef.current = setTimeout(() => {
       try {
+        if (typeof window !== 'undefined' && window.getSelection) {
+          window.getSelection()?.removeAllRanges();
+        }
         if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
           navigator.vibrate(35);
         }
@@ -129,7 +132,13 @@ const VerseRowItem = React.memo<VerseRowItemProps>(({
         // Prevent default browser menu on long-press
         e.preventDefault();
       }}
-      className={`verse-row relative transition-all border-b border-dashed border-[var(--line)] ${
+      style={{
+        WebkitTouchCallout: 'none',
+        WebkitUserSelect: 'none',
+        userSelect: 'none',
+        touchAction: 'pan-y'
+      }}
+      className={`verse-row select-none relative transition-all border-b border-dashed border-[var(--line)] ${
         readingLayout === 'parallel' ? 'grid grid-cols-2' : 'flex flex-col'
       } ${isSelected ? 'selected' : ''} ${
         isBeingSpoken ? 'bg-[#C9A227]/20 border-l-4 border-l-[#C9A227] shadow-xs' : ''
@@ -137,7 +146,7 @@ const VerseRowItem = React.memo<VerseRowItemProps>(({
     >
       {/* Indicators for bookmark and notes */}
       {(isBookmarked || hasNote) && (
-        <div className="absolute top-1.5 right-2 flex items-center gap-1 z-10 pointer-events-none">
+        <div className="absolute top-1.5 right-2 flex items-center gap-1 z-10 pointer-events-none select-none">
           {isBookmarked && (
             <Bookmark className="w-3.5 h-3.5 text-[#C9A227] fill-[#C9A227]" />
           )}
@@ -150,14 +159,18 @@ const VerseRowItem = React.memo<VerseRowItemProps>(({
       {/* Cebuano Cell (Left) */}
       {(readingLayout === 'parallel' || readingLayout === 'cebuano') && (
         <div
-          className={`verse-cell verse-cell-ceb flex items-start gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 leading-relaxed text-[var(--slate)] min-w-0 ${
+          style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}
+          className={`verse-cell verse-cell-ceb select-none flex items-start gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 leading-relaxed text-[var(--slate)] min-w-0 ${
             readingLayout === 'parallel' ? 'border-r border-[var(--line)]' : ''
           }`}
         >
           <span className="verse-num inline-block min-w-[24px] sm:min-w-[26px] text-[#C9A227] font-bold text-xs sm:text-sm flex-shrink-0 text-right select-none pt-0.5">
             {verse.v}
           </span>
-          <span className="verse-text flex-1 min-w-0 break-words font-normal">
+          <span
+            style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}
+            className="verse-text select-none flex-1 min-w-0 break-words font-normal"
+          >
             {verse.ceb}
           </span>
         </div>
@@ -165,11 +178,17 @@ const VerseRowItem = React.memo<VerseRowItemProps>(({
 
       {/* English Cell (Right) */}
       {(readingLayout === 'parallel' || readingLayout === 'english') && (
-        <div className="verse-cell verse-cell-eng flex items-start gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 leading-relaxed text-[var(--slate)] min-w-0">
+        <div
+          style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}
+          className="verse-cell verse-cell-eng select-none flex items-start gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 leading-relaxed text-[var(--slate)] min-w-0"
+        >
           <span className="verse-num inline-block min-w-[24px] sm:min-w-[26px] text-[#C9A227] font-bold text-xs sm:text-sm flex-shrink-0 text-right select-none pt-0.5">
             {verse.v}
           </span>
-          <span className="verse-text flex-1 min-w-0 break-words font-normal">
+          <span
+            style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}
+            className="verse-text select-none flex-1 min-w-0 break-words font-normal"
+          >
             {verse.en}
           </span>
         </div>

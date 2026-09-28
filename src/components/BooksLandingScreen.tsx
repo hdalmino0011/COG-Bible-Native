@@ -22,15 +22,31 @@ interface BooksLandingScreenProps {
   onSelectBook: (bookName: string) => void;
   onOpenDirectVerse: (bookName: string, chapter: number, verse?: number) => void;
   getBookData: (bookName: string) => Promise<BookChapters | null>;
+  savedScrollPosition?: number;
+  onSaveScrollPosition?: (pos: number) => void;
 }
 
 export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
   onSelectBook,
   onOpenDirectVerse,
-  getBookData
+  getBookData,
+  savedScrollPosition,
+  onSaveScrollPosition
 }) => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [testamentFilter, setTestamentFilter] = useState<'all' | 'Old' | 'New'>('all');
+
+  // Restore scroll position on mount or when returning
+  useEffect(() => {
+    if (scrollContainerRef.current && typeof savedScrollPosition === 'number' && savedScrollPosition > 0) {
+      scrollContainerRef.current.scrollTop = savedScrollPosition;
+    }
+  }, [savedScrollPosition]);
+
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    onSaveScrollPosition?.(e.currentTarget.scrollTop);
+  };
 
   // Search results state
   const [isSearching, setIsSearching] = useState(false);
@@ -145,7 +161,11 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
   const isSearchActive = searchQuery.trim().length >= 2;
 
   return (
-    <div className="flex flex-col flex-1 min-h-0 bg-[var(--ivory)] text-[var(--slate)] overflow-y-auto">
+    <div
+      ref={scrollContainerRef}
+      onScroll={handleScroll}
+      className="flex flex-col flex-1 min-h-0 bg-[var(--ivory)] text-[var(--slate)] overflow-y-auto"
+    >
       {/* 1. Header Hero / Search Banner */}
       <div className="bg-gradient-to-b from-[#142B50] via-[#1B3A6B] to-[#142B50] text-white px-4 py-4 sm:py-5 border-b border-[#C9A227]/30 shadow-md">
         <div className="max-w-3xl mx-auto space-y-3">

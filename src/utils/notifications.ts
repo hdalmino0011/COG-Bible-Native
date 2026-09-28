@@ -1,3 +1,5 @@
+import { LocalNotifications } from '@capacitor/local-notifications';
+import { Capacitor } from '@capacitor/core';
 import { DailyVerse, getTodayVerse } from '../data/dailyVerses';
 
 export type NotificationPermissionState = 'granted' | 'denied' | 'default' | 'unsupported';
@@ -5,24 +7,66 @@ export type NotificationPermissionState = 'granted' | 'denied' | 'default' | 'un
 const PROMPT_DECISION_KEY = 'cog_notifications_prompt_decision';
 
 export function isNotificationSupported(): boolean {
+  if (Capacitor.isNativePlatform()) return true;
   return typeof window !== 'undefined' && ('Notification' in window || ('serviceWorker' in navigator && 'PushManager' in window));
 }
 
+export async function checkHasNotificationPermission(): Promise<boolean> {
+  if (Capacitor.isNativePlatform()) {
+    try {
+      const perm = await LocalNotifications.checkPermissions();
+      return perm.display === 'granted';
+    } catch {
+      return false;
+    }
+  }
+
+  if (typeof window !== 'undefined' && 'Notification' in window) {
+    return Notification.permission === 'granted';
+  }
+  return false;
+}
+
 export function getNotificationPermissionStatus(): NotificationPermissionState {
+  if (Capacitor.isNativePlatform()) {
+    // Synchronous probe; on native we assume default if not checked or granted
+    try {
+      const decision = localStorage.getItem(PROMPT_DECISION_KEY);
+      if (decision === 'granted') return 'granted';
+      if (decision === 'denied') return 'denied';
+      return 'default';
+    } catch {
+      return 'default';
+    }
+  }
+
   if (typeof window === 'undefined' || !('Notification' in window)) return 'unsupported';
   return Notification.permission as NotificationPermissionState;
 }
 
+export async function getAsyncNotificationPermissionStatus(): Promise<NotificationPermissionState> {
+  if (Capacitor.isNativePlatform()) {
+    try {
+      const perm = await LocalNotifications.checkPermissions();
+      if (perm.display === 'granted') return 'granted';
+      if (perm.display === 'denied') return 'denied';
+      return 'default';
+    } catch {
+      return 'default';
+    }
+  }
+  return getNotificationPermissionStatus();
+}
+
 export function shouldPromptForNotifications(): boolean {
   if (!isNotificationSupported()) return false;
-  const current = getNotificationPermissionStatus();
-  if (current !== 'default') return false;
   try {
     const decision = localStorage.getItem(PROMPT_DECISION_KEY);
-    return decision === null;
-  } catch {
-    return false;
-  }
+    if (decision !== null) return false;
+  } catch {}
+
+  const current = getNotificationPermissionStatus();
+  return current === 'default';
 }
 
 export function recordNotificationDecision(decision: 'granted' | 'denied' | 'later'): void {
@@ -32,10 +76,21 @@ export function recordNotificationDecision(decision: 'granted' | 'denied' | 'lat
 }
 
 export async function requestNotificationPermission(): Promise<NotificationPermissionState> {
+  if (Capacitor.isNativePlatform()) {
+    try {
+      const res = await LocalNotifications.requestPermissions();
+      const state: NotificationPermissionState = res.display === 'granted' ? 'granted' : 'denied';
+      recordNotificationDecision(state);
+      return state;
+    } catch (e) {
+      console.error('Error requesting native local notification permission:', e);
+      return 'denied';
+    }
+  }
+
   if (typeof window === 'undefined' || !('Notification' in window)) return 'unsupported';
   try {
     let result: string;
-    // Handle both Promise-based and legacy callback-based implementations across Safari iOS / Android WebView
     const requestResult = Notification.requestPermission();
     if (requestResult && typeof (requestResult as any).then === 'function') {
       result = await requestResult;
@@ -52,7 +107,7 @@ export async function requestNotificationPermission(): Promise<NotificationPermi
     }
     return state;
   } catch (e) {
-    console.error('Error requesting notification permission:', e);
+    console.error('Error requesting web notification permission:', e);
     return 'denied';
   }
 }
@@ -63,11 +118,6 @@ export async function sendDailyVerseNotification(
 ): Promise<boolean> {
   if (!isNotificationSupported()) {
     return false;
-  }
-
-  if (typeof Notification !== 'undefined' && Notification.permission !== 'granted') {
-    const perm = await requestNotificationPermission();
-    if (perm !== 'granted') return false;
   }
 
   const v = verse || getTodayVerse();
@@ -83,7 +133,47 @@ export async function sendDailyVerseNotification(
 
   const hashTarget = `bible?book=${encodeURIComponent(v.book)}&chapter=${v.chapter}&verse=${v.verse}`;
 
-  // Use absolute URLs for notification icons so device notification drawers render them cleanly
+  // 1. Native Mobile (Capacitor Android / iOS)
+  if (Capacitor.isNativePlatform()) {
+    try {
+      const perm = await LocalNotifications.checkPermissions();
+      if (perm.display !== 'granted') {
+        const req = await LocalNotifications.requestPermissions();
+        if (req.display !== 'granted') return false;
+      }
+
+      const notifId = Math.floor(Date.now() % 100000) + 1;
+      await LocalNotifications.schedule({
+        notifications: [
+          {
+            id: notifId,
+            title: title,
+            body: bodyText,
+            largeBody: bodyText,
+            summaryText: `${v.book} ${v.chapter}:${v.verse}`,
+            smallIcon: 'ic_launcher',
+            iconColor: '#C9A227',
+            extra: {
+              book: v.book,
+              chapter: v.chapter,
+              verse: v.verse,
+              url: `./#${hashTarget}`
+            }
+          }
+        ]
+      });
+      return true;
+    } catch (err) {
+      console.error('Failed to schedule native local notification:', err);
+    }
+  }
+
+  // 2. Web / PWA / ServiceWorker fallback
+  if (typeof Notification !== 'undefined' && Notification.permission !== 'granted') {
+    const perm = await requestNotificationPermission();
+    if (perm !== 'granted') return false;
+  }
+
   let iconUrl = './logo.png';
   let badgeUrl = './app-icon-192.png';
   if (typeof window !== 'undefined') {
@@ -108,10 +198,16 @@ export async function sendDailyVerseNotification(
     vibrate: [200, 100, 200]
   };
 
-  // 1. Try via active service worker registration first for mobile OS lockscreen / background compatibility
+  // Try via active service worker registration first
   if ('serviceWorker' in navigator) {
     try {
-      const reg = await navigator.serviceWorker.getRegistration();
+      let reg = await navigator.serviceWorker.getRegistration();
+      if (!reg && navigator.serviceWorker.ready) {
+        reg = await Promise.race([
+          navigator.serviceWorker.ready,
+          new Promise<undefined>((res) => setTimeout(() => res(undefined), 1000))
+        ]);
+      }
       if (reg && reg.showNotification) {
         await reg.showNotification(title, options as NotificationOptions);
         return true;
@@ -121,7 +217,7 @@ export async function sendDailyVerseNotification(
     }
   }
 
-  // 2. Fallback to standard window Notification constructor
+  // Fallback to standard window Notification constructor if supported
   if (typeof Notification !== 'undefined') {
     try {
       const n = new Notification(title, options as NotificationOptions);

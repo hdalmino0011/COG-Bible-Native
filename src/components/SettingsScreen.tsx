@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Sun,
   Moon,
@@ -11,7 +11,14 @@ import {
   Clock
 } from 'lucide-react';
 import { AppTheme, BibleData, FontFamily, FontSize, UserPreferences } from '../types';
-import { getNotificationPermissionStatus, requestNotificationPermission, sendDailyVerseNotification, isNotificationSupported } from '../utils/notifications';
+import {
+  getNotificationPermissionStatus,
+  getAsyncNotificationPermissionStatus,
+  checkHasNotificationPermission,
+  requestNotificationPermission,
+  sendDailyVerseNotification,
+  isNotificationSupported
+} from '../utils/notifications';
 import { getRandomDailyVerse } from '../data/dailyVerses';
 import { EMBEDDED_LOGO_DATA_URI } from '../data/logoAsset';
 
@@ -30,6 +37,10 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
 }) => {
   const [isTestingNotification, setIsTestingNotification] = useState(false);
   const [permStatus, setPermStatus] = useState(getNotificationPermissionStatus());
+
+  useEffect(() => {
+    getAsyncNotificationPermissionStatus().then((status) => setPermStatus(status));
+  }, []);
 
   const themes: Array<{ id: AppTheme; label: string; icon: React.ReactNode }> = [
     {
@@ -65,12 +76,15 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
 
   const handleToggleNotifications = async () => {
     const nextState = !preferences.dailyVerseNotification;
-    if (nextState && isNotificationSupported() && typeof Notification !== 'undefined' && Notification.permission !== 'granted') {
-      const granted = await requestNotificationPermission();
-      setPermStatus(granted);
-      if (granted !== 'granted') {
-        onShowToast?.('Please allow notification permission in your device settings');
-        return;
+    if (nextState && isNotificationSupported()) {
+      const hasPerm = await checkHasNotificationPermission();
+      if (!hasPerm) {
+        const granted = await requestNotificationPermission();
+        setPermStatus(granted);
+        if (granted !== 'granted') {
+          onShowToast?.('Please allow notification permission in your device settings');
+          return;
+        }
       }
     }
     onUpdatePreferences({ dailyVerseNotification: nextState });
@@ -81,7 +95,8 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         `📖 Daily Verse: ${randomVerse.book} ${randomVerse.chapter}:${randomVerse.verse}`
       );
     }
-    setPermStatus(getNotificationPermissionStatus());
+    const currentStatus = await getAsyncNotificationPermissionStatus();
+    setPermStatus(currentStatus);
     onShowToast?.(nextState ? '🔔 Daily Verse Notifications enabled' : 'Daily Verse Notifications turned off');
   };
 
@@ -92,7 +107,8 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
       randomVerse,
       `📖 Daily Verse: ${randomVerse.book} ${randomVerse.chapter}:${randomVerse.verse}`
     );
-    setPermStatus(getNotificationPermissionStatus());
+    const currentStatus = await getAsyncNotificationPermissionStatus();
+    setPermStatus(currentStatus);
     setIsTestingNotification(false);
     if (success) {
       onShowToast?.(`Sent notification for ${randomVerse.book} ${randomVerse.chapter}:${randomVerse.verse}!`);

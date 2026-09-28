@@ -249,7 +249,17 @@ body.size-xxlarge {
   color: #0E1B33 !important;
 }
 
-/* Verse cell elements */
+/* Verse cell elements and anti-selection rules for mobile long-press */
+.verse-row, .verse-cell, .verse-text, .verse-num {
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  touch-action: pan-y;
+}
+
 .verse-cell {
   font-size: var(--font-size-base);
   line-height: 1.7;
