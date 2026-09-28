@@ -126,6 +126,28 @@ function run() {
         fs.copyFileSync(outRoot, outPub);
       }
 
+      // Generate iOS AppIcon (1024x1024 solid Church Navy with centered emblem at 75% proportion)
+      const iosIconDir = path.join(ROOT_DIR, 'ios/App/App/Assets.xcassets/AppIcon.appiconset');
+      if (fs.existsSync(iosIconDir)) {
+        console.log('Rendering iOS AppIcon (1024x1024)...');
+        const iosIconPath = path.join(iosIconDir, 'AppIcon-512@2x.png');
+        execSync(
+          `convert -size 1024x1024 xc:"#10203D" ` +
+          `\\( "${trimmedTmp}" -resize 768x768 \\) -gravity center -composite "${iosIconPath}"`,
+          { stdio: 'ignore' }
+        );
+      }
+
+      // Generate iOS Splash Screen Assets (solid black #000000 for smooth 1.5s intro)
+      const iosSplashDir = path.join(ROOT_DIR, 'ios/App/App/Assets.xcassets/Splash.imageset');
+      if (fs.existsSync(iosSplashDir)) {
+        console.log('Rendering iOS LaunchScreen black assets (2732x2732)...');
+        const splashFiles = ['splash-2732x2732.png', 'splash-2732x2732-1.png', 'splash-2732x2732-2.png'];
+        for (const sf of splashFiles) {
+          execSync(`convert -size 2732x2732 xc:"#000000" "${path.join(iosSplashDir, sf)}"`, { stdio: 'ignore' });
+        }
+      }
+
       // Clean up temporary trimmed file
       if (fs.existsSync(trimmedTmp)) {
         try { fs.unlinkSync(trimmedTmp); } catch {}

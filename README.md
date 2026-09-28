@@ -34,9 +34,26 @@ The included workflow builds and deploys the app. The Vite configuration uses
 relative paths so it works at a GitHub Pages project URL, not only at a
 domain root.
 
-## Offline use
+## Mobile App Builds (Android APK & iOS IPA)
 
-Open the deployed site once while online, then install it from the browser's
-**Add to Home Screen** or **Install app** option. The Bible database and
-production JavaScript/CSS are precached by the service worker, so reading and
-the app's local saved-data features remain available without internet access.
+This repository includes automated GitHub Actions workflows that automatically build both Android and iOS applications whenever you push code or trigger them manually from the **Actions** tab:
+
+### 1. Android APK (`build-apk.yml`)
+- Automatically builds `cog-tjr-bible-offline-debug.apk`.
+- Located under **Actions → Build Android APK (Gradle) → Artifacts**.
+- Download and install directly onto any Android phone.
+
+### 2. iOS IPA (`build-ios.yml`)
+- Automatically builds `cog-tjr-bible-offline.ipa` on a native macOS runner with Xcode.
+- Located under **Actions → Build iOS IPA (Xcode) → Artifacts**.
+- How to install on your iPhone or iPad:
+  - **Sideloadly (Recommended / Easiest)**: Connect iPhone to Mac/PC, drag `cog-tjr-bible-offline.ipa` into [Sideloadly](https://sideloadly.io), enter your Apple ID, and click Start.
+  - **AltStore**: Download the IPA directly to your iPhone and open it with [AltStore](https://altstore.io).
+  - **TrollStore**: Direct installation on supported iOS versions without re-signing.
+  - **Xcode**: Open Xcode → *Window → Devices and Simulators* → drag the IPA or app into *Installed Apps*.
+
+### 3. iOS Safari Web App (Instant / No tools required)
+- Open the deployed website in Safari on your iPhone.
+- Tap the **Share** button (box with upward arrow).
+- Select **Add to Home Screen**.
+- The app installs as a standalone fullscreen app with full offline scripture caching and native feel.

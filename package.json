@@ -12,6 +12,8 @@
     "clean": "rm -rf dist server.js",
     "sync:android": "node scripts/generate-android-icons.cjs && cap sync android",
     "build:android": "npm run build && node scripts/generate-android-icons.cjs && cap sync android",
+    "sync:ios": "node scripts/generate-android-icons.cjs && cap sync ios",
+    "build:ios": "npm run build && node scripts/generate-android-icons.cjs && cap sync ios",
     "lint": "tsc --noEmit"
   },
   "dependencies": {
@@ -19,6 +21,7 @@
     "@capacitor/android": "^8.5.1",
     "@capacitor/cli": "^8.5.1",
     "@capacitor/core": "^8.5.1",
+    "@capacitor/ios": "^8.5.2",
     "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.1.14",
     "@types/canvas-confetti": "^1.9.0",
