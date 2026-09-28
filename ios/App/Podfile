@@ -1,0 +1,9 @@
+platform :ios, '15.0'
+use_frameworks!
+
+def capacitor_pods
+end
+
+target 'App' do
+  capacitor_pods
+end

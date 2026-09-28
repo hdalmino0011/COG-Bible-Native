@@ -33,18 +33,38 @@ jobs:
 
       - name: Prepare and sync Native iOS project
         run: |
-          if [ ! -d "./ios/App" ]; then
-            echo "iOS project not found. Initializing iOS platform via Capacitor..."
+          # If native iOS project or CapApp-SPM is missing or incomplete, initialize fresh platform
+          if [ ! -f "./ios/App/CapApp-SPM/Package.swift" ] || [ ! -f "./ios/App/App.xcodeproj/project.pbxproj" ]; then
+            echo "Native iOS project incomplete or CapApp-SPM missing. Initializing fresh iOS platform via Capacitor..."
+            rm -rf ios
             npx cap add ios
           fi
+
+          # Ensure fallback Podfile exists if CocoaPods is ever invoked on macOS runners
+          if [ ! -f "./ios/App/Podfile" ]; then
+            cat << 'EOF' > ./ios/App/Podfile
+platform :ios, '15.0'
+use_frameworks!
+
+def capacitor_pods
+end
+
+target 'App' do
+  capacitor_pods
+end
+EOF
+          fi
+
           # Generate Church Logo icons and splash screens
           node scripts/generate-android-icons.cjs
-          # Sync web assets into iOS project
+
+          # Sync web assets and native plugins into iOS project
           npx cap sync ios
 
-      - name: Build iOS Archive with Xcode
+      - name: Build iOS Application with Xcode
         run: |
           mkdir -p build
+          # Attempt release archive; fall back to release device build if Xcode signing policy restricts archiving
           xcodebuild archive \
             -project ios/App/App.xcodeproj \
             -scheme App \
@@ -55,12 +75,33 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGN_STYLE=Manual \
-            AD_HOC_CODE_SIGNING_ALLOWED=YES
+            AD_HOC_CODE_SIGNING_ALLOWED=YES || \
+          xcodebuild build \
+            -project ios/App/App.xcodeproj \
+            -scheme App \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGN_STYLE=Manual
 
       - name: Package iOS Application into IPA
         run: |
           mkdir -p build/Payload
-          cp -r build/App.xcarchive/Products/Applications/App.app build/Payload/
+          if [ -d "build/App.xcarchive/Products/Applications/App.app" ]; then
+            echo "Packaging from xcarchive..."
+            cp -r build/App.xcarchive/Products/Applications/App.app build/Payload/
+          elif [ -d "build/DerivedData/Build/Products/Release-iphoneos/App.app" ]; then
+            echo "Packaging from DerivedData..."
+            cp -r build/DerivedData/Build/Products/Release-iphoneos/App.app build/Payload/
+          else
+            echo "Error: App.app not found in build outputs!"
+            find build -name "*.app"
+            exit 1
+          fi
+
           cd build
           zip -r -q cog-tjr-bible-offline.ipa Payload
           ls -lh cog-tjr-bible-offline.ipa
