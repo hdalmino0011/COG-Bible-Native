@@ -27,10 +27,6 @@ public class TextToSpeechPlugin: CAPPlugin, CAPBridgedPlugin {
 
     private let implementation = TextToSpeech()
 
-    private func rejectCall(_ call: CAPPluginCall, _ message: String) {
-        call.errorHandler(CAPPluginCallError(message: message, code: nil, error: nil, data: nil))
-    }
-
     @objc public func speak(_ call: CAPPluginCall) {
         let text = call.getString("text", "")
         let lang = call.getString("lang", "en-US")
@@ -43,14 +39,14 @@ public class TextToSpeechPlugin: CAPPlugin, CAPBridgedPlugin {
 
         let isLanguageSupported = implementation.isLanguageSupported(lang)
         guard isLanguageSupported else {
-            self.rejectCall(call, TextToSpeechPlugin.errorUnsupportedLanguage)
+            call.resolve()
             return
         }
 
         do {
             try implementation.speak(text, lang, rate, pitch, category, volume, voice, queueStrategy, call)
         } catch {
-            self.rejectCall(call, error.localizedDescription)
+            call.resolve()
         }
     }
 
