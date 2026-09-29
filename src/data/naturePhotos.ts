@@ -1,3 +1,5 @@
+import { normalizeBookName } from './books';
+
 // Verified nature photos matching the user's exact specification
 export interface BookNaturePhoto {
   book: string;
@@ -335,11 +337,28 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
     book: "Revelation",
     title: "River Through a Golden Valley at Sunset",
     url: "./images/nature/revelation.jpg"
+  },
+  "Songs of Solomon": {
+    book: "Song of Solomon",
+    title: "Rose Bushes in Full Bloom",
+    url: "./images/nature/song-of-solomon.jpg"
+  },
+  "Revelations": {
+    book: "Revelation",
+    title: "River Through a Golden Valley at Sunset",
+    url: "./images/nature/revelation.jpg"
   }
 };
 
 export function getBookNaturePhoto(bookName: string): BookNaturePhoto {
-  return BOOK_NATURE_PHOTOS[bookName] || {
+  if (BOOK_NATURE_PHOTOS[bookName]) {
+    return BOOK_NATURE_PHOTOS[bookName];
+  }
+  const norm = normalizeBookName(bookName);
+  if (norm && BOOK_NATURE_PHOTOS[norm]) {
+    return BOOK_NATURE_PHOTOS[norm];
+  }
+  return {
     book: bookName,
     title: "God's Creation",
     url: "./images/nature/genesis.jpg"
