@@ -10,38 +10,30 @@ interface SplashProps {
 const smoothEase = [0.16, 1, 0.3, 1] as const;
 
 export const Splash: React.FC<SplashProps> = ({ onComplete }) => {
-  // 1. Initial 1.5-second pure black screen state
-  const [showContent, setShowContent] = useState(false);
-  // 2. Smooth fade-out state after at least 3 seconds of reading
+  // Show content immediately with silky smooth GPU fade-in
+  const [showContent, setShowContent] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   const onCompleteRef = useRef(onComplete);
   onCompleteRef.current = onComplete;
-  const blackScreenTimerRef = useRef<NodeJS.Timeout | null>(null);
   const stayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const triggerFadeOut = () => {
     if (isFadingOut) return;
     setIsFadingOut(true);
-    // Smooth 650ms GPU fade-out before calling onComplete
+    // Smooth 400ms GPU fade-out before calling onComplete
     setTimeout(() => {
       onCompleteRef.current();
-    }, 650);
+    }, 400);
   };
 
   useEffect(() => {
-    // Stage 1: All black screen for exactly 1.5 seconds (1500ms)
-    blackScreenTimerRef.current = setTimeout(() => {
-      setShowContent(true);
-
-      // Stage 2: Splash screen stays for at least 3.0 seconds (3200ms) for comfortable user readability
-      stayTimerRef.current = setTimeout(() => {
-        triggerFadeOut();
-      }, 3200);
-    }, 1500);
+    // Splash displays smoothly for 2 seconds then glides into the app, or tap anywhere to skip instantly
+    stayTimerRef.current = setTimeout(() => {
+      triggerFadeOut();
+    }, 2000);
 
     return () => {
-      if (blackScreenTimerRef.current) clearTimeout(blackScreenTimerRef.current);
       if (stayTimerRef.current) clearTimeout(stayTimerRef.current);
     };
   }, []);

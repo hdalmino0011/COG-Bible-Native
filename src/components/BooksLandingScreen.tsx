@@ -18,6 +18,10 @@ import { BOOK_DESCRIPTIONS } from '../data/bookDescriptions';
 import { parseDirectReference, searchBibleAcrossBooks, SearchVerseResult, DirectVerseRef } from '../utils/bibleSearch';
 import { BookChapters } from '../types';
 
+const BOOK_ORDER_MAP: Record<string, number> = Object.fromEntries(
+  BIBLE_BOOKS.map((b, i) => [b.name, i + 1])
+);
+
 interface BooksLandingScreenProps {
   onSelectBook: (bookName: string) => void;
   onOpenDirectVerse: (bookName: string, chapter: number, verse?: number) => void;
@@ -374,7 +378,7 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
             {/* List of 66 Books */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {filteredBooks.map((book, idx) => {
-                const globalIndex = BIBLE_BOOKS.findIndex(b => b.name === book.name) + 1;
+                const globalIndex = BOOK_ORDER_MAP[book.name] || (idx + 1);
                 const bookDetail = BOOK_DESCRIPTIONS[book.name];
 
                 return (

@@ -37,6 +37,11 @@ export const BookDetailView: React.FC<BookDetailViewProps> = ({
 
   // Each book has its own permanent, verified offline nature photo matching exact scripture subject
   const currentPhoto = useMemo(() => getBookNaturePhoto(bookInfo.name), [bookInfo.name]);
+  const [imageLoadError, setImageLoadError] = useState(false);
+
+  React.useEffect(() => {
+    setImageLoadError(false);
+  }, [bookInfo.name, currentPhoto.url]);
 
   // Dropdown states for Chapter and Verse
   const totalChapters = bookInfo.chapters || 1;
@@ -98,18 +103,26 @@ export const BookDetailView: React.FC<BookDetailViewProps> = ({
         <div
           className="relative rounded-2xl overflow-hidden shadow-lg border border-[var(--line)] bg-[#10203D] group aspect-video sm:aspect-[21/9]"
         >
-          <img
-            src={currentPhoto.url}
-            alt={currentPhoto.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            loading="eager"
-            referrerPolicy="no-referrer"
-            onError={(e) => {
-              const target = e.currentTarget;
-              target.onerror = null;
-              target.src = './images/nature/genesis.jpg';
-            }}
-          />
+          {!imageLoadError ? (
+            <img
+              key={bookInfo.name + '-' + currentPhoto.url}
+              src={currentPhoto.url}
+              alt={currentPhoto.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="eager"
+              decoding="async"
+              referrerPolicy="no-referrer"
+              onError={() => {
+                setImageLoadError(true);
+              }}
+            />
+          ) : (
+            <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#0A1832] via-[#1B3A6B] to-[#10203D] p-4 text-center">
+              <Sparkles className="w-8 h-8 text-[#E4C765] mb-2 opacity-80" />
+              <span className="text-xs uppercase tracking-widest text-[#E4C765] font-semibold">{bookInfo.name} • {bookInfo.cebName}</span>
+              <p className="text-xs sm:text-sm text-gray-200 font-serif italic mt-1 max-w-md">"{currentPhoto.title}"</p>
+            </div>
+          )}
           {/* Subtle dark gradient overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent flex flex-col justify-end p-3 sm:p-4 text-white pointer-events-none">
             <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-[#E4C765] font-semibold uppercase tracking-wider mb-1">

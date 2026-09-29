@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cog-bible-offline-v7.0.0';
+const CACHE_NAME = 'cog-bible-offline-v10.0.0';
 
 const DEFAULT_BOOK_FILES = [
   '1 Chronicles.json',
@@ -266,7 +266,30 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 2. All Assets, JSON Data, Scripts, Styles & Images (Cache-First)
+  // 2. Images: Network-First with flexible Cache fallback (guarantees updated photos load immediately)
+  if (
+    event.request.destination === 'image' ||
+    requestUrl.includes('/images/') ||
+    requestUrl.endsWith('.jpg') ||
+    requestUrl.endsWith('.jpeg') ||
+    requestUrl.endsWith('.png') ||
+    requestUrl.endsWith('.webp')
+  ) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkRes) => {
+          if (networkRes && networkRes.status === 200) {
+            const copy = networkRes.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          }
+          return networkRes;
+        })
+        .catch(() => matchCacheFlexible(event.request))
+    );
+    return;
+  }
+
+  // 3. All Assets, JSON Data, Scripts & Styles (Cache-First)
   event.respondWith(
     matchCacheFlexible(event.request).then(async (cachedResponse) => {
       if (cachedResponse) {

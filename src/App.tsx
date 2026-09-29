@@ -715,28 +715,28 @@ export default function App() {
 
       {/* 3. Main Body Screen Views */}
       <main className="flex-1 flex flex-col min-h-0 overflow-hidden relative">
-        {currentScreen === 'books' && (
-          <>
-            <div className={`flex flex-col flex-1 min-h-0 ${selectedBookForDetail ? 'hidden' : ''}`}>
-              <BooksLandingScreen
-                onSelectBook={(bookName) => setSelectedBookForDetail(bookName)}
-                onOpenDirectVerse={(bookName, ch, v) => handleNavigateToVerse(bookName, ch, v)}
-                getBookData={loadSingleBook}
-                savedScrollPosition={booksScrollTop}
-                onSaveScrollPosition={(pos) => setBooksScrollTop(pos)}
-              />
-            </div>
-            {selectedBookForDetail && (
-              <BookDetailView
-                bookName={selectedBookForDetail}
-                onBack={() => setSelectedBookForDetail(null)}
-                onOpenChapterVerse={(book, ch, v) => handleNavigateToVerse(book, ch, v)}
-              />
-            )}
-          </>
-        )}
+        {/* View A: Books Catalog & Book Detail */}
+        <div className={`flex flex-col flex-1 min-h-0 ${currentScreen === 'books' ? '' : 'hidden'}`}>
+          <div className={`flex flex-col flex-1 min-h-0 ${selectedBookForDetail ? 'hidden' : ''}`}>
+            <BooksLandingScreen
+              onSelectBook={(bookName) => setSelectedBookForDetail(bookName)}
+              onOpenDirectVerse={(bookName, ch, v) => handleNavigateToVerse(bookName, ch, v)}
+              getBookData={loadSingleBook}
+              savedScrollPosition={booksScrollTop}
+              onSaveScrollPosition={(pos) => setBooksScrollTop(pos)}
+            />
+          </div>
+          {selectedBookForDetail && (
+            <BookDetailView
+              bookName={selectedBookForDetail}
+              onBack={() => setSelectedBookForDetail(null)}
+              onOpenChapterVerse={(book, ch, v) => handleNavigateToVerse(book, ch, v)}
+            />
+          )}
+        </div>
 
-        {currentScreen === 'bible' && (
+        {/* View B: Bible Scripture Reader */}
+        <div className={`flex flex-col flex-1 min-h-0 ${currentScreen === 'bible' ? '' : 'hidden'}`}>
           <BibleReader
             bibleData={bibleData}
             isLoading={isLoadingBible}
@@ -750,7 +750,7 @@ export default function App() {
             }}
             readingLayout={readingLayout}
             selectedVerse={selectedVerse}
-            onSelectVerse={(v) => setSelectedVerse(v)}
+            onSelectVerse={setSelectedVerse}
             highlights={highlights}
             bookmarkedVerses={currentChapterBookmarks}
             notesVerses={currentChapterNotes}
@@ -760,7 +760,7 @@ export default function App() {
             speakingVerse={speakingVerse}
             onToggleContinuousReading={() => handleToggleContinuousReading()}
           />
-        )}
+        </div>
 
         {currentScreen === 'quiz' && (
           <QuizScreen

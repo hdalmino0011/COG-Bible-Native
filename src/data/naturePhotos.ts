@@ -1,6 +1,35 @@
 import { normalizeBookName } from './books';
 
-// Verified nature photos matching the user's exact specification
+// Direct ES module asset imports for the 26 updated books.
+// Using direct imports causes Vite to emit cache-busting hashed asset URLs (e.g. /assets/judges_thunderstorm-[hash].jpg),
+// completely bypassing any stale browser or service worker HTTP caches.
+import judgesImg from '../assets/images/judges_thunderstorm_1790635486461.jpg';
+import samuel2Img from '../assets/images/samuel_cedar_forest_1790635498999.jpg';
+import chronicles1Img from '../assets/images/chronicles_oak_tree_1790635510205.jpg';
+import chronicles2Img from '../assets/images/chronicles_campfire_1790635522116.jpg';
+import solomonImg from '../assets/images/solomon_rose_bushes_1790635537213.jpg';
+import jeremiahImg from '../assets/images/jeremiah_weeping_willow_1790635547584.jpg';
+import hoseaImg from '../assets/images/hosea_climbing_vines_1790635559019.jpg';
+import joelImg from '../assets/images/joel_golden_grasshopper_1790635569980.jpg';
+import obadiahImg from '../assets/images/obadiah_soaring_eagle_1790635581563.jpg';
+import jonahImg from '../assets/images/jonah_stormy_waves_1790635592089.jpg';
+import micahImg from '../assets/images/micah_starry_hills_1790635604019.jpg';
+import nahumImg from '../assets/images/nahum_desert_ruins_1790635615531.jpg';
+import malachiImg from '../assets/images/malachi_bonfire_embers_1790635628194.jpg';
+import matthewImg from '../assets/images/matthew_bright_star_1790635638033.jpg';
+import romansImg from '../assets/images/romans_cobblestone_path_1790635647618.jpg';
+import corinthians1Img from '../assets/images/corinthians_vineyard_rows_1790635658149.jpg';
+import corinthians2Img from '../assets/images/corinthians_clay_pots_1790635669401.jpg';
+import philippiansImg from '../assets/images/philippians_green_meadow_1790635681858.jpg';
+import thessalonians1Img from '../assets/images/thessalonians_silver_clouds_1790635695513.jpg';
+import thessalonians2Img from '../assets/images/thessalonians_sturdy_oak_1790635707144.jpg';
+import timothy1Img from '../assets/images/timothy_grazing_sheep_1790635719929.jpg';
+import timothy2Img from '../assets/images/timothy_sunrise_campground_1790635730568.jpg';
+import titusImg from '../assets/images/titus_rugged_coastline_1790635743161.jpg';
+import hebrewsImg from '../assets/images/hebrews_beach_anchor_1790635754773.jpg';
+import john3Img from '../assets/images/john_open_gate_1790635767900.jpg';
+import revelationImg from '../assets/images/revelation_golden_valley_1790635780072.jpg';
+
 export interface BookNaturePhoto {
   book: string;
   title: string;
@@ -41,7 +70,7 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
   "Judges": {
     book: "Judges",
     title: "Thunderstorm Over Open Plains",
-    url: "./images/nature/judges.jpg"
+    url: judgesImg
   },
   "Ruth": {
     book: "Ruth",
@@ -56,7 +85,7 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
   "2 Samuel": {
     book: "2 Samuel",
     title: "Ancient Cedar Forest in Fog",
-    url: "./images/nature/2-samuel.jpg"
+    url: samuel2Img
   },
   "1 Kings": {
     book: "1 Kings",
@@ -71,12 +100,12 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
   "1 Chronicles": {
     book: "1 Chronicles",
     title: "Old Oak Tree in a Meadow",
-    url: "./images/nature/1-chronicles.jpg"
+    url: chronicles1Img
   },
   "2 Chronicles": {
     book: "2 Chronicles",
     title: "Glowing Campfire in the Woods",
-    url: "./images/nature/2-chronicles.jpg"
+    url: chronicles2Img
   },
   "Ezra": {
     book: "Ezra",
@@ -116,7 +145,7 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
   "Song of Solomon": {
     book: "Song of Solomon",
     title: "Rose Bushes in Full Bloom",
-    url: "./images/nature/song-of-solomon.jpg"
+    url: solomonImg
   },
   "Isaiah": {
     book: "Isaiah",
@@ -126,7 +155,7 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
   "Jeremiah": {
     book: "Jeremiah",
     title: "Weeping Willow by a Pond",
-    url: "./images/nature/jeremiah.jpg"
+    url: jeremiahImg
   },
   "Lamentations": {
     book: "Lamentations",
@@ -146,12 +175,12 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
   "Hosea": {
     book: "Hosea",
     title: "Vines Climbing a Broken Fence",
-    url: "./images/nature/hosea.jpg"
+    url: hoseaImg
   },
   "Joel": {
     book: "Joel",
     title: "Golden Grasshopper on a Leaf",
-    url: "./images/nature/joel.jpg"
+    url: joelImg
   },
   "Amos": {
     book: "Amos",
@@ -161,22 +190,22 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
   "Obadiah": {
     book: "Obadiah",
     title: "Eagle Soaring Over Cliffs",
-    url: "./images/nature/obadiah.jpg"
+    url: obadiahImg
   },
   "Jonah": {
     book: "Jonah",
     title: "Stormy Ocean Waves at Dusk",
-    url: "./images/nature/jonah.jpg"
+    url: jonahImg
   },
   "Micah": {
     book: "Micah",
     title: "Rolling Hills Under Starry Sky",
-    url: "./images/nature/micah.jpg"
+    url: micahImg
   },
   "Nahum": {
     book: "Nahum",
     title: "Crumbling Ruins in the Desert",
-    url: "./images/nature/nahum.jpg"
+    url: nahumImg
   },
   "Habakkuk": {
     book: "Habakkuk",
@@ -201,12 +230,12 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
   "Malachi": {
     book: "Malachi",
     title: "Bonfire Embers at Twilight",
-    url: "./images/nature/malachi.jpg"
+    url: malachiImg
   },
   "Matthew": {
     book: "Matthew",
     title: "Bright Star Over Quiet Fields",
-    url: "./images/nature/matthew.jpg"
+    url: matthewImg
   },
   "Mark": {
     book: "Mark",
@@ -231,17 +260,17 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
   "Romans": {
     book: "Romans",
     title: "Cobblestone Path Through Autumn Woods",
-    url: "./images/nature/romans.jpg"
+    url: romansImg
   },
   "1 Corinthians": {
     book: "1 Corinthians",
     title: "Vineyard Rows on a Hillside",
-    url: "./images/nature/1-corinthians.jpg"
+    url: corinthians1Img
   },
   "2 Corinthians": {
     book: "2 Corinthians",
     title: "Clay Pots in a Sunny Field",
-    url: "./images/nature/2-corinthians.jpg"
+    url: corinthians2Img
   },
   "Galatians": {
     book: "Galatians",
@@ -256,7 +285,7 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
   "Philippians": {
     book: "Philippians",
     title: "Green Meadow After Rain",
-    url: "./images/nature/philippians.jpg"
+    url: philippiansImg
   },
   "Colossians": {
     book: "Colossians",
@@ -266,27 +295,27 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
   "1 Thessalonians": {
     book: "1 Thessalonians",
     title: "Silver Clouds at Daybreak",
-    url: "./images/nature/1-thessalonians.jpg"
+    url: thessalonians1Img
   },
   "2 Thessalonians": {
     book: "2 Thessalonians",
     title: "Sturdy Oak in a Windstorm",
-    url: "./images/nature/2-thessalonians.jpg"
+    url: thessalonians2Img
   },
   "1 Timothy": {
     book: "1 Timothy",
     title: "Sheep Grazing in a Valley",
-    url: "./images/nature/1-timothy.jpg"
+    url: timothy1Img
   },
   "2 Timothy": {
     book: "2 Timothy",
     title: "Sunrise Over a Campground",
-    url: "./images/nature/2-timothy.jpg"
+    url: timothy2Img
   },
   "Titus": {
     book: "Titus",
     title: "Rugged Coastline with Blue Water",
-    url: "./images/nature/titus.jpg"
+    url: titusImg
   },
   "Philemon": {
     book: "Philemon",
@@ -296,7 +325,7 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
   "Hebrews": {
     book: "Hebrews",
     title: "Anchor on a Sandy Beach",
-    url: "./images/nature/hebrews.jpg"
+    url: hebrewsImg
   },
   "James": {
     book: "James",
@@ -326,7 +355,7 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
   "3 John": {
     book: "3 John",
     title: "Open Gate to a Green Field",
-    url: "./images/nature/3-john.jpg"
+    url: john3Img
   },
   "Jude": {
     book: "Jude",
@@ -336,17 +365,17 @@ export const BOOK_NATURE_PHOTOS: Record<string, BookNaturePhoto> = {
   "Revelation": {
     book: "Revelation",
     title: "River Through a Golden Valley at Sunset",
-    url: "./images/nature/revelation.jpg"
+    url: revelationImg
   },
   "Songs of Solomon": {
     book: "Song of Solomon",
     title: "Rose Bushes in Full Bloom",
-    url: "./images/nature/song-of-solomon.jpg"
+    url: solomonImg
   },
   "Revelations": {
     book: "Revelation",
     title: "River Through a Golden Valley at Sunset",
-    url: "./images/nature/revelation.jpg"
+    url: revelationImg
   }
 };
 

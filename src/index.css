@@ -326,3 +326,15 @@ body.size-xxlarge {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Eliminate 300ms tap delay and enforce hardware compositing */
+button, [role="button"], select, input, .cursor-pointer {
+  touch-action: manipulation;
+}
+
+.transform-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
+}

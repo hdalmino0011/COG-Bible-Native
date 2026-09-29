@@ -20,6 +20,17 @@ function keepPortraitOrientation() {
 
 // Register the service worker so full offline PWA is enabled anywhere (dev, preview, production).
 if ('serviceWorker' in navigator) {
+  // Purge any legacy stale caches to guarantee immediate photo updates
+  if (typeof window !== 'undefined' && 'caches' in window) {
+    caches.keys().then((keys) => {
+      for (const k of keys) {
+        if (k !== 'cog-bible-offline-v10.0.0') {
+          caches.delete(k).catch(() => {});
+        }
+      }
+    }).catch(() => {});
+  }
+
   const registerSW = () => {
     try {
       const swUrl = new URL('sw.js', window.location.href).href;
@@ -27,6 +38,9 @@ if ('serviceWorker' in navigator) {
         .then((reg) => {
           console.log('[PWA] ServiceWorker registered with scope:', reg.scope);
           reg.update().catch(() => {});
+          if (reg.waiting) {
+            reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+          }
         })
         .catch(() => {
           navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).catch((err) => {
