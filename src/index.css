@@ -47,7 +47,7 @@
   }
 
   #root {
-    background-color: var(--ivory);
+    background-color: #000000;
   }
 
   body.is-capacitor {
