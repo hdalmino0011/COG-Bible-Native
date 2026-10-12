@@ -68,7 +68,8 @@ import {
   requestNotificationPermission,
   shouldPromptForNotifications,
   recordNotificationDecision,
-  checkHasNotificationPermission
+  checkHasNotificationPermission,
+  scheduleNativeDailyRecurringNotification
 } from './utils/notifications';
 import { speakVerseText, stopSpeakingVerse, readChapterContinuously } from './utils/speech';
 
@@ -423,20 +424,50 @@ export default function App() {
   useEffect(() => {
     if (showSplash) return;
 
-    const timer = setTimeout(() => {
-      if (shouldPromptForNotifications()) {
-        setShowNotificationPrompt(true);
+    const timer = setTimeout(async () => {
+      if (Capacitor.isNativePlatform()) {
+        // On native mobile (Android): newly installed app asks directly for system notification permission
+        if (shouldPromptForNotifications()) {
+          try {
+            const state = await requestNotificationPermission();
+            if (state === 'granted') {
+              handleUpdatePreferences({ dailyVerseNotification: true });
+              scheduleNativeDailyRecurringNotification(preferences.notificationTime || '07:00');
+              const verse = getRandomDailyVerse(bibleDataRef.current);
+              sendDailyVerseNotification(
+                verse,
+                `📖 Daily Verse: ${verse.book} ${verse.chapter}:${verse.verse}`
+              );
+            }
+          } catch (e) {
+            console.error('Error requesting native permissions:', e);
+          }
+        } else {
+          // If already granted, ensure native recurring daily alarm is armed
+          const hasPerm = await checkHasNotificationPermission();
+          if (hasPerm && preferences.dailyVerseNotification) {
+            scheduleNativeDailyRecurringNotification(preferences.notificationTime || '07:00');
+          }
+        }
+      } else {
+        // On Web platform: show permission modal if not decided
+        if (shouldPromptForNotifications()) {
+          setShowNotificationPrompt(true);
+        }
       }
-    }, 1200);
+    }, 800);
 
     return () => clearTimeout(timer);
-  }, [showSplash]);
+  }, [showSplash, preferences.dailyVerseNotification, preferences.notificationTime]);
 
   const handleAllowNotifications = async () => {
     const granted = await requestNotificationPermission();
     if (granted === 'granted') {
       handleUpdatePreferences({ dailyVerseNotification: true });
       showToast('🔔 Daily Verse Notifications enabled!');
+      if (Capacitor.isNativePlatform()) {
+        scheduleNativeDailyRecurringNotification(preferences.notificationTime || '07:00');
+      }
       // Dispatch immediate welcoming random daily verse
       const verse = getRandomDailyVerse(bibleDataRef.current);
       sendDailyVerseNotification(

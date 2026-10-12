@@ -28,11 +28,14 @@
     box-sizing: border-box;
   }
 
+  html, body {
+    background-color: #000000;
+  }
+
   html, body, #root {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: var(--ivory);
     color: var(--slate);
     font-family: var(--app-font);
     -webkit-tap-highlight-color: transparent;
@@ -41,6 +44,10 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: contain;
+  }
+
+  #root {
+    background-color: var(--ivory);
   }
 
   body.is-capacitor {

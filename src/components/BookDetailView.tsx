@@ -146,7 +146,7 @@ export const BookDetailView: React.FC<BookDetailViewProps> = ({
               {bookDetail.author}
             </div>
             <div className="text-[10px] text-[var(--slate-soft)]">
-              Magsusulat: {bookDetail.authorCeb}
+              Author
             </div>
           </div>
 
@@ -177,17 +177,14 @@ export const BookDetailView: React.FC<BookDetailViewProps> = ({
           </div>
         </div>
 
-        {/* 3. Key Theme & Verse Callout */}
+        {/* 3. Key Theme & Verse Callout (English Only) */}
         <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-r from-[#1B3A6B]/10 to-[#C9A227]/10 border border-[#C9A227]/30 shadow-xs">
           <div className="flex items-center gap-1.5 text-xs font-bold text-[#1B3A6B] dark:text-[#E4C765] uppercase tracking-wider mb-1">
             <Sparkles className="w-3.5 h-3.5 text-[#C9A227]" />
-            <span>Central Theme / Sentral nga Tema</span>
+            <span>Central Theme</span>
           </div>
           <p className="text-xs sm:text-sm font-semibold text-[var(--ink)]">
             {bookDetail.theme}
-          </p>
-          <p className="text-xs text-[var(--slate-soft)] mt-0.5 italic">
-            {bookDetail.themeCeb}
           </p>
 
           {bookDetail.keyVerse && (
@@ -198,14 +195,11 @@ export const BookDetailView: React.FC<BookDetailViewProps> = ({
               <p className="text-xs sm:text-sm font-serif italic text-[var(--ink)]">
                 "{bookDetail.keyVerseEn}"
               </p>
-              <p className="text-[11px] sm:text-xs text-[var(--slate-soft)] mt-1 italic">
-                "{bookDetail.keyVerseCeb}"
-              </p>
             </div>
           )}
         </div>
 
-        {/* 4. Book Description */}
+        {/* 4. Book Description (English Only) */}
         <div className="p-4 sm:p-5 rounded-2xl bg-[var(--paper)] border border-[var(--line)] shadow-xs space-y-3">
           <h2 className="font-serif text-base sm:text-lg font-bold text-[var(--ink)] flex items-center gap-2">
             <span>About the Book of {bookInfo.name}</span>
@@ -213,14 +207,6 @@ export const BookDetailView: React.FC<BookDetailViewProps> = ({
           <p className="text-xs sm:text-sm leading-relaxed text-[var(--slate)] text-justify">
             {bookDetail.description}
           </p>
-          <div className="pt-2 border-t border-[var(--line)]">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#C9A227] mb-1">
-              Sa Pinulongang Cebuano
-            </h3>
-            <p className="text-xs sm:text-sm leading-relaxed text-[var(--slate)] text-justify">
-              {bookDetail.descriptionCeb}
-            </p>
-          </div>
         </div>
 
         {/* 5. Dropdown Menu to Choose Chapter & Verse */}

@@ -98,6 +98,49 @@ function run() {
         }
       }
 
+      // Generate dedicated Android Status Bar Notification Icons (ic_stat_cog_bible & ic_stat_notification)
+      // Eliminates Android fallback to letter 'i' in circle and renders the church seal emblem
+      const NOTIF_DENSITIES = [
+        { dir: 'drawable-mdpi', size: 24 },
+        { dir: 'drawable-hdpi', size: 36 },
+        { dir: 'drawable-xhdpi', size: 48 },
+        { dir: 'drawable-xxhdpi', size: 72 },
+        { dir: 'drawable-xxxhdpi', size: 96 },
+      ];
+
+      for (const nd of NOTIF_DENSITIES) {
+        const targetDirs = [
+          path.join(RES_DIR, nd.dir),
+          path.join(BACKUP_DIR, nd.dir)
+        ];
+        for (const dir of targetDirs) {
+          if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+          const notifPath1 = path.join(dir, 'ic_stat_cog_bible.png');
+          const notifPath2 = path.join(dir, 'ic_stat_notification.png');
+          execSync(
+            `convert "${trimmedTmp}" -resize ${nd.size}x${nd.size} -gravity center -background none -extent ${nd.size}x${nd.size} "${notifPath1}"`,
+            { stdio: 'ignore' }
+          );
+          fs.copyFileSync(notifPath1, notifPath2);
+        }
+      }
+
+      // Also ensure default res/drawable has the notification icons
+      const defDrawable = path.join(RES_DIR, 'drawable');
+      if (!fs.existsSync(defDrawable)) fs.mkdirSync(defDrawable, { recursive: true });
+      execSync(
+        `convert "${trimmedTmp}" -resize 96x96 -gravity center -background none -extent 96x96 "${path.join(defDrawable, 'ic_stat_cog_bible.png')}"`,
+        { stdio: 'ignore' }
+      );
+      fs.copyFileSync(path.join(defDrawable, 'ic_stat_cog_bible.png'), path.join(defDrawable, 'ic_stat_notification.png'));
+
+      const defBackupDrawable = path.join(BACKUP_DIR, 'drawable');
+      if (fs.existsSync(BACKUP_DIR)) {
+        if (!fs.existsSync(defBackupDrawable)) fs.mkdirSync(defBackupDrawable, { recursive: true });
+        fs.copyFileSync(path.join(defDrawable, 'ic_stat_cog_bible.png'), path.join(defBackupDrawable, 'ic_stat_cog_bible.png'));
+        fs.copyFileSync(path.join(defDrawable, 'ic_stat_notification.png'), path.join(defBackupDrawable, 'ic_stat_notification.png'));
+      }
+
       // Also generate web & PWA app-icon assets with clean safe zone margins
       const pwaTargets = [
         { file: 'app-icon.png', size: 512, innerSize: 360, radius: 108 },

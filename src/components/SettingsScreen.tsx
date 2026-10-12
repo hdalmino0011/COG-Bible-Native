@@ -17,7 +17,8 @@ import {
   checkHasNotificationPermission,
   requestNotificationPermission,
   sendDailyVerseNotification,
-  isNotificationSupported
+  isNotificationSupported,
+  scheduleNativeDailyRecurringNotification
 } from '../utils/notifications';
 import { getRandomDailyVerse } from '../data/dailyVerses';
 import { EMBEDDED_LOGO_DATA_URI } from '../data/logoAsset';
@@ -89,6 +90,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
     }
     onUpdatePreferences({ dailyVerseNotification: nextState });
     if (nextState) {
+      scheduleNativeDailyRecurringNotification(preferences.notificationTime || '07:00');
       const randomVerse = getRandomDailyVerse(bibleData);
       sendDailyVerseNotification(
         randomVerse,
@@ -190,7 +192,13 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
               <input
                 type="time"
                 value={preferences.notificationTime || '07:00'}
-                onChange={(e) => onUpdatePreferences({ notificationTime: e.target.value })}
+                onChange={(e) => {
+                  const newTime = e.target.value;
+                  onUpdatePreferences({ notificationTime: newTime });
+                  if (preferences.dailyVerseNotification) {
+                    scheduleNativeDailyRecurringNotification(newTime);
+                  }
+                }}
                 className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-gray-300 dark:border-[#33476E] bg-white dark:bg-[#142036] text-gray-900 dark:text-white font-mono focus:outline-none focus:ring-1 focus:ring-[#C9A227] cursor-pointer"
               />
             </div>

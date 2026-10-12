@@ -8,6 +8,10 @@ const config: CapacitorConfig = {
     androidScheme: 'https'
   },
   plugins: {
+    LocalNotifications: {
+      smallIcon: 'ic_stat_cog_bible',
+      iconColor: '#C9A227'
+    },
     SystemBars: {
       insetsHandling: 'css',
       style: 'DARK',

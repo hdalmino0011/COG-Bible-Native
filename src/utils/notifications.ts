@@ -151,7 +151,7 @@ export async function sendDailyVerseNotification(
             body: bodyText,
             largeBody: bodyText,
             summaryText: `${v.book} ${v.chapter}:${v.verse}`,
-            smallIcon: 'ic_launcher',
+            smallIcon: 'ic_stat_cog_bible',
             iconColor: '#C9A227',
             extra: {
               book: v.book,
@@ -242,3 +242,73 @@ export async function sendDailyVerseNotification(
 
   return false;
 }
+
+/**
+ * Schedules recurring daily native scripture notification on device
+ * using Android's native AlarmManager / JobScheduler so it fires every morning
+ * accurately and consistently even when app is closed or after reboot.
+ */
+export async function scheduleNativeDailyRecurringNotification(
+  timeStr: string,
+  verse?: DailyVerse
+): Promise<boolean> {
+  if (!Capacitor.isNativePlatform()) return false;
+  try {
+    const perm = await LocalNotifications.checkPermissions();
+    if (perm.display !== 'granted') return false;
+
+    const [hour, minute] = (timeStr || '07:00').split(':').map(Number);
+    const now = new Date();
+    const scheduledDate = new Date();
+    scheduledDate.setHours(isNaN(hour) ? 7 : hour, isNaN(minute) ? 0 : minute, 0, 0);
+
+    // If today's scheduled time has already passed, set for tomorrow
+    if (scheduledDate.getTime() <= now.getTime()) {
+      scheduledDate.setDate(scheduledDate.getDate() + 1);
+    }
+
+    const v = verse || getTodayVerse();
+    const title = `📖 Daily Verse: ${v.book} ${v.chapter}:${v.verse}`;
+    let bodyText = '';
+    if (v.ceb && v.en && v.ceb !== v.en) {
+      bodyText = `[Cebuano Bugna]\n${v.ceb}\n\n[KJV]\n${v.en}`;
+    } else {
+      bodyText = v.ceb || v.en || '';
+    }
+
+    try {
+      await LocalNotifications.cancel({ notifications: [{ id: 777 }] });
+    } catch {}
+
+    await LocalNotifications.schedule({
+      notifications: [
+        {
+          id: 777,
+          title,
+          body: bodyText,
+          largeBody: bodyText,
+          summaryText: `${v.book} ${v.chapter}:${v.verse}`,
+          smallIcon: 'ic_stat_cog_bible',
+          iconColor: '#C9A227',
+          schedule: {
+            at: scheduledDate,
+            repeats: true,
+            every: 'day',
+            allowWhileIdle: true
+          },
+          extra: {
+            book: v.book,
+            chapter: v.chapter,
+            verse: v.verse,
+            url: `./#bible?book=${encodeURIComponent(v.book)}&chapter=${v.chapter}&verse=${v.verse}`
+          }
+        }
+      ]
+    });
+    return true;
+  } catch (err) {
+    console.error('Error scheduling recurring daily notification:', err);
+    return false;
+  }
+}
+
