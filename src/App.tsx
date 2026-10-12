@@ -715,7 +715,10 @@ export default function App() {
   };
 
   return (
-    <div className="flex flex-col h-screen w-full max-w-5xl mx-auto overflow-hidden shadow-2xl relative">
+    <div
+      style={{ backgroundColor: showSplash ? '#000000' : 'var(--ivory)' }}
+      className="flex flex-col h-screen w-full max-w-5xl mx-auto overflow-hidden shadow-2xl relative"
+    >
       {/* 1. Splash Screen on first load */}
       {showSplash && (
         <Splash
