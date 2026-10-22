@@ -14,6 +14,7 @@
     "build:android": "npm run build && node scripts/generate-android-icons.cjs && cap sync android",
     "sync:ios": "node scripts/generate-android-icons.cjs && cap sync ios",
     "build:ios": "npm run build && node scripts/generate-android-icons.cjs && cap sync ios",
+    "build:pastor": "cd pastor-app && npm install && npm run build",
     "postinstall": "node scripts/patch-ios-tts.cjs",
     "lint": "tsc --noEmit"
   },
@@ -25,6 +26,7 @@
     "@capacitor/ios": "^8.5.2",
     "@capacitor/local-notifications": "^8.3.1",
     "@google/genai": "^2.4.0",
+    "@supabase/supabase-js": "^2.118.0",
     "@tailwindcss/vite": "^4.1.14",
     "@types/canvas-confetti": "^1.9.0",
     "@vitejs/plugin-react": "^5.0.4",

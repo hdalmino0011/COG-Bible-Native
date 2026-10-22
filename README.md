@@ -38,22 +38,69 @@ domain root.
 
 This repository includes automated GitHub Actions workflows that automatically build both Android and iOS applications whenever you push code or trigger them manually from the **Actions** tab:
 
-### 1. Android APK (`build-apk.yml`)
+### 1. Congregation Android APK (`build-apk.yml`)
 - Automatically builds `cog-tjr-bible-offline-debug.apk`.
 - Located under **Actions → Build Android APK (Gradle) → Artifacts**.
-- Download and install directly onto any Android phone.
+- 100% offline Bible reader, dictionary, quiz, and bookmarks.
+- Online-enabled **Lessons** section for reading and downloading church sermons and study materials.
 
-### 2. iOS IPA (`build-ios.yml`)
+### 2. Pastor & Minister Lessons Upload APK (`build-pastor-apk.yml`)
+- Dedicated standalone mobile app for pastors and ministers to upload study lessons, sermons, hymn sheets, and lecture files.
+- Automatically builds `cog-pastor-lessons-upload-debug.apk` using Gradle in GitHub Actions.
+- Located under **Actions → Build Pastor Lessons Upload APK (Gradle) → Artifacts**.
+- Features file picker supporting PDF, PNG, JPG, DOCX, etc., upload progress, categorization, and file deletion/management.
+
+### 3. iOS IPA (`build-ios.yml`)
 - Automatically builds `cog-tjr-bible-offline.ipa` on a native macOS runner with Xcode.
 - Located under **Actions → Build iOS IPA (Xcode) → Artifacts**.
-- How to install on your iPhone or iPad:
-  - **Sideloadly (Recommended / Easiest)**: Connect iPhone to Mac/PC, drag `cog-tjr-bible-offline.ipa` into [Sideloadly](https://sideloadly.io), enter your Apple ID, and click Start.
-  - **AltStore**: Download the IPA directly to your iPhone and open it with [AltStore](https://altstore.io).
-  - **TrollStore**: Direct installation on supported iOS versions without re-signing.
-  - **Xcode**: Open Xcode → *Window → Devices and Simulators* → drag the IPA or app into *Installed Apps*.
 
-### 3. iOS Safari Web App (Instant / No tools required)
-- Open the deployed website in Safari on your iPhone.
-- Tap the **Share** button (box with upward arrow).
-- Select **Add to Home Screen**.
-- The app installs as a standalone fullscreen app with full offline scripture caching and native feel.
+---
+
+## Supabase Setup for Church Lessons
+
+The Bible application operates completely offline for all scripture reading, dictionary, search, and quiz. The only section requiring an internet connection is **Lessons**, where members can view and download sermon materials and study notes uploaded by ministers.
+
+### 1. Create Storage Bucket
+1. Open your [Supabase Dashboard](https://supabase.com/dashboard) and go to **Storage**.
+2. Click **New Bucket**.
+3. Name the bucket: `lessons`
+4. Set it to **Public Bucket** so that church members can view and download files.
+
+### 2. Run SQL Schema
+Go to **SQL Editor** in your Supabase project and execute:
+
+```sql
+-- Create lessons table
+create table if not exists public.lessons (
+  id uuid default gen_random_uuid() primary key,
+  title text not null,
+  description text default '',
+  minister_name text not null,
+  file_url text not null,
+  file_name text not null,
+  file_type text default 'pdf',
+  file_size_bytes bigint default 0,
+  category text default 'general',
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- Enable Row Level Security (RLS)
+alter table public.lessons enable row level security;
+
+-- Congregation read policy
+create policy "Public can view lessons" on public.lessons for select using (true);
+
+-- Minister upload and delete policies
+create policy "Allow insert lessons" on public.lessons for insert with check (true);
+create policy "Allow delete lessons" on public.lessons for delete using (true);
+
+-- Storage bucket access policies
+create policy "Public storage view" on storage.objects for select using (bucket_id = 'lessons');
+create policy "Allow storage upload" on storage.objects for insert with check (bucket_id = 'lessons');
+create policy "Allow storage delete" on storage.objects for delete using (bucket_id = 'lessons');
+```
+
+### 3. Connect Credentials
+1. Go to **Project Settings → API** in Supabase.
+2. Copy your **Project URL** and **Anon Public Key**.
+3. In the app's **Lessons** section or `.env`, enter your Project URL and Anon Key. The app will immediately connect and load published lessons!

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Book, Library, HelpCircle, BookOpen, Bookmark, Settings } from 'lucide-react';
+import { Book, Library, HelpCircle, BookOpen, Bookmark, Settings, FileText } from 'lucide-react';
 import { ScreenType } from '../types';
 
 interface BottomNavProps {
@@ -28,6 +28,11 @@ export const BottomNav: React.FC<BottomNavProps> = ({
       id: 'bible',
       label: 'Reader',
       icon: <Book className="w-5 h-5" />
+    },
+    {
+      id: 'lessons',
+      label: 'Lessons',
+      icon: <FileText className="w-5 h-5" />
     },
     {
       id: 'quiz',

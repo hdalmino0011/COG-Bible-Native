@@ -36,6 +36,8 @@ export const Header: React.FC<HeaderProps> = ({
         return 'Books of the Bible';
       case 'bible':
         return currentBook ? `${currentBook} ${currentChapter}` : 'COG (T.J.R) Bible';
+      case 'lessons':
+        return 'Church Lessons';
       case 'quiz':
         return 'Bible Quiz';
       case 'dictionary':

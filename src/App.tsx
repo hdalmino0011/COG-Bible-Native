@@ -11,6 +11,7 @@ import { BooksLandingScreen } from './components/BooksLandingScreen';
 import { BookDetailView } from './components/BookDetailView';
 import { BibleReader } from './components/BibleReader';
 import { QuizScreen } from './components/QuizScreen';
+import { LessonsScreen } from './components/LessonsScreen';
 import { DictionaryScreen } from './components/DictionaryScreen';
 import { SavedScreen } from './components/SavedScreen';
 import { SettingsScreen } from './components/SettingsScreen';
@@ -795,6 +796,10 @@ export default function App() {
             onToggleContinuousReading={() => handleToggleContinuousReading()}
           />
         </div>
+
+        {currentScreen === 'lessons' && (
+          <LessonsScreen onShowToast={showToast} />
+        )}
 
         {currentScreen === 'quiz' && (
           <QuizScreen
