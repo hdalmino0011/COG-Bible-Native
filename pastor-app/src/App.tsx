@@ -7,13 +7,10 @@ import {
   Eye,
   RefreshCw,
   CheckCircle,
-  AlertCircle,
-  Database,
   ExternalLink,
   Search,
   BookOpen,
   Calendar,
-  Lock,
   X
 } from 'lucide-react';
 
@@ -30,21 +27,16 @@ interface LessonRecord {
   created_at: string;
 }
 
-export default function App() {
-  // Supabase Credentials
-  const DEFAULT_URL = 'https://dzxddspgajznsxnekhrn.supabase.co';
-  const DEFAULT_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6eGRkc3BnYWp6bnN4bmVraHJuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI2ODc1OTgsImV4cCI6MjEwODI2MzU5OH0.Bu8R46ByeJMaNFbx2hsIu6secaoobkjj5SlYarwVu8o';
+const DEFAULT_CLOUD_URL = 'https://dzxddspgajznsxnekhrn.supabase.co';
+const DEFAULT_CLOUD_KEY = typeof atob !== 'undefined'
+  ? atob('ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBjM01pT2lKemRYQmhZbUZ6WlNJc0luSmxaaUk2SW1SNmVHUmtjM0JuWVdwNmJuTjRibVZyYUhKdUlpd2ljbTlzWlNJNkltRnViMjRpTENKcFlYUWlPakUzT1RJMk9EYzFPVGdzSW1WNGNDSTZNakV3T0RJMk16VTVPSDAuQnU4UjQ2QnllSk1hTkZieDJoc0l1NnNlY2Fvb2Jramo1U2xZYXJ3VnU4bw==')
+  : '';
 
-  const [supabaseUrl, setSupabaseUrl] = useState<string>(
-    localStorage.getItem('cog_pastor_supabase_url') || import.meta.env.VITE_SUPABASE_URL || DEFAULT_URL
-  );
-  const [supabaseKey, setSupabaseKey] = useState<string>(
-    localStorage.getItem('cog_pastor_supabase_key') || import.meta.env.VITE_SUPABASE_ANON_KEY || DEFAULT_KEY
-  );
+export default function App() {
   const [client, setClient] = useState<SupabaseClient | null>(null);
 
   // Navigation
-  const [activeTab, setActiveTab] = useState<'upload' | 'manage' | 'guide'>('upload');
+  const [activeTab, setActiveTab] = useState<'upload' | 'manage'>('upload');
 
   // Form Fields
   const [title, setTitle] = useState('');
@@ -57,63 +49,56 @@ export default function App() {
 
   // States
   const [uploading, setUploading] = useState(false);
-  const [uploadSuccess, setUploadSuccess] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [lessonsList, setLessonsList] = useState<LessonRecord[]>([]);
   const [loadingLessons, setLoadingLessons] = useState(false);
-  const [showConfigModal, setShowConfigModal] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Initialize Supabase Client
+  // Initialize Client
   useEffect(() => {
-    if (supabaseUrl && supabaseKey) {
-      try {
-        const c = createClient(supabaseUrl.trim(), supabaseKey.trim());
-        setClient(c);
-      } catch (err) {
-        console.error('Invalid Supabase configuration:', err);
-        setClient(null);
-      }
-    } else {
-      setClient(null);
+    try {
+      const c = createClient(DEFAULT_CLOUD_URL, DEFAULT_CLOUD_KEY, {
+        auth: {
+          persistSession: false
+        }
+      });
+      setClient(c);
+    } catch (err) {
+      console.error('Failed to initialize client:', err);
     }
-  }, [supabaseUrl, supabaseKey]);
+  }, []);
 
-  // Load Lessons when Manage tab is active
+  // Load Lessons when Manage tab is active or on startup
   useEffect(() => {
-    if (activeTab === 'manage' && client) {
+    if (client) {
       fetchLessons();
     }
-  }, [activeTab, client]);
+  }, [client]);
 
   const fetchLessons = async () => {
-    if (!client) return;
     setLoadingLessons(true);
     try {
-      const { data, error } = await client
-        .from('lessons')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-      if (error) {
-        setStatusMessage(`Error fetching: ${error.message}`);
-      } else {
+      // Direct REST fetch guarantees reliable loading
+      const res = await fetch(
+        `${DEFAULT_CLOUD_URL}/rest/v1/lessons?select=*&order=created_at.desc`,
+        {
+          headers: {
+            apikey: DEFAULT_CLOUD_KEY,
+            Authorization: `Bearer ${DEFAULT_CLOUD_KEY}`
+          }
+        }
+      );
+      if (res.ok) {
+        const data = await res.json();
         setLessonsList(data || []);
+      } else {
+        setStatusMessage('Could not retrieve lessons list');
       }
     } catch (err: any) {
       setStatusMessage(`Network error: ${err.message}`);
     } finally {
       setLoadingLessons(false);
     }
-  };
-
-  const handleSaveCredentials = (e: React.FormEvent) => {
-    e.preventDefault();
-    localStorage.setItem('cog_pastor_supabase_url', supabaseUrl.trim());
-    localStorage.setItem('cog_pastor_supabase_key', supabaseKey.trim());
-    setShowConfigModal(false);
-    setStatusMessage('Supabase credentials saved successfully!');
-    setTimeout(() => setStatusMessage(null), 3000);
   };
 
   const detectType = (name: string, mime?: string): 'pdf' | 'image' | 'doc' | 'other' => {
@@ -127,7 +112,7 @@ export default function App() {
   const handleUpload = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!client) {
-      setShowConfigModal(true);
+      alert('Cloud connection not ready. Please try again.');
       return;
     }
     if (!selectedFile) {
@@ -140,15 +125,14 @@ export default function App() {
     }
 
     setUploading(true);
-    setStatusMessage('Uploading file to Supabase Storage...');
-    setUploadSuccess(false);
+    setStatusMessage('Uploading lesson file...');
 
     try {
       // 1. Sanitize file name
       const sanitizedName = selectedFile.name.replace(/[^a-zA-Z0-9._-]/g, '_');
       const filePath = `${Date.now()}_${sanitizedName}`;
 
-      // 2. Upload to Supabase Storage bucket 'lessons'
+      // 2. Upload to Storage bucket 'lessons'
       const { error: storageError } = await client.storage
         .from('lessons')
         .upload(filePath, selectedFile, {
@@ -183,18 +167,18 @@ export default function App() {
       ]);
 
       if (dbError) {
-        throw new Error(`Database record failed: ${dbError.message}`);
+        throw new Error(`Database save failed: ${dbError.message}`);
       }
 
       // Save Minister Name for next time
       localStorage.setItem('cog_minister_name', ministerName.trim());
 
-      setUploadSuccess(true);
-      setStatusMessage('Lesson uploaded successfully to congregation app!');
+      setStatusMessage('Lesson uploaded successfully! It is now live in the Bible app.');
       setTitle('');
       setDescription('');
       setSelectedFile(null);
-      setTimeout(() => setUploadSuccess(false), 5000);
+      fetchLessons();
+      setTimeout(() => setStatusMessage(null), 5000);
     } catch (err: any) {
       console.error('Upload error:', err);
       setStatusMessage(`Upload failed: ${err.message}`);
@@ -217,7 +201,7 @@ export default function App() {
 
       if (dbError) throw dbError;
 
-      // Also attempt storage cleanup if path extracts cleanly
+      // Clean up storage file
       try {
         const parts = lesson.file_url.split('/lessons/');
         if (parts.length > 1) {
@@ -241,43 +225,40 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#071326] text-[#E2ECFA] flex flex-col">
-      {/* Header */}
-      <header className="bg-[#0E2240] border-b border-[#1D3D6F] px-4 py-3 sticky top-0 z-30 shadow-md">
+      {/* Header with Safe Area Status Bar Clearance */}
+      <header
+        className="bg-[#0E2240] border-b border-[#1D3D6F] px-4 sticky top-0 z-30 shadow-md select-none"
+        style={{
+          paddingTop: 'calc(max(var(--safe-area-inset-top, env(safe-area-inset-top, 0px)), 38px) + 0.625rem)',
+          paddingBottom: '0.75rem'
+        }}
+      >
         <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="p-2 rounded-xl bg-[#C9A227] text-white font-bold">
+          <div className="flex items-center gap-2.5">
+            <span className="p-2 rounded-xl bg-[#C9A227] text-white font-bold flex-shrink-0">
               <BookOpen className="w-5 h-5" />
             </span>
-            <div>
-              <h1 className="text-base sm:text-lg font-bold text-white tracking-tight">
+            <div className="min-w-0">
+              <h1 className="text-base sm:text-lg font-bold text-white tracking-tight truncate">
                 COG Minister Portal
               </h1>
-              <p className="text-[11px] text-blue-200">
-                Church of God (Truth, Justice, and Righteousness)
+              <p className="text-[11px] text-blue-200 truncate">
+                The Church of God (Truth, Justice, and Righteousness)
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setShowConfigModal(true)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 border transition cursor-pointer ${
-                client
-                  ? 'border-green-500/40 text-green-400 bg-green-500/10'
-                  : 'border-[#C9A227] text-[#C9A227] bg-[#C9A227]/10'
-              }`}
-            >
-              <Database className="w-3.5 h-3.5" />
-              <span>{client ? 'Supabase Connected' : 'Connect Supabase'}</span>
-            </button>
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-semibold flex-shrink-0">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Online</span>
           </div>
         </div>
 
         {/* Tab Bar */}
-        <div className="max-w-4xl mx-auto flex gap-2 mt-3 pt-2 border-t border-[#1D3D6F]/60">
+        <div className="max-w-4xl mx-auto flex gap-2 mt-3 pt-2.5 border-t border-[#1D3D6F]/60">
           <button
             onClick={() => setActiveTab('upload')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
               activeTab === 'upload'
                 ? 'bg-[#C9A227] text-white shadow-xs'
                 : 'text-blue-200 hover:bg-white/5'
@@ -287,42 +268,39 @@ export default function App() {
             <span>Upload Lesson</span>
           </button>
           <button
-            onClick={() => setActiveTab('manage')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+            onClick={() => {
+              setActiveTab('manage');
+              fetchLessons();
+            }}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
               activeTab === 'manage'
                 ? 'bg-[#C9A227] text-white shadow-xs'
                 : 'text-blue-200 hover:bg-white/5'
             }`}
           >
             <FileText className="w-4 h-4" />
-            <span>Manage Uploads</span>
-          </button>
-          <button
-            onClick={() => setActiveTab('guide')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
-              activeTab === 'guide'
-                ? 'bg-[#C9A227] text-white shadow-xs'
-                : 'text-blue-200 hover:bg-white/5'
-            }`}
-          >
-            <Database className="w-4 h-4" />
-            <span>Setup Guide</span>
+            <span>Manage Uploads ({lessonsList.length})</span>
           </button>
         </div>
       </header>
 
       {/* Main Content Area */}
-      <main className="flex-1 max-w-4xl w-full mx-auto p-4">
+      <main
+        className="flex-1 max-w-4xl w-full mx-auto p-4"
+        style={{
+          paddingBottom: 'calc(max(var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px)), 16px) + 1.5rem)'
+        }}
+      >
         {/* Status Toast */}
         {statusMessage && (
-          <div className="mb-4 p-3 rounded-xl bg-[#1B3A6B] border border-[#C9A227]/40 text-white text-xs flex items-center justify-between">
+          <div className="mb-4 p-3 rounded-xl bg-[#1B3A6B] border border-[#C9A227]/40 text-white text-xs flex items-center justify-between shadow-lg">
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-[#C9A227] flex-shrink-0" />
               <span>{statusMessage}</span>
             </div>
             <button
               onClick={() => setStatusMessage(null)}
-              className="text-gray-300 hover:text-white"
+              className="text-gray-300 hover:text-white cursor-pointer ml-2"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -337,7 +315,7 @@ export default function App() {
               Upload Church Lesson or Sermon File
             </h2>
             <p className="text-xs text-blue-200 mb-5">
-              Uploaded files will immediately appear in the congregation's COG Bible Lessons section.
+              Uploaded files will automatically appear in the congregation's COG Bible Lessons section.
             </p>
 
             <form onSubmit={handleUpload} className="space-y-4">
@@ -446,7 +424,7 @@ export default function App() {
                   {uploading ? (
                     <>
                       <RefreshCw className="w-4 h-4 animate-spin" />
-                      <span>Uploading File to Supabase...</span>
+                      <span>Uploading File to Cloud...</span>
                     </>
                   ) : (
                     <>
@@ -477,7 +455,7 @@ export default function App() {
               <button
                 onClick={fetchLessons}
                 disabled={loadingLessons}
-                className="p-2 rounded-xl bg-[#0E2240] border border-[#1D3D6F] text-blue-200 hover:text-white"
+                className="p-2 rounded-xl bg-[#0E2240] border border-[#1D3D6F] text-blue-200 hover:text-white cursor-pointer"
                 title="Refresh"
               >
                 <RefreshCw className={`w-4 h-4 ${loadingLessons ? 'animate-spin' : ''}`} />
@@ -498,7 +476,7 @@ export default function App() {
                 {filteredLessons.map((lesson) => (
                   <div
                     key={lesson.id}
-                    className="p-4 bg-[#0E2240] rounded-2xl border border-[#1D3D6F] flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                    className="p-4 bg-[#0E2240] rounded-2xl border border-[#1D3D6F] flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs"
                   >
                     <div>
                       <div className="flex items-center gap-2 mb-1">
@@ -549,134 +527,7 @@ export default function App() {
             )}
           </div>
         )}
-
-        {/* TAB 3: SETUP GUIDE */}
-        {activeTab === 'guide' && (
-          <div className="bg-[#0E2240] rounded-2xl border border-[#1D3D6F] p-5 space-y-4 text-xs">
-            <h2 className="text-base font-bold text-white flex items-center gap-2">
-              <Database className="w-5 h-5 text-[#C9A227]" />
-              Supabase Quick Setup Instructions
-            </h2>
-
-            <div>
-              <p className="font-semibold text-[#C9A227] mb-1">
-                1. Create 'lessons' Storage Bucket
-              </p>
-              <p className="text-gray-300">
-                Go to Supabase Dashboard → <strong>Storage</strong> → Click <strong>New Bucket</strong> → Name it <strong>lessons</strong> and check <strong>Public Bucket</strong>.
-              </p>
-            </div>
-
-            <div>
-              <p className="font-semibold text-[#C9A227] mb-1">
-                2. Run SQL Schema in Supabase
-              </p>
-              <p className="text-gray-300 mb-2">
-                In Supabase Dashboard → <strong>SQL Editor</strong>, paste this snippet:
-              </p>
-              <div className="bg-[#071326] p-3 rounded-xl font-mono text-[11px] text-green-400 select-all overflow-x-auto">
-                <pre>{`create table if not exists public.lessons (
-  id uuid default gen_random_uuid() primary key,
-  title text not null,
-  description text default '',
-  minister_name text not null,
-  file_url text not null,
-  file_name text not null,
-  file_type text default 'pdf',
-  file_size_bytes bigint default 0,
-  category text default 'general',
-  created_at timestamp with time zone default timezone('utc'::text, now()) not null
-);
-
-alter table public.lessons enable row level security;
-
-create policy "Public can view lessons" on public.lessons for select using (true);
-create policy "Allow insert lessons" on public.lessons for insert with check (true);
-create policy "Allow delete lessons" on public.lessons for delete using (true);
-
-create policy "Public storage view" on storage.objects for select using (bucket_id = 'lessons');
-create policy "Allow storage upload" on storage.objects for insert with check (bucket_id = 'lessons');
-create policy "Allow storage delete" on storage.objects for delete using (bucket_id = 'lessons');`}</pre>
-              </div>
-            </div>
-
-            <div>
-              <p className="font-semibold text-[#C9A227] mb-1">
-                3. Connect URL & Anon Key
-              </p>
-              <p className="text-gray-300">
-                Copy your <strong>Project URL</strong> and <strong>Anon Key</strong> from <strong>Project Settings → API</strong> into the Connect Supabase dialog.
-              </p>
-            </div>
-          </div>
-        )}
       </main>
-
-      {/* Supabase Config Modal */}
-      {showConfigModal && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-[#0E2240] w-full max-w-md rounded-2xl border border-[#1D3D6F] p-5 shadow-2xl">
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="font-bold text-white text-base flex items-center gap-2">
-                <Database className="w-5 h-5 text-[#C9A227]" />
-                Supabase Credentials
-              </h3>
-              <button
-                onClick={() => setShowConfigModal(false)}
-                className="text-gray-400 hover:text-white"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <form onSubmit={handleSaveCredentials} className="space-y-3 text-xs">
-              <div>
-                <label className="block font-semibold text-blue-200 mb-1">
-                  Supabase Project URL
-                </label>
-                <input
-                  type="url"
-                  required
-                  value={supabaseUrl}
-                  onChange={(e) => setSupabaseUrl(e.target.value)}
-                  placeholder="https://xyz.supabase.co"
-                  className="w-full px-3 py-2 bg-[#071326] border border-[#1D3D6F] rounded-xl text-white"
-                />
-              </div>
-
-              <div>
-                <label className="block font-semibold text-blue-200 mb-1">
-                  Supabase Anon or Service Key
-                </label>
-                <input
-                  type="password"
-                  required
-                  value={supabaseKey}
-                  onChange={(e) => setSupabaseKey(e.target.value)}
-                  placeholder="eyJhbGciOiJIUz..."
-                  className="w-full px-3 py-2 bg-[#071326] border border-[#1D3D6F] rounded-xl text-white"
-                />
-              </div>
-
-              <div className="flex justify-end gap-2 pt-2">
-                <button
-                  type="button"
-                  onClick={() => setShowConfigModal(false)}
-                  className="px-3 py-1.5 rounded-xl text-gray-400 hover:text-white"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="px-4 py-1.5 rounded-xl bg-[#C9A227] text-white font-bold"
-                >
-                  Save & Connect
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

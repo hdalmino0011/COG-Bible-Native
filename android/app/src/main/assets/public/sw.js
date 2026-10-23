@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cog-bible-offline-v7.0.0';
+const CACHE_NAME = 'cog-bible-offline-v10.0.0';
 
 const DEFAULT_BOOK_FILES = [
   '1 Chronicles.json',
@@ -554,12 +554,68 @@ const PRECACHE_ASSETS = [
   "assets/Zechariah-DOtaYyo_.js",
   "./assets/Zephaniah-D_3yjLD0.js",
   "assets/Zephaniah-D_3yjLD0.js",
-  "./assets/index-BOkft1tp.css",
-  "assets/index-BOkft1tp.css",
-  "./assets/index-BlZfPHOG.js",
-  "assets/index-BlZfPHOG.js",
-  "./assets/web-TtHJYmiC.js",
-  "assets/web-TtHJYmiC.js"
+  "./assets/aistudio",
+  "assets/aistudio",
+  "./assets/chronicles_campfire_1790635522116-BujwQVu7.jpg",
+  "assets/chronicles_campfire_1790635522116-BujwQVu7.jpg",
+  "./assets/chronicles_oak_tree_1790635510205-DVWt-VnK.jpg",
+  "assets/chronicles_oak_tree_1790635510205-DVWt-VnK.jpg",
+  "./assets/corinthians_clay_pots_1790635669401-BWRjcoM8.jpg",
+  "assets/corinthians_clay_pots_1790635669401-BWRjcoM8.jpg",
+  "./assets/corinthians_vineyard_rows_1790635658149-t0KyQvOB.jpg",
+  "assets/corinthians_vineyard_rows_1790635658149-t0KyQvOB.jpg",
+  "./assets/hebrews_beach_anchor_1790635754773-HvpUSTTE.jpg",
+  "assets/hebrews_beach_anchor_1790635754773-HvpUSTTE.jpg",
+  "./assets/hosea_climbing_vines_1790635559019-BiYmL_lA.jpg",
+  "assets/hosea_climbing_vines_1790635559019-BiYmL_lA.jpg",
+  "./assets/index-C4SkewoL.css",
+  "assets/index-C4SkewoL.css",
+  "./assets/index-Dq0NyIjP.js",
+  "assets/index-Dq0NyIjP.js",
+  "./assets/jeremiah_weeping_willow_1790635547584-Ch70-MjN.jpg",
+  "assets/jeremiah_weeping_willow_1790635547584-Ch70-MjN.jpg",
+  "./assets/joel_golden_grasshopper_1790635569980-XXyd3VO5.jpg",
+  "assets/joel_golden_grasshopper_1790635569980-XXyd3VO5.jpg",
+  "./assets/john_open_gate_1790635767900-BanB58m7.jpg",
+  "assets/john_open_gate_1790635767900-BanB58m7.jpg",
+  "./assets/jonah_stormy_waves_1790635592089-CejZ8yKv.jpg",
+  "assets/jonah_stormy_waves_1790635592089-CejZ8yKv.jpg",
+  "./assets/judges_thunderstorm_1790635486461-DLZEEfRD.jpg",
+  "assets/judges_thunderstorm_1790635486461-DLZEEfRD.jpg",
+  "./assets/malachi_bonfire_embers_1790635628194-s6YxTlWo.jpg",
+  "assets/malachi_bonfire_embers_1790635628194-s6YxTlWo.jpg",
+  "./assets/matthew_bright_star_1790635638033-1F19vUB_.jpg",
+  "assets/matthew_bright_star_1790635638033-1F19vUB_.jpg",
+  "./assets/micah_starry_hills_1790635604019-DOzARhfs.jpg",
+  "assets/micah_starry_hills_1790635604019-DOzARhfs.jpg",
+  "./assets/nahum_desert_ruins_1790635615531-CcupF4mE.jpg",
+  "assets/nahum_desert_ruins_1790635615531-CcupF4mE.jpg",
+  "./assets/obadiah_soaring_eagle_1790635581563-Due0KuWp.jpg",
+  "assets/obadiah_soaring_eagle_1790635581563-Due0KuWp.jpg",
+  "./assets/philippians_green_meadow_1790635681858-5kGABpDq.jpg",
+  "assets/philippians_green_meadow_1790635681858-5kGABpDq.jpg",
+  "./assets/revelation_golden_valley_1790635780072-Cbg7n5tP.jpg",
+  "assets/revelation_golden_valley_1790635780072-Cbg7n5tP.jpg",
+  "./assets/romans_cobblestone_path_1790635647618-DEZdDeIh.jpg",
+  "assets/romans_cobblestone_path_1790635647618-DEZdDeIh.jpg",
+  "./assets/samuel_cedar_forest_1790635498999-DSVvaNke.jpg",
+  "assets/samuel_cedar_forest_1790635498999-DSVvaNke.jpg",
+  "./assets/solomon_rose_bushes_1790635537213-pfui-dA7.jpg",
+  "assets/solomon_rose_bushes_1790635537213-pfui-dA7.jpg",
+  "./assets/thessalonians_silver_clouds_1790635695513-CbEt2PzP.jpg",
+  "assets/thessalonians_silver_clouds_1790635695513-CbEt2PzP.jpg",
+  "./assets/thessalonians_sturdy_oak_1790635707144-vUsp1O1X.jpg",
+  "assets/thessalonians_sturdy_oak_1790635707144-vUsp1O1X.jpg",
+  "./assets/timothy_grazing_sheep_1790635719929-k1E4ZHz1.jpg",
+  "assets/timothy_grazing_sheep_1790635719929-k1E4ZHz1.jpg",
+  "./assets/timothy_sunrise_campground_1790635730568-B4AcoEjF.jpg",
+  "assets/timothy_sunrise_campground_1790635730568-B4AcoEjF.jpg",
+  "./assets/titus_rugged_coastline_1790635743161-DV_oqNfc.jpg",
+  "assets/titus_rugged_coastline_1790635743161-DV_oqNfc.jpg",
+  "./assets/web-BscZNJi4.js",
+  "assets/web-BscZNJi4.js",
+  "./assets/web-Dyg8w-kZ.js",
+  "assets/web-Dyg8w-kZ.js"
 ];
 
 const STATIC_ASSETS = Array.from(
@@ -725,7 +781,30 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 2. All Assets, JSON Data, Scripts, Styles & Images (Cache-First)
+  // 2. Images: Network-First with flexible Cache fallback (guarantees updated photos load immediately)
+  if (
+    event.request.destination === 'image' ||
+    requestUrl.includes('/images/') ||
+    requestUrl.endsWith('.jpg') ||
+    requestUrl.endsWith('.jpeg') ||
+    requestUrl.endsWith('.png') ||
+    requestUrl.endsWith('.webp')
+  ) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkRes) => {
+          if (networkRes && networkRes.status === 200) {
+            const copy = networkRes.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          }
+          return networkRes;
+        })
+        .catch(() => matchCacheFlexible(event.request))
+    );
+    return;
+  }
+
+  // 3. All Assets, JSON Data, Scripts & Styles (Cache-First)
   event.respondWith(
     matchCacheFlexible(event.request).then(async (cachedResponse) => {
       if (cachedResponse) {
