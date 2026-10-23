@@ -16,9 +16,7 @@ const STORAGE_KEY_KEY = 'cog_cloud_key';
 const STORAGE_KEY_CACHED_LESSONS = 'cog_cached_lessons_data';
 
 export const DEFAULT_CLOUD_URL = 'https://dzxddspgajznsxnekhrn.supabase.co';
-export const DEFAULT_CLOUD_KEY = typeof atob !== 'undefined'
-  ? atob('ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBjM01pT2lKemRYQmhZbUZ6WlNJc0luSmxaaUk2SW1SNmVHUmtjM0JuWVdwNmJuTjRibVZyYUhKdUlpd2ljbTlzWlNJNkltRnViMjRpTENKcFlYUWlPakUzT1RJMk9EYzFPVGdzSW1WNGNDSTZNakV3T0RJMk16VTVPSDAuQnU4UjQ2QnllSk1hTkZieDJoc0l1NnNlY2Fvb2Jramo1U2xZYXJ3VnU4bw==')
-  : '';
+export const DEFAULT_CLOUD_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6eGRkc3BnYWp6bnN4bmVraHJuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI2ODc1OTgsImV4cCI6MjEwODI2MzU5OH0.Bu8R46ByeJMaNFbx2hsIu6secaoobkjj5SlYarwVu8o';
 
 export function getCloudCredentials(): { url: string; anonKey: string } {
   const envUrl = (import.meta.env.VITE_SUPABASE_URL || '').trim();
@@ -96,9 +94,7 @@ export async function fetchLessonsFromSupabase(): Promise<{
   cleanLegacySupabaseCaches().catch(() => {});
 
   const creds = getCloudCredentials();
-  // Unique timestamp guarantees immediate fresh fetch directly from Supabase
-  const timestamp = Date.now();
-  const endpoint = `${creds.url.replace(/\/$/, '')}/rest/v1/lessons?select=*&order=created_at.desc&_t=${timestamp}`;
+  const endpoint = `${creds.url.replace(/\/$/, '')}/rest/v1/lessons?select=*&order=created_at.desc`;
 
   try {
     const controller = new AbortController();
@@ -110,9 +106,7 @@ export async function fetchLessonsFromSupabase(): Promise<{
       headers: {
         apikey: creds.anonKey,
         Authorization: `Bearer ${creds.anonKey}`,
-        Accept: 'application/json',
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
-        Pragma: 'no-cache'
+        Accept: 'application/json'
       },
       signal: controller.signal
     });

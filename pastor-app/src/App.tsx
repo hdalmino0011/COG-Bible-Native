@@ -34,9 +34,7 @@ interface LessonRecord {
 }
 
 const DEFAULT_CLOUD_URL = 'https://dzxddspgajznsxnekhrn.supabase.co';
-const DEFAULT_CLOUD_KEY = typeof atob !== 'undefined'
-  ? atob('ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBjM01pT2lKemRYQmhZbUZ6WlNJc0luSmxaaUk2SW1SNmVHUmtjM0JuWVdwNmJuTjRibVZyYUhKdUlpd2ljbTlzWlNJNkltRnViMjRpTENKcFlYUWlPakUzT1RJMk9EYzFPVGdzSW1WNGNDSTZNakV3T0RJMk16VTVPSDAuQnU4UjQ2QnllSk1hTkZieDJoc0l1NnNlY2Fvb2Jramo1U2xZYXJ3VnU4bw==')
-  : '';
+const DEFAULT_CLOUD_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6eGRkc3BnYWp6bnN4bmVraHJuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI2ODc1OTgsImV4cCI6MjEwODI2MzU5OH0.Bu8R46ByeJMaNFbx2hsIu6secaoobkjj5SlYarwVu8o';
 
 export default function App() {
   // Authentication State
@@ -122,19 +120,32 @@ export default function App() {
   const fetchLessons = async () => {
     setLoadingLessons(true);
     try {
-      // Direct REST fetch with cache-busting to guarantee immediate live synchronization
-      const timestamp = Date.now();
+      // 1. Primary: Use the Supabase client SDK if ready
+      if (client) {
+        const { data, error } = await client
+          .from('lessons')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (!error && Array.isArray(data)) {
+          setLessonsList(data);
+          return;
+        }
+        if (error) {
+          console.warn('Supabase client fetch warning:', error.message);
+        }
+      }
+
+      // 2. Direct clean REST query without custom query parameters that break PostgREST parsing
       const res = await fetch(
-        `${DEFAULT_CLOUD_URL}/rest/v1/lessons?select=*&order=created_at.desc&_t=${timestamp}`,
+        `${DEFAULT_CLOUD_URL}/rest/v1/lessons?select=*&order=created_at.desc`,
         {
           method: 'GET',
           cache: 'no-store',
           headers: {
             apikey: DEFAULT_CLOUD_KEY,
             Authorization: `Bearer ${DEFAULT_CLOUD_KEY}`,
-            Accept: 'application/json',
-            'Cache-Control': 'no-cache, no-store, must-revalidate',
-            Pragma: 'no-cache'
+            Accept: 'application/json'
           }
         }
       );
@@ -142,9 +153,12 @@ export default function App() {
         const data = await res.json();
         setLessonsList(Array.isArray(data) ? data : []);
       } else {
-        setStatusMessage('Could not retrieve lessons list from database.');
+        const errText = await res.text().catch(() => '');
+        console.warn('Fetch error:', res.status, errText);
+        setStatusMessage(`Could not retrieve lessons list (${res.status}).`);
       }
     } catch (err: any) {
+      console.warn('Network error in fetchLessons:', err);
       setStatusMessage(`Network error: ${err.message}`);
     } finally {
       setLoadingLessons(false);
