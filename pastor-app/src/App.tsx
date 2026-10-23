@@ -5,13 +5,19 @@ import {
   FileText,
   Trash2,
   Eye,
+  EyeOff,
   RefreshCw,
   CheckCircle,
-  ExternalLink,
   Search,
   BookOpen,
   Calendar,
-  X
+  X,
+  Lock,
+  User,
+  LogIn,
+  LogOut,
+  AlertCircle,
+  ShieldCheck
 } from 'lucide-react';
 
 interface LessonRecord {
@@ -33,6 +39,17 @@ const DEFAULT_CLOUD_KEY = typeof atob !== 'undefined'
   : '';
 
 export default function App() {
+  // Authentication State
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    return localStorage.getItem('cog_portal_authenticated') === 'true';
+  });
+  const [loginUsername, setLoginUsername] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState<string | null>(null);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+
+  // Supabase Client
   const [client, setClient] = useState<SupabaseClient | null>(null);
 
   // Navigation
@@ -68,31 +85,64 @@ export default function App() {
     }
   }, []);
 
-  // Load Lessons when Manage tab is active or on startup
+  // Load Lessons when Authenticated
   useEffect(() => {
-    if (client) {
+    if (client && isAuthenticated) {
       fetchLessons();
     }
-  }, [client]);
+  }, [client, isAuthenticated]);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoggingIn(true);
+    setLoginError(null);
+
+    // Exact credentials verification
+    const trimmedUser = loginUsername.trim();
+    const trimmedPass = loginPassword.trim();
+
+    if (trimmedUser === 'COGtjr2026' && trimmedPass === 'COGtjr101!') {
+      localStorage.setItem('cog_portal_authenticated', 'true');
+      setIsAuthenticated(true);
+      setLoginError(null);
+    } else {
+      setLoginError('Invalid username or password. Please verify your credentials and try again.');
+    }
+    setIsLoggingIn(false);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('cog_portal_authenticated');
+    setIsAuthenticated(false);
+    setLoginUsername('');
+    setLoginPassword('');
+    setLoginError(null);
+  };
 
   const fetchLessons = async () => {
     setLoadingLessons(true);
     try {
-      // Direct REST fetch guarantees reliable loading
+      // Direct REST fetch with cache-busting to guarantee immediate live synchronization
+      const timestamp = Date.now();
       const res = await fetch(
-        `${DEFAULT_CLOUD_URL}/rest/v1/lessons?select=*&order=created_at.desc`,
+        `${DEFAULT_CLOUD_URL}/rest/v1/lessons?select=*&order=created_at.desc&_t=${timestamp}`,
         {
+          method: 'GET',
+          cache: 'no-store',
           headers: {
             apikey: DEFAULT_CLOUD_KEY,
-            Authorization: `Bearer ${DEFAULT_CLOUD_KEY}`
+            Authorization: `Bearer ${DEFAULT_CLOUD_KEY}`,
+            Accept: 'application/json',
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            Pragma: 'no-cache'
           }
         }
       );
       if (res.ok) {
         const data = await res.json();
-        setLessonsList(data || []);
+        setLessonsList(Array.isArray(data) ? data : []);
       } else {
-        setStatusMessage('Could not retrieve lessons list');
+        setStatusMessage('Could not retrieve lessons list from database.');
       }
     } catch (err: any) {
       setStatusMessage(`Network error: ${err.message}`);
@@ -112,11 +162,11 @@ export default function App() {
   const handleUpload = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!client) {
-      alert('Cloud connection not ready. Please try again.');
+      alert('Cloud database connection not ready. Please try again.');
       return;
     }
     if (!selectedFile) {
-      alert('Please select a file to upload.');
+      alert('Please select a lesson file to upload.');
       return;
     }
     if (!title.trim() || !ministerName.trim()) {
@@ -125,7 +175,7 @@ export default function App() {
     }
 
     setUploading(true);
-    setStatusMessage('Uploading lesson file...');
+    setStatusMessage('Uploading lesson file to cloud...');
 
     try {
       // 1. Sanitize file name
@@ -136,7 +186,7 @@ export default function App() {
       const { error: storageError } = await client.storage
         .from('lessons')
         .upload(filePath, selectedFile, {
-          cacheControl: '3600',
+          cacheControl: '0',
           upsert: true
         });
 
@@ -173,11 +223,11 @@ export default function App() {
       // Save Minister Name for next time
       localStorage.setItem('cog_minister_name', ministerName.trim());
 
-      setStatusMessage('Lesson uploaded successfully! It is now live in the Bible app.');
+      setStatusMessage('Lesson uploaded successfully! It is now live in the COG Bible app.');
       setTitle('');
       setDescription('');
       setSelectedFile(null);
-      fetchLessons();
+      await fetchLessons();
       setTimeout(() => setStatusMessage(null), 5000);
     } catch (err: any) {
       console.error('Upload error:', err);
@@ -193,7 +243,7 @@ export default function App() {
     if (!confirmDel) return;
 
     try {
-      // Remove DB record
+      // Remove DB record from database
       const { error: dbError } = await client
         .from('lessons')
         .delete()
@@ -209,8 +259,9 @@ export default function App() {
         }
       } catch {}
 
-      setLessonsList(prev => prev.filter(l => l.id !== lesson.id));
-      setStatusMessage(`Deleted "${lesson.title}"`);
+      // Refresh list immediately from server to guarantee sync
+      await fetchLessons();
+      setStatusMessage(`Deleted "${lesson.title}" successfully.`);
       setTimeout(() => setStatusMessage(null), 3000);
     } catch (err: any) {
       alert(`Delete failed: ${err.message}`);
@@ -223,6 +274,125 @@ export default function App() {
     l.minister_name?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // ==========================================
+  // LOGIN SCREEN
+  // ==========================================
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-[#071326] text-[#E2ECFA] flex flex-col justify-center items-center px-4 py-8">
+        <div
+          className="w-full max-w-md bg-[#0E2240] border border-[#1D3D6F] rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden"
+          style={{
+            marginTop: 'max(var(--safe-area-inset-top, env(safe-area-inset-top, 0px)), 12px)'
+          }}
+        >
+          {/* Top Decorative Gold Accent Line */}
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#C9A227] via-[#E4C765] to-[#C9A227]" />
+
+          {/* Header & Logo */}
+          <div className="text-center mb-6 pt-2">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#C9A227] to-[#997715] flex items-center justify-center mx-auto mb-3.5 shadow-lg shadow-[#C9A227]/20 border border-[#E4C765]/40">
+              <BookOpen className="w-8 h-8 text-white" />
+            </div>
+            <h1 className="text-xl sm:text-2xl font-bold font-serif text-white tracking-tight">
+              COG Minister Portal
+            </h1>
+            <p className="text-xs text-[#C9A227] font-semibold tracking-wide uppercase mt-1">
+              Truth • Justice • Righteousness
+            </p>
+            <p className="text-xs text-blue-200/80 mt-1">
+              Authorized Minister & Pastor Login
+            </p>
+          </div>
+
+          {/* Error Message */}
+          {loginError && (
+            <div className="mb-5 p-3 rounded-xl bg-red-500/15 border border-red-500/40 text-red-200 text-xs flex items-center gap-2.5">
+              <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
+              <span>{loginError}</span>
+            </div>
+          )}
+
+          {/* Login Form */}
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div>
+              <label className="block text-xs font-semibold text-blue-200 mb-1.5">
+                Username
+              </label>
+              <div className="relative">
+                <User className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+                <input
+                  type="text"
+                  required
+                  autoFocus
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  value={loginUsername}
+                  onChange={(e) => {
+                    setLoginUsername(e.target.value);
+                    if (loginError) setLoginError(null);
+                  }}
+                  placeholder="Enter username"
+                  className="w-full pl-10 pr-4 py-2.5 bg-[#071326] border border-[#1D3D6F] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-hidden focus:ring-2 focus:ring-[#C9A227] transition"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-blue-200 mb-1.5">
+                Password
+              </label>
+              <div className="relative">
+                <Lock className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  required
+                  value={loginPassword}
+                  onChange={(e) => {
+                    setLoginPassword(e.target.value);
+                    if (loginError) setLoginError(null);
+                  }}
+                  placeholder="Enter password"
+                  className="w-full pl-10 pr-11 py-2.5 bg-[#071326] border border-[#1D3D6F] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-hidden focus:ring-2 focus:ring-[#C9A227] transition"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-200 cursor-pointer"
+                  tabIndex={-1}
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={isLoggingIn}
+              className="w-full mt-2 py-3 px-4 rounded-xl bg-gradient-to-r from-[#C9A227] to-[#b5901f] hover:from-[#d6ad2c] hover:to-[#c49c23] text-white font-bold text-sm shadow-md shadow-[#C9A227]/25 transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+            >
+              {isLoggingIn ? (
+                <>
+                  <RefreshCw className="w-4 h-4 animate-spin" />
+                  <span>Verifying...</span>
+                </>
+              ) : (
+                <>
+                  <LogIn className="w-4 h-4" />
+                  <span>Sign In</span>
+                </>
+              )}
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
+  // ==========================================
+  // MAIN PORTAL (AUTHENTICATED)
+  // ==========================================
   return (
     <div className="min-h-screen bg-[#071326] text-[#E2ECFA] flex flex-col">
       {/* Header with Safe Area Status Bar Clearance */}
@@ -233,8 +403,8 @@ export default function App() {
           paddingBottom: '0.75rem'
         }}
       >
-        <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
+        <div className="max-w-4xl mx-auto flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2.5 min-w-0">
             <span className="p-2 rounded-xl bg-[#C9A227] text-white font-bold flex-shrink-0">
               <BookOpen className="w-5 h-5" />
             </span>
@@ -248,9 +418,20 @@ export default function App() {
             </div>
           </div>
 
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-semibold flex-shrink-0">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Online</span>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <div className="hidden xs:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Online</span>
+            </div>
+
+            <button
+              onClick={handleLogout}
+              className="px-3 py-1.5 rounded-xl bg-red-500/15 hover:bg-red-500/25 border border-red-500/30 text-red-300 text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer"
+              title="Sign Out of Minister Portal"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span>Sign Out</span>
+            </button>
           </div>
         </div>
 
@@ -360,7 +541,6 @@ export default function App() {
                     className="w-full px-3 py-2 bg-[#071326] border border-[#1D3D6F] rounded-xl text-sm text-white focus:outline-hidden focus:ring-2 focus:ring-[#C9A227]"
                   >
                     <option value="Sabbath Study">Sabbath Study</option>
-                    <option value="Sunday Service">Sunday Service</option>
                     <option value="Church Doctrine">Church Doctrine</option>
                     <option value="Bible Study">Bible Study</option>
                     <option value="Youth Fellowship">Youth Fellowship</option>
@@ -389,14 +569,14 @@ export default function App() {
 
               {selectedFile && (
                 <div className="p-3 bg-[#071326] rounded-xl border border-[#1D3D6F] text-xs flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <FileText className="w-4 h-4 text-[#C9A227]" />
-                    <span className="font-semibold text-white">{selectedFile.name}</span>
-                    <span className="text-gray-400">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <FileText className="w-4 h-4 text-[#C9A227] flex-shrink-0" />
+                    <span className="font-semibold text-white truncate">{selectedFile.name}</span>
+                    <span className="text-gray-400 flex-shrink-0">
                       ({(selectedFile.size / 1024 / 1024).toFixed(2)} MB)
                     </span>
                   </div>
-                  <span className="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 text-[10px] uppercase font-bold">
+                  <span className="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 text-[10px] uppercase font-bold flex-shrink-0 ml-2">
                     {detectType(selectedFile.name, selectedFile.type)}
                   </span>
                 </div>
@@ -456,7 +636,7 @@ export default function App() {
                 onClick={fetchLessons}
                 disabled={loadingLessons}
                 className="p-2 rounded-xl bg-[#0E2240] border border-[#1D3D6F] text-blue-200 hover:text-white cursor-pointer"
-                title="Refresh"
+                title="Refresh lessons list"
               >
                 <RefreshCw className={`w-4 h-4 ${loadingLessons ? 'animate-spin' : ''}`} />
               </button>

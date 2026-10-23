@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cog-bible-offline-v10.0.0';
+const CACHE_NAME = 'cog-bible-offline-v10.0.1';
 
 const DEFAULT_BOOK_FILES = [
   '1 Chronicles.json',
@@ -231,6 +231,16 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   const requestUrl = event.request.url;
+
+  // Real-time Cloud Sync: Supabase database and storage requests must NEVER be cached by the Service Worker!
+  // Always let them go directly to the network so document uploads and deletions reflect instantly.
+  if (
+    requestUrl.includes('supabase.co') ||
+    requestUrl.includes('/rest/v1/') ||
+    requestUrl.includes('/storage/v1/')
+  ) {
+    return;
+  }
 
   // 1. HTML Navigation requests (Page loading & refresh)
   if (event.request.mode === 'navigate' || event.request.destination === 'document') {

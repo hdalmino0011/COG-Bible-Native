@@ -40,11 +40,14 @@ export const LessonsScreen: React.FC<LessonsScreenProps> = ({ onShowToast }) => 
     if (showLoadingSpinner) setLoading(true);
 
     const res = await fetchLessonsFromSupabase();
-    if (res.data && res.data.length > 0) {
+    if (!res.error && Array.isArray(res.data)) {
+      setLessons(res.data);
+    } else if (res.data && res.data.length > 0) {
       setLessons(res.data);
     }
     setIsOffline(Boolean(res.isOffline));
     setLoading(false);
+    return res;
   }, []);
 
   useEffect(() => {
@@ -140,9 +143,14 @@ export const LessonsScreen: React.FC<LessonsScreenProps> = ({ onShowToast }) => 
           </div>
 
           <button
-            onClick={() => {
-              loadLessons(true);
-              onShowToast('Checking for new lessons...');
+            onClick={async () => {
+              onShowToast('Checking for latest lessons...');
+              const res = await loadLessons(true);
+              if (res.error) {
+                onShowToast(res.error);
+              } else {
+                onShowToast(`Synchronized: ${res.data.length} lesson(s) up to date`);
+              }
             }}
             disabled={loading}
             className="p-2 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-gray-700 dark:text-gray-200 transition-colors cursor-pointer disabled:opacity-50 flex-shrink-0"

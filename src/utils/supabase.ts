@@ -58,24 +58,61 @@ export function setCachedLessons(lessons: LessonItem[]): void {
   } catch {}
 }
 
+// Actively clean any cached responses from legacy service worker caches
+export async function cleanLegacySupabaseCaches(): Promise<void> {
+  if (typeof window === 'undefined' || !('caches' in window)) return;
+  try {
+    const keys = await caches.keys();
+    for (const key of keys) {
+      const cache = await caches.open(key);
+      const requests = await cache.keys();
+      for (const req of requests) {
+        if (req.url.includes('supabase.co') || req.url.includes('/rest/v1/') || req.url.includes('/storage/v1/')) {
+          await cache.delete(req);
+        }
+      }
+    }
+  } catch (err) {
+    console.debug('Cache cleanup error:', err);
+  }
+}
+
 export async function fetchLessonsFromSupabase(): Promise<{
   data: LessonItem[];
   error?: string;
   isOffline?: boolean;
 }> {
+  // Clear any accidental stale keys in localStorage
+  if (typeof window !== 'undefined' && window.localStorage) {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY_KEY);
+      if (stored && stored !== DEFAULT_CLOUD_KEY) {
+        localStorage.removeItem(STORAGE_KEY_KEY);
+      }
+    } catch {}
+  }
+
+  // Purge legacy SW cache entry
+  cleanLegacySupabaseCaches().catch(() => {});
+
   const creds = getCloudCredentials();
-  const endpoint = `${creds.url.replace(/\/$/, '')}/rest/v1/lessons?select=*&order=created_at.desc`;
+  // Unique timestamp guarantees immediate fresh fetch directly from Supabase
+  const timestamp = Date.now();
+  const endpoint = `${creds.url.replace(/\/$/, '')}/rest/v1/lessons?select=*&order=created_at.desc&_t=${timestamp}`;
 
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 7000);
+    const timeoutId = setTimeout(() => controller.abort(), 9000);
 
     const res = await fetch(endpoint, {
       method: 'GET',
+      cache: 'no-store',
       headers: {
         apikey: creds.anonKey,
         Authorization: `Bearer ${creds.anonKey}`,
-        Accept: 'application/json'
+        Accept: 'application/json',
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        Pragma: 'no-cache'
       },
       signal: controller.signal
     });
