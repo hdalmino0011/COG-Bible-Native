@@ -439,7 +439,7 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
           <div className="flex items-center gap-2 min-w-0">
             <Volume2 className="w-4 h-4 text-[#E4C765] animate-pulse shrink-0" />
             <span className="truncate">
-              Reading aloud <strong>{currentBook} {currentChapter}:{speakingVerse || 1}</strong>
+              Reading aloud <strong>{currentBook} {currentChapter}:{speakingVerse || 1}</strong> (KJV)
             </span>
           </div>
           {onToggleContinuousReading && (

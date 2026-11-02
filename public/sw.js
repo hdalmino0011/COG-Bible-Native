@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cog-bible-offline-v10.0.1';
+const CACHE_NAME = 'cog-bible-offline-v11.0.0';
 
 const DEFAULT_BOOK_FILES = [
   '1 Chronicles.json',

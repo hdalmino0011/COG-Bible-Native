@@ -194,7 +194,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#C9A227]/10 text-[#C9A227] hidden sm:inline-block">
-                    {getThemeLabel()} • {preferences.useOriginalDivineName ? 'Original Divine Name' : 'Ginoo / Lord'}
+                    {getThemeLabel()} • {preferences.useOriginalDivineName ? 'Jehovah / Jehova' : 'Ginoo / Lord / Panginoon'}
                   </span>
                   <ChevronRight className="w-4 h-4 text-[var(--slate-soft)] group-hover:text-[#C9A227] group-hover:translate-x-0.5 transition-all" />
                 </div>
@@ -294,16 +294,16 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         {/* ================= 2. DISPLAY SETTINGS ================= */}
         {activeSection === 'display' && (
           <div className="space-y-5">
-            {/* Divine Name Setting Card */}
+            {/* Jehovah Setting Card */}
             <div className="bg-[var(--paper)] border border-[var(--line)] rounded-2xl p-5 shadow-xs space-y-3">
               <div className="flex items-start justify-between gap-3">
                 <div className="space-y-1 pr-2">
                   <h3 className="font-serif font-bold text-base flex items-center gap-2 text-[var(--ink)]">
                     <BookOpen className="w-4 h-4 text-[#C9A227]" />
-                    Use original divine name (Jehovah/Jehova)
+                    Use Jehovah / Jehova
                   </h3>
                   <p className="text-xs text-[var(--slate-soft)] leading-relaxed">
-                    When ON: text displays the original &ldquo;Jehovah&rdquo; / &ldquo;Jehova&rdquo; as it exists in the source text. When OFF: replaced with &ldquo;Ginoo&rdquo; (Cebuano), &ldquo;Lord&rdquo; (English), and &ldquo;Panginoon&rdquo; (Tagalog) with appropriate grammatical corrections.
+                    When ON: text displays &ldquo;Jehovah&rdquo; / &ldquo;Jehova&rdquo; as written in older editions. When OFF: replaced with &ldquo;Ginoo&rdquo; (Cebuano), &ldquo;Lord&rdquo; (English), and &ldquo;Panginoon&rdquo; (Tagalog) with appropriate grammatical corrections.
                   </p>
                 </div>
 
@@ -316,8 +316,8 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
                       onUpdatePreferences({ useOriginalDivineName: checked });
                       onShowToast?.(
                         checked
-                          ? 'Using original divine name (Jehovah / Jehova)'
-                          : 'Using translated titles (Ginoo / Lord / Panginoon)'
+                          ? 'Using Jehovah / Jehova'
+                          : 'Using Ginoo / Lord / Panginoon'
                       );
                     }}
                     className="sr-only peer"
@@ -330,7 +330,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
                 <span className="font-medium">Current Setting:</span>
                 <span className="font-bold text-[#C9A227]">
                   {preferences.useOriginalDivineName
-                    ? 'ON (Original: Jehovah / Jehova)'
+                    ? 'ON (Jehovah / Jehova)'
                     : 'OFF (Ginoo / Lord / Panginoon)'}
                 </span>
               </div>
@@ -466,25 +466,27 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
               {preferences.dailyVerseNotification && (
                 <div className="pt-3 border-t border-[var(--line)] space-y-3.5">
                   {/* Scheduled Time Row */}
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-[var(--ivory)] border border-[var(--line)]">
-                    <div className="flex items-center gap-2">
-                      <Clock className="w-4 h-4 text-[#C9A227]" />
-                      <span className="text-xs font-semibold text-[var(--slate)]">
+                  <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 p-3 rounded-xl bg-[var(--ivory)] border border-[var(--line)]">
+                    <div className="flex items-center gap-2 min-w-0 flex-1">
+                      <Clock className="w-4 h-4 text-[#C9A227] shrink-0" />
+                      <span className="text-xs font-semibold text-[var(--slate)] truncate">
                         Scheduled Daily Time
                       </span>
                     </div>
-                    <input
-                      type="time"
-                      value={preferences.notificationTime || '07:00'}
-                      onChange={(e) => {
-                        const newTime = e.target.value;
-                        onUpdatePreferences({ notificationTime: newTime });
-                        if (preferences.dailyVerseNotification) {
-                          scheduleNativeDailyRecurringNotification(newTime);
-                        }
-                      }}
-                      className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] font-mono focus:outline-none focus:ring-1 focus:ring-[#C9A227] cursor-pointer"
-                    />
+                    <div className="shrink-0 flex items-center">
+                      <input
+                        type="time"
+                        value={preferences.notificationTime || '07:00'}
+                        onChange={(e) => {
+                          const newTime = e.target.value;
+                          onUpdatePreferences({ notificationTime: newTime });
+                          if (preferences.dailyVerseNotification) {
+                            scheduleNativeDailyRecurringNotification(newTime);
+                          }
+                        }}
+                        className="px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-lg border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] font-mono focus:outline-none focus:ring-1 focus:ring-[#C9A227] cursor-pointer text-center shadow-2xs"
+                      />
+                    </div>
                   </div>
 
                   {/* Permission Status */}

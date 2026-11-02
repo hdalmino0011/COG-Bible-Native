@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Copy, X, Bookmark, Edit3, Volume2, Check } from 'lucide-react';
-import { HighlightColor, VerseItem } from '../types';
+import { HighlightColor, ReadingLayout, VerseItem } from '../types';
 
 interface VerseToolbarProps {
   selectedVerse: {
@@ -10,6 +10,7 @@ interface VerseToolbarProps {
     verse: number;
     verseData: VerseItem;
   } | null;
+  readingLayout: ReadingLayout;
   onClose: () => void;
   onHighlight: (color: HighlightColor | 'none') => void;
   onCopy: (mode: 'cebuano' | 'english' | 'tagalog' | 'both') => void;
@@ -22,6 +23,7 @@ interface VerseToolbarProps {
 
 export const VerseToolbar: React.FC<VerseToolbarProps> = ({
   selectedVerse,
+  readingLayout,
   onClose,
   onHighlight,
   onCopy,
@@ -143,7 +145,7 @@ export const VerseToolbar: React.FC<VerseToolbarProps> = ({
             </span>
             <button
               onClick={() => handleCopyClick('cebuano')}
-              className="px-2 py-1 text-[11px] font-medium bg-[#1B3A6B] hover:bg-[#10203D] text-white rounded-md flex items-center gap-1 transition-colors shadow-xs"
+              className="px-2 py-1 text-[11px] font-medium bg-[#1B3A6B] hover:bg-[#10203D] text-white rounded-md flex items-center gap-1 transition-colors shadow-xs cursor-pointer"
               title="Copy Cebuano verse"
             >
               {copiedType === 'cebuano' ? <Check className="w-3 h-3 text-green-300" /> : <Copy className="w-3 h-3" />}
@@ -151,28 +153,32 @@ export const VerseToolbar: React.FC<VerseToolbarProps> = ({
             </button>
             <button
               onClick={() => handleCopyClick('english')}
-              className="px-2 py-1 text-[11px] font-medium bg-[#1B3A6B] hover:bg-[#10203D] text-white rounded-md flex items-center gap-1 transition-colors shadow-xs"
+              className="px-2 py-1 text-[11px] font-medium bg-[#1B3A6B] hover:bg-[#10203D] text-white rounded-md flex items-center gap-1 transition-colors shadow-xs cursor-pointer"
               title="Copy English verse"
             >
               {copiedType === 'english' ? <Check className="w-3 h-3 text-green-300" /> : <Copy className="w-3 h-3" />}
               ENG
             </button>
-            <button
-              onClick={() => handleCopyClick('tagalog')}
-              className="px-2 py-1 text-[11px] font-medium bg-[#1B3A6B] hover:bg-[#10203D] text-white rounded-md flex items-center gap-1 transition-colors shadow-xs"
-              title="Copy Filipino (Tagalog) verse"
-            >
-              {copiedType === 'tagalog' ? <Check className="w-3 h-3 text-green-300" /> : <Copy className="w-3 h-3" />}
-              TAG
-            </button>
-            <button
-              onClick={() => handleCopyClick('both')}
-              className="px-2.5 py-1 text-[11px] font-semibold bg-[#C9A227] hover:bg-[#B38F1E] text-white rounded-md flex items-center gap-1 transition-colors shadow-xs"
-              title="Copy Parallel (Current Layout)"
-            >
-              {copiedType === 'both' ? <Check className="w-3 h-3 text-green-200" /> : <Copy className="w-3 h-3" />}
-              Both
-            </button>
+            {(readingLayout === 'tagalog' || readingLayout === 'parallel-eng-tag' || readingLayout === 'parallel-ceb-tag') && (
+              <button
+                onClick={() => handleCopyClick('tagalog')}
+                className="px-2 py-1 text-[11px] font-medium bg-[#1B3A6B] hover:bg-[#10203D] text-white rounded-md flex items-center gap-1 transition-colors shadow-xs cursor-pointer"
+                title="Copy Filipino (Tagalog) verse"
+              >
+                {copiedType === 'tagalog' ? <Check className="w-3 h-3 text-green-300" /> : <Copy className="w-3 h-3" />}
+                TAG
+              </button>
+            )}
+            {(readingLayout === 'parallel' || readingLayout === 'parallel-eng-tag' || readingLayout === 'parallel-ceb-tag') && (
+              <button
+                onClick={() => handleCopyClick('both')}
+                className="px-2.5 py-1 text-[11px] font-semibold bg-[#C9A227] hover:bg-[#B38F1E] text-white rounded-md flex items-center gap-1 transition-colors shadow-xs cursor-pointer"
+                title="Copy Parallel (Current Layout)"
+              >
+                {copiedType === 'both' ? <Check className="w-3 h-3 text-green-200" /> : <Copy className="w-3 h-3" />}
+                Both
+              </button>
+            )}
           </div>
         </div>
       </motion.div>

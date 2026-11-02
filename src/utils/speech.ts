@@ -300,15 +300,11 @@ export async function readChapterContinuously(
     }
 
     const currentVerse = verses[currentIndex];
-    const text =
-      language === 'cebuano'
-        ? currentVerse.ceb
-        : language === 'tagalog'
-        ? (currentVerse.tag || currentVerse.ceb || currentVerse.en)
-        : currentVerse.en;
+    // Voice reader strictly reads the English KJV version
+    const text = currentVerse.en || currentVerse.ceb || '';
     onVerseChange(currentVerse.v);
 
-    const res = await speakVerseText(text, language, () => {
+    const res = await speakVerseText(text, 'english', () => {
       if (!cancelContinuousFlag) {
         currentIndex++;
         // Natural breath pause between verses (300ms)

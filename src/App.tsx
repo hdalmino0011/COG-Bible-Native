@@ -667,16 +667,12 @@ export default function App() {
     }
 
     const startV = startVerseNum || selectedVerse?.verse || 1;
-    const lang: 'cebuano' | 'english' | 'tagalog' =
-      readingLayout === 'tagalog'
-        ? 'tagalog'
-        : readingLayout === 'cebuano' || readingLayout === 'parallel-ceb-tag' || readingLayout === 'parallel'
-        ? 'cebuano'
-        : 'english';
+    // Voice reader strictly reads the English KJV version only
+    const lang: 'cebuano' | 'english' | 'tagalog' = 'english';
 
     setIsSpeaking(true);
     setSpeakingVerse(startV);
-    showToast(`Reading ${currentBook} ${currentChapter} aloud from verse ${startV}...`);
+    showToast(`Reading ${currentBook} ${currentChapter} aloud (KJV) from verse ${startV}...`);
 
     const formattedVerses: VerseItem[] = chapterVerses.map(v => ({
       v: v.v,
@@ -878,6 +874,7 @@ export default function App() {
       {/* 4. Verse Interaction Toolbar (Float at bottom) */}
       <VerseToolbar
         selectedVerse={selectedVerse}
+        readingLayout={readingLayout}
         onClose={() => {
           setSelectedVerse(null);
         }}

@@ -6,41 +6,31 @@ interface SplashProps {
 }
 
 export const Splash: React.FC<SplashProps> = ({ onComplete }) => {
-  // Stages:
-  // 'black'   -> Initial pure black screen for exactly 1.5 seconds (1500ms)
-  // 'visible' -> Smooth fade-in and stays for at least 3.5 seconds (3500ms) for comfortable user readability
-  // 'fading'  -> Smooth 700ms GPU fade-out transition into the app
-  const [stage, setStage] = useState<'black' | 'visible' | 'fading'>('black');
+  // Splash launches immediately with logo and stays for exactly 1.5 seconds (1500ms)
+  const [stage, setStage] = useState<'visible' | 'fading'>('visible');
 
   const onCompleteRef = useRef(onComplete);
   onCompleteRef.current = onComplete;
 
-  const blackScreenTimerRef = useRef<NodeJS.Timeout | null>(null);
   const stayTimerRef = useRef<NodeJS.Timeout | null>(null);
   const fadeOutTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const triggerFadeOut = () => {
     if (stage === 'fading') return;
     setStage('fading');
-    // Allow 700ms for silky smooth GPU opacity fade out before removing component
+    // Smooth 350ms GPU fade-out transition into the app
     fadeOutTimerRef.current = setTimeout(() => {
       onCompleteRef.current();
-    }, 700);
+    }, 350);
   };
 
   useEffect(() => {
-    // 1. First: Pure black screen for exactly 1.5 seconds (1500ms)
-    blackScreenTimerRef.current = setTimeout(() => {
-      setStage('visible');
-
-      // 2. Second: Splash screen stays for at least 3.5 seconds (3500ms) while loading circles move
-      stayTimerRef.current = setTimeout(() => {
-        triggerFadeOut();
-      }, 3500);
+    // Splash screen stays for exactly 1.5 seconds (1500ms)
+    stayTimerRef.current = setTimeout(() => {
+      triggerFadeOut();
     }, 1500);
 
     return () => {
-      if (blackScreenTimerRef.current) clearTimeout(blackScreenTimerRef.current);
       if (stayTimerRef.current) clearTimeout(stayTimerRef.current);
       if (fadeOutTimerRef.current) clearTimeout(fadeOutTimerRef.current);
     };

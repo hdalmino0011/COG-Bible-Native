@@ -60,7 +60,13 @@ export async function getBookFromIndexedDB(bookName: string): Promise<BookChapte
       const request = transaction.objectStore(STORE_NAME).get(bookName);
       request.onsuccess = () => {
         const data = request.result?.data;
-        resolve(isValidBookChapters(data) ? data : null);
+        if (isValidBookChapters(data)) {
+          const firstCh = Object.values(data)[0];
+          const hasTag = firstCh && firstCh[0] && typeof (firstCh[0] as any).tag === 'string';
+          resolve(hasTag ? data : null);
+        } else {
+          resolve(null);
+        }
       };
       request.onerror = () => resolve(null);
     });

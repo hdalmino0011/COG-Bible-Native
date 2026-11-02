@@ -24,7 +24,7 @@ if ('serviceWorker' in navigator) {
   if (typeof window !== 'undefined' && 'caches' in window) {
     caches.keys().then((keys) => {
       for (const k of keys) {
-        if (k !== 'cog-bible-offline-v10.0.0') {
+        if (k !== 'cog-bible-offline-v11.0.0') {
           caches.delete(k).catch(() => {});
         }
       }

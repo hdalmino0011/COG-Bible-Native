@@ -17,6 +17,17 @@ if (fs.existsSync(sourceDir)) {
     // Always sync source file to public/data to keep them identical
     fs.copyFileSync(srcFile, destFile);
   }
+
+  // Also sync to android assets if directory exists
+  const androidDataDir = path.join(projectRoot, 'android/app/src/main/assets/public/data');
+  if (fs.existsSync(path.join(projectRoot, 'android/app/src/main/assets/public'))) {
+    if (!fs.existsSync(androidDataDir)) {
+      fs.mkdirSync(androidDataDir, { recursive: true });
+    }
+    for (const file of sourceFiles) {
+      fs.copyFileSync(path.join(sourceDir, file), path.join(androidDataDir, file));
+    }
+  }
 }
 
 // Ensure icons, logos, and fallback files exist in public/

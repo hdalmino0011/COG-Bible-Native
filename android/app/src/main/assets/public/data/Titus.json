@@ -3,236 +3,282 @@
     {
       "v": 1,
       "en": "Paul, a servant of God, and an apostle of Jesus Christ, according to the faith of God's elect, and the acknowledging of the truth which is after godliness;",
-      "ceb": "Si Pablo, ulipon sa Dios, ug apostol ni Jesucristo, ingon sa pagtoo sa mga pinili sa Dios, ug sa pag-ila sa kamatuoran, nga mao ang angay sa pagka-diosnon;"
+      "ceb": "Si Pablo, ulipon sa Dios, ug apostol ni Jesucristo, ingon sa pagtoo sa mga pinili sa Dios, ug sa pag-ila sa kamatuoran, nga mao ang angay sa pagka-diosnon;",
+      "tag": "Si Pablo, na alipin ng Dios, at apostol ni Jesucristo, ayon sa pananampalataya ng mga hinirang ng Dios, at sa pagkaalam ng katotohanan na ayon sa kabanalan,"
     },
     {
       "v": 2,
       "en": "In hope of eternal life, which God, that cannot lie, promised before the world began;",
-      "ceb": "Nga sa paglaum sa kinabuhi nga walay katapusan, nga gisaad sa Dios, nga dili arang makabakak, sa wala pa ang mga katuigan nga walay katapusan;"
+      "ceb": "Nga sa paglaum sa kinabuhi nga walay katapusan, nga gisaad sa Dios, nga dili arang makabakak, sa wala pa ang mga katuigan nga walay katapusan;",
+      "tag": "Sa pagasa sa buhay na walang hanggan, na ipinangako ng Dios na di makapagsisinungaling buhat pa ng mga panahong walang hanggan;"
     },
     {
       "v": 3,
       "en": "But hath in due times manifested his word through preaching, which is committed unto me according to the commandment of God our Saviour;",
-      "ceb": "Apan sa iyang kaugalingong mga panahon, nagpahayag sa iyang pulong pinaagi sa pagmantala, nga gitugyan kanako sumala sa sugo sa Dios nga atong Manluluwas;"
+      "ceb": "Apan sa iyang kaugalingong mga panahon, nagpahayag sa iyang pulong pinaagi sa pagmantala, nga gitugyan kanako sumala sa sugo sa Dios nga atong Manluluwas;",
+      "tag": "Nguni't sa kaniyang mga panahon ay ipinahayag ang kaniyang salita sa pangangaral, na sa akin ay ipinagkatiwala ayon sa utos ng Dios na ating Tagapagligtas;"
     },
     {
       "v": 4,
       "en": "To Titus, mine own son after the common faith: Grace, mercy, and peace, from God the Father and the Lord Jesus Christ our Saviour.",
-      "ceb": "Kang Tito, anak ko nga matuod sumala sa pagtoo nga gikausahan: Ang gracia ug ang pakigdait sa Dios nga Amahan ug kang Cristo Jesus nga atong Manluluwas."
+      "ceb": "Kang Tito, anak ko nga matuod sumala sa pagtoo nga gikausahan: Ang gracia ug ang pakigdait sa Dios nga Amahan ug kang Cristo Jesus nga atong Manluluwas.",
+      "tag": "Kay Tito na aking tunay na anak ayon sa pananampalataya ng lahat: Biyaya at kapayapaan nawang mula sa Dios Ama at kay Cristo Jesus na Tagapagligtas natin."
     },
     {
       "v": 5,
       "en": "For this cause left I thee in Crete, that thou shouldest set in order the things that are wanting, and ordain elders in every city, as I had appointed thee:",
-      "ceb": "Tungod niining hinungdan gibilin ko ikaw sa Creta, aron ipahimutang mo ang mga butang nga nakulang, ug sa pagtudlo ug mga anciano sa tagsatagsa ka lungsod ingon sa gisugo ko kanimo,"
+      "ceb": "Tungod niining hinungdan gibilin ko ikaw sa Creta, aron ipahimutang mo ang mga butang nga nakulang, ug sa pagtudlo ug mga anciano sa tagsatagsa ka lungsod ingon sa gisugo ko kanimo,",
+      "tag": "Dahil dito'y iniwan kita sa Creta, upang husayin mo ang mga bagay na nagkukulang, at maghalal ng mga matanda sa bawa't bayan, na gaya ng ipinagbilin ko sa iyo;"
     },
     {
       "v": 6,
       "en": "If any be blameless, the husband of one wife, having faithful children not accused of riot or unruly.",
-      "ceb": "Kong may tawo nga dili badlonganon, bana sa usa ka asawa nga may mga anak nga mga magtotoo nga wala ikasumbong sa paggubot ug sa pagsupil."
+      "ceb": "Kong may tawo nga dili badlonganon, bana sa usa ka asawa nga may mga anak nga mga magtotoo nga wala ikasumbong sa paggubot ug sa pagsupil.",
+      "tag": "Kung ang sinoman ay walang kapintasan, asawa ng isang babae lamang, na may mga anak na nagsisisampalataya, na hindi maisusumbong sa pangliligalig o suwail."
     },
     {
       "v": 7,
       "en": "For a bishop must be blameless, as the steward of God; not selfwilled, not soon angry, not given to wine, no striker, not given to filthy lucre;",
-      "ceb": "Kay kinahanglan nga ang obispo dili badlonganon, ingon nga tinugyanan sa Dios; dili mabuotbuoton sa kaugalingon, dili masuk-anon, dili mahigugmaon sa vino, dili makig-awayon, dili dalo sa maka-uulaw nga ganancia."
+      "ceb": "Kay kinahanglan nga ang obispo dili badlonganon, ingon nga tinugyanan sa Dios; dili mabuotbuoton sa kaugalingon, dili masuk-anon, dili mahigugmaon sa vino, dili makig-awayon, dili dalo sa maka-uulaw nga ganancia.",
+      "tag": "Sapagka't dapat na ang obispo ay walang kapintasan, palibhasa siya'y katiwala ng Dios; hindi mapagsariling kalooban, hindi magagalitin, hindi manggugulo, hindi palaaway, hindi masakim sa mahalay na kapakinabangan;"
     },
     {
       "v": 8,
       "en": "But a lover of hospitality, a lover of good men, sober, just, holy, temperate;",
-      "ceb": "Kondili maabiabihon, mahigugmaon sa maayo, buotan, matarung, maputli, mapinugnganon;"
+      "ceb": "Kondili maabiabihon, mahigugmaon sa maayo, buotan, matarung, maputli, mapinugnganon;",
+      "tag": "Kundi mapagpatuloy, maibigin sa mabuti, mahinahon ang pagiisip, matuwid, banal, mapagpigil;"
     },
     {
       "v": 9,
       "en": "Holding fast the faithful word as he hath been taught, that he may be able by sound doctrine both to exhort and to convince the gainsayers.",
-      "ceb": "Nga magabaton sa pulong nga matinumanon, nga nahiuyon sa pagtolon-an aron siya makahimo sa pagpanambag sa maayong pagtolon-an, ug sa pagbadlong usab sa mga malalison."
+      "ceb": "Nga magabaton sa pulong nga matinumanon, nga nahiuyon sa pagtolon-an aron siya makahimo sa pagpanambag sa maayong pagtolon-an, ug sa pagbadlong usab sa mga malalison.",
+      "tag": "Na nananangan sa tapat na salita na ayon sa turo, upang umaral ng magaling na aral, at papaniwalain ang nagsisisalangsang."
     },
     {
       "v": 10,
       "en": "For there are many unruly and vain talkers and deceivers, specially they of the circumcision:",
-      "ceb": "Kay adunay daghang tawo nga masukihon, nga tigsulti sa walay pulos, ug mga limbongan, labi na gayud ang sa mga circuncicion;"
+      "ceb": "Kay adunay daghang tawo nga masukihon, nga tigsulti sa walay pulos, ug mga limbongan, labi na gayud ang sa mga circuncicion;",
+      "tag": "Sapagka't may maraming mga suwail, na mapagsalita ng walang kabuluhan at mga magdaraya, lalong lalo na yaong mga sa pagtutuli,"
     },
     {
       "v": 11,
       "en": "Whose mouths must be stopped, who subvert whole houses, teaching things which they ought not, for filthy lucre's sake.",
-      "ceb": "Kansang mga baba kinahanglan pagsap-ungan; mga tawo nga nagabungkag sa tibook nga mga panimalay, nga nagapanudlo ug mga butang nga dili angay nila itudlo, tungod sa ganancia nga maka-uulaw."
+      "ceb": "Kansang mga baba kinahanglan pagsap-ungan; mga tawo nga nagabungkag sa tibook nga mga panimalay, nga nagapanudlo ug mga butang nga dili angay nila itudlo, tungod sa ganancia nga maka-uulaw.",
+      "tag": "Na ang kanilang mga bibig ay nararapat matikom; mga taong nagsisipanggulo sa buong mga sangbahayan, na nangagtuturo ng mga bagay na di nararapat, dahil sa mahalay na kapakinabangan."
     },
     {
       "v": 12,
       "en": "One of themselves, even a prophet of their own, said, The Cretians are alway liars, evil beasts, slow bellies.",
-      "ceb": "Ang usa kanila, usa ka kaugalingon nila nga manalagna, miingon: Ang mga taga-Creta mga bakakon gihapon, mga mananap nga mga tapulan nga mga hingaon."
+      "ceb": "Ang usa kanila, usa ka kaugalingon nila nga manalagna, miingon: Ang mga taga-Creta mga bakakon gihapon, mga mananap nga mga tapulan nga mga hingaon.",
+      "tag": "Sinabi ng isa sa kanila rin, ng isang propetang sarili nila, Ang mga taga Creta kailan pa man ay mga sinungaling, masasamang hayop, matatakaw na mga tamad."
     },
     {
       "v": 13,
       "en": "This witness is true. Wherefore rebuke them sharply, that they may be sound in the faith;",
-      "ceb": "Kini nga pagpamatuod, tinuod man Tungod niini, badlongan sila sa maidlut gayud, aron managputli sila sa pagtoo,"
+      "ceb": "Kini nga pagpamatuod, tinuod man Tungod niini, badlongan sila sa maidlut gayud, aron managputli sila sa pagtoo,",
+      "tag": "Ang patotoong ito ay tunay. Dahil dito'y sawayin mong may kabagsikan sila, upang mangapakagaling sa pananampalataya,"
     },
     {
       "v": 14,
       "en": "Not giving heed to Jewish fables, and commandments of men, that turn from the truth.",
-      "ceb": "Nga dili mapatalinghugon sila sa mga sugilanong Jinudio, ug sa mga sugo sa mga tawo, nga nanagpamulag sa kamatuoran."
+      "ceb": "Nga dili mapatalinghugon sila sa mga sugilanong Jinudio, ug sa mga sugo sa mga tawo, nga nanagpamulag sa kamatuoran.",
+      "tag": "Na huwag mangakinig sa mga katha ng mga Judio, at sa mga utos ng mga tao na nangagsisisinsay sa katotohanan."
     },
     {
       "v": 15,
       "en": "Unto the pure all things are pure: but unto them that are defiled and unbelieving is nothing pure; but even their mind and conscience is defiled.",
-      "ceb": "Alang sa mga maputli, ang tanang mga butang maputli; apan alang kanila nga mga mahugaw ug dili matinohoon, walay bisan unsa usab nga maputli, kondili ang ilang hunahuna ug kaisipan mahugaw usab."
+      "ceb": "Alang sa mga maputli, ang tanang mga butang maputli; apan alang kanila nga mga mahugaw ug dili matinohoon, walay bisan unsa usab nga maputli, kondili ang ilang hunahuna ug kaisipan mahugaw usab.",
+      "tag": "Sa malinis ang lahat ng mga bagay ay malinis: datapuwa't sa nangahawa at di nagsisisampalataya ay walang anomang malinis; kundi pati ng kanilang pagiisip at kanilang budhi ay pawang nangahawa."
     },
     {
       "v": 16,
       "en": "They profess that they know God; but in works they deny him, being abominable, and disobedient, and unto every good work reprobate.",
-      "ceb": "Nagasugid sila nga nakaila sila sa Dios; apan sa ilang mga buhat ginalimod siya nila, sanglit mga makaluod sila ug mga dilimasinulondon, ug alang sa tanang maayong buhat, sila dunot ug kasingkasing."
+      "ceb": "Nagasugid sila nga nakaila sila sa Dios; apan sa ilang mga buhat ginalimod siya nila, sanglit mga makaluod sila ug mga dilimasinulondon, ug alang sa tanang maayong buhat, sila dunot ug kasingkasing.",
+      "tag": "Sila'y nangagpapanggap na nakikilala nila ang Dios; nguni't ikinakaila sa pamamagitan ng kanilang mga gawa, palibhasa'y mga malulupit, at mga masuwayin, at mga itinakuwil sa bawa't gawang mabuti."
     }
   ],
   "2": [
     {
       "v": 1,
       "en": "But speak thou the things which become sound doctrine:",
-      "ceb": "Apan, ikaw, magsulti ka sa mga butang nga angay sa putli nga pagtolon-an;"
+      "ceb": "Apan, ikaw, magsulti ka sa mga butang nga angay sa putli nga pagtolon-an;",
+      "tag": "Nguni't magsalita ka ng mga bagay na nauukol sa aral na magaling:"
     },
     {
       "v": 2,
       "en": "That the aged men be sober, grave, temperate, sound in faith, in charity, in patience.",
-      "ceb": "Nga ang mga tigulang nga lalake magkasarangan, maugdang, buotan ug hunahuna, putli sa pagtoo, sa gugma, sa pagpailub;"
+      "ceb": "Nga ang mga tigulang nga lalake magkasarangan, maugdang, buotan ug hunahuna, putli sa pagtoo, sa gugma, sa pagpailub;",
+      "tag": "Na ang matatandang lalake ay maging mapagpigil, mahusay, mahinahon ang pagiisip, magagaling sa pananampalataya, sa pagibig, sa pagtitiis:"
     },
     {
       "v": 3,
       "en": "The aged women likewise, that they be in behaviour as becometh holiness, not false accusers, not given to much wine, teachers of good things;",
-      "ceb": "Nga ang mga babaye nga tigulang ingon usab managpakita ug pamatasan nga matinahuron; dili magmalibakon, dili magpaulipon sa daghang vino, mga magtutudlo sa maayo;"
+      "ceb": "Nga ang mga babaye nga tigulang ingon usab managpakita ug pamatasan nga matinahuron; dili magmalibakon, dili magpaulipon sa daghang vino, mga magtutudlo sa maayo;",
+      "tag": "Na gayon din ang matatandang babae ay maging magalang sa kanilang kilos, hindi palabintangin ni paalipin man sa maraming alak, mga guro ng kabutihan;"
     },
     {
       "v": 4,
       "en": "That they may teach the young women to be sober, to love their husbands, to love their children,",
-      "ceb": "Aron makatudlo sila sa mga batanong babaye sa paghigugma sa ilang mga bana, ug sa paghigugma sa ilang mga anak,"
+      "ceb": "Aron makatudlo sila sa mga batanong babaye sa paghigugma sa ilang mga bana, ug sa paghigugma sa ilang mga anak,",
+      "tag": "Upang kanilang maturuan ang mga babaing may kabataan na magsiibig sa kanikaniyang asawa, magsiibig sa kanilang mga anak, mangagpakahinahon,"
     },
     {
       "v": 5,
       "en": "To be discreet, chaste, keepers at home, good, obedient to their own husbands, that the word of God be not blasphemed.",
-      "ceb": "Nga buotan ug hunahuna, mga maligdong, mga ulay, mga manggibuhaton sulod sa panimalay, mga malolot, mga mapinasakpon sa ilang mga bana, aron dill mapasipalahan ang pulong sa Dios."
+      "ceb": "Nga buotan ug hunahuna, mga maligdong, mga ulay, mga manggibuhaton sulod sa panimalay, mga malolot, mga mapinasakpon sa ilang mga bana, aron dill mapasipalahan ang pulong sa Dios.",
+      "tag": "Mangagpakahinahon, mangagpakalinis, mangagpakasipag sa bahay, magagandang-loob, pasakop sa kanikaniyang asawa, upang huwag lapastanganin ang salita ng Dios:"
     },
     {
       "v": 6,
       "en": "Young men likewise exhort to be sober minded.",
-      "ceb": "Ingon usab tambagi ang mga batanong lalake, nga sila managbuotan sa hunahuna."
+      "ceb": "Ingon usab tambagi ang mga batanong lalake, nga sila managbuotan sa hunahuna.",
+      "tag": "Iaral mo rin naman sa mga bagong tao na sila'y mangagpakahinahon ng pagiisip:"
     },
     {
       "v": 7,
       "en": "In all things shewing thyself a pattern of good works: in doctrine shewing uncorruptness, gravity, sincerity,",
-      "ceb": "Magpadayag ka sa tanang mga butang nga panig-ingnan sa mga maayong buhat; sa pagtolon-an magpadayag sa pagkaulay ug pagkamaugdang;"
+      "ceb": "Magpadayag ka sa tanang mga butang nga panig-ingnan sa mga maayong buhat; sa pagtolon-an magpadayag sa pagkaulay ug pagkamaugdang;",
+      "tag": "Sa lahat ng mga bagay ay magpakilala kang ikaw ay isang uliran sa mabubuting gawa; at sa iyong aral ay ipakilala mo ang walang kamalian ang kahusayan,"
     },
     {
       "v": 8,
       "en": "Sound speech, that cannot be condemned; that he that is of the contrary part may be ashamed, having no evil thing to say of you.",
-      "ceb": "Putli nga pulong nga dili arang mabadlong, aron nga maulawan ang kaaway, sanglit walay bisan unsa nga dautan nga ikaingon batok kanato."
+      "ceb": "Putli nga pulong nga dili arang mabadlong, aron nga maulawan ang kaaway, sanglit walay bisan unsa nga dautan nga ikaingon batok kanato.",
+      "tag": "Pangungusap na magaling, na di mahahatulan; upang sila na nasa kabilang panig ay mahiya, nang walang anomang masamang masabi tungkol sa atin."
     },
     {
       "v": 9,
       "en": "Exhort servants to be obedient unto their own masters, and to please them well in all things; not answering again;",
-      "ceb": "Tambagi ang mga ulipon, nga managpasakup sila sa ilang mga agalon, nga managpahamuot sa tanan nga mga butang nga dili magmasupakon kanila;"
+      "ceb": "Tambagi ang mga ulipon, nga managpasakup sila sa ilang mga agalon, nga managpahamuot sa tanan nga mga butang nga dili magmasupakon kanila;",
+      "tag": "Iaral mo sa mga alipin na sila'y pasakop sa kanikaniyang Panginoon, at kanilang kalugdan sa lahat ng mga bagay; at huwag mga masagutin;"
     },
     {
       "v": 10,
       "en": "Not purloining, but shewing all good fidelity; that they may adorn the doctrine of God our Saviour in all things.",
-      "ceb": "Nga dili sila magmakiriwan, kondili magpakita sa bug-os nga pagkamatinumanon, aron madayandayanan nila ang pagtolon-an sa Dios, nga atong Manluluwas sa tanang mga butang."
+      "ceb": "Nga dili sila magmakiriwan, kondili magpakita sa bug-os nga pagkamatinumanon, aron madayandayanan nila ang pagtolon-an sa Dios, nga atong Manluluwas sa tanang mga butang.",
+      "tag": "Huwag mangagdaya, kundi mangagpakita ng buong buting pagtatapat; upang pamutihan sa lahat ng mga bagay ang aral ng Dios na ating Tagapagligtas."
     },
     {
       "v": 11,
       "en": "For the grace of God that bringeth salvation hath appeared to all men,",
-      "ceb": "Kay ang gracia sa Dios nga naga-dala sa kaluwasan nagpakita sa tanang mga tawo:"
+      "ceb": "Kay ang gracia sa Dios nga naga-dala sa kaluwasan nagpakita sa tanang mga tawo:",
+      "tag": "Sapagka't napakita ang biyaya ng Dios, na may dalang kaligtasan sa lahat ng mga tao,"
     },
     {
       "v": 12,
       "en": "Teaching us that, denying ungodliness and worldly lusts, we should live soberly, righteously, and godly, in this present world;",
-      "ceb": "Sa pagtudlo kanato nga sa nadumilian ta ang pagkadili-diosnon ug ang mga kailibgong kalibutanon, managpuyo kita sa kabuotan ug sa katarung, ug sa pagka-diosnon niini nga panahona sa kalibutan,"
+      "ceb": "Sa pagtudlo kanato nga sa nadumilian ta ang pagkadili-diosnon ug ang mga kailibgong kalibutanon, managpuyo kita sa kabuotan ug sa katarung, ug sa pagka-diosnon niini nga panahona sa kalibutan,",
+      "tag": "Na nagtuturo sa atin, upang, pagtanggi natin sa kalikuan at sa mga kahalayan ng sanglibutan, ay marapat mabuhay tayong may pagpipigil at matuwid at banal sa panahong kasalukuyan ng sanglibutang ito;"
     },
     {
       "v": 13,
       "en": "Looking for that blessed hope, and the glorious appearing of the great God and our Saviour Jesus Christ;",
-      "ceb": "Nga nagapaabut sa bulahan nga paglaum, ug sa pagpadayag sa himaya sa atong dakung Dios ug Manluluwas, nga si Jesucristo;"
+      "ceb": "Nga nagapaabut sa bulahan nga paglaum, ug sa pagpadayag sa himaya sa atong dakung Dios ug Manluluwas, nga si Jesucristo;",
+      "tag": "Na hintayin yaong mapalad na pagasa at ang pagpapakita ng kaluwalhatian ng ating dakilang Dios at Tagapagligtas na si Jesucristo;"
     },
     {
       "v": 14,
       "en": "Who gave himself for us, that he might redeem us from all iniquity, and purify unto himself a peculiar people, zealous of good works.",
-      "ceb": "Nga mihatag sa iyang kaugalingon tungod kanato, aron kita matubos gikan sa bug-os nga pagkamasupilon ug pagkaputli alang sa iyang kaugalingon sa usa ka katawohan nga maiya gayud, nga makugi sa mga maayong buhat."
+      "ceb": "Nga mihatag sa iyang kaugalingon tungod kanato, aron kita matubos gikan sa bug-os nga pagkamasupilon ug pagkaputli alang sa iyang kaugalingon sa usa ka katawohan nga maiya gayud, nga makugi sa mga maayong buhat.",
+      "tag": "Na siyang nagbigay ng kaniyang sarili dahil sa atin, upang tayo'y matubos niya sa lahat ng mga kasamaan, at malinis niya sa kaniyang sarili ang bayang masikap sa mabubuting gawa, upang maging kaniyang sariling pag-aari."
     },
     {
       "v": 15,
       "en": "These things speak, and exhort, and rebuke with all authority. Let no man despise thee.",
-      "ceb": "Isulti mo kining mga butanga, ug itambag mo, ug ibadlong sa bug-os nga pagbulot-an. Ayaw pag-itugot nga may magtamay kanimo."
+      "ceb": "Isulti mo kining mga butanga, ug itambag mo, ug ibadlong sa bug-os nga pagbulot-an. Ayaw pag-itugot nga may magtamay kanimo.",
+      "tag": "Ang mga bagay na ito ay iyong salitain at iaral at isaway ng buong kapangyarihan. Sinoman ay huwag humamak sa iyo."
     }
   ],
   "3": [
     {
       "v": 1,
       "en": "Put them in mind to be subject to principalities and powers, to obey magistrates, to be ready to every good work,",
-      "ceb": "Pahinumduma sila nga managpasakup sila sa mga punoan ug sa mga kagamhanan, nga magmasinulondon sila nga mag-andam sila sa tanang maayong buhat;"
+      "ceb": "Pahinumduma sila nga managpasakup sila sa mga punoan ug sa mga kagamhanan, nga magmasinulondon sila nga mag-andam sila sa tanang maayong buhat;",
+      "tag": "Ipaalala mo sa kanilang pasakop sa mga pinuno, sa mga may kapangyarihan, na mangagmasunurin, na humanda sa bawa't gawang mabuti,"
     },
     {
       "v": 2,
       "en": "To speak evil of no man, to be no brawlers, but gentle, shewing all meekness unto all men.",
-      "ceb": "Nga dili sila magsulti ug dautan batok kang bisan kinsa, nga dili sila magmasukihon, kondili magmalomo sa pagpakita ug kaaghup alang sa tanan nga mga tawo."
+      "ceb": "Nga dili sila magsulti ug dautan batok kang bisan kinsa, nga dili sila magmasukihon, kondili magmalomo sa pagpakita ug kaaghup alang sa tanan nga mga tawo.",
+      "tag": "Na huwag magsalita ng masama tungkol sa kanino man, na huwag makipagtalo, kundi mapakahinhin, at magpakahinahon sa lahat ng mga tao."
     },
     {
       "v": 3,
       "en": "For we ourselves also were sometimes foolish, disobedient, deceived, serving divers lusts and pleasures, living in malice and envy, hateful, and hating one another.",
-      "ceb": "Kay kita usab, sa uban nga panahon nangabuang kita, dili mga masinulondon, mga gipasalaag, mga ulipon sa nagakalainlaing mga kailibgon ug mga kalingawan, nga nagakinabuhi kita sa pagkadautan ug sa kasina, mga madinumtanon, nga nagadinumtanay ang usa ug usa."
+      "ceb": "Kay kita usab, sa uban nga panahon nangabuang kita, dili mga masinulondon, mga gipasalaag, mga ulipon sa nagakalainlaing mga kailibgon ug mga kalingawan, nga nagakinabuhi kita sa pagkadautan ug sa kasina, mga madinumtanon, nga nagadinumtanay ang usa ug usa.",
+      "tag": "Sapagka't tayo rin naman nang unang panahon ay mga mangmang, mga suwail, mga nadaya, na nagsisipaglingkod sa sarisaring masamang pita at kalayawan, na nangamumuhay sa masasamang akala at kapanaghilian, mga napopoot, at tayo'y nangagkakapootan."
     },
     {
       "v": 4,
       "en": "But after that the kindness and love of God our Saviour toward man appeared,",
-      "ceb": "Apan sa pagpakita sa kalolot sa Dios nga along Manluluwas, ug sa iyang gugma alang sa mga tawo,"
+      "ceb": "Apan sa pagpakita sa kalolot sa Dios nga along Manluluwas, ug sa iyang gugma alang sa mga tawo,",
+      "tag": "Nguni't nang mahayag na ang kagandahang-loob ng Dios na ating Tagapagligtas, at ang kaniyang pagibig sa tao,"
     },
     {
       "v": 5,
       "en": "Not by works of righteousness which we have done, but according to his mercy he saved us, by the washing of regeneration, and renewing of the Holy Ghost;",
-      "ceb": "Dili gikan sa mga buhat sa pag-kamatarung nga atong ginapamuhat, kondili sumala sa iyang kalooy, giluwas kita niya pinaagi sa paghugas sa bag-o nga pagkatawo, ug sa pagbag-o sa Espiritu Santo;"
+      "ceb": "Dili gikan sa mga buhat sa pag-kamatarung nga atong ginapamuhat, kondili sumala sa iyang kalooy, giluwas kita niya pinaagi sa paghugas sa bag-o nga pagkatawo, ug sa pagbag-o sa Espiritu Santo;",
+      "tag": "Na hindi dahil sa mga gawa sa katuwiran na ginawa nating sarili, kundi ayon sa kaniyang kaawaan ay kaniyang iniligtas tayo, sa pamamagitan ng paghuhugas sa muling kapanganakan at ng pagbabago sa Espiritu Santo,"
     },
     {
       "v": 6,
       "en": "Which he shed on us abundantly through Jesus Christ our Saviour;",
-      "ceb": "Nga iyang gibubo kanato sa madagayaon pinaagi kang Jesucristo nga atong Manluluwas;"
+      "ceb": "Nga iyang gibubo kanato sa madagayaon pinaagi kang Jesucristo nga atong Manluluwas;",
+      "tag": "Na kaniyang ibinuhos ng sagana sa atin, sa pamamagitan ni Jesucristo na ating Tagapagligtas;"
     },
     {
       "v": 7,
       "en": "That being justified by his grace, we should be made heirs according to the hope of eternal life.",
-      "ceb": "Aron nga, sa gipakamatarung kita pinaagi sa iyang gracia, magmanununod kita sumala sa paglaum sa kinabuhi nga walay katapusan."
+      "ceb": "Aron nga, sa gipakamatarung kita pinaagi sa iyang gracia, magmanununod kita sumala sa paglaum sa kinabuhi nga walay katapusan.",
+      "tag": "Upang, sa pagkaaring-ganap sa atin sa pamamagitan ng kaniyang biyaya, ay maging tagapagmana tayo ayon sa pagasa sa buhay na walang hanggan."
     },
     {
       "v": 8,
       "en": "This is a faithful saying, and these things I will that thou affirm constantly, that they which have believed in God might be careful to maintain good works. These things are good and profitable unto men.",
-      "ceb": "Pulong nga matinumanon, ug ginapanghinaut ko, nga imong pagpamatud-an kining mga butanga; aron ang mga nagaloo sa Dios, managtinguha sila sa pagkugi sa mga maayong buhat. Kini mao ang mga butang nga mga maayo ug may kapuslanan sa mga tawo."
+      "ceb": "Pulong nga matinumanon, ug ginapanghinaut ko, nga imong pagpamatud-an kining mga butanga; aron ang mga nagaloo sa Dios, managtinguha sila sa pagkugi sa mga maayong buhat. Kini mao ang mga butang nga mga maayo ug may kapuslanan sa mga tawo.",
+      "tag": "Tapat ang pasabi, at tungkol sa mga bagay na ito ay ninanasa kong patotohanan mong may pagkakatiwala, upang ang mga nagsisipanampalataya sa Dios ay maging maingat na papanatilihin ang mabubuting gawa. Ang mga bagay na ito ay pawang mabubuti at mapapakinabangan ng mga tao:"
     },
     {
       "v": 9,
       "en": "But avoid foolish questions, and genealogies, and contentions, and strivings about the law; for they are unprofitable and vain.",
-      "ceb": "Apan likayi ang mga paglantugi nga binuang, ug ang mga lista sa mga kagikanan ug ang mga paglalis, ug pagtinubagay mahatungod sa balaod; kay mga walay kapuslanan ug mga kawang."
+      "ceb": "Apan likayi ang mga paglantugi nga binuang, ug ang mga lista sa mga kagikanan ug ang mga paglalis, ug pagtinubagay mahatungod sa balaod; kay mga walay kapuslanan ug mga kawang.",
+      "tag": "Nguni't ilagan mo ang mga hangal na usapan, at ang mga pagsasalaysay ng lahi, at ang mga pagtatalo, at pagtataltalan tungkol sa kautusan; sapagka't ang mga ito ay di pinakikinabangan at walang kabuluhan."
     },
     {
       "v": 10,
       "en": "A man that is an heretick after the first and second admonition reject;",
-      "ceb": "Isalikway mo ang tawo nga maoy ginikanan sa pagbahinbahin, sa human sa makausa ug makaduha nga pagtambag;"
+      "ceb": "Isalikway mo ang tawo nga maoy ginikanan sa pagbahinbahin, sa human sa makausa ug makaduha nga pagtambag;",
+      "tag": "Ang taong may maling pananampalataya pagkatapos nang una at ikalawang pagsaway ay itakuwil mo;"
     },
     {
       "v": 11,
       "en": "Knowing that he that is such is subverted, and sinneth, being condemned of himself.",
-      "ceb": "Sa hingbaloan mo nga ang maong tawo nahasalaag ug nagapakasala, nga nagahukom na sa silot sa iyang kaugalingon."
+      "ceb": "Sa hingbaloan mo nga ang maong tawo nahasalaag ug nagapakasala, nga nagahukom na sa silot sa iyang kaugalingon.",
+      "tag": "Yamang nalalaman mo na ang gayon ay napahamak, at nagkakasala at siya'y hinahatulan ng kaniyang sarili."
     },
     {
       "v": 12,
       "en": "When I shall send Artemas unto thee, or Tychicus, be diligent to come unto me to Nicopolis: for I have determined there to winter.",
-      "ceb": "Kong sugoon ko kanimo si Artemas, kun si Tychico, maninguha ka sa pag-anhi kanako sa Nicopolis, kay gituyo ko ang pagpuyo didto sulod sa tingtugnaw."
+      "ceb": "Kong sugoon ko kanimo si Artemas, kun si Tychico, maninguha ka sa pag-anhi kanako sa Nicopolis, kay gituyo ko ang pagpuyo didto sulod sa tingtugnaw.",
+      "tag": "Pagka susuguin ko sa iyo si Artemas, o si Tiquico, ay magsikap kang pumarini sa akin sa Nicopolis: sapagka't pinasiyahan kong doon matira sa taginaw."
     },
     {
       "v": 13,
       "en": "Bring Zenas the lawyer and Apollos on their journey diligently, that nothing be wanting unto them.",
-      "ceb": "Sa dakung kakugi pagikana si Cenas, ang manlalaban, ug si Apolo, aron walay makulang kanila,"
+      "ceb": "Sa dakung kakugi pagikana si Cenas, ang manlalaban, ug si Apolo, aron walay makulang kanila,",
+      "tag": "Suguin mong may sikap si Zenas na tagapagtanggol ng kautusan at si Apolos sa kanilang paglalakbay, upang sila'y huwag kulangin ng ano man."
     },
     {
       "v": 14,
       "en": "And let ours also learn to maintain good works for necessary uses, that they be not unfruitful.",
-      "ceb": "Ug ang atong mga sakup usab, managtoon sa pagpadayon sa maayong mga buhat alang sa mga mapuslanong kinahanglan, aron sila dili magawalay bunga."
+      "ceb": "Ug ang atong mga sakup usab, managtoon sa pagpadayon sa maayong mga buhat alang sa mga mapuslanong kinahanglan, aron sila dili magawalay bunga.",
+      "tag": "At pagaralan din naman ng ating mga tao na manatili sa mabubuting gawa sa kagamitang kailangan, upang huwag mawalan ng bunga."
     },
     {
       "v": 15,
       "en": "All that are with me salute thee. Greet them that love us in the faith. Grace be with you all. Amen.",
-      "ceb": "Ang tanan nga mga ania uban kanako nangumosta kanimo. Pangumostaha ang mga nanaghigugma sa atong pagtoo. Ang gracia magauban kaninyong tanan."
+      "ceb": "Ang tanan nga mga ania uban kanako nangumosta kanimo. Pangumostaha ang mga nanaghigugma sa atong pagtoo. Ang gracia magauban kaninyong tanan.",
+      "tag": "Binabati ka ng lahat ng mga kasama ko. Batiin mo ang mga nagsisiibig sa atin sa pananampalataya. Biyaya ang sumainyo nawang lahat."
     }
   ]
 }

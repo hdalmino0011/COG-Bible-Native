@@ -3,757 +3,906 @@
     {
       "v": 1,
       "en": "Paul, an apostle, (not of men, neither by man, but by Jesus Christ, and God the Father, who raised him from the dead;)",
-      "ceb": "Si Pablo, apostol, (dili gikan sa mga tawo, ni pinaagi sa tawo, kondili pinaagi kang Jesucristo, ug sa Dios nga Amahan, nga nagbanhaw kaniya gikan sa mga minatay),"
+      "ceb": "Si Pablo, apostol, (dili gikan sa mga tawo, ni pinaagi sa tawo, kondili pinaagi kang Jesucristo, ug sa Dios nga Amahan, nga nagbanhaw kaniya gikan sa mga minatay),",
+      "tag": "Si Pablo, na Apostol (hindi mula sa mga tao, ni sa pamamagitan man ng tao, kundi sa pamamagitan ni Jesucristo, at ng Dios Ama, na siyang sa kaniya'y muling bumuhay;)"
     },
     {
       "v": 2,
       "en": "And all the brethren which are with me, unto the churches of Galatia:",
-      "ceb": "Ug sa tanan nga mga igsoon nga kauban nako, alang sa mga iglesia sa Galacia:"
+      "ceb": "Ug sa tanan nga mga igsoon nga kauban nako, alang sa mga iglesia sa Galacia:",
+      "tag": "At ang lahat ng mga kapatid na mga kasama ko, sa mga iglesia ng Galacia:"
     },
     {
       "v": 3,
       "en": "Grace be to you and peace from God the Father, and from our Lord Jesus Christ,",
-      "ceb": "Kaninyo ang gracia, ug ang pakigdait nga gikan sa Dios nga Amahan ug sa atong Ginoong Jesucristo,"
+      "ceb": "Kaninyo ang gracia, ug ang pakigdait nga gikan sa Dios nga Amahan ug sa atong Ginoong Jesucristo,",
+      "tag": "Sumainyo nawa ang biyaya at kapayapaang mula sa Dios na Ama, at sa ating Panginoong Jesucristo,"
     },
     {
       "v": 4,
       "en": "Who gave himself for our sins, that he might deliver us from this present evil world, according to the will of God and our Father:",
-      "ceb": "Nga mitugyan sa iyang kaugalingon alang sa atong mga sala, aron sa pagluwas kanato gikan niining dautan nga panahon sa kalibutan karon, sumala sa kabubut-on sa Dios ug Amahan nato."
+      "ceb": "Nga mitugyan sa iyang kaugalingon alang sa atong mga sala, aron sa pagluwas kanato gikan niining dautan nga panahon sa kalibutan karon, sumala sa kabubut-on sa Dios ug Amahan nato.",
+      "tag": "Na siyang nagbigay sa kaniyang sarili dahil sa ating mga kasalanan, upang tayo'y mailigtas dito sa kasalukuyang masamang sanglibutan, ayon sa kalooban ng ating Dios at Ama:"
     },
     {
       "v": 5,
       "en": "To whom be glory for ever and ever. Amen.",
-      "ceb": "Nga kaniya ang himaya sa walay katapusan. Amen."
+      "ceb": "Nga kaniya ang himaya sa walay katapusan. Amen.",
+      "tag": "Na sumakaniya ang kaluwalhatian magpakailan man. Siya nawa."
     },
     {
       "v": 6,
       "en": "I marvel that ye are so soon removed from him that called you into the grace of Christ unto another gospel:",
-      "ceb": "Nahibulong ako nga hilabihan kadali kamo mingbalhin gikan niadtong nagtawag kaninyo sa gracia ni Cristo ngadto sa laing maayong balita;"
+      "ceb": "Nahibulong ako nga hilabihan kadali kamo mingbalhin gikan niadtong nagtawag kaninyo sa gracia ni Cristo ngadto sa laing maayong balita;",
+      "tag": "Ako'y namamangha na kay dali ninyong nagsilipat sa ibang evangelio buhat sa tumawag sa inyo sa biyaya ni Cristo;"
     },
     {
       "v": 7,
       "en": "Which is not another; but there be some that trouble you, and would pervert the gospel of Christ.",
-      "ceb": "Nga dili man laing Maayong Balita, kondili nga may uban nga nagapagubot kaninyo, ug buot nila nga balit-aron ang Maayong Balita ni Cristo."
+      "ceb": "Nga dili man laing Maayong Balita, kondili nga may uban nga nagapagubot kaninyo, ug buot nila nga balit-aron ang Maayong Balita ni Cristo.",
+      "tag": "Na ito'y hindi ibang evangelio: kundi mayroong ilan na sa inyo'y nagsisiligalig, at nangagiibig na pasamain ang evangelio ni Cristo."
     },
     {
       "v": 8,
       "en": "But though we, or an angel from heaven, preach any other gospel unto you than that which we have preached unto you, let him be accursed.",
-      "ceb": "Apan bisan pa kami, kun usa ka manolonda gikan sa langit, magwali kaninyo ug lain nga Maayong Balita nga lahi kay sa among ginawali kaninyo, ipatunglo siya."
+      "ceb": "Apan bisan pa kami, kun usa ka manolonda gikan sa langit, magwali kaninyo ug lain nga Maayong Balita nga lahi kay sa among ginawali kaninyo, ipatunglo siya.",
+      "tag": "Datapuwa't kahima't kami, o isang anghel na mula sa langit, ang mangaral sa inyo ng anomang evangelio na iba sa aming ipinangangaral sa inyo, ay matakuwil."
     },
     {
       "v": 9,
       "en": "As we said before, so say I now again, If any man preach any other gospel unto you than that ye have received, let him be accursed.",
-      "ceb": "Sumala sa among giingon kaniadto, giingon ko man usab karon: Kong may lawo nga magawali kaninyo ug Maayong Balila nga lahi kay sa nadawat ninyo, ipatunglo siya."
+      "ceb": "Sumala sa among giingon kaniadto, giingon ko man usab karon: Kong may lawo nga magawali kaninyo ug Maayong Balila nga lahi kay sa nadawat ninyo, ipatunglo siya.",
+      "tag": "Ayon sa aming sinabi nang una, ay muling gayon ang aking sinasabi ngayon, Kung ang sinoman ay mangaral sa inyo ng anomang evangelio na iba kay sa inyong tinanggap na, ay matakuwil."
     },
     {
       "v": 10,
       "en": "For do I now persuade men, or God? or do I seek to please men? for if I yet pleased men, I should not be the servant of Christ.",
-      "ceb": "Kay gipangita ko ba karon ang kahimuot sa mga tawo, kun sa Dios? kun, naninguha ba ako sa pagpahimuot sa mga tawo? Kay kong nagapahimuot pa ako sa mga tawo, dili unta ako maulipon ni Cristo."
+      "ceb": "Kay gipangita ko ba karon ang kahimuot sa mga tawo, kun sa Dios? kun, naninguha ba ako sa pagpahimuot sa mga tawo? Kay kong nagapahimuot pa ako sa mga tawo, dili unta ako maulipon ni Cristo.",
+      "tag": "Sapagka't ako baga'y nanghihikayat ngayon sa mga tao o sa Dios? o ako baga'y nagsisikap na magbigay-lugod sa mga tao? kung ako'y magbibigay-lugod pa sa mga tao, ay hindi ako magiging alipin ni Cristo."
     },
     {
       "v": 11,
       "en": "But I certify you, brethren, that the gospel which was preached of me is not after man.",
-      "ceb": "Kay ako nagamantala kaninyo, mga igsoon, mahatungod sa Maayong Balita nga giwali ko, nga kini wala magagikan sa tawo."
+      "ceb": "Kay ako nagamantala kaninyo, mga igsoon, mahatungod sa Maayong Balita nga giwali ko, nga kini wala magagikan sa tawo.",
+      "tag": "Sapagka't aking ipinatatalastas sa inyo, mga kapatid, tungkol sa evangelio na aking ipinangaral, na ito'y hindi ayon sa tao."
     },
     {
       "v": 12,
       "en": "For I neither received it of man, neither was I taught it, but by the revelation of Jesus Christ.",
-      "ceb": "Kay wala ko pagdawata kini gikan sa tawo wala gani itudlo kanako, kondili pinaagi sa pagpadayag ni Jesucristo kanako."
+      "ceb": "Kay wala ko pagdawata kini gikan sa tawo wala gani itudlo kanako, kondili pinaagi sa pagpadayag ni Jesucristo kanako.",
+      "tag": "Sapagka't hindi ko tinanggap ito sa tao, ni itinuro man sa akin, kundi aking tinanggap sa pamamagitan ng pahayag ni Jesucristo."
     },
     {
       "v": 13,
       "en": "For ye have heard of my conversation in time past in the Jews' religion, how that beyond measure I persecuted the church of God, and wasted it:",
-      "ceb": "Kay hingbatian na ninyo ang taras sa akong kinabuhi kaniadto sa tinohoan sa mga Judio, kong giunsa ko paglutos sa hilabihan gayud ang iglesia sa Dios, ug gilaglag ko kini."
+      "ceb": "Kay hingbatian na ninyo ang taras sa akong kinabuhi kaniadto sa tinohoan sa mga Judio, kong giunsa ko paglutos sa hilabihan gayud ang iglesia sa Dios, ug gilaglag ko kini.",
+      "tag": "Sapagka't inyong nabalitaan ang aking pamumuhay nang nakaraang panahon sa relihion ng mga Judio, kung paanong aking inuusig na malabis, at nilipol ang iglesia ng Dios:"
     },
     {
       "v": 14,
       "en": "And profited in the Jews' religion above many my equals in mine own nation, being more exceedingly zealous of the traditions of my fathers.",
-      "ceb": "Ug sulod sa tinohoan sa mga Judio, hilumbaan ko ang daghanan nga mga talirungan ko sa panuigon sa akong lungsod, kay ako labing makugi kay kanila tungod sa mga gikabilinbilin nga sugilon sa akong mga ginikanan."
+      "ceb": "Ug sulod sa tinohoan sa mga Judio, hilumbaan ko ang daghanan nga mga talirungan ko sa panuigon sa akong lungsod, kay ako labing makugi kay kanila tungod sa mga gikabilinbilin nga sugilon sa akong mga ginikanan.",
+      "tag": "At ako'y nangunguna sa relihion ng mga Judio ng higit kay sa marami sa aking mga kasing gulang sa aking mga kababayan, palibhasa'y totoong masikap ako sa mga sali't-saling sabi ng aking mga magulang."
     },
     {
       "v": 15,
       "en": "But when it pleased God, who separated me from my mother's womb, and called me by his grace,",
-      "ceb": "Apan sa nahimut-an sa Dios nga maoy nagpinig kanako sukad pa sa tiyan sa akong inahan, ug nagtawag kanako pinaagi sa iyang gracia,"
+      "ceb": "Apan sa nahimut-an sa Dios nga maoy nagpinig kanako sukad pa sa tiyan sa akong inahan, ug nagtawag kanako pinaagi sa iyang gracia,",
+      "tag": "Nguni't nang magalingin ng Dios na siyang sa akin ay nagbukod, buhat pa sa tiyan ng aking ina, at ako'y tawagin sa pamamagitan ng kaniyang biyaya,"
     },
     {
       "v": 16,
       "en": "To reveal his Son in me, that I might preach him among the heathen; immediately I conferred not with flesh and blood:",
-      "ceb": "Sa pagpadayag sa iyang Anak sulod kanako, aron igawali ko siya sa taliwala sa mga Gentil; gilayon wala ako magpakisayud sa unod ug dugo:"
+      "ceb": "Sa pagpadayag sa iyang Anak sulod kanako, aron igawali ko siya sa taliwala sa mga Gentil; gilayon wala ako magpakisayud sa unod ug dugo:",
+      "tag": "Na ihayag ang kaniyang Anak sa akin, upang siya'y aking ipangaral sa gitna ng mga Gentil; pagkaraka'y hindi ako sumangguni sa laman at sa dugo:"
     },
     {
       "v": 17,
       "en": "Neither went I up to Jerusalem to them which were apostles before me; but I went into Arabia, and returned again unto Damascus.",
-      "ceb": "Ug wala ako motungas sa Jerusalem ngadto kanila nga mga apostol nga una pa kanako; kondili miadto ako sa Arabia, ug mibalik ako pag-usab sa Damasco."
+      "ceb": "Ug wala ako motungas sa Jerusalem ngadto kanila nga mga apostol nga una pa kanako; kondili miadto ako sa Arabia, ug mibalik ako pag-usab sa Damasco.",
+      "tag": "Ni inahon ko man sa Jerusalem silang mga apostol na nangauna sa akin: kundi sa Arabia ako naparoon; at muling nagbalik ako sa Damasco."
     },
     {
       "v": 18,
       "en": "Then after three years I went up to Jerusalem to see Peter, and abode with him fifteen days.",
-      "ceb": "Unya sa ming-agi na ang tolo ka tuig, mitungas ako sa Jerusalem sa pagpakigkita kang Cefas ug mipabilin ako uban kaniya sa napulo ug lima ka adlaw:"
+      "ceb": "Unya sa ming-agi na ang tolo ka tuig, mitungas ako sa Jerusalem sa pagpakigkita kang Cefas ug mipabilin ako uban kaniya sa napulo ug lima ka adlaw:",
+      "tag": "Nang makaraan nga ang tatlong taon ay umahon ako sa Jerusalem upang dalawin si Cefas, at natira akong kasama niyang labing-limang araw."
     },
     {
       "v": 19,
       "en": "But other of the apostles saw I none, save James the Lord's brother.",
-      "ceb": "Apan ang uban nga mga apostoles wala ko makita gawas kang Jacobo, ang igsoon sa Ginoo."
+      "ceb": "Apan ang uban nga mga apostoles wala ko makita gawas kang Jacobo, ang igsoon sa Ginoo.",
+      "tag": "Nguni't wala akong nakita sa mga ibang apostol, maliban na kay Santiago na kapatid ng Panginoon."
     },
     {
       "v": 20,
       "en": "Now the things which I write unto you, behold, before God, I lie not.",
-      "ceb": "Karon mahatungod sa mga butang nga gisulat ko kaninyo, ania karon, sa atubangan sa Dios, wala ako magbakak."
+      "ceb": "Karon mahatungod sa mga butang nga gisulat ko kaninyo, ania karon, sa atubangan sa Dios, wala ako magbakak.",
+      "tag": "Tungkol nga sa mga bagay na isinusulat ko sa inyo, narito, sa harapan ng Dios, hindi ako nagsisinungaling."
     },
     {
       "v": 21,
       "en": "Afterwards I came into the regions of Syria and Cilicia;",
-      "ceb": "Unya miadto ako sa mga yuta sa Siria, ug sa Cilicia;"
+      "ceb": "Unya miadto ako sa mga yuta sa Siria, ug sa Cilicia;",
+      "tag": "Pagkatapos ay naparoon ako sa mga lupain ng Siria at Cilicia."
     },
     {
       "v": 22,
       "en": "And was unknown by face unto the churches of Judaea which were in Christ:",
-      "ceb": "Ug wala pa hiilhi ang akong nawong sa mga iglesia sa Judea, nga diha kang Cristo;"
+      "ceb": "Ug wala pa hiilhi ang akong nawong sa mga iglesia sa Judea, nga diha kang Cristo;",
+      "tag": "At hindi pa ako nakikilala sa mukha ng mga iglesia ng Judea na pawang kay Cristo."
     },
     {
       "v": 23,
       "en": "But they had heard only, That he which persecuted us in times past now preacheth the faith which once he destroyed.",
-      "ceb": "Apan hingbatian lamang nila ang sulti: Siya nga kaniadto naglutos kanato, karon nagamantala sa pagtoo nga kaniadto iyang gilaglag;"
+      "ceb": "Apan hingbatian lamang nila ang sulti: Siya nga kaniadto naglutos kanato, karon nagamantala sa pagtoo nga kaniadto iyang gilaglag;",
+      "tag": "Kundi ang kanila lamang naririnig na pinaguusapan ay, Yaong umuusig sa atin nang una, ngayo'y nangangaral ng pananampalataya na nang ibang panahon ay kaniyang sinisira;"
     },
     {
       "v": 24,
       "en": "And they glorified God in me.",
-      "ceb": "Ug gihimaya nila ang Dios tungod kanako."
+      "ceb": "Ug gihimaya nila ang Dios tungod kanako.",
+      "tag": "At kanilang niluluwalhati ang Dios sa akin."
     }
   ],
   "2": [
     {
       "v": 1,
       "en": "Then fourteen years after I went up again to Jerusalem with Barnabas, and took Titus with me also.",
-      "ceb": "Unya sa miagi na ang napulo ug upat ka tuig mitungas ako pag-usab ngadto sa Jerusalem, uban kang Bernabe, nga gidala ko usab si Tito."
+      "ceb": "Unya sa miagi na ang napulo ug upat ka tuig mitungas ako pag-usab ngadto sa Jerusalem, uban kang Bernabe, nga gidala ko usab si Tito.",
+      "tag": "Nang makaraan nga ang labingapat na taon ay umahon akong muli sa Jerusalem na kasama si Bernabe, at isinama ko rin naman si Tito."
     },
     {
       "v": 2,
       "en": "And I went up by revelation, and communicated unto them that gospel which I preach among the Gentiles, but privately to them which were of reputation, lest by any means I should run, or had run, in vain.",
-      "ceb": "Ug mitungas ako sumala sa bugna; ug gipahayag ko sa atubangan nila ang Maayong Balita, nga giwali ko sa taliwala sa mga Gentil, apan sa pinig alang kanila nga mga dungganan tingali nga sa bisan unsang paagi, magadalagan ako, kun nakagdalagan sa walay kapuslanan."
+      "ceb": "Ug mitungas ako sumala sa bugna; ug gipahayag ko sa atubangan nila ang Maayong Balita, nga giwali ko sa taliwala sa mga Gentil, apan sa pinig alang kanila nga mga dungganan tingali nga sa bisan unsang paagi, magadalagan ako, kun nakagdalagan sa walay kapuslanan.",
+      "tag": "At ako'y umahon dahil sa pahayag; at isinaysay ko sa harapan nila ang evangelio na aking ipinangangaral sa gitna ng mga Gentil, datapuwa't sa harapan ng mga may dangal ay sa lihim, baka sa anomang paraan ako'y tatakbo, o tumakbo, ng walang kabuluhan."
     },
     {
       "v": 3,
       "en": "But neither Titus, who was with me, being a Greek, was compelled to be circumcised:",
-      "ceb": "Apan bisan pa si Tito, nga kakuyog nako, nga Greciahanon, wala pagpugsa sa pagpacircuncicion."
+      "ceb": "Apan bisan pa si Tito, nga kakuyog nako, nga Greciahanon, wala pagpugsa sa pagpacircuncicion.",
+      "tag": "Datapuwa't maging si Tito man na kasama ko, bagama't Griego, ay hindi napilit na patuli."
     },
     {
       "v": 4,
       "en": "And that because of false brethren unawares brought in, who came in privily to spy out our liberty which we have in Christ Jesus, that they might bring us into bondage:",
-      "ceb": "Ug kana tungod sa bakakon nga mga igsoon, nga gipasulod sa tago, nga nangawat sa pagsulod aron sa pagpaniid sa atong kagawasan nga atong nabatonan diha kang Cristo Jesus, aron sa pagdala kanato ngadto sa pagkaulipon;"
+      "ceb": "Ug kana tungod sa bakakon nga mga igsoon, nga gipasulod sa tago, nga nangawat sa pagsulod aron sa pagpaniid sa atong kagawasan nga atong nabatonan diha kang Cristo Jesus, aron sa pagdala kanato ngadto sa pagkaulipon;",
+      "tag": "At yaon ay dahil sa mga hindi tunay na kapatid na ipinasok ng lihim, na nagsipasok ng lihim upang tiktikan ang aming kalayaan na taglay namin kay Cristo Jesus, upang kami'y ilagay nila sa pagkaalipin:"
     },
     {
       "v": 5,
       "en": "To whom we gave place by subjection, no, not for an hour; that the truth of the gospel might continue with you.",
-      "ceb": "Nga kanila bisan usa lamang ka takna dili gayud kami motugot nga magpasakup, aron ang kamatuoran sa Maayong Balita makapadayon kaninyo."
+      "ceb": "Nga kanila bisan usa lamang ka takna dili gayud kami motugot nga magpasakup, aron ang kamatuoran sa Maayong Balita makapadayon kaninyo.",
+      "tag": "Sa mga yaon ay hindi kami napahinuhod na supilin kami, kahit isang oras; upang ang katotohanan ng evangelio ay manatili sa inyo."
     },
     {
       "v": 6,
       "en": "But of these who seemed to be somewhat, (whatsoever they were, it maketh no matter to me: God accepteth no man's person:) for they who seemed to be somewhat in conference added nothing to me:",
-      "ceb": "Apan gikan niadtong mga gibantug nga si kinsa sila (kong unsa sila kaniadto, kini dili makaunsa kanako, ang Dios walay pinalabi sa tawo); kini sila, giingon ko, nga mga dungganan, walay bisan unsa nga ilang gitudlo kanako."
+      "ceb": "Apan gikan niadtong mga gibantug nga si kinsa sila (kong unsa sila kaniadto, kini dili makaunsa kanako, ang Dios walay pinalabi sa tawo); kini sila, giingon ko, nga mga dungganan, walay bisan unsa nga ilang gitudlo kanako.",
+      "tag": "Datapuwa't ang mga wari'y may dangal ng kaunti (maging anoman sila, ay walang anoman sa akin: ang Dios ay hindi tumatanggap ng anyo ninoman) silang may dangal, sinasabi ko, ay hindi nagbahagi sa akin ng anoman:"
     },
     {
       "v": 7,
       "en": "But contrariwise, when they saw that the gospel of the uncircumcision was committed unto me, as the gospel of the circumcision was unto Peter;",
-      "ceb": "Apan lahi hinoon, sa pagkakita nila nga gisalig kanako ang Maayong Balita ngadto sa mga dili cinircuncicionan ingon nga kang Pedro ang Maayong Balita ngadto sa mga gicircuncicionan."
+      "ceb": "Apan lahi hinoon, sa pagkakita nila nga gisalig kanako ang Maayong Balita ngadto sa mga dili cinircuncicionan ingon nga kang Pedro ang Maayong Balita ngadto sa mga gicircuncicionan.",
+      "tag": "Kundi bagkus nang makita nila na sa akin ay ipinagkatiwala ang evangelio ng di-pagtutuli, gaya rin naman ng pagkakatiwala kay Pedro ng evangelio ng pagtutuli;"
     },
     {
       "v": 8,
       "en": "(For he that wrought effectually in Peter to the apostleship of the circumcision, the same was mighty in me toward the Gentiles:)",
-      "ceb": "(Kay ang nagbuhat alang kang Pedro sa pagkaapostol sa mga ginacircuncicionan, nagbuhat usab dinhi kanako alang sa mga Gentil);"
+      "ceb": "(Kay ang nagbuhat alang kang Pedro sa pagkaapostol sa mga ginacircuncicionan, nagbuhat usab dinhi kanako alang sa mga Gentil);",
+      "tag": "(Sapagka't ang naghanda kay Pedro sa pagkaapostol sa pagtutuli ay naghanda rin naman sa akin sa pagkaapostol sa mga Gentil);"
     },
     {
       "v": 9,
       "en": "And when James, Cephas, and John, who seemed to be pillars, perceived the grace that was given unto me, they gave to me and Barnabas the right hands of fellowship; that we should go unto the heathen, and they unto the circumcision.",
-      "ceb": "Ug sa naila nila ang gracia nga gihatag kanako, si Jacobo, ug si Cefas, ug si Juan, nga gibantug nga mga haligi, mingtunol kanako ug kang Bernabe sa toong kamot sa kaambitan aron kami mangadto sa mga Gentil ug sila ngadto sa mga gicircuncicionan;"
+      "ceb": "Ug sa naila nila ang gracia nga gihatag kanako, si Jacobo, ug si Cefas, ug si Juan, nga gibantug nga mga haligi, mingtunol kanako ug kang Bernabe sa toong kamot sa kaambitan aron kami mangadto sa mga Gentil ug sila ngadto sa mga gicircuncicionan;",
+      "tag": "At nang makita nila ang biyayang sa akin ay ipinagkaloob, ang mga kanang kamay ng pakikisama ay ibinigay sa akin at kay Bernabe ni Santiago at ni Cefas at ni Juan, sila na mga inaaring haligi, upang kami ay magsiparoon sa mga Gentil, at sila'y sa pagtutuli;"
     },
     {
       "v": 10,
       "en": "Only they would that we should remember the poor; the same which I also was forward to do.",
-      "ceb": "Mao lamang nga ilang pahinum-duman kanamo ang mga kabus; nga kini gayud gipaninguha ko man usab nga pagabuhaton."
+      "ceb": "Mao lamang nga ilang pahinum-duman kanamo ang mga kabus; nga kini gayud gipaninguha ko man usab nga pagabuhaton.",
+      "tag": "Ang kanila lamang hinihiling ay aming alalahanin ang mga dukha; na ang bagay ring ito'y aking pinagsisikapan gawain."
     },
     {
       "v": 11,
       "en": "But when Peter was come to Antioch, I withstood him to the face, because he was to be blamed.",
-      "ceb": "Apan sa pag-abut ni Cefas sa Antioquia, gisuklan ko siya sa nawong ug nawong, kay, badlonganon siya."
+      "ceb": "Apan sa pag-abut ni Cefas sa Antioquia, gisuklan ko siya sa nawong ug nawong, kay, badlonganon siya.",
+      "tag": "Nguni't nang dumating si Cefas sa Antioquia, ay sumalansang ako sa kaniya ng mukhaan, sapagka't siya'y nararapat hatulan."
     },
     {
       "v": 12,
       "en": "For before that certain came from James, he did eat with the Gentiles: but when they were come, he withdrew and separated himself, fearing them which were of the circumcision.",
-      "ceb": "Kay sa wala pa moabut ang pila ka tawo gikan kang Jacobo, siya nakigsalo sa pagkaon uban sa mga Gentil; apan sa pag-abut nila misibug siya, ug mibulag nga nahadlok kanila nga mga taga-circuncicion."
+      "ceb": "Kay sa wala pa moabut ang pila ka tawo gikan kang Jacobo, siya nakigsalo sa pagkaon uban sa mga Gentil; apan sa pag-abut nila misibug siya, ug mibulag nga nahadlok kanila nga mga taga-circuncicion.",
+      "tag": "Sapagka't bago nagsidating ang ilang mula kay Santiago, ay nakisalo siya sa mga Gentil; nguni't nang sila'y magsidating na, siya'y umurong, at humiwalay sa mga Gentil, palibhasa'y natatakot sa mga sa pagtutuli."
     },
     {
       "v": 13,
       "en": "And the other Jews dissembled likewise with him; insomuch that Barnabas also was carried away with their dissimulation.",
-      "ceb": "Ug ang uban nga mga Judio usab nagminaut kuyog kaniya, sa pagkaagi nga bisan si Bernabe nadala usab sa ilang pagminaut."
+      "ceb": "Ug ang uban nga mga Judio usab nagminaut kuyog kaniya, sa pagkaagi nga bisan si Bernabe nadala usab sa ilang pagminaut.",
+      "tag": "At ang ibang mga Judio ay nangagpakunwari rin namang kasama niya: ano pa't pati si Bernabe ay nabuyo sa kanilang pagkukunwari."
     },
     {
       "v": 14,
       "en": "But when I saw that they walked not uprightly according to the truth of the gospel, I said unto Peter before them all, If thou, being a Jew, livest after the manner of Gentiles, and not as do the Jews, why compellest thou the Gentiles to live as do the Jews?",
-      "ceb": "Apan sa pagkakita ko nga wala sila magtarung sa paglakaw subay sa kamatuoran sa Maayong Balita, gisultihan ko si Pedro, sa atubangan sa tanan: Kong ikaw nga Judio magkinabuhi ka ingon sa mga Gentil ug dili ingon nga Judio, nganong gipugos mo ang mga Gentil sa pagkinabuhi ingon sa mga Judio?"
+      "ceb": "Apan sa pagkakita ko nga wala sila magtarung sa paglakaw subay sa kamatuoran sa Maayong Balita, gisultihan ko si Pedro, sa atubangan sa tanan: Kong ikaw nga Judio magkinabuhi ka ingon sa mga Gentil ug dili ingon nga Judio, nganong gipugos mo ang mga Gentil sa pagkinabuhi ingon sa mga Judio?",
+      "tag": "Nguni't nang aking makita na hindi sila nagsisilakad ng matuwid ayon sa katotohanan ng evangelio, sinabi ko kay Cefas sa harapan nilang lahat, Kung ikaw, na Judio, ay namumuhay gaya ng mga Gentil, at di gaya ng mga Judio, bakit mo pinipilit ang mga Gentil na mamuhay na gaya ng mga Judio?"
     },
     {
       "v": 15,
       "en": "We who are Jews by nature, and not sinners of the Gentiles,",
-      "ceb": "Kita nga mga Judio sa kinaiya, ug dili mga makasasala gikan sa mga Gentil,"
+      "ceb": "Kita nga mga Judio sa kinaiya, ug dili mga makasasala gikan sa mga Gentil,",
+      "tag": "Tayo'y mga Judio sa katutubo, at hindi mga makasalanang Gentil,"
     },
     {
       "v": 16,
       "en": "Knowing that a man is not justified by the works of the law, but by the faith of Jesus Christ, even we have believed in Jesus Christ, that we might be justified by the faith of Christ, and not by the works of the law: for by the works of the law shall no flesh be justified.",
-      "ceb": "Ngani sa hingbaloan ta, nga ang tawo wala pakamatarunga gikan sa mga buhat sa Kasugoan, kondili pinaagi sa pagtoo ni Jesucristo, bisan kita mitoo kang Cristo Jesus, aron pagapakamatarungon kita tungod sa pagtoo kang Cristo, ug dili tungod sa mga buhat sa Kasugoan; kay tungod sa mga buhat sa Kasugoan walay bisan unsa nga unod nga pagapakamatarungon."
+      "ceb": "Ngani sa hingbaloan ta, nga ang tawo wala pakamatarunga gikan sa mga buhat sa Kasugoan, kondili pinaagi sa pagtoo ni Jesucristo, bisan kita mitoo kang Cristo Jesus, aron pagapakamatarungon kita tungod sa pagtoo kang Cristo, ug dili tungod sa mga buhat sa Kasugoan; kay tungod sa mga buhat sa Kasugoan walay bisan unsa nga unod nga pagapakamatarungon.",
+      "tag": "Bagama't naaalaman na ang tao ay hindi inaaring-ganap sa mga gawang ayon sa kautusan, maliban na sa pamamagitan ng pananampalataya kay Jesucristo, tayo rin ay nagsisampalataya kay Cristo Jesus, upang tayo'y ariing-ganap sa pamamagitan ng pananampalataya kay Cristo, at hindi dahil sa mga gawang ayon sa kautusan: sapagka't sa mga gawang ayon sa kautusan ay hindi aariing-ganap ang sinomang laman."
     },
     {
       "v": 17,
       "en": "But if, while we seek to be justified by Christ, we ourselves also are found sinners, is therefore Christ the minister of sin? God forbid.",
-      "ceb": "Apan kong samtang kita nga pagapakamatarungon diha kang Cristo, kita sa atong kaugalingon hipalgan usab nga mga makasasala, tungod niana, ministro ba si Cristo sa sala? Kana dili mahimo!"
+      "ceb": "Apan kong samtang kita nga pagapakamatarungon diha kang Cristo, kita sa atong kaugalingon hipalgan usab nga mga makasasala, tungod niana, ministro ba si Cristo sa sala? Kana dili mahimo!",
+      "tag": "Nguni't kung, samantalang ating pinagsisikapan na tayo'y ariing-ganap kay Cristo, ay tayo rin naman ay nangasusumpungang mga makasalanan, si Cristo baga ay ministro ng kasalanan? Huwag nawang mangyari."
     },
     {
       "v": 18,
       "en": "For if I build again the things which I destroyed, I make myself a transgressor.",
-      "ceb": "Kay kong usbon ko sa pagtukod ang mga butang nga akong gibungkag, gipamatud-an ko ang akong kaugalingon nga ako malapason."
+      "ceb": "Kay kong usbon ko sa pagtukod ang mga butang nga akong gibungkag, gipamatud-an ko ang akong kaugalingon nga ako malapason.",
+      "tag": "Kung akin ngang muling itayo ang mga bagay na aking sinira, sa aking sarili ay pinatutunayan ko na ako'y suwail."
     },
     {
       "v": 19,
       "en": "For I through the law am dead to the law, that I might live unto God.",
-      "ceb": "Kay ako pinaagi sa Kasugoan, namatay ako sa Kasugoan, aron mabuhi ako alang sa Dios."
+      "ceb": "Kay ako pinaagi sa Kasugoan, namatay ako sa Kasugoan, aron mabuhi ako alang sa Dios.",
+      "tag": "Sapagka't ako sa pamamagitan ng kautusan ay namatay, sa kautusan, upang ako'y mabuhay sa Dios."
     },
     {
       "v": 20,
       "en": "I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me.",
-      "ceb": "Gilansang ako sa cruz uban kang Cristo; ug dili na ako ang nabuhi, kondili si Cristo ang nabuhi sa sulod nako. Ug ang kinabuhi nga gikinabuhi ko karon sa unod, ginakinabuhi ko sa pagtoo sa Anak sa Dios, nga nahigugma kanako, ug mitugyan siya sa iyang kaugalingon alang kanako."
+      "ceb": "Gilansang ako sa cruz uban kang Cristo; ug dili na ako ang nabuhi, kondili si Cristo ang nabuhi sa sulod nako. Ug ang kinabuhi nga gikinabuhi ko karon sa unod, ginakinabuhi ko sa pagtoo sa Anak sa Dios, nga nahigugma kanako, ug mitugyan siya sa iyang kaugalingon alang kanako.",
+      "tag": "Ako'y napako sa krus na kasama ni Cristo; at hindi na ako ang nabubuhay, kundi si Cristo ang nabubuhay sa akin: at ang buhay na ikinabubuhay ko ngayon sa laman ay ikinabubuhay ko sa pananampalataya, ang pananampalataya na ito'y sa Anak ng Dios, na sa akin ay umibig, at ibinigay ang kaniyang sarili dahil sa akin."
     },
     {
       "v": 21,
       "en": "I do not frustrate the grace of God: for if righteousness come by the law, then Christ is dead in vain.",
-      "ceb": "Wala ko igasalikway ang gracia sa Dios; kay kong ang pagkamatarung pinaagi pa sa Kasugoan, nan si Cristo namatay sa walay hinungdan."
+      "ceb": "Wala ko igasalikway ang gracia sa Dios; kay kong ang pagkamatarung pinaagi pa sa Kasugoan, nan si Cristo namatay sa walay hinungdan.",
+      "tag": "Hindi ko niwawalan ng halaga ang biyaya ng Dios: sapagka't kung sa pamamagitan ng kautusan ay ang katuwiran, kung gayo'y si Cristo ay namatay ng walang kabuluhan."
     }
   ],
   "3": [
     {
       "v": 1,
       "en": "O foolish Galatians, who hath bewitched you, that ye should not obey the truth, before whose eyes Jesus Christ hath been evidently set forth, crucified among you?",
-      "ceb": "Oh, mga Galaciahanon nga mga walay salabutan, kinsa ba ang nag-ulo-ulo kaninyo nga sa atubangan sa inyong mga mata si Jesucristo ginasaysay sa dayag gayud, nga gilansang sa cruz?"
+      "ceb": "Oh, mga Galaciahanon nga mga walay salabutan, kinsa ba ang nag-ulo-ulo kaninyo nga sa atubangan sa inyong mga mata si Jesucristo ginasaysay sa dayag gayud, nga gilansang sa cruz?",
+      "tag": "Oh mga mangmang na taga Galacia, sino ang mga nagsigayuma sa inyo, na sa harapan ng inyong mga mata'y si Jesucristo, na napako sa krus, ay maliwanag na inihayag?"
     },
     {
       "v": 2,
       "en": "This only would I learn of you, Received ye the Spirit by the works of the law, or by the hearing of faith?",
-      "ceb": "Kini lamang ang buot ko unta nga pakisayran kaninyo: Nakadawat ba kamo sa Espiritu tungod sa mga buhat sa Kasugoan, kun tungod ba sa pagpatalinghug sa pagtoo?"
+      "ceb": "Kini lamang ang buot ko unta nga pakisayran kaninyo: Nakadawat ba kamo sa Espiritu tungod sa mga buhat sa Kasugoan, kun tungod ba sa pagpatalinghug sa pagtoo?",
+      "tag": "Ito lamang ang ibig kong maalaman sa inyo, Tinanggap baga ninyo ang Espiritu sa pamamagitan ng mga gawang ayon sa kautusan, o sa pamamagitan ng pakikinig ng tungkol sa pananampalataya?"
     },
     {
       "v": 3,
       "en": "Are ye so foolish? having begun in the Spirit, are ye now made perfect by the flesh?",
-      "ceb": "Hilabihan ba gayud ang inyong pagkawalay-salabutan? Sa nakasugod kamo sa Espiritu, karon nahingpit ba kamo pinaagi sa unod?"
+      "ceb": "Hilabihan ba gayud ang inyong pagkawalay-salabutan? Sa nakasugod kamo sa Espiritu, karon nahingpit ba kamo pinaagi sa unod?",
+      "tag": "Napakamangmang na baga kayo? kayong nagpasimula sa Espiritu, ngayo'y nangagpapakasakdal kayo sa laman?"
     },
     {
       "v": 4,
       "en": "Have ye suffered so many things in vain? if it be yet in vain.",
-      "ceb": "Hilabihan ba gayud ang inyong pag-antus sa daghang mga butang sa walay pulos? Kong, sa pagkamatuod, walay pulos."
+      "ceb": "Hilabihan ba gayud ang inyong pag-antus sa daghang mga butang sa walay pulos? Kong, sa pagkamatuod, walay pulos.",
+      "tag": "Tiniis baga ninyong walang kabuluhan ang lubhang maraming mga bagay? kung tunay na walang kabuluhan."
     },
     {
       "v": 5,
       "en": "He therefore that ministereth to you the Spirit, and worketh miracles among you, doeth he it by the works of the law, or by the hearing of faith?",
-      "ceb": "Busa, siya nga nagahatag kaninyo sa Espiritu, ug nagabuhat sa mga katingalahan sa taliwala ninyo, gihimo ba niya kana tungod sa mga buhat sa Kasugoan, kun tungod sa pagpatalinghug sa pagtoo?"
+      "ceb": "Busa, siya nga nagahatag kaninyo sa Espiritu, ug nagabuhat sa mga katingalahan sa taliwala ninyo, gihimo ba niya kana tungod sa mga buhat sa Kasugoan, kun tungod sa pagpatalinghug sa pagtoo?",
+      "tag": "Siya na nagbibigay nga sa inyo ng Espiritu, at gumagawa ng mga himala sa gitna ninyo, ginagawa baga sa pamamagitan ng mga gawang ayon sa kautusan, o sa pakikinig ng tungkol sa pananampalataya?"
     },
     {
       "v": 6,
       "en": "Even as Abraham believed God, and it was accounted to him for righteousness.",
-      "ceb": "Maingon sa nahasulat: Si Abraham mitoo sa Dios, ug kana naisip kaniya nga alang sa pagkamatarung."
+      "ceb": "Maingon sa nahasulat: Si Abraham mitoo sa Dios, ug kana naisip kaniya nga alang sa pagkamatarung.",
+      "tag": "Gaya nga ni Abraham na sumampalataya sa Dios, at ito'y ibinilang sa kaniya na katuwiran."
     },
     {
       "v": 7,
       "en": "Know ye therefore that they which are of faith, the same are the children of Abraham.",
-      "ceb": "Busa, sabton ninyo nga kadtong mga anaa sa pagtoo, kana sila mao ang mga anak ni Abraham."
+      "ceb": "Busa, sabton ninyo nga kadtong mga anaa sa pagtoo, kana sila mao ang mga anak ni Abraham.",
+      "tag": "Talastasin nga ninyo na ang mga sa pananampalataya, ang mga yaon ay mga anak ni Abraham."
     },
     {
       "v": 8,
       "en": "And the scripture, foreseeing that God would justify the heathen through faith, preached before the gospel unto Abraham, saying, In thee shall all nations be blessed.",
-      "ceb": "Ug ang Kasulatan, nga nagapasidaan nga ang Dios magapakamatarung sa mga Gentil tungod sa pagtoo, nagbalita nga daan sa Maayong Balita kang Abraham, nga nagaingon: Diha kanimo mapanalanginan ang tanan nga mga nasud."
+      "ceb": "Ug ang Kasulatan, nga nagapasidaan nga ang Dios magapakamatarung sa mga Gentil tungod sa pagtoo, nagbalita nga daan sa Maayong Balita kang Abraham, nga nagaingon: Diha kanimo mapanalanginan ang tanan nga mga nasud.",
+      "tag": "At sapagka't ipinakita na ng kasulatan, na aariing-ganap ng Dios ang mga Gentil sa pamamagitan ng pananampalataya, ay ipinangaral na nang una ang evangelio kay Abraham, na sinasabi, Sa iyo ay pagpapalain ang lahat ng mga bansa."
     },
     {
       "v": 9,
       "en": "So then they which be of faith are blessed with faithful Abraham.",
-      "ceb": "Busa, kadtong mga anaa sa pagtoo, gipanalanginan uban sa matinohoon nga si Abraham."
+      "ceb": "Busa, kadtong mga anaa sa pagtoo, gipanalanginan uban sa matinohoon nga si Abraham.",
+      "tag": "Kaya't ang mga sa pananampalataya ay pinagpapala kay Abraham na may pananampalataya."
     },
     {
       "v": 10,
       "en": "For as many as are of the works of the law are under the curse: for it is written, Cursed is every one that continueth not in all things which are written in the book of the law to do them.",
-      "ceb": "Kay ang tanan nga anaa sa mga buhat sa Kasugoan anaa sila sa ilalum sa pagtunglo; kay nahasulat na: Gitunglo ang tanan nga dili magpadayon sa tanan nga mga butang nga nahasulat sa basahon sa Kasugoan, aron pagbuhaton nila."
+      "ceb": "Kay ang tanan nga anaa sa mga buhat sa Kasugoan anaa sila sa ilalum sa pagtunglo; kay nahasulat na: Gitunglo ang tanan nga dili magpadayon sa tanan nga mga butang nga nahasulat sa basahon sa Kasugoan, aron pagbuhaton nila.",
+      "tag": "Sapagka't ang lahat na sa mga gawang ayon sa kautusan ay nasa ilalim ng sumpa: sapagka't nasusulat, Sinusumpa ang bawa't hindi nananatili sa lahat ng mga bagay na nasusulat sa aklat ng kautusan, upang gawin nila."
     },
     {
       "v": 11,
       "en": "But that no man is justified by the law in the sight of God, it is evident: for, The just shall live by faith.",
-      "ceb": "Karon nga tungod sa Kasugoan walay bisan kinsa nga gipakamatarung sa atubangan sa Dios, mahayag man; kay, Ang matarung mabuhi tungod sa pagtoo."
+      "ceb": "Karon nga tungod sa Kasugoan walay bisan kinsa nga gipakamatarung sa atubangan sa Dios, mahayag man; kay, Ang matarung mabuhi tungod sa pagtoo.",
+      "tag": "Maliwanag nga na sinoman ay hindi inaaring-ganap sa kautusan sa harapan ng Dios; sapagka't, Ang ganap ay mabubuhay sa pananampalataya."
     },
     {
       "v": 12,
       "en": "And the law is not of faith: but, The man that doeth them shall live in them.",
-      "ceb": "Ug ang Kasugoan dili iya sa pagtoo; apan: Ang magabuhat kanila, magakinabuhi diha kanila."
+      "ceb": "Ug ang Kasugoan dili iya sa pagtoo; apan: Ang magabuhat kanila, magakinabuhi diha kanila.",
+      "tag": "At ang kautusan ay hindi sa pananampalataya; kundi, Ang gumaganap ng mga yaon ay mabubuhay sa mga yaon."
     },
     {
       "v": 13,
       "en": "Christ hath redeemed us from the curse of the law, being made a curse for us: for it is written, Cursed is every one that hangeth on a tree:",
-      "ceb": "Si Cristo mitubos kanato gikan sa pagtunglo sa Kasugoan, kay gitunglo siya tungod kanato, kay nahasulat na: Gipanunglo kadtong tanan nga gibitay sa usa ka kahoy;"
+      "ceb": "Si Cristo mitubos kanato gikan sa pagtunglo sa Kasugoan, kay gitunglo siya tungod kanato, kay nahasulat na: Gipanunglo kadtong tanan nga gibitay sa usa ka kahoy;",
+      "tag": "Sa sumpa ng kautusan ay tinubos tayo ni Cristo, na naging sumpa sa ganang atin; sapagka't nasusulat, Sinusumpa ang bawa't binibitay sa punong kahoy:"
     },
     {
       "v": 14,
       "en": "That the blessing of Abraham might come on the Gentiles through Jesus Christ; that we might receive the promise of the Spirit through faith.",
-      "ceb": "Aron ang panalangin ni Abraham makadangat sa ibabaw sa mga Gentil diha kang Cristo Jesus; aron makadawat kita sa saad sa Espiritu pinaagi sa pagtoo."
+      "ceb": "Aron ang panalangin ni Abraham makadangat sa ibabaw sa mga Gentil diha kang Cristo Jesus; aron makadawat kita sa saad sa Espiritu pinaagi sa pagtoo.",
+      "tag": "Upang sa mga Gentil ay dumating ang pagpapala ni Abraham na kay Cristo Jesus; upang sa pamamagitan ng pananampalataya ay tanggapin natin ang pangako ng Espiritu."
     },
     {
       "v": 15,
       "en": "Brethren, I speak after the manner of men; Though it be but a man's covenant, yet if it be confirmed, no man disannulleth, or addeth thereto.",
-      "ceb": "Mga igsoon, nagasulti ako ingon nga tawo: Bisan ang usa ka tugon iya lamang sa tawo, apan sa mapamatud-an na, walay bisan kinsa nga makapawalay-pulos kaniya, kun makadugang niana."
+      "ceb": "Mga igsoon, nagasulti ako ingon nga tawo: Bisan ang usa ka tugon iya lamang sa tawo, apan sa mapamatud-an na, walay bisan kinsa nga makapawalay-pulos kaniya, kun makadugang niana.",
+      "tag": "Mga kapatid, nagsasalita ako ayon sa kaugalian ng mga tao: Bagama't ang pakikipagtipan ay gawa lamang ng tao, gayon ma'y pagka pinagtibay, sinoman ay hindi makapagpapawalang kabuluhan, o makapagdaragdag man."
     },
     {
       "v": 16,
       "en": "Now to Abraham and his seed were the promises made. He saith not, And to seeds, as of many; but as of one, And to thy seed, which is Christ.",
-      "ceb": "Karon kang Abraham gisulti ang mga saad ug sa iyang kaliwat. Wala siya mag-ingon: Ug sa mga kaliwatan, ingon nga daw daghan sila; kondili ingon nga usa: Ug sa imong kaliwat, nga mao si Cristo."
+      "ceb": "Karon kang Abraham gisulti ang mga saad ug sa iyang kaliwat. Wala siya mag-ingon: Ug sa mga kaliwatan, ingon nga daw daghan sila; kondili ingon nga usa: Ug sa imong kaliwat, nga mao si Cristo.",
+      "tag": "Ngayon kay Abraham nga sinabi ang mga pangako, at sa kaniyang binhi. Hindi sinasabi ng Dios, At sa mga binhi, na gaya baga sa marami; kundi gaya sa iisa lamang, At sa iyong binhi, na si Cristo."
     },
     {
       "v": 17,
       "en": "And this I say, that the covenant, that was confirmed before of God in Christ, the law, which was four hundred and thirty years after, cannot disannul, that it should make the promise of none effect.",
-      "ceb": "Busa, nagaingon ako niini: Usa ka tugon nga gikauyonan nang daan sa Dios kang Cristo, ang Kasugoan nga gihatag sa ming-agi na ang upat ka gatus ug katloan ka tuig, wala makabungkag aron ang saad mahimong walay pulos."
+      "ceb": "Busa, nagaingon ako niini: Usa ka tugon nga gikauyonan nang daan sa Dios kang Cristo, ang Kasugoan nga gihatag sa ming-agi na ang upat ka gatus ug katloan ka tuig, wala makabungkag aron ang saad mahimong walay pulos.",
+      "tag": "Ito nga ang aking sinasabi: Ang isang pakikipagtipang pinagtibay na nang una ng Dios, ay hindi mapawawalang kabuluhan ng kautusan, na sumipot nang makaraan ang apat na raan at tatlongpung taon, ano pa't upang pawalang kabuluhan ang pangako."
     },
     {
       "v": 18,
       "en": "For if the inheritance be of the law, it is no more of promise: but God gave it to Abraham by promise.",
-      "ceb": "Kay kong ang kabilin tungod pa sa Kasugoan, dili na tungod sa saad; apan kana gihatag sa Dios kang Abraham pinaagi sa saad."
+      "ceb": "Kay kong ang kabilin tungod pa sa Kasugoan, dili na tungod sa saad; apan kana gihatag sa Dios kang Abraham pinaagi sa saad.",
+      "tag": "Sapagka't kung ang mana ay sa pamamagitan ng kautusan, ay hindi na sa pamamagitan ng pangako: datapuwa't ipinagkaloob ng Dios kay Abraham sa pamamagitan ng pangako."
     },
     {
       "v": 19,
       "en": "Wherefore then serveth the law? It was added because of transgressions, till the seed should come to whom the promise was made; and it was ordained by angels in the hand of a mediator.",
-      "ceb": "Busa unsa man ang Kasugoan? Kini gidugang tungod sa mga paglapas hangtud nga moabut ang kaliwat nga kaniya gibuhat ang saad; ug kini gipadala pinaagi sa mga manolonda sa kamot sa usa ka manlalaban."
+      "ceb": "Busa unsa man ang Kasugoan? Kini gidugang tungod sa mga paglapas hangtud nga moabut ang kaliwat nga kaniya gibuhat ang saad; ug kini gipadala pinaagi sa mga manolonda sa kamot sa usa ka manlalaban.",
+      "tag": "Ano nga ang kabuluhan ng kautusan? Idinagdag dahil sa mga pagsalangsang, hanggang sa pumarito ang binhi na siyang pinangakuan; at ito'y iniutos sa pamamagitan ng mga anghel sa kamay ng isang tagapamagitan."
     },
     {
       "v": 20,
       "en": "Now a mediator is not a mediator of one, but God is one.",
-      "ceb": "Karon ang manlalaban dili manlalaban sa usa; apan ang Dios usa lamang."
+      "ceb": "Karon ang manlalaban dili manlalaban sa usa; apan ang Dios usa lamang.",
+      "tag": "Ngayon ang isang tagapamagitan ay hindi tagapamagitan ng iisa; datapuwa't ang Dios ay iisa."
     },
     {
       "v": 21,
       "en": "Is the law then against the promises of God? God forbid: for if there had been a law given which could have given life, verily righteousness should have been by the law.",
-      "ceb": "Busa ang Kasugoan batok ba sa mga saad sa Dios? Kana dili mahimo! Kay kong gihatag pa ang usa ka Kasugoan nga makahatag sa kinabuhi, ang pagkamatarung, sa pagkamatuod, mahimong pinaagi unta sa Kasugoan."
+      "ceb": "Busa ang Kasugoan batok ba sa mga saad sa Dios? Kana dili mahimo! Kay kong gihatag pa ang usa ka Kasugoan nga makahatag sa kinabuhi, ang pagkamatarung, sa pagkamatuod, mahimong pinaagi unta sa Kasugoan.",
+      "tag": "Ang kautusan nga baga ay laban sa mga pangako ng Dios? Huwag nawang mangyari: sapagka't kung ibinigay sana ang isang kautusang may kapangyarihang magbigay buhay, tunay ngang ang katuwiran sana ay naging dahil sa kautusan."
     },
     {
       "v": 22,
       "en": "But the scripture hath concluded all under sin, that the promise by faith of Jesus Christ might be given to them that believe.",
-      "ceb": "Apan gilukban sa Kasulatan ang tanang mga butang nga anaa sa ilalum sa sala, aron ang saad nga pinaagi sa pagtoo kang Jesucristo ihatag niadtong mga mingtoo."
+      "ceb": "Apan gilukban sa Kasulatan ang tanang mga butang nga anaa sa ilalum sa sala, aron ang saad nga pinaagi sa pagtoo kang Jesucristo ihatag niadtong mga mingtoo.",
+      "tag": "Datapuwa't kinulong ng kasulatan ang lahat ng mga bagay sa ilalim ng kasalanan, upang ang pangako sa pamamagitan ng pananampalataya kay Jesucristo ay maibigay sa mga nagsisisampalataya."
     },
     {
       "v": 23,
       "en": "But before faith came, we were kept under the law, shut up unto the faith which should afterwards be revealed.",
-      "ceb": "Apan sa wala pa moabut ang pagtoo nalukban kita sa ilalum sa Kasugoan, nga natago ngadto sa pagtoo nga sa ulahi igapadayag."
+      "ceb": "Apan sa wala pa moabut ang pagtoo nalukban kita sa ilalum sa Kasugoan, nga natago ngadto sa pagtoo nga sa ulahi igapadayag.",
+      "tag": "Nguni't bago dumating ang pananampalataya, ay nabibilanggo tayo sa ilalim ng kautusan, na nakukulong tayo hanggang sa ang pananampalataya ay ipahahayag pagkatapos."
     },
     {
       "v": 24,
       "en": "Wherefore the law was our schoolmaster to bring us unto Christ, that we might be justified by faith.",
-      "ceb": "Sa pagkaagi nga ang Kasugoan nahimo nga atong magtutudlo sa pag-dala kanato ngadto kang Cristo, aron kita pagapaka-matarungon pinaagi sa pagtoo."
+      "ceb": "Sa pagkaagi nga ang Kasugoan nahimo nga atong magtutudlo sa pag-dala kanato ngadto kang Cristo, aron kita pagapaka-matarungon pinaagi sa pagtoo.",
+      "tag": "Ano pa't ang kautusan ay siyang naging tagapagturo natin upang ihatid tayo kay Cristo, upang tayo'y ariing-ganap sa pamamagitan ng pananampalataya."
     },
     {
       "v": 25,
       "en": "But after that faith is come, we are no longer under a schoolmaster.",
-      "ceb": "Apan karon nga miabut na ang pagtoo, wala na kita sa ilalum sa magtutudlo."
+      "ceb": "Apan karon nga miabut na ang pagtoo, wala na kita sa ilalum sa magtutudlo.",
+      "tag": "Datapuwa't ngayong dumating na ang pananampalataya, ay wala na tayo sa ilalim ng tagapagturo."
     },
     {
       "v": 26,
       "en": "For ye are all the children of God by faith in Christ Jesus.",
-      "ceb": "Kay kamong tanan mga anak sa Dios pinaagi sa pagtoo diha kang Cristo Jesus."
+      "ceb": "Kay kamong tanan mga anak sa Dios pinaagi sa pagtoo diha kang Cristo Jesus.",
+      "tag": "Sapagka't kayong lahat ay mga anak ng Dios, sa pamamagitan ng pananampalataya, kay Cristo Jesus."
     },
     {
       "v": 27,
       "en": "For as many of you as have been baptized into Christ have put on Christ.",
-      "ceb": "Kay kamong tanan nga gibautismohan ngadto kang Cristo nagsul-ob kamo kang Cristo."
+      "ceb": "Kay kamong tanan nga gibautismohan ngadto kang Cristo nagsul-ob kamo kang Cristo.",
+      "tag": "Sapagka't ang lahat na sa inyo ay binautismuhan kay Cristo ay ibinihis si Cristo."
     },
     {
       "v": 28,
       "en": "There is neither Jew nor Greek, there is neither bond nor free, there is neither male nor female: for ye are all one in Christ Jesus.",
-      "ceb": "Walay Judio, ni Greciahanon; walay ulipon, ni dili-ulipon; walay lalake, ug babaye; kay kamong tanan nahimong usa kang Cristo Jesus."
+      "ceb": "Walay Judio, ni Greciahanon; walay ulipon, ni dili-ulipon; walay lalake, ug babaye; kay kamong tanan nahimong usa kang Cristo Jesus.",
+      "tag": "Walang magiging Judio o Griego man, walang magiging alipin o malaya man, walang magiging lalake o babae man; sapagka't kayong lahat ay iisa kay Cristo Jesus."
     },
     {
       "v": 29,
       "en": "And if ye be Christ's, then are ye Abraham's seed, and heirs according to the promise.",
-      "ceb": "Ug kong kamo iya ni Cristo, nan sa pagkamatuod, sa kaliwat kamo ni Abraham, ug mga manununod sumala sa saad."
+      "ceb": "Ug kong kamo iya ni Cristo, nan sa pagkamatuod, sa kaliwat kamo ni Abraham, ug mga manununod sumala sa saad.",
+      "tag": "At kung kayo'y kay Cristo, kayo nga'y binhi ni Abraham, at mga tagapagmana ayon sa pangako."
     }
   ],
   "4": [
     {
       "v": 1,
       "en": "Now I say, That the heir, as long as he is a child, differeth nothing from a servant, though he be lord of all;",
-      "ceb": "Apan nagaingon ako: Nga sa bata pa ang manununod, walay kalainan gikan sa usa ka ulipon bisan siya ginoo sa tanan."
+      "ceb": "Apan nagaingon ako: Nga sa bata pa ang manununod, walay kalainan gikan sa usa ka ulipon bisan siya ginoo sa tanan.",
+      "tag": "Nguni't sinasabi ko na samantalang ang tagapagmana ay bata, ay walang pagkakaibang anoman sa alipin bagama't siya'y panginoon ng lahat;"
     },
     {
       "v": 2,
       "en": "But is under tutors and governors until the time appointed of the father.",
-      "ceb": "Kondili anaa siya sa ilalum sa mga magbalantay ug sa mga tinugyanan sa panahon nga gitagal sa amahan."
+      "ceb": "Kondili anaa siya sa ilalum sa mga magbalantay ug sa mga tinugyanan sa panahon nga gitagal sa amahan.",
+      "tag": "Datapuwa't nasa ilalim ng mga tagapagampon at ng mga tagapangasiwa hanggang sa panahong itinakda ng ama."
     },
     {
       "v": 3,
       "en": "Even so we, when we were children, were in bondage under the elements of the world:",
-      "ceb": "Ingon man usab kita, nga sa bata pa kita, mga ulipon kita sa ilalum sa mga bata nga pagtolon-an sa kalibutan."
+      "ceb": "Ingon man usab kita, nga sa bata pa kita, mga ulipon kita sa ilalum sa mga bata nga pagtolon-an sa kalibutan.",
+      "tag": "Gayon din naman tayo, nang tayo'y mga bata pa, tayo'y nasasakop ng pagkaalipin sa ilalim ng mga pasimulang aral ng sanglibutan."
     },
     {
       "v": 4,
       "en": "But when the fulness of the time was come, God sent forth his Son, made of a woman, made under the law,",
-      "ceb": "Apan sa pag-abut sa kahingpitan sa panahon, gipadala sa Dios ang iyang Anak, nga natawo sa usa ka babaye, natawo sa ilalum sa Kasugoan,"
+      "ceb": "Apan sa pag-abut sa kahingpitan sa panahon, gipadala sa Dios ang iyang Anak, nga natawo sa usa ka babaye, natawo sa ilalum sa Kasugoan,",
+      "tag": "Datapuwa't nang dumating ang kapanahunan, ay sinugo ng Dios ang kaniyang Anak, na ipinanganak ng isang babae, na ipinanganak sa ilalim ng kautusan,"
     },
     {
       "v": 5,
       "en": "To redeem them that were under the law, that we might receive the adoption of sons.",
-      "ceb": "Aron pagtubson niya sila nga anaa sa ilalum sa Kasugoan, aron makadawat kita sa pagka-sinagop nga mga anak."
+      "ceb": "Aron pagtubson niya sila nga anaa sa ilalum sa Kasugoan, aron makadawat kita sa pagka-sinagop nga mga anak.",
+      "tag": "Upang matubos niya ang nangasa ilalim ng kautusan, upang matanggap natin ang pagkukupkop sa mga anak."
     },
     {
       "v": 6,
       "en": "And because ye are sons, God hath sent forth the Spirit of his Son into your hearts, crying, Abba, Father.",
-      "ceb": "Ug tungod kay mga Anak kamo, ang Dios nagpadala sa Espiritu sa iyang Anak nganhi sa atong mga kasingkasing, nga nanggilaba: Abba, Amahan."
+      "ceb": "Ug tungod kay mga Anak kamo, ang Dios nagpadala sa Espiritu sa iyang Anak nganhi sa atong mga kasingkasing, nga nanggilaba: Abba, Amahan.",
+      "tag": "At sapagka't kayo'y mga anak, ay sinugo ng Dios ang Espiritu ng kaniyang Anak sa ating mga puso, na sumisigaw, Abba, Ama."
     },
     {
       "v": 7,
       "en": "Wherefore thou art no more a servant, but a son; and if a son, then an heir of God through Christ.",
-      "ceb": "Sa pagkaagi nga, dili na ikaw ulipon, kondili anak; ug kong anak, nan, manununod sa Dios pinaagi kang Cristo."
+      "ceb": "Sa pagkaagi nga, dili na ikaw ulipon, kondili anak; ug kong anak, nan, manununod sa Dios pinaagi kang Cristo.",
+      "tag": "Ano pa't hindi ka na alipin, kundi anak; at kung anak, ay tagapagmana ka nga sa pamamagitan ng Dios."
     },
     {
       "v": 8,
       "en": "Howbeit then, when ye knew not God, ye did service unto them which by nature are no gods.",
-      "ceb": "Apan niadtong panahona, sa wala pa kamo makaila sa Dios, kamo mga ulipon nila nga sa ilang kinaiya dili mga dios."
+      "ceb": "Apan niadtong panahona, sa wala pa kamo makaila sa Dios, kamo mga ulipon nila nga sa ilang kinaiya dili mga dios.",
+      "tag": "Gayon man nang panahong yaon, sa hindi ninyo pagkakilala sa Dios, kayo'y nasa pagkaalipin ng sa katutubo ay hindi mga dios:"
     },
     {
       "v": 9,
       "en": "But now, after that ye have known God, or rather are known of God, how turn ye again to the weak and beggarly elements, whereunto ye desire again to be in bondage?",
-      "ceb": "Apan karon, nga nakaila na kamo sa Dios, kun ingnon hinoon, sa hing-ilhan kamo sa Dios, naunsa ba nga mobalik man kamo pag-usab niadtong mga maluya ug uban sa mga bata nga pagtolon-an, nga niini buot kamo magpaulipon pag-usab."
+      "ceb": "Apan karon, nga nakaila na kamo sa Dios, kun ingnon hinoon, sa hing-ilhan kamo sa Dios, naunsa ba nga mobalik man kamo pag-usab niadtong mga maluya ug uban sa mga bata nga pagtolon-an, nga niini buot kamo magpaulipon pag-usab.",
+      "tag": "Datapuwa't ngayon yamang nakikilala na ninyo ang Dios, o ang lalong mabuting sabihin, kayo'y nangakikilala ng Dios, bakit muling nangagbabalik kayo doon sa mahihina at walang bisang mga pasimulang aral, na sa mga yao'y ninanasa ninyong magbalik sa pagkaalipin?"
     },
     {
       "v": 10,
       "en": "Ye observe days, and months, and times, and years.",
-      "ceb": "Gilihian ninyo ang mga adlaw, ug ang mga bulan, ug ang mga panahon, ug ang mga tuig."
+      "ceb": "Gilihian ninyo ang mga adlaw, ug ang mga bulan, ug ang mga panahon, ug ang mga tuig.",
+      "tag": "Ipinangingilin ninyo ang mga araw, at mga buwan, at mga panahon, at mga taon."
     },
     {
       "v": 11,
       "en": "I am afraid of you, lest I have bestowed upon you labour in vain.",
-      "ceb": "Nahadlok ako kaninyo, nga tingali nakabuhat ako sa walay kapuslanan alang kaninyo."
+      "ceb": "Nahadlok ako kaninyo, nga tingali nakabuhat ako sa walay kapuslanan alang kaninyo.",
+      "tag": "Ako'y natatakot tungkol sa inyo, baka sa anomang paraan ay nagpagal ako sa inyo ng walang kabuluhan."
     },
     {
       "v": 12,
       "en": "Brethren, I beseech you, be as I am; for I am as ye are: ye have not injured me at all.",
-      "ceb": "Mga igsoon, nagapangaliyupo ako kaninyo nga manig-ingon kamo kanako, kay ako usab ingon man kaninyo. Wala kamoy nahimo kanako nga bisan unsa nga dautan."
+      "ceb": "Mga igsoon, nagapangaliyupo ako kaninyo nga manig-ingon kamo kanako, kay ako usab ingon man kaninyo. Wala kamoy nahimo kanako nga bisan unsa nga dautan.",
+      "tag": "Ipinamamanhik ko sa inyo, mga kapatid, na kayo'y mangagsitulad sa akin, sapagka't ako'y katulad din ninyo. Wala kayong ginawa sa aking anomang kasamaan."
     },
     {
       "v": 13,
       "en": "Ye know how through infirmity of the flesh I preached the gospel unto you at the first.",
-      "ceb": "Apan hingbaloan ninyo nga tungod sa usa ka sakit sa unod, nagmantala una ako kaninyo sa Maayong Balita."
+      "ceb": "Apan hingbaloan ninyo nga tungod sa usa ka sakit sa unod, nagmantala una ako kaninyo sa Maayong Balita.",
+      "tag": "Datapuwa't nalalaman ninyo na dahil sa sakit ng laman, ay ipinangaral ko sa inyo ang evangelio nang pasimula:"
     },
     {
       "v": 14,
       "en": "And my temptation which was in my flesh ye despised not, nor rejected; but received me as an angel of God, even as Christ Jesus.",
-      "ceb": "Ug kadtong sa akong unod nga maoy usa ka panulay kaninyo, wala ninyo pagtamaya, ug wala ninyo isalikway; kondili inyong gidawat ako ingon sa usa ka manolonda sa Dios, ingon kang Cristo Jesus."
+      "ceb": "Ug kadtong sa akong unod nga maoy usa ka panulay kaninyo, wala ninyo pagtamaya, ug wala ninyo isalikway; kondili inyong gidawat ako ingon sa usa ka manolonda sa Dios, ingon kang Cristo Jesus.",
+      "tag": "At yaong sa inyo'y isang tukso sa aking laman ay hindi ninyo inalipusta, ni itinakuwil man; kundi ako'y tinanggap ninyong tulad sa isang anghel ng Dios, tulad kay Cristo Jesus."
     },
     {
       "v": 15,
       "en": "Where is then the blessedness ye spake of? for I bear you record, that, if it had been possible, ye would have plucked out your own eyes, and have given them to me.",
-      "ceb": "Busa hain na man kadtong pag-dayeg sa inyong kaugalingon? Kay ginapamatuod ko kaninyo, nga, kong arang mahimo, gilusok unta ninyo ang inyong mga mata, ug ihatag ninyo kanako."
+      "ceb": "Busa hain na man kadtong pag-dayeg sa inyong kaugalingon? Kay ginapamatuod ko kaninyo, nga, kong arang mahimo, gilusok unta ninyo ang inyong mga mata, ug ihatag ninyo kanako.",
+      "tag": "Saan nga naroon yaong inyong kapalaran? sapagka't pinatototohanan ko sa inyo, na, kung mangyayari, ay inyong dinukit sana ang inyong mga mata at ibinigay sa akin."
     },
     {
       "v": 16,
       "en": "Am I therefore become your enemy, because I tell you the truth?",
-      "ceb": "Sa ingon niana, nahimo ba ako nga kaaway ninyo tungod sa pag-asoy ko kaninyo sa kamatuoran?"
+      "ceb": "Sa ingon niana, nahimo ba ako nga kaaway ninyo tungod sa pag-asoy ko kaninyo sa kamatuoran?",
+      "tag": "Kaya nga ako baga'y naging kaaway ninyo, sa pagsasabi ko sa inyo ng katotohanan?"
     },
     {
       "v": 17,
       "en": "They zealously affect you, but not well; yea, they would exclude you, that ye might affect them.",
-      "ceb": "Sila nagapangita sa masingkamoton kaninyo sa paagi nga dili maayo; hinonoa, buot nila nga isalikway kamo, aron kamo managpangita kanila."
+      "ceb": "Sila nagapangita sa masingkamoton kaninyo sa paagi nga dili maayo; hinonoa, buot nila nga isalikway kamo, aron kamo managpangita kanila.",
+      "tag": "May nangagmamalasakit sa inyo sa hindi mabuting akala; subali't, ang ibig nila ay ihiwalay kayo, upang ipagmalasakit ninyo sila."
     },
     {
       "v": 18,
       "en": "But it is good to be zealously affected always in a good thing, and not only when I am present with you.",
-      "ceb": "Apan maayo nga pangitaon kita sa masingkamoton sa kaayohan sa tanang panahon; ug dili lamang kong anaa ako, nga nagaatubang kaninyo."
+      "ceb": "Apan maayo nga pangitaon kita sa masingkamoton sa kaayohan sa tanang panahon; ug dili lamang kong anaa ako, nga nagaatubang kaninyo.",
+      "tag": "Datapuwa't mabuti ang ipagmalasakit sa mabuting bagay sa lahat ng panahon, at hindi lamang samantalang ako'y kaharap ninyo."
     },
     {
       "v": 19,
       "en": "My little children, of whom I travail in birth again until Christ be formed in you,",
-      "ceb": "Mga anak ko, tungod kaninyo mibalik ang akong kasakit, hangtud nga si Cristo matawo sa sulod ninyo."
+      "ceb": "Mga anak ko, tungod kaninyo mibalik ang akong kasakit, hangtud nga si Cristo matawo sa sulod ninyo.",
+      "tag": "Maliliit kong mga anak, na muli kong ipinagdaramdam sa panganganak hanggang si Cristo ay mabadha sa inyo."
     },
     {
       "v": 20,
       "en": "I desire to be present with you now, and to change my voice; for I stand in doubt of you.",
-      "ceb": "Apan buot unta ako makig-atubang kaninyo karon, ug sa pag-ilis sa akong tingog; kay nalibug ako tungod kaninyo."
+      "ceb": "Apan buot unta ako makig-atubang kaninyo karon, ug sa pag-ilis sa akong tingog; kay nalibug ako tungod kaninyo.",
+      "tag": "Datapuwa't, ibig kong makaharap ninyo ako ngayon, at baguhin ang aking tinig; sapagka't ako'y nagaalinlangan tungkol sa inyo."
     },
     {
       "v": 21,
       "en": "Tell me, ye that desire to be under the law, do ye not hear the law?",
-      "ceb": "Suginli ako ninyo, kamo nga buot mopasakup sa Kasugoan, wala ba kamo makadungog sa Kasugoan?"
+      "ceb": "Suginli ako ninyo, kamo nga buot mopasakup sa Kasugoan, wala ba kamo makadungog sa Kasugoan?",
+      "tag": "Sabihin ninyo sa akin, kayong nagsisipagnasang mapasa ilalim ng kautusan, hindi baga ninyo naririnig ang kautusan?"
     },
     {
       "v": 22,
       "en": "For it is written, that Abraham had two sons, the one by a bondmaid, the other by a freewoman.",
-      "ceb": "Kay nahasulat na, nga si Abraham may duha ka mga anak nga lalake; ang usa sa ulipon nga babaye, ug ang usa sa babaye nga may kagawasan."
+      "ceb": "Kay nahasulat na, nga si Abraham may duha ka mga anak nga lalake; ang usa sa ulipon nga babaye, ug ang usa sa babaye nga may kagawasan.",
+      "tag": "Sapagka't nasusulat, na si Abraham ay nagkaroon ng dalawang anak, ang isa'y sa aliping babae, at ang isa'y sa babaing malaya."
     },
     {
       "v": 23,
       "en": "But he who was of the bondwoman was born after the flesh; but he of the freewoman was by promise.",
-      "ceb": "Apan ang anak sa ulipon natawo sumala sa unod; apan ang anak sa babaye nga may kagawasan, natawo pinaagi sa saad."
+      "ceb": "Apan ang anak sa ulipon natawo sumala sa unod; apan ang anak sa babaye nga may kagawasan, natawo pinaagi sa saad.",
+      "tag": "Gayon man ang anak sa alipin ay ipinanganak ayon sa laman; nguni't ang anak sa babaing malaya ay sa pamamagitan ng pangako."
     },
     {
       "v": 24,
       "en": "Which things are an allegory: for these are the two covenants; the one from the mount Sinai, which gendereth to bondage, which is Agar.",
-      "ceb": "Kining mga butanga mga panganinawan. Kay kining mga babaye mao ang duha ka mga tugon; ang usa gikan sa bukid sa Sinai, nga nanganak ngadto sa pagkaulipon, nga mao si Agar."
+      "ceb": "Kining mga butanga mga panganinawan. Kay kining mga babaye mao ang duha ka mga tugon; ang usa gikan sa bukid sa Sinai, nga nanganak ngadto sa pagkaulipon, nga mao si Agar.",
+      "tag": "Ang mga bagay na ito'y may lamang talinghaga: sapagka't ang mga babaing ito'y dalawang tipan; ang isa'y mula sa bundok ng Sinai, na nanganganak ng mga anak sa pagkaalipin, na ito'y si Agar."
     },
     {
       "v": 25,
       "en": "For this Agar is mount Sinai in Arabia, and answereth to Jerusalem which now is, and is in bondage with her children.",
-      "ceb": "Kay kining pulong Agar, mao ang bukid nga Sinai sa Arabia, ug mahatungod sa Jerusalem karon, kay anaa sa pagkaulipon uban sa iyang mga anak."
+      "ceb": "Kay kining pulong Agar, mao ang bukid nga Sinai sa Arabia, ug mahatungod sa Jerusalem karon, kay anaa sa pagkaulipon uban sa iyang mga anak.",
+      "tag": "Ang Agar ngang ito ay bundok ng Sinai sa Arabia, at ito'y katulad ng Jerusalem ngayon: sapagka't ito'y nasa pagkaalipin kasama ng kaniyang mga anak."
     },
     {
       "v": 26,
       "en": "But Jerusalem which is above is free, which is the mother of us all.",
-      "ceb": "Apan ang Jerusalem nga atua sa itaas mao ang may kagawasan, nga mao ang atong inahan."
+      "ceb": "Apan ang Jerusalem nga atua sa itaas mao ang may kagawasan, nga mao ang atong inahan.",
+      "tag": "Nguni't ang Jerusalem na nasa itaas ay malaya, na siyang ina natin."
     },
     {
       "v": 27,
       "en": "For it is written, Rejoice, thou barren that bearest not; break forth and cry, thou that travailest not: for the desolate hath many more children than she which hath an husband.",
-      "ceb": "Kay nahasulat: Maglipay ka, ikaw apuli nga wala mag-anak; tumiyabaw ug suminggit ka, ikaw nga wala manganak; kay daghan pa ang mga anak sa mga gibiyaan kay kaninyo nga iya sa may bana."
+      "ceb": "Kay nahasulat: Maglipay ka, ikaw apuli nga wala mag-anak; tumiyabaw ug suminggit ka, ikaw nga wala manganak; kay daghan pa ang mga anak sa mga gibiyaan kay kaninyo nga iya sa may bana.",
+      "tag": "Sapagka't nasusulat, Magsaya ka, Oh baog na hindi nanganganak; Magbiglang umawit at humiyaw ka, ikaw na hindi nagdaramdam sa panganganak: Sapagka't higit pa ang mga anak ng pinabayaan kay sa mga anak ng may asawa."
     },
     {
       "v": 28,
       "en": "Now we, brethren, as Isaac was, are the children of promise.",
-      "ceb": "Busa, kita mga igsoon, sama kang Isaac, mga anak sa saad."
+      "ceb": "Busa, kita mga igsoon, sama kang Isaac, mga anak sa saad.",
+      "tag": "At tayo, mga kapatid, tulad ni Isaac, ay mga anak sa pangako."
     },
     {
       "v": 29,
       "en": "But as then he that was born after the flesh persecuted him that was born after the Spirit, even so it is now.",
-      "ceb": "Apan ingon kaniadto siya nga gipanganak sumala sa unod, naglutos kaniya nga gipanganak sumala sa espiritu, mao usab kini karon."
+      "ceb": "Apan ingon kaniadto siya nga gipanganak sumala sa unod, naglutos kaniya nga gipanganak sumala sa espiritu, mao usab kini karon.",
+      "tag": "Datapuwa't kung papaanong yaong ipinanganak ayon sa laman ay nagusig sa ipinanganak ayon sa espiritu, ay gayon din naman ngayon."
     },
     {
       "v": 30,
       "en": "Nevertheless what saith the scripture? Cast out the bondwoman and her son: for the son of the bondwoman shall not be heir with the son of the freewoman.",
-      "ceb": "Apan unsa bay giingon sa Kasulatan? Isalikway ang ulipon nga babaye ug ang iyang anak; kay ang anak sa ulipon nga babaye dili makapanunod uban sa anak sa babaye nga may kagawasan."
+      "ceb": "Apan unsa bay giingon sa Kasulatan? Isalikway ang ulipon nga babaye ug ang iyang anak; kay ang anak sa ulipon nga babaye dili makapanunod uban sa anak sa babaye nga may kagawasan.",
+      "tag": "Gayon man ano ang sinasabi ng kasulatan? Palayasin ang aliping babae at ang kaniyang anak: sapagka't hindi magmamana ang anak ng babaing alipin na kasama ng anak ng babaing malaya."
     },
     {
       "v": 31,
       "en": "So then, brethren, we are not children of the bondwoman, but of the free.",
-      "ceb": "Busa, mga igsoon, kita dili mga anak sa ulipon nga babaye, kondili, sa babaye nga may kagawasan."
+      "ceb": "Busa, mga igsoon, kita dili mga anak sa ulipon nga babaye, kondili, sa babaye nga may kagawasan.",
+      "tag": "Kaya nga, mga kapatid, hindi tayo mga anak ng babaing alipin, kundi ng babaing malaya."
     }
   ],
   "5": [
     {
       "v": 1,
       "en": "Stand fast therefore in the liberty wherewith Christ hath made us free, and be not entangled again with the yoke of bondage.",
-      "ceb": "Alang sa kagawasan gigawas kita ni Cristo; busa, paglig-on kamo, ug dili magpasangon pag-usab sa yugo sa pagkaulipon."
+      "ceb": "Alang sa kagawasan gigawas kita ni Cristo; busa, paglig-on kamo, ug dili magpasangon pag-usab sa yugo sa pagkaulipon.",
+      "tag": "Sa kalayaan ay pinalaya tayo ni Cristo: magsitibay nga kayo, at huwag na kayong pasakop na muli sa pamatok ng pagkaalipin."
     },
     {
       "v": 2,
       "en": "Behold, I Paul say unto you, that if ye be circumcised, Christ shall profit you nothing.",
-      "ceb": "Ania karon, ako si Pablo nagaingon kaninyo: Nga kong magpacircuncicion kamo, si Cristo dili makagpulos kaninyo sa bisan unsa."
+      "ceb": "Ania karon, ako si Pablo nagaingon kaninyo: Nga kong magpacircuncicion kamo, si Cristo dili makagpulos kaninyo sa bisan unsa.",
+      "tag": "Narito, akong si Pablo ay nagsasabi sa inyo, na, kung inyong tinatanggap ang pagtutuli, ay wala kayong mapapakinabang na anoman kay Cristo."
     },
     {
       "v": 3,
       "en": "For I testify again to every man that is circumcised, that he is a debtor to do the whole law.",
-      "ceb": "Oo; nagamatuod usab ako sa tanan nga tawo nga mingdawat sa pagcircuncicion nga siya may katungdanan sa pagtuman sa tibook nga Kasugoan."
+      "ceb": "Oo; nagamatuod usab ako sa tanan nga tawo nga mingdawat sa pagcircuncicion nga siya may katungdanan sa pagtuman sa tibook nga Kasugoan.",
+      "tag": "Oo, pinatotohanan kong muli sa bawa't taong tumatanggap ng pagtutuli, na siya'y may kautangang tumupad ng buong kautusan."
     },
     {
       "v": 4,
       "en": "Christ is become of no effect unto you, whosoever of you are justified by the law; ye are fallen from grace.",
-      "ceb": "Kamo gipabulag gikan kang Cristo, kamo nga pagpakamatarungon unta pinaagi sa Kasugoan; kamo nangahulog gikan sa gracia."
+      "ceb": "Kamo gipabulag gikan kang Cristo, kamo nga pagpakamatarungon unta pinaagi sa Kasugoan; kamo nangahulog gikan sa gracia.",
+      "tag": "Kayo'y hiwalay kay Cristo, kayong nangagiibig na ariing-ganap ng kautusan; nangahulog kayo mula sa biyaya."
     },
     {
       "v": 5,
       "en": "For we through the Spirit wait for the hope of righteousness by faith.",
-      "ceb": "Kay kita pinaagi sa Espiritu tungod sa pagtoo nanagpaabut sa paglaum sa pagkamatarung."
+      "ceb": "Kay kita pinaagi sa Espiritu tungod sa pagtoo nanagpaabut sa paglaum sa pagkamatarung.",
+      "tag": "Sapagka't tayo sa pamamagitan ng Espiritu sa pananampalataya ay naghihintay ng pangako ng katuwiran."
     },
     {
       "v": 6,
       "en": "For in Jesus Christ neither circumcision availeth any thing, nor uncircumcision; but faith which worketh by love.",
-      "ceb": "Kay kang Cristo Jesus, bisan ang gicircuncicionan bisan ang walay-circuncicion, walay bisan unsa nga kapuslanan; kondili ang pagtoo nga nagabuhat pinaagi sa gugma."
+      "ceb": "Kay kang Cristo Jesus, bisan ang gicircuncicionan bisan ang walay-circuncicion, walay bisan unsa nga kapuslanan; kondili ang pagtoo nga nagabuhat pinaagi sa gugma.",
+      "tag": "Sapagka't kay Cristo Jesus, kahit ang pagtutuli ay walang kabuluhan, kahit man ang di-pagtutuli; kundi ang pananampalataya na gumagawa sa pamamagitan ng pagibig."
     },
     {
       "v": 7,
       "en": "Ye did run well; who did hinder you that ye should not obey the truth?",
-      "ceb": "Midalagan kamo ug maayo: kinsa bay nag-ulang kaninyo aron dili ninyo pagtumanon ang kamatuoran?"
+      "ceb": "Midalagan kamo ug maayo: kinsa bay nag-ulang kaninyo aron dili ninyo pagtumanon ang kamatuoran?",
+      "tag": "Nagsisitakbo kayong mabuti nang una; sino ang gumambala sa inyo upang kayo'y huwag magsisunod sa katotohanan?"
     },
     {
       "v": 8,
       "en": "This persuasion cometh not of him that calleth you.",
-      "ceb": "Kini nga pagmaymay dili gikan niadtong nagatawag kaninyo."
+      "ceb": "Kini nga pagmaymay dili gikan niadtong nagatawag kaninyo.",
+      "tag": "Ang paghikayat na ito ay hindi nagmula doon sa tumawag sa inyo."
     },
     {
       "v": 9,
       "en": "A little leaven leaveneth the whole lump.",
-      "ceb": "Usa ka diriyut nga levadura makapatubo sa bug-os nga minasa."
+      "ceb": "Usa ka diriyut nga levadura makapatubo sa bug-os nga minasa.",
+      "tag": "Ang kaunting lebadura ay nagpapakumbo sa buong limpak."
     },
     {
       "v": 10,
       "en": "I have confidence in you through the Lord, that ye will be none otherwise minded: but he that troubleth you shall bear his judgment, whosoever he be.",
-      "ceb": "May pagsalig ako mahatungod kaninyo nga anaa sa Ginoo, aron kamo dili maghunahuna sa lain nga paagi; apan siya ang nagasamok kaninyo, bisan kinsa siya, magapas-an sa iyang paghukom."
+      "ceb": "May pagsalig ako mahatungod kaninyo nga anaa sa Ginoo, aron kamo dili maghunahuna sa lain nga paagi; apan siya ang nagasamok kaninyo, bisan kinsa siya, magapas-an sa iyang paghukom.",
+      "tag": "Ako'y may pagkakatiwala sa inyo sa Panginoon, na hindi kayo nagsipagisip ng ibang paraan: datapuwa't ang gumagambala sa inyo ay magtataglay ng kaniyang kahatulan, maging sinoman siya."
     },
     {
       "v": 11,
       "en": "And I, brethren, if I yet preach circumcision, why do I yet suffer persecution? then is the offence of the cross ceased.",
-      "ceb": "Apan ako, mga igsoon, kong nagawali pa ako sa pagcircuncicion, ngano ba nga ginalutos ako? Nan, ang kahigayonan sa pagpakapangdol sa cruz gikuha na."
+      "ceb": "Apan ako, mga igsoon, kong nagawali pa ako sa pagcircuncicion, ngano ba nga ginalutos ako? Nan, ang kahigayonan sa pagpakapangdol sa cruz gikuha na.",
+      "tag": "Nguni't ako, mga kapatid, kung ipinangangaral ko pa ang pagtutuli, bakit ako'y pinaguusig pa? kung gayon ay natapos na ang katitisuran sa krus."
     },
     {
       "v": 12,
       "en": "I would they were even cut off which trouble you.",
-      "ceb": "Hinaut unta nga kadtong mga nagagubot kaninyo, mangunay pagputol sa ilang kaugalingon."
+      "ceb": "Hinaut unta nga kadtong mga nagagubot kaninyo, mangunay pagputol sa ilang kaugalingon.",
+      "tag": "Ibig ko sana na ang mga nagsisigulo sa inyo ay gumawa ng higit sa pagtutuli."
     },
     {
       "v": 13,
       "en": "For, brethren, ye have been called unto liberty; only use not liberty for an occasion to the flesh, but by love serve one another.",
-      "ceb": "Kay kamo, mga igsoon, mga gipanawag kamo ngadto sa kagawasan; ugaling ayaw ninyo paggamita ang inyong kagawasan nga kahigayonan sa unod, kondili mag-inalagaray kamo ang usa ug usa pinaagi sa gugma."
+      "ceb": "Kay kamo, mga igsoon, mga gipanawag kamo ngadto sa kagawasan; ugaling ayaw ninyo paggamita ang inyong kagawasan nga kahigayonan sa unod, kondili mag-inalagaray kamo ang usa ug usa pinaagi sa gugma.",
+      "tag": "Sapagka't kayo, mga kapatid, ay tinawag sa kalayaan; huwag lamang gamitin ang inyong kalayaan, upang magbigay kadahilanan sa laman, kundi sa pamamagitan ng pagibig ay mangaglingkuran kayo."
     },
     {
       "v": 14,
       "en": "For all the law is fulfilled in one word, even in this; Thou shalt love thy neighbour as thyself.",
-      "ceb": "Kay ang tibook nga Kasugoan natuman sa usa ka pulong, nga mao: Higugmaon mo ang imong isigkatawo ingon sa imong kaugalingon."
+      "ceb": "Kay ang tibook nga Kasugoan natuman sa usa ka pulong, nga mao: Higugmaon mo ang imong isigkatawo ingon sa imong kaugalingon.",
+      "tag": "Sapagka't ang buong kautusan ay natutupad sa isang salita, sa makatuwid ay dito: Iibigin mo ang inyong kapuwa na gaya ng inyong sarili."
     },
     {
       "v": 15,
       "en": "But if ye bite and devour one another, take heed that ye be not consumed one of another.",
-      "ceb": "Apan kong kamo magpinaakay ug magkinan-anay ang usa ug usa, magmatngon kamo nga dili mangahurot ang usa ug usa kaninyo."
+      "ceb": "Apan kong kamo magpinaakay ug magkinan-anay ang usa ug usa, magmatngon kamo nga dili mangahurot ang usa ug usa kaninyo.",
+      "tag": "Nguni't kung kayo-kayo rin ang nangagkakagatan at nangagsasakmalan, magsipagingat kayo na baka kayo'y mangaglipulan sa isa't isa."
     },
     {
       "v": 16,
       "en": "This I say then, Walk in the Spirit, and ye shall not fulfil the lust of the flesh.",
-      "ceb": "Busa giingon ko: Maggawi kamo sumala sa Espiritu, ug dili kamo magatuman sa kailibgon sa unod."
+      "ceb": "Busa giingon ko: Maggawi kamo sumala sa Espiritu, ug dili kamo magatuman sa kailibgon sa unod.",
+      "tag": "Sinasabi ko nga, Magsilakad kayo ayon sa Espiritu, at hindi ninyo gagawin ang mga pita ng laman."
     },
     {
       "v": 17,
       "en": "For the flesh lusteth against the Spirit, and the Spirit against the flesh: and these are contrary the one to the other: so that ye cannot do the things that ye would.",
-      "ceb": "Kay ang unod nagakaibug batok sa Espiritu, ug ang Espiritu batok sa unod; kay kini sila nagasupakay ang usa ug usa, aron dili ninyo pagbuhaton ang mga butang nga buot ninyo."
+      "ceb": "Kay ang unod nagakaibug batok sa Espiritu, ug ang Espiritu batok sa unod; kay kini sila nagasupakay ang usa ug usa, aron dili ninyo pagbuhaton ang mga butang nga buot ninyo.",
+      "tag": "Sapagka't ang laman ay nagnanasa ng laban sa Espiritu, at ang Espiritu ay laban sa laman; sapagka't ang mga ito ay nagkakalaban; upang huwag ninyong gawin ang bagay na inyong ibigin."
     },
     {
       "v": 18,
       "en": "But if ye be led of the Spirit, ye are not under the law.",
-      "ceb": "Apan kong kamo ginamandoan sa Espiritu, wala kamo sa ilalum sa Kasugoan."
+      "ceb": "Apan kong kamo ginamandoan sa Espiritu, wala kamo sa ilalum sa Kasugoan.",
+      "tag": "Datapuwa't kung kayo'y pinapatnubayan ng Espiritu, ay wala kayo sa ilalim ng kautusan."
     },
     {
       "v": 19,
       "en": "Now the works of the flesh are manifest, which are these; Adultery, fornication, uncleanness, lasciviousness,",
-      "ceb": "Karon mahayag ang mga buhat sa unod nga mao kini: Pagpakighilawas, kahugawan, kaulag,"
+      "ceb": "Karon mahayag ang mga buhat sa unod nga mao kini: Pagpakighilawas, kahugawan, kaulag,",
+      "tag": "At hayag ang mga gawa ng laman, sa makatuwid ay ang mga ito: pakikiapid, karumihan, kalibugan,"
     },
     {
       "v": 20,
       "en": "Idolatry, witchcraft, hatred, variance, emulations, wrath, strife, seditions, heresies,",
-      "ceb": "Pagsimba sa mga dios-dios, lumay, mga pagdinumtanay, mga pag-away, mga pangabugho, mga kaligutgut, mga pagpundokpundok, mga pagkabahinbahin, mga pagbulag gikan sa matuod nga pagtoo;"
+      "ceb": "Pagsimba sa mga dios-dios, lumay, mga pagdinumtanay, mga pag-away, mga pangabugho, mga kaligutgut, mga pagpundokpundok, mga pagkabahinbahin, mga pagbulag gikan sa matuod nga pagtoo;",
+      "tag": "Pagsamba sa diosdiosan, pangkukulam, mga pagtataniman, mga pagtatalo, mga paninibugho, mga pagkakaalitan, mga pagkakampikampi, mga pagkakabahabahagi, mga hidwang pananampalataya,"
     },
     {
       "v": 21,
       "en": "Envyings, murders, drunkenness, revellings, and such like: of the which I tell you before, as I have also told you in time past, that they which do such things shall not inherit the kingdom of God.",
-      "ceb": "Mga kasina, mga paghuboghubog, mga pagpatay sa isigkatawo, mga kaulit, ug mga butang nga maingon-ingon niini, nga gipasidaan ko kaninyo, ingon nga gipasidaanan ko kamo pag-usab, nga kadto sila nga nagabuhat sa maong mga butang, dili makapanunod sa gingharian sa Dios."
+      "ceb": "Mga kasina, mga paghuboghubog, mga pagpatay sa isigkatawo, mga kaulit, ug mga butang nga maingon-ingon niini, nga gipasidaan ko kaninyo, ingon nga gipasidaanan ko kamo pag-usab, nga kadto sila nga nagabuhat sa maong mga butang, dili makapanunod sa gingharian sa Dios.",
+      "tag": "Mga kapanaghilian, mga paglalasing, mga kalayawan, at ang mga katulad nito; tungkol sa mga bagay na ito ay aking ipinagpapaunang ipaalaala sa inyo, tulad sa aking pagpapaalaala nang una sa inyo, na ang mga nagsisigawa ng gayong mga bagay ay hindi magsisipagmana ng kaharian ng Dios."
     },
     {
       "v": 22,
       "en": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith,",
-      "ceb": "Apan ang bunga sa Espiritu mao kini: ang gugma, kalipay, pakigdait, pagkamapailubon, pagkamahinuklogon, pagkaayo, pagkamatinumanon;"
+      "ceb": "Apan ang bunga sa Espiritu mao kini: ang gugma, kalipay, pakigdait, pagkamapailubon, pagkamahinuklogon, pagkaayo, pagkamatinumanon;",
+      "tag": "Datapuwa't ang bunga ng Espiritu ay pagibig, katuwaan, kapayapaan, pagpapahinuhod, kagandahang-loob, kabutihan, pagtatapat,"
     },
     {
       "v": 23,
       "en": "Meekness, temperance: against such there is no law.",
-      "ceb": "Pagkaaghup, pagpugong sa kaugalingon. Batok sa maong mga butang walay Kasugoan."
+      "ceb": "Pagkaaghup, pagpugong sa kaugalingon. Batok sa maong mga butang walay Kasugoan.",
+      "tag": "Kaamuan, pagpipigil; laban sa mga gayong bagay ay walang kautusan."
     },
     {
       "v": 24,
       "en": "And they that are Christ's have crucified the flesh with the affections and lusts.",
-      "ceb": "Ug sila nga mga iya ni Cristo, gilansang nila sa cruz ang unod uban sa mga tinguha nga lawasnon ug sa mga kailibgon niini."
+      "ceb": "Ug sila nga mga iya ni Cristo, gilansang nila sa cruz ang unod uban sa mga tinguha nga lawasnon ug sa mga kailibgon niini.",
+      "tag": "At ipinako sa krus ng mga na kay Cristo Jesus ang laman na kasama ang mga masasamang pita at mga kahalayan nito."
     },
     {
       "v": 25,
       "en": "If we live in the Spirit, let us also walk in the Spirit.",
-      "ceb": "Kong magpuyo kita sa Espiritu, maggawi usab kita pinaagi sa Espiritu."
+      "ceb": "Kong magpuyo kita sa Espiritu, maggawi usab kita pinaagi sa Espiritu.",
+      "tag": "Kung tayo'y nangabubuhay sa pamamagitan ng Espiritu, ay mangagsilakad naman tayo ayon sa Espiritu."
     },
     {
       "v": 26,
       "en": "Let us not be desirous of vain glory, provoking one another, envying one another.",
-      "ceb": "Dili kita magmahimayaon sa walay pulos, nga magapasuko sa usa ug usa, nga magakasinahay sa usa ug usa."
+      "ceb": "Dili kita magmahimayaon sa walay pulos, nga magapasuko sa usa ug usa, nga magakasinahay sa usa ug usa.",
+      "tag": "Huwag tayong maging mga palalo, na tayo-tayo'y nangagmumungkahian sa isa't isa, nangagiinggitan sa isa't isa."
     }
   ],
   "6": [
     {
       "v": 1,
       "en": "Brethren, if a man be overtaken in a fault, ye which are spiritual, restore such an one in the spirit of meekness; considering thyself, lest thou also be tempted.",
-      "ceb": "Mga igsoon, bisan kong ang usa ka tawo mahup-an sa mga paglapas, kamo nga mga espirituhanon, maoy magpabalik kaniya nga may espiritu sa kaaghup; nga magmatngon ka sa imong kaugalingon, aron nga ikaw dili pagtintalon usab."
+      "ceb": "Mga igsoon, bisan kong ang usa ka tawo mahup-an sa mga paglapas, kamo nga mga espirituhanon, maoy magpabalik kaniya nga may espiritu sa kaaghup; nga magmatngon ka sa imong kaugalingon, aron nga ikaw dili pagtintalon usab.",
+      "tag": "Mga kapatid, kung ang sinoman ay masumpungan sa anomang pagsuway, kayong mga sa espiritu, ay inyong papanumbalikin ang gayon sa espiritu ng kahinhinan; na iyong pagwariin ang iyong sarili, baka ikaw naman ay matukso."
     },
     {
       "v": 2,
       "en": "Bear ye one another's burdens, and so fulfil the law of Christ.",
-      "ceb": "Magyayongay kamo sa mga kabug-at sa usa ug usa, ug sa ingon niana matuman ninyo ang Kasugoan ni Cristo."
+      "ceb": "Magyayongay kamo sa mga kabug-at sa usa ug usa, ug sa ingon niana matuman ninyo ang Kasugoan ni Cristo.",
+      "tag": "Mangagdalahan kayo ng mga pasanin ng isa't isa, at tuparin ninyong gayon ang kautusan ni Cristo."
     },
     {
       "v": 3,
       "en": "For if a man think himself to be something, when he is nothing, he deceiveth himself.",
-      "ceb": "Kay kong adunay nagapakaaron-ingnon sa iyang kaugalingon samtang siya walay unsa man, nagalimbong siya sa iyang kaugalingon."
+      "ceb": "Kay kong adunay nagapakaaron-ingnon sa iyang kaugalingon samtang siya walay unsa man, nagalimbong siya sa iyang kaugalingon.",
+      "tag": "Sapagka't kung ang sinoman ay nagaakala na siya'y may kabuluhan bagaman siya ay walang kabuluhan, ang kaniyang sarili ang dinadaya niya."
     },
     {
       "v": 4,
       "en": "But let every man prove his own work, and then shall he have rejoicing in himself alone, and not in another.",
-      "ceb": "Apan, pasagdi nga ang tagsatagsa magasusi sa iyang kaugalingong buhat, ug unya may kapasanginlan siya sa paghimaya mahatungod sa iyang kaugalingon lamang, ug dili sa uban."
+      "ceb": "Apan, pasagdi nga ang tagsatagsa magasusi sa iyang kaugalingong buhat, ug unya may kapasanginlan siya sa paghimaya mahatungod sa iyang kaugalingon lamang, ug dili sa uban.",
+      "tag": "Nguni't siyasatin ng bawa't isa ang kaniyang sariling gawa, at kung magkagayon ay magkakaroon siya ng kaniyang kapurihan tungkol sa kaniyang sarili lamang, at hindi tungkol sa kapuwa."
     },
     {
       "v": 5,
       "en": "For every man shall bear his own burden.",
-      "ceb": "Kay ang tagsatagsa magadala sa iyang kaugalingon nga lulan."
+      "ceb": "Kay ang tagsatagsa magadala sa iyang kaugalingon nga lulan.",
+      "tag": "Sapagka't ang bawa't tao ay magpapasan ng kaniyang sariling pasan."
     },
     {
       "v": 6,
       "en": "Let him that is taught in the word communicate unto him that teacheth in all good things.",
-      "ceb": "Apan kadtong natudloan diha sa pulong, paambita kaniya nga nagatudlo sa tanang mga kaayohan."
+      "ceb": "Apan kadtong natudloan diha sa pulong, paambita kaniya nga nagatudlo sa tanang mga kaayohan.",
+      "tag": "Datapuwa't ang tinuturuan sa aral ng Dios ay makidamay doon sa nagtuturo sa lahat ng mga bagay na mabuti."
     },
     {
       "v": 7,
       "en": "Be not deceived; God is not mocked: for whatsoever a man soweth, that shall he also reap.",
-      "ceb": "Dili kamo magpalimbong; ang Dios dili arang matiawan; kay bisan unsa ang ipugas sa tawo, mao usab kana ang iyang pagaanihon."
+      "ceb": "Dili kamo magpalimbong; ang Dios dili arang matiawan; kay bisan unsa ang ipugas sa tawo, mao usab kana ang iyang pagaanihon.",
+      "tag": "Huwag kayong padaya; ang Dios ay hindi napabibiro: sapagka't ang lahat na ihasik ng tao, ay siya namang aanihin niya."
     },
     {
       "v": 8,
       "en": "For he that soweth to his flesh shall of the flesh reap corruption; but he tha t soweth to the Spirit shall of the Spirit reap life everlasting.",
-      "ceb": "Kay kadtong nagapugas alang sa iyang kaugalingong unod, gikan sa unod magaani sa pagkadunot; apan kadtong nagapugas alang sa Espiritu, gikan sa Espiritu, magaani ug kinabuhi nga walay katapusan."
+      "ceb": "Kay kadtong nagapugas alang sa iyang kaugalingong unod, gikan sa unod magaani sa pagkadunot; apan kadtong nagapugas alang sa Espiritu, gikan sa Espiritu, magaani ug kinabuhi nga walay katapusan.",
+      "tag": "Sapagka't ang naghahasik ng sa kaniyang sariling laman ay sa laman magaani ng kasiraan; datapuwa't ang naghahasik ng sa Espiritu ay sa Espiritu magaani ng buhay na walang hanggan."
     },
     {
       "v": 9,
       "en": "And let us not be weary in well doing: for in due season we shall reap, if we faint not.",
-      "ceb": "Dili unta kita magakakapoy sa pagbuhat sa maayo, kay sa iyang panahon magaani kita, kong kita dili magakaluya."
+      "ceb": "Dili unta kita magakakapoy sa pagbuhat sa maayo, kay sa iyang panahon magaani kita, kong kita dili magakaluya.",
+      "tag": "At huwag tayong mangapagod sa paggawa ng mabuti: sapagka't sa kapanahunan ay magsisipagani tayo, kung hindi tayo manganghihimagod."
     },
     {
       "v": 10,
       "en": "As we have therefore opportunity, let us do good unto all men, especially unto them who are of the household of faith.",
-      "ceb": "Busa, samtang kita may higayon, magbuhat kita niadtong maayo alang sa tanang mga tawo, ug ilabina alang niadtong mga kauban nato sa pagtoo."
+      "ceb": "Busa, samtang kita may higayon, magbuhat kita niadtong maayo alang sa tanang mga tawo, ug ilabina alang niadtong mga kauban nato sa pagtoo.",
+      "tag": "Kaya nga, samantalang tayo'y may pagkakataon, ay magsigawa tayo ng mabuti sa lahat, at lalong lalo na sa mga kasangbahay sa pananampalataya."
     },
     {
       "v": 11,
       "en": "Ye see how large a letter I have written unto you with mine own hand.",
-      "ceb": "Tan-awa ninyo, daw unsa ang pag-kadagku sa mga letra sa sulat nga akong gisulat kaninyo sa akong kaugalingong kamot."
+      "ceb": "Tan-awa ninyo, daw unsa ang pag-kadagku sa mga letra sa sulat nga akong gisulat kaninyo sa akong kaugalingong kamot.",
+      "tag": "Tingnan ninyo kung gaano kalalaking mga titik ang isinulat ko sa inyo ng aking sariling kamay."
     },
     {
       "v": 12,
       "en": "As many as desire to make a fair shew in the flesh, they constrain you to be circumcised; only lest they should suffer persecution for the cross of Christ.",
-      "ceb": "Ang tanang mga nahagugma nga magapaanyag sa unod, kini sila maga-pugos kaninyo nga magpacircuncicion kamo aron lamang sila dili paglutoson tungod sa cruz ni Cristo."
+      "ceb": "Ang tanang mga nahagugma nga magapaanyag sa unod, kini sila maga-pugos kaninyo nga magpacircuncicion kamo aron lamang sila dili paglutoson tungod sa cruz ni Cristo.",
+      "tag": "Yaong lahat na may ibig magkaroon ng isang mabuting anyo sa laman, ay siyang pumipilit sa inyo na mangagtuli; upang huwag lamang silang pagusigin dahil sa krus ni Cristo."
     },
     {
       "v": 13,
       "en": "For neither they themselves who are circumcised keep the law; but desire to have you circumcised, that they may glory in your flesh.",
-      "ceb": "Kay bisan ngani ang mga mingdawat sa circuncicion wala man sila managtuman sa Kasugoan; apan buot nila nga managpacircuncicion kamo, aron managhimaya sila tungod sa inyong unod."
+      "ceb": "Kay bisan ngani ang mga mingdawat sa circuncicion wala man sila managtuman sa Kasugoan; apan buot nila nga managpacircuncicion kamo, aron managhimaya sila tungod sa inyong unod.",
+      "tag": "Sapagka't yaon mang nangatuli na ay hindi rin nagsisitupad ng kautusan; nguni't ibig nilang kayo'y ipatuli, upang sila'y mangagmapuri sa inyong laman."
     },
     {
       "v": 14,
       "en": "But God forbid that I should glory, save in the cross of our Lord Jesus Christ, by whom the world is crucified unto me, and I unto the world.",
-      "ceb": "Apan halayo gayud kanako ang paghimaya, gawas diha sa cruz sa atong Ginoong Jesucristo, nga pinaagi kaniya ang kalibutan gilansang sa cruz alang kanako, ug ako alang sa kalibutan."
+      "ceb": "Apan halayo gayud kanako ang paghimaya, gawas diha sa cruz sa atong Ginoong Jesucristo, nga pinaagi kaniya ang kalibutan gilansang sa cruz alang kanako, ug ako alang sa kalibutan.",
+      "tag": "Datapuwa't malayo nawa sa akin ang pagmamapuri, maliban na sa krus ng ating Panginoong Jesucristo, na sa pamamagitan niyao'y ang sanglibutan ay napako sa krus sa ganang akin, at ako'y sa sanglibutan."
     },
     {
       "v": 15,
       "en": "For in Christ Jesus neither circumcision availeth any thing, nor uncircumcision, but a new creature.",
-      "ceb": "Kay kang Cristo Jesus, ang pag-pacircuncicion walay unsa man, ug ang dili-pagpacircuncicion, walay unsa man, kondili ang bag-o nga binuhat."
+      "ceb": "Kay kang Cristo Jesus, ang pag-pacircuncicion walay unsa man, ug ang dili-pagpacircuncicion, walay unsa man, kondili ang bag-o nga binuhat.",
+      "tag": "Sapagka't ang pagtutuli ay walang anoman, kahit man ang di-pagtutuli, kundi ang bagong nilalang."
     },
     {
       "v": 16,
       "en": "And as many as walk according to this rule, peace be on them, and mercy, and upon the Israel of God.",
-      "ceb": "Ug ang tanan nga mga managlakat niini nga lagda, ang pakigdait ug ang kalooy anaa kanila ug sa ibabaw sa Israel sa Dios."
+      "ceb": "Ug ang tanan nga mga managlakat niini nga lagda, ang pakigdait ug ang kalooy anaa kanila ug sa ibabaw sa Israel sa Dios.",
+      "tag": "At ang lahat na mangagsisilakad ayon sa alituntuning ito, kapayapaan at kaawaan nawa ang sumakanila, at sa Israel ng Dios."
     },
     {
       "v": 17,
       "en": "From henceforth let no man trouble me: for I bear in my body the marks of the Lord Jesus.",
-      "ceb": "Sukad karon, wala unta ing bisan kinsa nga magasamok kanako; kay gidala ko nga pinatik sa akong lawas ang mga timaan ni Jesus."
+      "ceb": "Sukad karon, wala unta ing bisan kinsa nga magasamok kanako; kay gidala ko nga pinatik sa akong lawas ang mga timaan ni Jesus.",
+      "tag": "Buhat ngayon sinoman ay huwag bumagabag sa akin; sapagka't dala kong nakalimbag sa aking katawan ang mga tanda ni Jesus."
     },
     {
       "v": 18,
       "en": "Brethren, the grace of our Lord Jesus Christ be with your spirit. Amen.",
-      "ceb": "Mga igsoon, ang gracia sa atong Ginoong Jesucristo magauban sa inyong espiritu. Amen."
+      "ceb": "Mga igsoon, ang gracia sa atong Ginoong Jesucristo magauban sa inyong espiritu. Amen.",
+      "tag": "Mga kapatid, ang biyaya ng ating Panginoong Jesucristo ay sumainyo nawang espiritu. Siya nawa."
     }
   ]
 }

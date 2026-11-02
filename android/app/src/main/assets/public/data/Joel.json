@@ -3,371 +3,444 @@
     {
       "v": 1,
       "en": "The word of the Lord that came to Joel the son of Pethuel.",
-      "ceb": "¶ Ang pulong ni Ginoo nga midangat kang Joel, ang anak nga lalake ni Pethuel."
+      "ceb": "¶ Ang pulong ni Ginoo nga midangat kang Joel, ang anak nga lalake ni Pethuel.",
+      "tag": "Ang salita ng Panginoon na dumating kay Joel na anak ni Pethuel."
     },
     {
       "v": 2,
       "en": "Hear this, ye old men, and give ear, all ye inhabitants of the land. Hath this been in your days, or even in the days of your fathers?",
-      "ceb": "Pamatii kini, kamong mga tigulang nga tawo, ug patalinghugi, tanan kamong mga pumoluyo sa yuta. Nahitabo ba kini sa inyong mga adlaw, kun sa mga adlaw sa inyong mga amahan?"
+      "ceb": "Pamatii kini, kamong mga tigulang nga tawo, ug patalinghugi, tanan kamong mga pumoluyo sa yuta. Nahitabo ba kini sa inyong mga adlaw, kun sa mga adlaw sa inyong mga amahan?",
+      "tag": "Dinggin ninyo ito, ninyong mga matanda, at pakinggan ninyo, ninyong lahat na mananahan sa lupain. Nagkaroon baga nito sa inyong mga kaarawan o sa mga kaarawan ng inyong mga magulang?"
     },
     {
       "v": 3,
       "en": "Tell ye your children of it, and let your children tell their children, and their children another generation.",
-      "ceb": "Suginli ninyo ang inyong mga anak mahitungod niini, ug ipasugilon sa inyong mga anak ngadto sa ilang mga anak, ug sa ilang mga anak ngadto sa laing kaliwatan."
+      "ceb": "Suginli ninyo ang inyong mga anak mahitungod niini, ug ipasugilon sa inyong mga anak ngadto sa ilang mga anak, ug sa ilang mga anak ngadto sa laing kaliwatan.",
+      "tag": "Saysayin ninyo sa inyong mga anak, at saysayin ng inyong mga anak sa kanilang mga anak, at ng kanilang mga anak sa susunod na lahi."
     },
     {
       "v": 4,
       "en": "That which the palmerworm hath left hath the locust eaten; and that which the locust hath left hath the cankerworm eaten; and that which the cankerworm hath left hath the caterpiller eaten.",
-      "ceb": "Kadtong gibiyaan sa ulod nga dangaw-dangaw gikaon sa dulon; ug kadtong gibiyaan sa dulon gikaon sa lukton; ug kadtong gibiyaan sa lukton gikaon sa ulod nga hantatawo."
+      "ceb": "Kadtong gibiyaan sa ulod nga dangaw-dangaw gikaon sa dulon; ug kadtong gibiyaan sa dulon gikaon sa lukton; ug kadtong gibiyaan sa lukton gikaon sa ulod nga hantatawo.",
+      "tag": "Ang iniwan ng tipaklong, ay kinain ng balang; at ang iniwan ng balang ay kinain ng uod; at ang iniwan ng uod ay kinain ng kuliglig."
     },
     {
       "v": 5,
       "en": "Awake, ye drunkards, and weep; and howl, all ye drinkers of wine, because of the new wine; for it is cut off from your mouth.",
-      "ceb": "Pagmata, kamo nga mga palahubog, ug panghilak; ug pagminatay, kamong tanan nga palainum sa vino, tungod sa matam-is nga vino; kay kini gikuha gikan sa inyong baba."
+      "ceb": "Pagmata, kamo nga mga palahubog, ug panghilak; ug pagminatay, kamong tanan nga palainum sa vino, tungod sa matam-is nga vino; kay kini gikuha gikan sa inyong baba.",
+      "tag": "Magsibangon kayo, kayong mga manglalasing, at magsiiyak kayo; at manambitan kayo, kayong lahat na manginginom ng alak, dahil sa matamis na alak; sapagka't nahiwalay sa inyong bibig."
     },
     {
       "v": 6,
       "en": "For a nation is come up upon my land, strong, and without number, whose teeth are the teeth of a lion, and he hath the cheek teeth of a great lion.",
-      "ceb": "Kay ang usa ka nasud mitungas nganhi sa akong yuta, kusganon, ug dili maisip; ang iyang mga ngipon mao ang mga ngipon sa usa ka leon, ug siya adunay mga bag-ang sa usa ka bayeng leon."
+      "ceb": "Kay ang usa ka nasud mitungas nganhi sa akong yuta, kusganon, ug dili maisip; ang iyang mga ngipon mao ang mga ngipon sa usa ka leon, ug siya adunay mga bag-ang sa usa ka bayeng leon.",
+      "tag": "Sapagka't isang bansa ay sumampa sa aking lupain, malakas at walang bilang; ang kaniyang mga ngipin ay mga ngipin ng leon, at siya'y may bagang ng malaking leon."
     },
     {
       "v": 7,
       "en": "He hath laid my vine waste, and barked my fig tree: he hath made it clean bare, and cast it away; the branches thereof are made white.",
-      "ceb": "Iyang gidagmalan ang akong balagon sa parras, ug gipanitan ang akong kahoy-nga-higuera: iyang gihinloan hangtud nga walay tabon kini, ug gisalibay kini; ang mga sanga niini nangaputi."
+      "ceb": "Iyang gidagmalan ang akong balagon sa parras, ug gipanitan ang akong kahoy-nga-higuera: iyang gihinloan hangtud nga walay tabon kini, ug gisalibay kini; ang mga sanga niini nangaputi.",
+      "tag": "Kaniyang iniwasak ang aking puno ng ubas, at ibinagsak ang aking puno ng igos: kaniyang tinalupang malinis at inihagis; ang mga sanga niyao'y naging maputi."
     },
     {
       "v": 8,
       "en": "Lament like a virgin girded with sackcloth for the husband of her youth.",
-      "ceb": "¶ Managbakho kamo sama sa usa ka ulay nga gibaksan sa sako tungod sa bana sa iyang pagkabatan-on."
+      "ceb": "¶ Managbakho kamo sama sa usa ka ulay nga gibaksan sa sako tungod sa bana sa iyang pagkabatan-on.",
+      "tag": "Managhoy ka na parang babaing nabibigkisan ng kayong magaspang dahil sa asawa ng kaniyang kabataan."
     },
     {
       "v": 9,
       "en": "The meat offering and the drink offering is cut off from the house of the; Lord the priests, the Lord's ministers, mourn.",
-      "ceb": "Ang halad-nga-kalan-on ug ang halad-nga-ilimnon gikuha gikan sa balay ni Ginoo, ang mga sacerdote, ang mga ministro ni Ginoo, nanagbalata."
+      "ceb": "Ang halad-nga-kalan-on ug ang halad-nga-ilimnon gikuha gikan sa balay ni Ginoo, ang mga sacerdote, ang mga ministro ni Ginoo, nanagbalata.",
+      "tag": "Ang handog na harina at ang inuming handog ay nahiwalay sa bahay ng Panginoon; ang mga saserdote, ang mga tagapangasiwa ng Panginoon, ay nangananangis."
     },
     {
       "v": 10,
       "en": "The field is wasted, the land mourneth; for the corn is wasted: the new wine is dried up, the oil languisheth.",
-      "ceb": "Gihimong biniyaan ang kaumahan, nagamasulob-on ang yuta; tungod kay gilaglag ang binhi nga tinanum; namala ang bag-ong vino, nagakahubas ang lana."
+      "ceb": "Gihimong biniyaan ang kaumahan, nagamasulob-on ang yuta; tungod kay gilaglag ang binhi nga tinanum; namala ang bag-ong vino, nagakahubas ang lana.",
+      "tag": "Ang bukid ay sira, ang lupain ay nahahapis; sapagka't ang trigo ay sira, ang bagong alak ay tuyo, ang langis ay kulang."
     },
     {
       "v": 11,
       "en": "Be ye ashamed, O ye husbandmen; howl, O ye vinedressers, for the wheat and for the barley; because the harvest of the field is perished.",
-      "ceb": "Pangalibug, Oh kamong mga mag-uuma, panagminatay, Oh kamong maggagalam sa parras, tungod sa trigo ug tungod sa cebada; tungod kay ang ting-ani sa mga uma nawala."
+      "ceb": "Pangalibug, Oh kamong mga mag-uuma, panagminatay, Oh kamong maggagalam sa parras, tungod sa trigo ug tungod sa cebada; tungod kay ang ting-ani sa mga uma nawala.",
+      "tag": "Mangahiya kayo, Oh kayong mga mangbubukid, manambitan kayo, Oh kayong mga maguubas, dahil sa trigo at dahil sa cebada; sapagka't ang pagaani sa bukid ay nawala."
     },
     {
       "v": 12,
       "en": "The vine is dried up, and the fig tree languisheth; the pomegranate tree, the palm tree also, and the apple tree, even all the trees of the field, are withered: because joy is withered away from the sons of men.",
-      "ceb": "Ang parras nalaya, ug ang higuera nagakamatay; ang kahoy-nga-granada, ang kahoy-nga-palma usab, ug ang kahoy-nga-mansana, bisan ang tanang mga kahoy sa kaumahan nangalaya; tungod kay ang kalipay nawala gikan sa mga anak sa mga tawo."
+      "ceb": "Ang parras nalaya, ug ang higuera nagakamatay; ang kahoy-nga-granada, ang kahoy-nga-palma usab, ug ang kahoy-nga-mansana, bisan ang tanang mga kahoy sa kaumahan nangalaya; tungod kay ang kalipay nawala gikan sa mga anak sa mga tawo.",
+      "tag": "Ang puno ng ubas ay natuyo, at ang puno ng higos ay nalalanta; ang puno ng granada, ang puno ng palma ay gayon din at ang puno ng manzanas, lahat ng punong kahoy sa parang ay tuyo; sapagka't ang kagalakan ay nawala sa mga anak ng mga tao."
     },
     {
       "v": 13,
       "en": "Gird yourselves, and lament, ye priests: howl, ye ministers of the altar: come, lie all night in sackcloth, ye ministers of my God: for the meat offering and the drink offering is withholden from the house of your God.",
-      "ceb": "Managbakus kamo sa inyong kaugalingon sa sako, ug panagbakho, kamong mga sacerdote; panagminatay, kamo nga mga ministro sa halaran; umari kamo, panghigda sa tibook nga gabii nga sinul-oban sa sako, kamong mga ministro sa akong Dios: tungod kay ang halad-nga-kalan-on ug ang halad-nga-ilimnon ginapugngan diha sa balay sa inyong Dios."
+      "ceb": "Managbakus kamo sa inyong kaugalingon sa sako, ug panagbakho, kamong mga sacerdote; panagminatay, kamo nga mga ministro sa halaran; umari kamo, panghigda sa tibook nga gabii nga sinul-oban sa sako, kamong mga ministro sa akong Dios: tungod kay ang halad-nga-kalan-on ug ang halad-nga-ilimnon ginapugngan diha sa balay sa inyong Dios.",
+      "tag": "Mangagbigkis kayo ng kayong magaspang, at magsipanaghoy kayong mga saserdote; manambitan kayo, kayong mga tagapangasiwa ng dambana; halikayo, magsihiga kayo magdamag sa kayong magaspang, kayong mga tagapangasiwa ng aking Dios: sapagka't ang handog na harina at ang inuming handog ay nahiwalay sa bahay ng inyong Dios."
     },
     {
       "v": 14,
       "en": "Sanctify ye a fast, call a solemn assembly, gather the elders and all the inhabitants of the land into the house of the Lord your God, and cry unto the, Lord",
-      "ceb": "¶ Managbalaan kamo ug usa ka pagpuasa, managtawag kamo ug usa ka pagkatigum nga maligdong, tiguma ang mga tigulang tawo ug ang tanang pumoluyo sa yuta ngadto sa balay ni Ginoo nga inyong Dios, ug managtuaw kamo kang Ginoo."
+      "ceb": "¶ Managbalaan kamo ug usa ka pagpuasa, managtawag kamo ug usa ka pagkatigum nga maligdong, tiguma ang mga tigulang tawo ug ang tanang pumoluyo sa yuta ngadto sa balay ni Ginoo nga inyong Dios, ug managtuaw kamo kang Ginoo.",
+      "tag": "Mangaghayag kayo ng ayuno, magsitawag kayo ng isang takdang kapulungan, inyong pisanin ang mga matanda at ang lahat na mananahan sa lupain sa bahay ng Panginoon ninyong Dios, at magsidaing kayo sa Panginoon."
     },
     {
       "v": 15,
       "en": "Alas for the day! for the day of the Lord is at hand, and as a destruction from the Almighty shall it come.",
-      "ceb": "Alaut ang adlaw! kay ang adlaw ni Ginoo haduol na, ug ingon sa usa ka paglaglag gikan sa Makagagahum moabut kini."
+      "ceb": "Alaut ang adlaw! kay ang adlaw ni Ginoo haduol na, ug ingon sa usa ka paglaglag gikan sa Makagagahum moabut kini.",
+      "tag": "Sa aba ng araw na yaon! sapagka't ang kaarawan ng Panginoon ay malapit na, at darating na parang kagibaan na mula sa Makapangyarihan sa lahat."
     },
     {
       "v": 16,
       "en": "Is not the meat cut off before our eyes, yea, joy and gladness from the house of our God?",
-      "ceb": "Wala ba pagkuhaa ang kalan-on sa atubangan sa atong mga mata, oo, ang kalipay ug ang kasadya gikan sa balay sa atong Dios?"
+      "ceb": "Wala ba pagkuhaa ang kalan-on sa atubangan sa atong mga mata, oo, ang kalipay ug ang kasadya gikan sa balay sa atong Dios?",
+      "tag": "Hindi baga ang pagkain ay nahiwalay sa ating mga mata, oo, ang kagalakan at ang kasayahan ay nahiwalay sa bahay ng ating Dios?"
     },
     {
       "v": 17,
       "en": "The seed is rotten under their clods, the garners are laid desolate, the barns are broken down; for the corn is withered.",
-      "ceb": "Ang mga binhi nangadunot ilalum sa ilang yutang bantok; ang mga kamalig gibiyaan, ang mga dapa nangalumpag; kay ang mga trigo nangalaya."
+      "ceb": "Ang mga binhi nangadunot ilalum sa ilang yutang bantok; ang mga kamalig gibiyaan, ang mga dapa nangalumpag; kay ang mga trigo nangalaya.",
+      "tag": "Ang mga binhi ay nangabubulok sa kanilang bugal; ang mga kamalig ay nangakahandusay na sira, ang mga imbakan ay bagsak; sapagka't ang trigo ay natuyo."
     },
     {
       "v": 18,
       "en": "How do the beasts groan! the herds of cattle are perplexed, because they have no pasture; yea, the flocks of sheep are made desolate.",
-      "ceb": "Naunsa nga nanag-agulo man ang mga mananap nga mabangis! ang mga panon sa mga vaca nangalibug, tungod kay sila walay sibsibanan, oo, ang mga panon sa carnero gibiyaan."
+      "ceb": "Naunsa nga nanag-agulo man ang mga mananap nga mabangis! ang mga panon sa mga vaca nangalibug, tungod kay sila walay sibsibanan, oo, ang mga panon sa carnero gibiyaan.",
+      "tag": "Ganyan na lamang ang ungal ng mga hayop! ang mga kawan ng mga hayop ay natitigilan, sapagka't wala silang pastulan; oo, ang mga kawan ng tupa ay nangapahamak."
     },
     {
       "v": 19,
       "en": "O, Lord to thee will I cry: for the fire hath devoured the pastures of the wilderness, and the flame hath burned all the trees of the field.",
-      "ceb": "Oh Ginoo, kanimo nagatu-aw ako; tungod kay ang kalayo minglamoy sa mga sibsibanan sa kamingawan, ug ang siga sa kalayo misunog sa tanang mga kahoy sa kapatagan."
+      "ceb": "Oh Ginoo, kanimo nagatu-aw ako; tungod kay ang kalayo minglamoy sa mga sibsibanan sa kamingawan, ug ang siga sa kalayo misunog sa tanang mga kahoy sa kapatagan.",
+      "tag": "Oh Panginoon, sa iyo'y dumadaing ako: sapagka't sinupok ng apoy ang mga pastulan sa ilang, at sinunog ng liyab ang lahat na punong kahoy sa parang."
     },
     {
       "v": 20,
       "en": "The beasts of the field cry also unto thee: for the rivers of waters are dried up, and the fire hath devoured the pastures of the wilderness.",
-      "ceb": "Oo, ang mga mananap nga mapintas sa kapatagan nangandoy kanimo: tungod kay nangamala ang tubig sa kasapaan, ug ang kalayo minglamoy sa mga sibsibanan sa kamingawan."
+      "ceb": "Oo, ang mga mananap nga mapintas sa kapatagan nangandoy kanimo: tungod kay nangamala ang tubig sa kasapaan, ug ang kalayo minglamoy sa mga sibsibanan sa kamingawan.",
+      "tag": "Oo, ang mga hayop sa bukid ay nagsisihingal sa iyo; sapagka't ang mga batis ng tubig ay nangatuyo, at sinupok ng apoy ang mga pastulan sa ilang."
     }
   ],
   "2": [
     {
       "v": 1,
       "en": "Blow ye the trumpet in Zion, and sound an alarm in my holy mountain: let all the inhabitants of the land tremble: for the day of the Lord cometh, for it is nigh at hand;",
-      "ceb": "¶ Patingoga ninyo ang trompeta didto sa Sion, ug patungga ang pagpagubok diha sa akong bukid nga balaan; pakuroga ang tanang pumoluyo sa kalibutan: tungod kay ang adlaw ni Ginoo moabut, tungod kay kini haduol na moabut;"
+      "ceb": "¶ Patingoga ninyo ang trompeta didto sa Sion, ug patungga ang pagpagubok diha sa akong bukid nga balaan; pakuroga ang tanang pumoluyo sa kalibutan: tungod kay ang adlaw ni Ginoo moabut, tungod kay kini haduol na moabut;",
+      "tag": "Hipan ninyo ang pakakak sa Sion, at mangagpatunog kayo ng hudyat sa aking banal na bundok; manginig ang lahat na mananahan sa lupain: sapagka't ang kaarawan ng Panginoon ay dumarating, sapagka't malapit na;"
     },
     {
       "v": 2,
       "en": "A day of darkness and of gloominess, a day of clouds and of thick darkness, as the morning spread upon the mountains: a great people and a strong; there hath not been ever the like, neither shall be any more after it, even to the years of many generations.",
-      "ceb": "Adlaw sa kangitngitan ug sa kadulom, adlaw sa mga panganod ug mabaga nga kangitngit, ingon nga ang banagbanag sa kabuntagon molukop na ibabaw sa kabukiran; ang usa ka dakung katawohan ug kusganon, wala pa gayud ing sama niana, ni may lain pa nga mosunod kanila, bisan ngadto sa mga tuig sa daghanang mga kaliwatan."
+      "ceb": "Adlaw sa kangitngitan ug sa kadulom, adlaw sa mga panganod ug mabaga nga kangitngit, ingon nga ang banagbanag sa kabuntagon molukop na ibabaw sa kabukiran; ang usa ka dakung katawohan ug kusganon, wala pa gayud ing sama niana, ni may lain pa nga mosunod kanila, bisan ngadto sa mga tuig sa daghanang mga kaliwatan.",
+      "tag": "Araw ng kadiliman at ng pagkukulimlim, araw ng mga ulap at ng pagsasalimuot ng dilim, gaya ng liwayway na namumukadkad sa mga bundok; isang malaking bayan at matibay; hindi nagkaroon kailan man ng gaya niyaon, ni magkakaroon pa man pagkatapos ng mga yaon, hanggang sa mga taon ng maraming sali't saling lahi."
     },
     {
       "v": 3,
       "en": "A fire devoureth before them; and behind them a flame burneth: the land is as the garden of Eden before them, and behind them a desolate wilderness; yea, and nothing shall escape them.",
-      "ceb": "Ang kalayo magalamoy diha sa ilang atubangan; ug sa luyo nila magasiga ang kalayo: ang yuta daw tanaman sa Eden sa atubangan nila, ug sa likod nila ang biniyaan nga kamingawan; oo, ug walay mausa nga nakakalagiw kanila."
+      "ceb": "Ang kalayo magalamoy diha sa ilang atubangan; ug sa luyo nila magasiga ang kalayo: ang yuta daw tanaman sa Eden sa atubangan nila, ug sa likod nila ang biniyaan nga kamingawan; oo, ug walay mausa nga nakakalagiw kanila.",
+      "tag": "Isang apoy ang sumusupok sa harap nila; at sa likuran nila'y isang liyab ang sumusunog: ang lupain ay parang halamanan sa Eden sa harap nila, at sa likuran nila'y isang sirang ilang; oo, at walang nakatanan sa kanila."
     },
     {
       "v": 4,
       "en": "The appearance of them is as the appearance of horses; and as horsemen, so shall they run.",
-      "ceb": "Ang ilang dagway ingon sa dagway sa mga kabayo; ug ingon sa mga nanagpangabayo, mao man ang ilang pagdalagan."
+      "ceb": "Ang ilang dagway ingon sa dagway sa mga kabayo; ug ingon sa mga nanagpangabayo, mao man ang ilang pagdalagan.",
+      "tag": "Ang anyo nila ay parang anyo ng mga kabayo; at kung paano ang mga mangangabayo, gayon sila nagsisitakbo."
     },
     {
       "v": 5,
       "en": "Like the noise of chariots on the tops of mountains shall they leap, like the noise of a flame of fire that devoureth the stubble, as a strong people set in battle array.",
-      "ceb": "Sama sa kinagalkal sa mga carro sa kinatumyan sa kabukiran mao man ang ilang paglukso, sama sa dinaguok sa siga sa kalayo nga nagalamoy sa tuod sa balili, ingon sa katawohan nga kusgan nga nagalaray sa natad sa panag-awayan."
+      "ceb": "Sama sa kinagalkal sa mga carro sa kinatumyan sa kabukiran mao man ang ilang paglukso, sama sa dinaguok sa siga sa kalayo nga nagalamoy sa tuod sa balili, ingon sa katawohan nga kusgan nga nagalaray sa natad sa panag-awayan.",
+      "tag": "Parang ingay ng mga karo sa mga taluktok ng mga bundok nagsisilukso sila, parang hugong ng liyab ng apoy na sumusupok sa dayami, parang isang matibay na bayan na humahanay sa pagbabaka."
     },
     {
       "v": 6,
       "en": "Before their face the people shall be much pained: all faces shall gather blackness.",
-      "ceb": "Ang mga katawohan anaa sa kasakitan sa hilabihan gayud diha sa ilang atubangan: ang tanang mga nawong mangaluspad."
+      "ceb": "Ang mga katawohan anaa sa kasakitan sa hilabihan gayud diha sa ilang atubangan: ang tanang mga nawong mangaluspad.",
+      "tag": "Sa kanilang harapan ay nangahihirapan ang mga bayan; lahat ng mukha ay nangamumutla."
     },
     {
       "v": 7,
       "en": "They shall run like mighty men; they shall climb the wall like men of war; and they shall march every one on his ways, and they shall not break their ranks:",
-      "ceb": "Managpanalagan sila sama sa mga tawong gamhanan; managpanaka sila sa kuta sama sa mga tawong iggugubat; managpanlakat sila ang tagsatagsa sa iyang kaugalingong mga dalan, ug, sila dili mangabungkag sa ilang mga laray."
+      "ceb": "Managpanalagan sila sama sa mga tawong gamhanan; managpanaka sila sa kuta sama sa mga tawong iggugubat; managpanlakat sila ang tagsatagsa sa iyang kaugalingong mga dalan, ug, sila dili mangabungkag sa ilang mga laray.",
+      "tag": "Sila'y nagsisitakbong parang mga malakas na lalake; sila'y nagsisipagalambitin sa kuta na parang mga lalaking mangdidigma; at sila'y nagsisilakad bawa't isa ng kanikaniyang mga lakad, at hindi nila binabago ang kanilang mga hanay."
     },
     {
       "v": 8,
       "en": "Neither shall one thrust another; they shall walk every one in his path: and when they fall upon the sword, they shall not be wounded.",
-      "ceb": "Dili usab sila magadinuslakay ang usa ug usa; sila managpanlakat ang tagsatagsa sa iyang kaugalingong alagianan: ug sagubangon nila ang mga hinagiban, ug sila dili mosimang."
+      "ceb": "Dili usab sila magadinuslakay ang usa ug usa; sila managpanlakat ang tagsatagsa sa iyang kaugalingong alagianan: ug sagubangon nila ang mga hinagiban, ug sila dili mosimang.",
+      "tag": "Ni nagtutulakan mang isa'y isa; sila'y lumalakad bawa't isa sa kanikaniyang landas; at sila'y magsisisagupa sa mga almas, at hindi sila malalansag."
     },
     {
       "v": 9,
       "en": "They shall run to and fro in the city; they shall run upon the wall, they shall climb up upon the houses; they shall enter in at the windows like a thief.",
-      "ceb": "Manglukso sila sa ciudad; manalagan sila ibabaw sa mga kuta; managpanaka sila sa kabalayan; managpangagi sila sa mga tamboanan sama sa kawatan."
+      "ceb": "Manglukso sila sa ciudad; manalagan sila ibabaw sa mga kuta; managpanaka sila sa kabalayan; managpangagi sila sa mga tamboanan sama sa kawatan.",
+      "tag": "Kanilang nilulukso ang bayan; kanilang tinatakbo ang kuta; kanilang pinagaalambitinan ang mga bahay; sila'y nagsisipasok sa mga dungawan na parang magnanakaw."
     },
     {
       "v": 10,
       "en": "The earth shall quake before them; the heavens shall tremble: the sun and the moon shall be dark, and the stars shall withdraw their shining:",
-      "ceb": "Ang yuta molinog sa ilang atubangan; ang kalangitan mangurog; ang adlaw ug ang bulan mongitngit, ug ang mga bitoon mapadngan sa ilang kahayag."
+      "ceb": "Ang yuta molinog sa ilang atubangan; ang kalangitan mangurog; ang adlaw ug ang bulan mongitngit, ug ang mga bitoon mapadngan sa ilang kahayag.",
+      "tag": "Ang lupa ay nayayanig sa harap nila; ang langit ay nanginginig; ang araw at ang buwan ay nagdidilim at itinitigil ng mga bituin ang kanilang kislap:"
     },
     {
       "v": 11,
       "en": "And the Lord shall utter his voice before his army: for his camp is very great: for he is strong that executeth his word: for the day of the Lord is great and very terrible; and who can abide it?",
-      "ceb": "Ug si Ginoo mamulong sa iyang tingog sa atubangan sa iyang kasundalohan; kay hilabihan pagkadaku sa iyang campo sa kasundalohan; kay malig-on siya nga magatuman sa iyang pulong: kay daku sa hilabihan ang adlaw ni Ginoo ug makalilisang gayud; ug kinsa ang makapabilin niana?"
+      "ceb": "Ug si Ginoo mamulong sa iyang tingog sa atubangan sa iyang kasundalohan; kay hilabihan pagkadaku sa iyang campo sa kasundalohan; kay malig-on siya nga magatuman sa iyang pulong: kay daku sa hilabihan ang adlaw ni Ginoo ug makalilisang gayud; ug kinsa ang makapabilin niana?",
+      "tag": "At pinatutunog ng Panginoon ang kaniyang tinig sa harap ng kaniyang hukbo; sapagka't ang kaniyang kampamento ay totoong malaki; sapagka't malakas na nagsasagawa ng kaniyang salita; sapagka't ang kaarawan ng Panginoon ay dakila at totoong kakilakilabot; at sinong makatatahan?"
     },
     {
       "v": 12,
       "en": "Therefore also now, saith the, Lord turn ye even to me with all your heart, and with fasting, and with weeping, and with mourning:",
-      "ceb": "¶ Bisan pa ngani karon, nagaingon si Ginoo, bumalik kamo kanako uban ang bug-os ninyong kasingkasig, ug uban ang pagpuasa, ug uban ang paghilak, ug uban ang pagbalata:"
+      "ceb": "¶ Bisan pa ngani karon, nagaingon si Ginoo, bumalik kamo kanako uban ang bug-os ninyong kasingkasig, ug uban ang pagpuasa, ug uban ang paghilak, ug uban ang pagbalata:",
+      "tag": "Gayon ma'y ngayon, sabi ng Panginoon, magsipanumbalik kayo sa akin ng inyong buong puso, na may pagaayuno, at may pananangis, at may pananambitan:"
     },
     {
       "v": 13,
       "en": "And rend your heart, and not your garments, and turn unto the Lord your God: for he is gracious and merciful, slow to anger, and of great kindness, and repenteth him of the evil.",
-      "ceb": "Ug gision ninyo ang inyong kasingkasing, ug dili ang inyong mga saput, ug bumalik kamo kang Ginoo nga inyong Dios; kay siya napuno sa gracia ug maloloy-on, mahinay sa kasuko, ug madagayaon sa mahigugmaong-kalolot, ug nakapabasul kaniya ang dautan."
+      "ceb": "Ug gision ninyo ang inyong kasingkasing, ug dili ang inyong mga saput, ug bumalik kamo kang Ginoo nga inyong Dios; kay siya napuno sa gracia ug maloloy-on, mahinay sa kasuko, ug madagayaon sa mahigugmaong-kalolot, ug nakapabasul kaniya ang dautan.",
+      "tag": "At papagdalamhatiin ninyo ang inyong puso, at hindi ang mga damit ang inyong hapakin, at kayo'y magsipanumbalik sa Panginoon ninyong Dios; sapagka't siya'y maawain at puspos ng kahabagan, banayad sa pagkagalit, at sagana sa kagandahang-loob, at nagsisisi siya sa kasamaan."
     },
     {
       "v": 14,
       "en": "Who knoweth if he will return and repent, and leave a blessing behind him; even a meat offering and a drink offering unto the Lord your God?",
-      "ceb": "Kinsa ang nahibalo kong siya dili ba mobalik ug magabasul, ug magabilin sa panalangin sa iyang likod, bisan sa halad-nga-kalan-on ug sa halad-nga-ilimnon kang Ginoo nga inyong Dios?"
+      "ceb": "Kinsa ang nahibalo kong siya dili ba mobalik ug magabasul, ug magabilin sa panalangin sa iyang likod, bisan sa halad-nga-kalan-on ug sa halad-nga-ilimnon kang Ginoo nga inyong Dios?",
+      "tag": "Sinong nakakaalam kung siya'y hindi magbabalik-loob, at magsisisi, at magiiwan ng isang pagpapala sa likuran niya, ng handog na harina, at ng inuming handog sa Panginoon ninyong Dios?"
     },
     {
       "v": 15,
       "en": "Blow the trumpet in Zion, sanctify a fast, call a solemn assembly:",
-      "ceb": "Patingoga ang trompeta didto sa Sion, managbalaan kamo sa usa ka pagpuasa, pagtawag ug usa ka maligdong nga pagkatigum;"
+      "ceb": "Patingoga ang trompeta didto sa Sion, managbalaan kamo sa usa ka pagpuasa, pagtawag ug usa ka maligdong nga pagkatigum;",
+      "tag": "Hipan ninyo ang pakakak sa Sion: magsipangilin kayo ng isang ayuno, magsitawag kayo ng isang takdang kapulungan;"
     },
     {
       "v": 16,
       "en": "Gather the people, sanctify the congregation, assemble the elders, gather the children, and those that suck the breasts: let the bridegroom go forth of his chamber, and the bride out of her closet.",
-      "ceb": "Tiguma ang katawohan, balaana ang pagkatigum, pundoka ang mga tawong tigulang, tiguma ang kabataan, ug kadtong mga masuso; pagulaa ang kaslonon nga lalake gikan sa iyang lawak, ug ang pangasaw-onon gikan sa iyang sulod."
+      "ceb": "Tiguma ang katawohan, balaana ang pagkatigum, pundoka ang mga tawong tigulang, tiguma ang kabataan, ug kadtong mga masuso; pagulaa ang kaslonon nga lalake gikan sa iyang lawak, ug ang pangasaw-onon gikan sa iyang sulod.",
+      "tag": "Tipunin ninyo ang bayan, banalin ang kapisanan, pisanin ang mga matanda, tipunin ang mga bata, at yaong mga pasusuhin; lumabas ang bagong kasal na lalake sa kaniyang silid, at ang bagong kasal na babae sa kaniyang silid."
     },
     {
       "v": 17,
       "en": "Let the priests, the ministers of the, Lord weep between the porch and the altar, and let them say, Spare thy people, O, Lord and give not thine heritage to reproach, that the heathen should rule over them: wherefore should they say among the people, Where is their God?",
-      "ceb": "Pahilaka ang mga sacerdote, ang mga ministro ni Ginoo, sa kinataliwad-an sa alagianan sa templo ug sa halaran, ug ipaingon kanila: Pagawasa ang imong katawohan, Oh Ginoo, ug ayaw itugyan ang imong panulondon nga pagatamayon, nga ang mga nasud managgahum kanila: kay ngano man nga moingon sila sa taliwala sa mga katawohan: Hain man ang ilang Dios?"
+      "ceb": "Pahilaka ang mga sacerdote, ang mga ministro ni Ginoo, sa kinataliwad-an sa alagianan sa templo ug sa halaran, ug ipaingon kanila: Pagawasa ang imong katawohan, Oh Ginoo, ug ayaw itugyan ang imong panulondon nga pagatamayon, nga ang mga nasud managgahum kanila: kay ngano man nga moingon sila sa taliwala sa mga katawohan: Hain man ang ilang Dios?",
+      "tag": "Manangis ang mga saserdote, ang mga tagapangasiwa ng Panginoon, sa pagitan ng portiko at ng dambana, at kanilang sabihin, Maawa ka sa iyong bayan, Oh Panginoon, at huwag mong ibigay ang iyong bayan sa kakutyaan, na ang mga bansa baga'y magpuno sa kanila: bakit nila sasabihin sa gitna ng mga bayan, Saan nandoon ang kanilang Dios?"
     },
     {
       "v": 18,
       "en": "Then will the Lord be jealous for his land, and pity his people.",
-      "ceb": "¶ Unya si Ginoo nangabugho alang sa iyang yuta, ug nalooy sa iyang katawohan."
+      "ceb": "¶ Unya si Ginoo nangabugho alang sa iyang yuta, ug nalooy sa iyang katawohan.",
+      "tag": "Noong ang Panginoon ay naging masikap sa kanilang lupain, at nahabag sa kaniyang bayan."
     },
     {
       "v": 19,
       "en": "Yea, the Lord will answer and say unto his people, Behold, I will send you corn, and wine, and oil, and ye shall be satisfied therewith: and I will no more make you a reproach among the heathen:",
-      "ceb": "Ug si Ginoo mitubag ug miingon sa iyang katawohan: Ania karon, padad-an ko kamo ug trigo, ug bag-ong vino, ug lana, ug mangatagbaw kamo niana; ug dili na kamo pagahimoon ko nga talamayon taliwala sa mga nasud;"
+      "ceb": "Ug si Ginoo mitubag ug miingon sa iyang katawohan: Ania karon, padad-an ko kamo ug trigo, ug bag-ong vino, ug lana, ug mangatagbaw kamo niana; ug dili na kamo pagahimoon ko nga talamayon taliwala sa mga nasud;",
+      "tag": "At ang Panginoon ay sumagot, at nagsabi sa kaniyang bayan, Narito, ako'y magdadala sa inyo ng trigo, at alak, at langis, at inyong kabubusugan; at hindi ko na gagawin pa kayo na kakutyaan sa gitna ng mga bansa;"
     },
     {
       "v": 20,
       "en": "But I will remove far off from you the northern army, and will drive him into a land barren and desolate, with his face toward the east sea, and his hinder part toward the utmost sea, and his stink shall come up, and his ill savour shall come up, because he hath done great things.",
-      "ceb": "Apan gikan kaninyo akong ipahilayo ang kasundalohan sa amihanan, ug ako kining pagaabugon ngadto sa usa ka yuta nga kal-anan ug libon, uban sa pangunahan nga dapit niini nga nagapaingon ngadto sa dagat sa silangan, ug ang likod nga dapit niini nga nagapaingon ngadto sa kasadpan nga dagat, ug ang baho niini nangalisbo, ug ang dautang lami niini mogula, tungod kay kini nagbuhat ug dagku nga mga butang."
+      "ceb": "Apan gikan kaninyo akong ipahilayo ang kasundalohan sa amihanan, ug ako kining pagaabugon ngadto sa usa ka yuta nga kal-anan ug libon, uban sa pangunahan nga dapit niini nga nagapaingon ngadto sa dagat sa silangan, ug ang likod nga dapit niini nga nagapaingon ngadto sa kasadpan nga dagat, ug ang baho niini nangalisbo, ug ang dautang lami niini mogula, tungod kay kini nagbuhat ug dagku nga mga butang.",
+      "tag": "Kundi aking ihihiwalay na malayo sa inyo ang hukbo sa hilagaan, at aking itataboy siya sa isang lupaing basal at sira, ang kaniyang unaha'y sa dagat silanganan, at ang kaniyang pinakahuling bahagi ay sa dagat kanluran; at ang kaniyang baho ay aalingasaw, at ang masamang amoy ay iilanglang, sapagka't siya'y gumawa ng mga malaking bagay."
     },
     {
       "v": 21,
       "en": "Fear not, O land; be glad and rejoice: for the Lord will do great things.",
-      "ceb": "Ayaw kahadlok, Oh yuta, pagmalipayon ug pagmaya; kay si Ginoo nagahimo ug dagku nga mga butang."
+      "ceb": "Ayaw kahadlok, Oh yuta, pagmalipayon ug pagmaya; kay si Ginoo nagahimo ug dagku nga mga butang.",
+      "tag": "Huwag kang matakot, Oh lupain, ikaw ay matuwa at magalak; sapagka't ang Panginoon ay gumawa ng dakilang mga bagay."
     },
     {
       "v": 22,
       "en": "Be not afraid, ye beasts of the field: for the pastures of the wilderness do spring, for the tree beareth her fruit, the fig tree and the vine do yield their strength.",
-      "ceb": "Ayaw kahadlok, kamong mga mananap sa kapatagan; kay molangbo ang sibsibanan sa kamingawan, kay ang kahoy magadala sa iyang bunga, ang higuera, ug ang balagon sa parras managhatag sa ilang kalig-on."
+      "ceb": "Ayaw kahadlok, kamong mga mananap sa kapatagan; kay molangbo ang sibsibanan sa kamingawan, kay ang kahoy magadala sa iyang bunga, ang higuera, ug ang balagon sa parras managhatag sa ilang kalig-on.",
+      "tag": "Huwag kayong mangatakot, kayong mga hayop sa parang; sapagka't ang mga pastulan sa ilang ay lumalago, sapagka't ang punong kahoy ay nagbubunga, ang puno ng higos at ang puno ng ubas ay nagbubunga."
     },
     {
       "v": 23,
       "en": "Be glad then, ye children of Zion, and rejoice in the Lord your God: for he hath given you the former rain moderately, and he will cause to come down for you the rain, the former rain, and the latter rain in the first month.",
-      "ceb": "Busa, managkalipay kamo, mga anak sa Sion, ug panagmaya kang Ginoo nga inyong Dios; tungod kay siya naghatag kaninyo sa nahaunang ulan sa igo gayud, ug iyang pagapaulanon ang ulan alang kaninyo, ang nahaunang ulan, ug ang naulahing ulan sa unang bulan."
+      "ceb": "Busa, managkalipay kamo, mga anak sa Sion, ug panagmaya kang Ginoo nga inyong Dios; tungod kay siya naghatag kaninyo sa nahaunang ulan sa igo gayud, ug iyang pagapaulanon ang ulan alang kaninyo, ang nahaunang ulan, ug ang naulahing ulan sa unang bulan.",
+      "tag": "Kayo nga'y mangatuwa, kayong mga anak ng Sion, at mangagalak sa Panginoon ninyong Dios; sapagka't kaniyang ibinibigay sa inyo ang maagang ulan sa tapat na sukat, at kaniyang pinalalagpak ang ulan dahil sa inyo, ang maagang ulan at ang huling ulan, sa unang buwan."
     },
     {
       "v": 24,
       "en": "And the floors shall be full of wheat, and the fats shall overflow with wine and oil.",
-      "ceb": "Ug ang mga salog mangapuno sa trigo, ug ang mga kawa magaawas sa bag-ong vino ug sa lana."
+      "ceb": "Ug ang mga salog mangapuno sa trigo, ug ang mga kawa magaawas sa bag-ong vino ug sa lana.",
+      "tag": "At ang mga lapag ay mangapupuno ng trigo, at ang mga kamalig ay aapawan ng alak at langis."
     },
     {
       "v": 25,
       "en": "And I will restore to you the years that the locust hath eaten, the cankerworm, and the caterpiller, and the palmerworm, my great army which I sent among you.",
-      "ceb": "Ug akong pahaulian alang kaninyo ang mga tuig nga gikaon sa dulon, sa lukton, ug sa ulod nga hantatawo, ug sa ulod nga dangaw-dangaw, ang akong daku nga panon sa mga sundalo nga akong gipadala sa inyong taliwala."
+      "ceb": "Ug akong pahaulian alang kaninyo ang mga tuig nga gikaon sa dulon, sa lukton, ug sa ulod nga hantatawo, ug sa ulod nga dangaw-dangaw, ang akong daku nga panon sa mga sundalo nga akong gipadala sa inyong taliwala.",
+      "tag": "At aking isasauli sa inyo ang mga taon na kinain ng balang, ng uod, at ng kuliglig, at ng tipaklong na siyang aking malaking hukbo, na aking sinugo sa gitna ninyo."
     },
     {
       "v": 26,
       "en": "And ye shall eat in plenty, and be satisfied, and praise the name of the Lord your God, that hath dealt wondrously with you: and my people shall never be ashamed.",
-      "ceb": "Ug kamo mangaon sa kadagaya ug mangatagbaw, ug managdayeg kamo sa ngalan ni Ginoo nga inyong Dios, nga nanalangin sa dakung kahibulongan kaninyo; ug ang akong katawohan dili na gayud pagapakaulawan."
+      "ceb": "Ug kamo mangaon sa kadagaya ug mangatagbaw, ug managdayeg kamo sa ngalan ni Ginoo nga inyong Dios, nga nanalangin sa dakung kahibulongan kaninyo; ug ang akong katawohan dili na gayud pagapakaulawan.",
+      "tag": "At kayo'y magsisikaing sagana, at mangabubusog, at inyong pupurihin ang pangalan ng Panginoon ninyong Dios, na gumawa ng kababalaghan sa inyo; at ang aking bayan ay hindi mapapahiya kailan man."
     },
     {
       "v": 27,
       "en": "And ye shall know that I am in the midst of Israel, and that I am the Lord your God, and none else: and my people shall never be ashamed.",
-      "ceb": "Ug kamo makaila nga ako anaa sa kinataliwad-an sa Israel, ug nga ako mao si Ginoo nga inyong Dios, ug wala nay lain; ug ang akong katawohan dili na gayud pagapakaulawan."
+      "ceb": "Ug kamo makaila nga ako anaa sa kinataliwad-an sa Israel, ug nga ako mao si Ginoo nga inyong Dios, ug wala nay lain; ug ang akong katawohan dili na gayud pagapakaulawan.",
+      "tag": "At inyong malalaman na ako'y nasa gitna ng Israel, at ako ang Panginoon ninyong Dios, at wala nang iba; at ang aking bayan ay hindi mapapahiya magpakailan man."
     },
     {
       "v": 28,
       "en": "And it shall come to pass afterward, that I will pour out my spirit upon all flesh; and your sons and your daughters shall prophesy, your old men shall dream dreams, your young men shall see visions:",
-      "ceb": "¶ Ug unya mahitabo sa ulahi, nga igabubo ko ang akong Espiritu ibabaw sa tanang unod; ug ang inyong mga anak nga babaye ug ang inyong mga anak nga lalake managpanagna, ang inyong mga tawong tigulang managdamgo sa mga damgo, ang inyong mga batan-ong lalake makakita sa mga panan-awon;"
+      "ceb": "¶ Ug unya mahitabo sa ulahi, nga igabubo ko ang akong Espiritu ibabaw sa tanang unod; ug ang inyong mga anak nga babaye ug ang inyong mga anak nga lalake managpanagna, ang inyong mga tawong tigulang managdamgo sa mga damgo, ang inyong mga batan-ong lalake makakita sa mga panan-awon;",
+      "tag": "At mangyayari pagkatapos, na ibubuhos ko ang aking Espiritu sa lahat ng laman; at ang inyong mga anak na lalake at babae ay manganghuhula, ang inyong mga matanda ay magsisipanaginip ng mga panaginip, ang inyong mga binata ay mangakakakita ng mga pangitain:"
     },
     {
       "v": 29,
       "en": "And also upon the servants and upon the handmaids in those days will I pour out my spirit.",
-      "ceb": "Ug ingon man usab ibabaw sa mga sulogoon nga lalake, ug ibabaw sa mga sulogoong babaye niadtong mga adlawa igabubo ko ang akong Espiritu."
+      "ceb": "Ug ingon man usab ibabaw sa mga sulogoon nga lalake, ug ibabaw sa mga sulogoong babaye niadtong mga adlawa igabubo ko ang akong Espiritu.",
+      "tag": "At sa mga lingkod na lalake at babae naman ay ibubuhos ko sa mga araw na yaon ang aking Espiritu."
     },
     {
       "v": 30,
       "en": "And I will shew wonders in the heavens and in the earth, blood, and fire, and pillars of smoke.",
-      "ceb": "Ug ako magapakita sa mga katingalahan diha sa kalangitan ug sa yuta: ang dugo, ug kalayo, ug ang mga haligi nga aso."
+      "ceb": "Ug ako magapakita sa mga katingalahan diha sa kalangitan ug sa yuta: ang dugo, ug kalayo, ug ang mga haligi nga aso.",
+      "tag": "At ako'y magpapakita ng mga kababalaghan sa langit at sa lupa, dugo, at apoy, at mga haliging usok."
     },
     {
       "v": 31,
       "en": "The sun shall be turned into darkness, and the moon into blood, before the great and the terrible day of the Lord come.",
-      "ceb": "Ang adlaw mahimong kangitngitan, ug ang bulan mahimong dugo, sa dili pa moabut ang daku ug makalilisang nga adlaw ni Ginoo."
+      "ceb": "Ang adlaw mahimong kangitngitan, ug ang bulan mahimong dugo, sa dili pa moabut ang daku ug makalilisang nga adlaw ni Ginoo.",
+      "tag": "Ang araw ay magiging kadiliman, at ang buwan ay dugo, bago dumating ang dakila at kakilakilabot na kaarawan ng Panginoon."
     },
     {
       "v": 32,
       "en": "And it shall come to pass, that whosoever shall call on the name of the Lord shall be delivered: for in mount Zion and in Jerusalem shall be deliverance, as the Lord hath said, and in the remnant whom the Lord shall call.",
-      "ceb": "Ug mahitabo, nga bisan kinsa nga magatawag sa ngalan ni Ginoo pagaluwason; kay didto sa bukid sa Sion ug sa Jerusalem atua kadtong managpakagawas, sumala sa giingon ni Ginoo, ug taliwala sa mga salin mao kadtong pagatawgon ni Ginoo."
+      "ceb": "Ug mahitabo, nga bisan kinsa nga magatawag sa ngalan ni Ginoo pagaluwason; kay didto sa bukid sa Sion ug sa Jerusalem atua kadtong managpakagawas, sumala sa giingon ni Ginoo, ug taliwala sa mga salin mao kadtong pagatawgon ni Ginoo.",
+      "tag": "At mangyayari na ang sinomang tumawag sa pangalan ng Panginoon ay maliligtas, sapagka't sa bundok ng Sion at sa Jerusalem doroon yaong nangakatanan, gaya ng sinabi ng Panginoon, at sa nangalabi ay yaong mga tinatawag ng Panginoon."
     }
   ],
   "3": [
     {
       "v": 1,
       "en": "For, behold, in those days, and in that time, when I shall bring again the captivity of Judah and Jerusalem,",
-      "ceb": "¶ Kay, ania karon, niadtong mga adlawa, ug niadtong panahona, sa diha nga bakwion ko ang pagkabinihag sa Juda ug sa Jerusalem,"
+      "ceb": "¶ Kay, ania karon, niadtong mga adlawa, ug niadtong panahona, sa diha nga bakwion ko ang pagkabinihag sa Juda ug sa Jerusalem,",
+      "tag": "Sapagka't, narito, sa mga kaarawang yaon, at sa panahong yaon, pagka aking ibabalik ang mangabihag sa Juda at Jerusalem."
     },
     {
       "v": 2,
       "en": "I will also gather all nations, and will bring them down into the valley of Jehoshaphat, and will plead with them there for my people and for my heritage Israel, whom they have scattered among the nations, and parted my land.",
-      "ceb": "Pagatigumon ko ang tanang mga nasud, ug pagadad-on ko sila ngadto sa walog sa Josafat; ug ipakanaug ko ang hukom kanila didto tungod sa akong katawohan ug tungod sa akong panulondon nga Israel, nga ilang gipatibulaag taliwala sa mga nasud: ug ilang gibahin ang akong yuta,"
+      "ceb": "Pagatigumon ko ang tanang mga nasud, ug pagadad-on ko sila ngadto sa walog sa Josafat; ug ipakanaug ko ang hukom kanila didto tungod sa akong katawohan ug tungod sa akong panulondon nga Israel, nga ilang gipatibulaag taliwala sa mga nasud: ug ilang gibahin ang akong yuta,",
+      "tag": "Aking pipisanin ang lahat na bansa, at aking ibababa sila sa libis ni Josaphat; at ako'y makikipagtanggol sa kanila roon dahil sa aking bayan at dahil sa aking manang Israel, na kanilang pinangalat sa mga bansa, at binahagi ang aking lupain,"
     },
     {
       "v": 3,
       "en": "And they have cast lots for my people; and have given a boy for an harlot, and sold a girl for wine, that they might drink.",
-      "ceb": "Ug gipapalaran nila ang akong katawohan, ug gipabayloan ang usa ka bata nga lalake sa usa ka bigaon, ug ginabaligya ang usa ka dalaga tungod sa vino, aron lamang sila makainum."
+      "ceb": "Ug gipapalaran nila ang akong katawohan, ug gipabayloan ang usa ka bata nga lalake sa usa ka bigaon, ug ginabaligya ang usa ka dalaga tungod sa vino, aron lamang sila makainum.",
+      "tag": "At kanilang pinagsapalaran ang aking bayan, at kanilang ibinigay ang isang batang lalake dahil sa isang patutot, at ipinagbili ang isang batang babae dahil sa alak, upang sila'y mangakainom."
     },
     {
       "v": 4,
       "en": "Yea, and what have ye to do with me, O Tyre, and Zidon, and all the coasts of Palestine? will ye render me a recompence? and if ye recompense me, swiftly and speedily will I return your recompence upon your own head;",
-      "ceb": "Oo, ug unsa ba kamo kanako, Oh Tiro, ug Sidon, ug ang tanang kayutaan sa Filistia? mohatag ba kamo kanako sa balus? ug kong kamo mobalus kanako, iuli ko sa madali ug sa matulin ang inyong balus ibabaw sa inyong kaugalingong ulo."
+      "ceb": "Oo, ug unsa ba kamo kanako, Oh Tiro, ug Sidon, ug ang tanang kayutaan sa Filistia? mohatag ba kamo kanako sa balus? ug kong kamo mobalus kanako, iuli ko sa madali ug sa matulin ang inyong balus ibabaw sa inyong kaugalingong ulo.",
+      "tag": "Oo, at ano kayo sa akin. Oh Tiro, at Sidon, at buong lupain ng Filistia? gagantihin baga ninyo ako? at kung ako'y inyong gantihin, maliksi at madali na aking ibabalik ang inyong kagantihan sa inyong sariling ulo."
     },
     {
       "v": 5,
       "en": "Because ye have taken my silver and my gold, and have carried into your temples my goodly pleasant things:",
-      "ceb": "Sanglit kay inyong gikuha ang akong salapi ug ang akong bulawan, ug gidala ngadto sa inyong mga templo ang akong mga maayo ug hamili nga mga butang,"
+      "ceb": "Sanglit kay inyong gikuha ang akong salapi ug ang akong bulawan, ug gidala ngadto sa inyong mga templo ang akong mga maayo ug hamili nga mga butang,",
+      "tag": "Yamang inyong kinuha ang aking pilak at aking ginto, at inyong dinala sa inyong mga templo ang aking mainam at maligayang mga bagay,"
     },
     {
       "v": 6,
       "en": "The children also of Judah and the children of Jerusalem have ye sold unto the Grecians, that ye might remove them far from their border.",
-      "ceb": "Ug gipamaligya ninyo ang mga anak sa Juda ug ang mga anak sa Jerusalem ngadto sa mga anak nga lalake sa mga Grecianhon, aron nga sila ikapahilayo ninyo sa ilang mga utlanan;"
+      "ceb": "Ug gipamaligya ninyo ang mga anak sa Juda ug ang mga anak sa Jerusalem ngadto sa mga anak nga lalake sa mga Grecianhon, aron nga sila ikapahilayo ninyo sa ilang mga utlanan;",
+      "tag": "At ipinagbili ang mga anak ng Juda at ang mga anak ng Jerusalem ay inyong ipinagbili sa mga anak ng mga taga Grecia, upang inyong mailayo sa kanilang hangganan;"
     },
     {
       "v": 7,
       "en": "Behold, I will raise them out of the place whither ye have sold them, and will return your recompence upon your own head:",
-      "ceb": "Ania karon, sila sugyotan ko gikan sa mga dapit diin sila ibaligya ninyo, ug ipabalik ko ang inyong balus ibabaw sa inyong kaugalingong ulo;"
+      "ceb": "Ania karon, sila sugyotan ko gikan sa mga dapit diin sila ibaligya ninyo, ug ipabalik ko ang inyong balus ibabaw sa inyong kaugalingong ulo;",
+      "tag": "Narito, aking pasisiglahin sila sa dako na inyong pinagbilhan sa kanila, at aking ibabalik ang inyong kagantihan sa inyong sariling ulo;"
     },
     {
       "v": 8,
       "en": "And I will sell your sons and your daughters into the hand of the children of Judah, and they shall sell them to the Sabeans, to a people far off: for the Lord hath spoken it.",
-      "ceb": "Ug akong ibaligya ang inyong mga anak nga lalake ug ang inyong mga anak nga babaye ngadto sa kamot sa mga anak sa Juda, ug sila ipamaligya nila ngadto sa mga tawo sa Seba, ngadto sa usa ka nasud nga halayo kaayo: kay kini gisulti ni Ginoo."
+      "ceb": "Ug akong ibaligya ang inyong mga anak nga lalake ug ang inyong mga anak nga babaye ngadto sa kamot sa mga anak sa Juda, ug sila ipamaligya nila ngadto sa mga tawo sa Seba, ngadto sa usa ka nasud nga halayo kaayo: kay kini gisulti ni Ginoo.",
+      "tag": "At aking ipagbibili ang inyong mga anak na lalake at babae sa kamay ng mga anak ni Juda, at ipagbibili nila sila sa mga tao sa Seba, sa isang bansang malayo: sapagka't sinalita ng Panginoon."
     },
     {
       "v": 9,
       "en": "Proclaim ye this among the Gentiles; Prepare war, wake up the mighty men, let all the men of war draw near; let them come up:",
-      "ceb": "¶ Ipahibalo ninyo kini taliwala sa mga nasud; pangandam alang sa gubat; pukawa ang kusganong mga tawo; paduola ang tanang mga tawo nga iggugubat, patungasa sila."
+      "ceb": "¶ Ipahibalo ninyo kini taliwala sa mga nasud; pangandam alang sa gubat; pukawa ang kusganong mga tawo; paduola ang tanang mga tawo nga iggugubat, patungasa sila.",
+      "tag": "Itanyag ninyo ito sa mga bansa: mangaghanda kayo ng digma; pasiglahin ninyo ang mga malakas na lalake; magsilapit ang lahat na lalaking mangdidigma, sila'y magsisampa."
     },
     {
       "v": 10,
       "en": "Beat your plowshares into swords, and your pruninghooks into spears: let the weak say, I am strong.",
-      "ceb": "Salsala nga pinuti ang inyong mga punta sa daro, ug ang inyong mga galab salsala nga mga bangkaw: ug pasultiha ang maluya: Ako makusganon man."
+      "ceb": "Salsala nga pinuti ang inyong mga punta sa daro, ug ang inyong mga galab salsala nga mga bangkaw: ug pasultiha ang maluya: Ako makusganon man.",
+      "tag": "Gawin ninyong mga tabak ang inyong mga sudsod, at mga sibat ang inyong mga karit: magsabi ang mahina, Ako'y malakas."
     },
     {
       "v": 11,
       "en": "Assemble yourselves, and come, all ye heathen, and gather yourselves together round about: thither cause thy mighty ones to come down, O. Lord Lord shall bring down",
-      "ceb": "Managdali kamo, ug umari, kamong tanang mga nasud nga nanaglibut, ug panagpundok kamo sa inyong kaugalingon sa tingub: didto paadtoa ang imong mga gamhanan, Oh Ginoo."
+      "ceb": "Managdali kamo, ug umari, kamong tanang mga nasud nga nanaglibut, ug panagpundok kamo sa inyong kaugalingon sa tingub: didto paadtoa ang imong mga gamhanan, Oh Ginoo.",
+      "tag": "Mangagmadali kayo, at magsiparito kayong lahat na bansa sa palibot, at magpipisan kayo: iyong pababain doon ang iyong mga makapangyarihan, Oh Panginoon."
     },
     {
       "v": 12,
       "en": "Let the heathen be wakened, and come up to the valley of Jehoshaphat: for there will I sit to judge all the heathen round about.",
-      "ceb": "Ipapukaw sa mga nasud ang ilang kaugalingon, ug patungasa sa walog sa Josafat; kay didto ako molingkod aron sa paghukom sa mga nasud nga nanaglibut."
+      "ceb": "Ipapukaw sa mga nasud ang ilang kaugalingon, ug patungasa sa walog sa Josafat; kay didto ako molingkod aron sa paghukom sa mga nasud nga nanaglibut.",
+      "tag": "Magpakasigla ang mga bansa, at magsisampa sa libis ni Josaphat; sapagka't doo'y uupo ako upang hatulan ang lahat na bansa sa palibot."
     },
     {
       "v": 13,
       "en": "Put ye in the sickle, for the harvest is ripe: come, get you down; for the press is full, the fats overflow; for their wickedness is great.",
-      "ceb": "Isakob ninyo ang galab; kay ang alanihon hinog na: umari kamo, giuka ninyo ang pug-anan; kay puno na ang pug-anan; nagaawas ang mga kawa; kay daku kaayo ang ilang pagkadautan."
+      "ceb": "Isakob ninyo ang galab; kay ang alanihon hinog na: umari kamo, giuka ninyo ang pug-anan; kay puno na ang pug-anan; nagaawas ang mga kawa; kay daku kaayo ang ilang pagkadautan.",
+      "tag": "Gamitin ninyo ang karit; sapagka't ang aanihin ay hinog na: kayo'y magsiparito, at magsiyapak; sapagka't ang alilisan ng alak ay puno, ang kamalig ng alak ay inaapawan; sapagka't ang kanilang kasamaan ay malaki."
     },
     {
       "v": 14,
       "en": "Multitudes, multitudes in the valley of decision: for the day of the Lord is near in the valley of decision.",
-      "ceb": "Mga panon sa katawohan, mga panon sa katawohan atua sa walog sa pagpakanaug sa hukom! kay ang adlaw ni Ginoo haduol na sa walog sa pagpakanaug sa hukom."
+      "ceb": "Mga panon sa katawohan, mga panon sa katawohan atua sa walog sa pagpakanaug sa hukom! kay ang adlaw ni Ginoo haduol na sa walog sa pagpakanaug sa hukom.",
+      "tag": "Mga karamihan, mga karamihan sa libis ng pasiya! sapagka't ang kaarawan ng Panginoon ay malapit na sa libis ng pasiya."
     },
     {
       "v": 15,
       "en": "The sun and the moon shall be darkened, and the stars shall withdraw their shining.",
-      "ceb": "Mingitngit ang adlaw ug ang bulan, ug ang mga bitoon napadngan sa ilang kahayag."
+      "ceb": "Mingitngit ang adlaw ug ang bulan, ug ang mga bitoon napadngan sa ilang kahayag.",
+      "tag": "Ang araw at ang buwan ay nagdidilim, at pinipigil ng mga bituin ang kanilang kislap."
     },
     {
       "v": 16,
       "en": "The Lord also shall roar out of Zion, and utter his voice from Jerusalem; and the heavens and the earth shall shake: but the Lord will be the hope of his people, and the strength of the children of Israel.",
-      "ceb": "Ug gikan sa Sion si Ginoo mopadahunog sa iyang tingog, 7ug mosinggit sa iyang tingog gikan sa Jerusalem; ug ang mga langit ug ang yuta managpangurog: apan si Ginoo mahimong dalangpanan sa iyang katawohan, ug usa ka salipdanan alang sa mga anak sa Israel."
+      "ceb": "Ug gikan sa Sion si Ginoo mopadahunog sa iyang tingog, 7ug mosinggit sa iyang tingog gikan sa Jerusalem; ug ang mga langit ug ang yuta managpangurog: apan si Ginoo mahimong dalangpanan sa iyang katawohan, ug usa ka salipdanan alang sa mga anak sa Israel.",
+      "tag": "At ang Panginoo'y aangal mula sa Sion, at palalakasin ang kaniyang tinig mula sa Jerusalem; at ang langit at ang lupa ay mangayayanig: nguni't ang Panginoon ay magiging kanlungan sa kaniyang bayan, at katibayan sa mga anak ni Israel."
     },
     {
       "v": 17,
       "en": "So shall ye know that I am the Lord your God dwelling in Zion, my holy mountain: then shall Jerusalem be holy, and there shall no strangers pass through her any more.",
-      "ceb": "Busa kamo moila nga ako mao si Ginoo nga inyong Dios, nga nagapuyo sa Sion nga akong bukid nga balaan: unya ang Jerusalem mabalaan, ug didto wala nay dumuloong nga molatas kaniya pag-usab."
+      "ceb": "Busa kamo moila nga ako mao si Ginoo nga inyong Dios, nga nagapuyo sa Sion nga akong bukid nga balaan: unya ang Jerusalem mabalaan, ug didto wala nay dumuloong nga molatas kaniya pag-usab.",
+      "tag": "Sa gayo'y inyong malalaman na ako ang Panginoon ninyong Dios, na tumatahan sa Sion, na aking banal na bundok: kung magkagayo'y magiging banal ang Jerusalem, at hindi na daraan pa sa kaniya ang mga taga ibang lupa."
     },
     {
       "v": 18,
       "en": "And it shall come to pass in that day, that the mountains shall drop down new wine, and the hills shall flow with milk, and all the rivers of Judah shall flow with waters, and a fountain shall come forth of the house of the, Lord and shall water the valley of Shittim.",
-      "ceb": "¶ Ug mahitabo niadtong adlawa, nga ang kabukiran magapatulo sa matam-is nga vino, ug ang kabungtoran magapaagay sa gatas, ug ang tanang mga sapa sa Juda magapaagay sa tubig; ug ang usa ka tuburan motungha gikan sa balay ni Ginoo, ug tubigan niini ang walog sa Sittim."
+      "ceb": "¶ Ug mahitabo niadtong adlawa, nga ang kabukiran magapatulo sa matam-is nga vino, ug ang kabungtoran magapaagay sa gatas, ug ang tanang mga sapa sa Juda magapaagay sa tubig; ug ang usa ka tuburan motungha gikan sa balay ni Ginoo, ug tubigan niini ang walog sa Sittim.",
+      "tag": "At mangyayari sa araw na yaon, na ang mga bundok ay tutuluan ng matamis na alak, at ang mga burol ay aagusan ng gatas, at ang lahat na batis ng Juda ay aagusan ng mga tubig; at isang bukal ay babalong sa bahay ng Panginoon, at didiligin ang libis ng Sittim."
     },
     {
       "v": 19,
       "en": "Egypt shall be a desolation, and Edom shall be a desolate wilderness, for the violence against the children of Judah, because they have shed innocent blood in their land.",
-      "ceb": "Ang Egipto mahimong awa-aw, ug ang Edom mahimong kamingawan nga biniyaan, tungod sa pagpanlupig nga gibuhat sa mga anak sa Juda, tungod kay giula nila ang dugo nga inocente diha sa ilang yuta."
+      "ceb": "Ang Egipto mahimong awa-aw, ug ang Edom mahimong kamingawan nga biniyaan, tungod sa pagpanlupig nga gibuhat sa mga anak sa Juda, tungod kay giula nila ang dugo nga inocente diha sa ilang yuta.",
+      "tag": "Ang Egipto ay masisira, at ang Edom ay magiging ilang na sira, dahil sa karahasang ginawa sa mga anak ni Juda, sapagka't sila'y nagbubo ng walang salang dugo sa kanilang lupain."
     },
     {
       "v": 20,
       "en": "But Judah shall dwell for ever, and Jerusalem from generation to generation.",
-      "ceb": "Apan ang Juda magapabilin sa walay katapusan, ug ang Jerusalem pagapuy-an gikan sa kaliwatan hangtud sa kaliwatan."
+      "ceb": "Apan ang Juda magapabilin sa walay katapusan, ug ang Jerusalem pagapuy-an gikan sa kaliwatan hangtud sa kaliwatan.",
+      "tag": "Nguni't ang Juda'y tatahan magpakailan man, at ang Jerusalem ay sa sali't saling lahi."
     },
     {
       "v": 21,
       "en": "For I will cleanse their blood that I have not cleansed: for the Lord dwelleth in Zion. Lord that",
-      "ceb": "Ug pagahinloan ko ang ilang dugo, nga wala ko mahinlo: kay si Ginoo magapuyo sa Sion."
+      "ceb": "Ug pagahinloan ko ang ilang dugo, nga wala ko mahinlo: kay si Ginoo magapuyo sa Sion.",
+      "tag": "At aking lilinisin ang kanilang dugo na hindi ko nilinis: sapagka't ang Panginoon ay tumatahan sa Sion."
     }
   ]
 }
