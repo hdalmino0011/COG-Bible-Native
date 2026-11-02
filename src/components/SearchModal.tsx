@@ -3,11 +3,13 @@ import { motion } from 'motion/react';
 import { Search, X, BookOpen, ArrowRight, Sparkles, BookMarked, Loader2 } from 'lucide-react';
 import { normalizeBookName, BIBLE_BOOKS, getBookInfo } from '../data/books';
 import { BibleData } from '../types';
+import { formatVerseText } from '../utils/divineName';
 
 interface SearchModalProps {
   isOpen: boolean;
   onClose: () => void;
   bibleData: BibleData;
+  useOriginalDivineName?: boolean;
   onNavigateToVerse: (book: string, chapter: number, verse?: number) => void;
 }
 
@@ -25,6 +27,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   isOpen,
   onClose,
   bibleData,
+  useOriginalDivineName = false,
   onNavigateToVerse
 }) => {
   const [query, setQuery] = useState('');
@@ -299,13 +302,13 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                 {res.ceb && (
                   <p className="text-xs text-gray-700 dark:text-gray-200 line-clamp-2">
                     <span className="text-[10px] font-semibold text-gray-400 mr-1">[CEB]</span>
-                    {res.ceb}
+                    {formatVerseText(res.ceb, 'cebuano', useOriginalDivineName)}
                   </p>
                 )}
                 {res.en && (
                   <p className="text-xs text-gray-600 dark:text-gray-300 line-clamp-2 italic">
                     <span className="text-[10px] font-semibold text-gray-400 mr-1">[KJV]</span>
-                    {res.en}
+                    {formatVerseText(res.en, 'english', useOriginalDivineName)}
                   </p>
                 )}
               </button>

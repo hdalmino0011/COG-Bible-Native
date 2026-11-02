@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Bookmark, Highlighter, Edit3, Trash2, ArrowRight, BookOpen } from 'lucide-react';
 import { HighlightColor, NoteItem, SavedHighlight } from '../types';
+import { formatVerseText } from '../utils/divineName';
 
 interface SavedScreenProps {
   highlights: Record<string, SavedHighlight>;
   bookmarks: Array<{ id: string; book: string; chapter: number; verse?: number; title: string; timestamp: number }>;
   notes: NoteItem[];
+  useOriginalDivineName?: boolean;
   onNavigateToVerse: (book: string, chapter: number, verse?: number) => void;
   onDeleteHighlight: (book: string, chapter: number, verse: number) => void;
   onDeleteBookmark: (id: string) => void;
@@ -16,6 +18,7 @@ export const SavedScreen: React.FC<SavedScreenProps> = ({
   highlights,
   bookmarks,
   notes,
+  useOriginalDivineName = false,
   onNavigateToVerse,
   onDeleteHighlight,
   onDeleteBookmark,
@@ -133,13 +136,19 @@ export const SavedScreen: React.FC<SavedScreenProps> = ({
                 {item.cebText && (
                   <p className="text-xs sm:text-sm leading-relaxed text-gray-800 dark:text-gray-200">
                     <strong className="text-[#C9A227] dark:text-[#E4C765] font-bold">CEB: </strong>
-                    {item.cebText}
+                    {formatVerseText(item.cebText, 'cebuano', useOriginalDivineName)}
                   </p>
                 )}
                 {item.enText && (
                   <p className="text-xs sm:text-sm leading-relaxed text-gray-700 dark:text-gray-300">
                     <strong className="text-[#C9A227] dark:text-[#E4C765] font-bold">ENG: </strong>
-                    {item.enText}
+                    {formatVerseText(item.enText, 'english', useOriginalDivineName)}
+                  </p>
+                )}
+                {item.tagText && (
+                  <p className="text-xs sm:text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                    <strong className="text-[#C9A227] dark:text-[#E4C765] font-bold">TAG: </strong>
+                    {formatVerseText(item.tagText, 'tagalog', useOriginalDivineName)}
                   </p>
                 )}
               </div>

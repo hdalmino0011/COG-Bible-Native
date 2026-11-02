@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cog-bible-offline-v10.0.0';
+const CACHE_NAME = 'cog-bible-offline-v10.0.1';
 
 const DEFAULT_BOOK_FILES = [
   '1 Chronicles.json',
@@ -422,22 +422,22 @@ const PRECACHE_ASSETS = [
   "images/nature/zechariah.jpg",
   "./images/nature/zephaniah.jpg",
   "images/nature/zephaniah.jpg",
-  "./assets/1 Chronicles-BZWrvP1y.js",
-  "assets/1 Chronicles-BZWrvP1y.js",
-  "./assets/1 Corinthians--VZi7Lnm.js",
-  "assets/1 Corinthians--VZi7Lnm.js",
-  "./assets/1 John-Cb6nfyrL.js",
-  "assets/1 John-Cb6nfyrL.js",
-  "./assets/1 Kings-4SygjL-I.js",
-  "assets/1 Kings-4SygjL-I.js",
-  "./assets/1 Peter-UZWpHfyB.js",
-  "assets/1 Peter-UZWpHfyB.js",
-  "./assets/1 Samuel-Dud39puH.js",
-  "assets/1 Samuel-Dud39puH.js",
-  "./assets/1 Thessalonians-3cCQCCZ4.js",
-  "assets/1 Thessalonians-3cCQCCZ4.js",
-  "./assets/1 Timothy-BOLRhqE0.js",
-  "assets/1 Timothy-BOLRhqE0.js",
+  "./assets/1 Chronicles-CRlbymAc.js",
+  "assets/1 Chronicles-CRlbymAc.js",
+  "./assets/1 Corinthians-CKpXvaD-.js",
+  "assets/1 Corinthians-CKpXvaD-.js",
+  "./assets/1 John-COJlwK9g.js",
+  "assets/1 John-COJlwK9g.js",
+  "./assets/1 Kings-CBGlY10O.js",
+  "assets/1 Kings-CBGlY10O.js",
+  "./assets/1 Peter-C-UKQ4ph.js",
+  "assets/1 Peter-C-UKQ4ph.js",
+  "./assets/1 Samuel-kUeScmTi.js",
+  "assets/1 Samuel-kUeScmTi.js",
+  "./assets/1 Thessalonians-Cih04-Wp.js",
+  "assets/1 Thessalonians-Cih04-Wp.js",
+  "./assets/1 Timothy-Zw265rlo.js",
+  "assets/1 Timothy-Zw265rlo.js",
   "./assets/2 Chronicles-CfRKMJwL.js",
   "assets/2 Chronicles-CfRKMJwL.js",
   "./assets/2 Corinthians-DYdpXpxx.js",
@@ -568,10 +568,10 @@ const PRECACHE_ASSETS = [
   "assets/hebrews_beach_anchor_1790635754773-HvpUSTTE.jpg",
   "./assets/hosea_climbing_vines_1790635559019-BiYmL_lA.jpg",
   "assets/hosea_climbing_vines_1790635559019-BiYmL_lA.jpg",
-  "./assets/index-C4SkewoL.css",
-  "assets/index-C4SkewoL.css",
-  "./assets/index-Dq0NyIjP.js",
-  "assets/index-Dq0NyIjP.js",
+  "./assets/index-Ds6HjsA1.css",
+  "assets/index-Ds6HjsA1.css",
+  "./assets/index-z9_2iMs-.js",
+  "assets/index-z9_2iMs-.js",
   "./assets/jeremiah_weeping_willow_1790635547584-Ch70-MjN.jpg",
   "assets/jeremiah_weeping_willow_1790635547584-Ch70-MjN.jpg",
   "./assets/joel_golden_grasshopper_1790635569980-XXyd3VO5.jpg",
@@ -612,10 +612,10 @@ const PRECACHE_ASSETS = [
   "assets/timothy_sunrise_campground_1790635730568-B4AcoEjF.jpg",
   "./assets/titus_rugged_coastline_1790635743161-DV_oqNfc.jpg",
   "assets/titus_rugged_coastline_1790635743161-DV_oqNfc.jpg",
-  "./assets/web-BscZNJi4.js",
-  "assets/web-BscZNJi4.js",
-  "./assets/web-Dyg8w-kZ.js",
-  "assets/web-Dyg8w-kZ.js"
+  "./assets/web-NCzjxOPx.js",
+  "assets/web-NCzjxOPx.js",
+  "./assets/web-xJSuczkM.js",
+  "assets/web-xJSuczkM.js"
 ];
 
 const STATIC_ASSETS = Array.from(
@@ -746,6 +746,16 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   const requestUrl = event.request.url;
+
+  // Real-time Cloud Sync: Supabase database and storage requests must NEVER be cached by the Service Worker!
+  // Always let them go directly to the network so document uploads and deletions reflect instantly.
+  if (
+    requestUrl.includes('supabase.co') ||
+    requestUrl.includes('/rest/v1/') ||
+    requestUrl.includes('/storage/v1/')
+  ) {
+    return;
+  }
 
   // 1. HTML Navigation requests (Page loading & refresh)
   if (event.request.mode === 'navigate' || event.request.destination === 'document') {

@@ -116,10 +116,6 @@ export const Splash: React.FC<SplashProps> = ({ onComplete }) => {
           (Truth, Justice, and Righteousness)
         </p>
 
-        <p className="mt-2 text-xs text-white/75 tracking-widest uppercase font-light">
-          Cebuano (Bugna) &amp; English (KJV)
-        </p>
-
         {/* Silky smooth loading circles wave */}
         <div className="flex items-center gap-2.5 mt-8" aria-label="Loading application">
           <span

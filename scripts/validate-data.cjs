@@ -88,7 +88,7 @@ function validateDirectory(relativeDirectory) {
         }
         for (let index = 0; index < verses.length; index += 1) {
           const verse = verses[index];
-          if (!verse || !Number.isInteger(verse.v) || typeof verse.en !== 'string' || typeof verse.ceb !== 'string') {
+          if (!verse || !Number.isInteger(verse.v) || typeof verse.en !== 'string' || typeof verse.ceb !== 'string' || (verse.tag !== undefined && typeof verse.tag !== 'string')) {
             errors.push(relativeDirectory + '/' + file + ' chapter ' + chapter + ' verse ' + (index + 1) + ' has an invalid shape');
             break;
           }

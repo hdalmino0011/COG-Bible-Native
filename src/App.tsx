@@ -73,6 +73,7 @@ import {
   scheduleNativeDailyRecurringNotification
 } from './utils/notifications';
 import { speakVerseText, stopSpeakingVerse, readChapterContinuously } from './utils/speech';
+import { formatVerseText } from './utils/divineName';
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -572,7 +573,8 @@ export default function App() {
         color,
         timestamp: Date.now(),
         cebText: selectedVerse.verseData.ceb,
-        enText: selectedVerse.verseData.en
+        enText: selectedVerse.verseData.en,
+        tagText: selectedVerse.verseData.tag
       };
       saveStoredHighlight(item);
       setHighlights(getStoredHighlights());
@@ -582,18 +584,30 @@ export default function App() {
   };
 
   // Copy actions
-  const handleCopyVerse = (mode: 'cebuano' | 'english' | 'both') => {
+  const handleCopyVerse = (mode: 'cebuano' | 'english' | 'tagalog' | 'both') => {
     if (!selectedVerse) return;
 
     const ref = `${selectedVerse.book} ${selectedVerse.chapter}:${selectedVerse.verse}`;
     let text = '';
 
+    const cebFormatted = formatVerseText(selectedVerse.verseData.ceb, 'cebuano', preferences.useOriginalDivineName);
+    const enFormatted = formatVerseText(selectedVerse.verseData.en, 'english', preferences.useOriginalDivineName);
+    const tagFormatted = formatVerseText(selectedVerse.verseData.tag || '', 'tagalog', preferences.useOriginalDivineName);
+
     if (mode === 'cebuano') {
-      text = `${ref} (Cebuano - Bugna)\n${selectedVerse.verseData.ceb}`;
+      text = `${ref} (Cebuano - Bugna)\n${cebFormatted}`;
     } else if (mode === 'english') {
-      text = `${ref} (English - KJV)\n${selectedVerse.verseData.en}`;
+      text = `${ref} (English - KJV)\n${enFormatted}`;
+    } else if (mode === 'tagalog') {
+      text = `${ref} (Filipino - Ang Dating Biblia 1905)\n${tagFormatted}`;
     } else {
-      text = `${ref}\n\n[Cebuano]\n${selectedVerse.verseData.ceb}\n\n[English]\n${selectedVerse.verseData.en}`;
+      if (readingLayout === 'parallel-eng-tag') {
+        text = `${ref}\n\n[English - KJV]\n${enFormatted}\n\n[Filipino - ADB 1905]\n${tagFormatted}`;
+      } else if (readingLayout === 'parallel-ceb-tag') {
+        text = `${ref}\n\n[Cebuano - Bugna]\n${cebFormatted}\n\n[Filipino - ADB 1905]\n${tagFormatted}`;
+      } else {
+        text = `${ref}\n\n[Cebuano - Bugna]\n${cebFormatted}\n\n[English - KJV]\n${enFormatted}`;
+      }
     }
 
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -653,14 +667,26 @@ export default function App() {
     }
 
     const startV = startVerseNum || selectedVerse?.verse || 1;
-    const lang = readingLayout === 'cebuano' ? 'cebuano' : 'english';
+    const lang: 'cebuano' | 'english' | 'tagalog' =
+      readingLayout === 'tagalog'
+        ? 'tagalog'
+        : readingLayout === 'cebuano' || readingLayout === 'parallel-ceb-tag' || readingLayout === 'parallel'
+        ? 'cebuano'
+        : 'english';
 
     setIsSpeaking(true);
     setSpeakingVerse(startV);
     showToast(`Reading ${currentBook} ${currentChapter} aloud from verse ${startV}...`);
 
+    const formattedVerses: VerseItem[] = chapterVerses.map(v => ({
+      v: v.v,
+      ceb: formatVerseText(v.ceb, 'cebuano', preferences.useOriginalDivineName),
+      en: formatVerseText(v.en, 'english', preferences.useOriginalDivineName),
+      tag: v.tag ? formatVerseText(v.tag, 'tagalog', preferences.useOriginalDivineName) : undefined
+    }));
+
     await readChapterContinuously(
-      chapterVerses,
+      formattedVerses,
       startV,
       lang,
       (currentV) => {
@@ -794,6 +820,7 @@ export default function App() {
             isSpeaking={isSpeaking}
             speakingVerse={speakingVerse}
             onToggleContinuousReading={() => handleToggleContinuousReading()}
+            useOriginalDivineName={preferences.useOriginalDivineName}
           />
         </div>
 
@@ -818,6 +845,7 @@ export default function App() {
             highlights={highlights}
             bookmarks={bookmarks}
             notes={notes}
+            useOriginalDivineName={preferences.useOriginalDivineName}
             onNavigateToVerse={handleNavigateToVerse}
             onDeleteHighlight={(b, ch, v) => {
               removeStoredHighlight(b, ch, v);
@@ -871,10 +899,18 @@ export default function App() {
           chapter={currentChapter}
           verse={activeNoteVerse}
           cebText={
-            bibleData[currentBook]?.[currentChapter]?.find(v => v.v === activeNoteVerse)?.ceb || ''
+            formatVerseText(
+              bibleData[currentBook]?.[currentChapter]?.find(v => v.v === activeNoteVerse)?.ceb || '',
+              'cebuano',
+              preferences.useOriginalDivineName
+            )
           }
           enText={
-            bibleData[currentBook]?.[currentChapter]?.find(v => v.v === activeNoteVerse)?.en || ''
+            formatVerseText(
+              bibleData[currentBook]?.[currentChapter]?.find(v => v.v === activeNoteVerse)?.en || '',
+              'english',
+              preferences.useOriginalDivineName
+            )
           }
           initialNote={activeNoteForVerse?.text || ''}
           onSaveNote={handleSaveNote}
@@ -887,6 +923,7 @@ export default function App() {
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
         bibleData={bibleData}
+        useOriginalDivineName={preferences.useOriginalDivineName}
         onNavigateToVerse={handleNavigateToVerse}
       />
 

@@ -133,7 +133,7 @@ function getMaleVoice(voices: SpeechSynthesisVoice[], langTag: string): SpeechSy
 
 export async function speakVerseText(
   text: string,
-  language: 'cebuano' | 'english' = 'english',
+  language: 'cebuano' | 'english' | 'tagalog' = 'english',
   onComplete?: () => void
 ): Promise<{ success: boolean; message?: string }> {
   if (!text || text.trim().length === 0) {
@@ -267,7 +267,7 @@ export async function speakVerseText(
 export async function readChapterContinuously(
   verses: VerseItem[],
   startVerseNum: number,
-  language: 'cebuano' | 'english',
+  language: 'cebuano' | 'english' | 'tagalog',
   onVerseChange: (verseNum: number) => void,
   onFinished: () => void,
   onError?: (err: string) => void
@@ -300,7 +300,12 @@ export async function readChapterContinuously(
     }
 
     const currentVerse = verses[currentIndex];
-    const text = language === 'cebuano' ? currentVerse.ceb : currentVerse.en;
+    const text =
+      language === 'cebuano'
+        ? currentVerse.ceb
+        : language === 'tagalog'
+        ? (currentVerse.tag || currentVerse.ceb || currentVerse.en)
+        : currentVerse.en;
     onVerseChange(currentVerse.v);
 
     const res = await speakVerseText(text, language, () => {

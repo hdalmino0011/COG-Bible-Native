@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { BIBLE_BOOKS, getBookInfo } from '../data/books';
 import { BibleData, ReadingLayout, SavedHighlight, VerseItem } from '../types';
+import { formatVerseText } from '../utils/divineName';
 
 interface BibleReaderProps {
   bibleData: BibleData;
@@ -36,6 +37,7 @@ interface BibleReaderProps {
   isSpeaking?: boolean;
   speakingVerse?: number | null;
   onToggleContinuousReading?: () => void;
+  useOriginalDivineName?: boolean;
 }
 
 interface VerseRowItemProps {
@@ -48,6 +50,7 @@ interface VerseRowItemProps {
   highlightColor?: string;
   isBookmarked: boolean;
   hasNote: boolean;
+  useOriginalDivineName?: boolean;
   onSelectVerse: (verse: { book: string; chapter: number; verse: number; verseData: VerseItem }) => void;
 }
 
@@ -61,6 +64,7 @@ const VerseRowItem = React.memo<VerseRowItemProps>(({
   highlightColor,
   isBookmarked,
   hasNote,
+  useOriginalDivineName = false,
   onSelectVerse
 }) => {
   const longPressTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -117,6 +121,29 @@ const VerseRowItem = React.memo<VerseRowItemProps>(({
     }
   };
 
+  const isParallel =
+    readingLayout === 'parallel' ||
+    readingLayout === 'parallel-ceb-tag' ||
+    readingLayout === 'parallel-eng-tag';
+
+  const leftLang: 'cebuano' | 'english' | 'tagalog' = readingLayout === 'parallel-eng-tag' ? 'english' : 'cebuano';
+  const rightLang: 'cebuano' | 'english' | 'tagalog' = readingLayout === 'parallel' ? 'english' : 'tagalog';
+  const singleLang: 'cebuano' | 'english' | 'tagalog' =
+    readingLayout === 'cebuano' ? 'cebuano' : readingLayout === 'english' ? 'english' : 'tagalog';
+
+  const rawLeft = readingLayout === 'parallel-eng-tag' ? verse.en : verse.ceb;
+  const rawRight = readingLayout === 'parallel' ? verse.en : (verse.tag || '');
+  const rawSingle =
+    readingLayout === 'cebuano'
+      ? verse.ceb
+      : readingLayout === 'english'
+      ? verse.en
+      : (verse.tag || '');
+
+  const leftText = formatVerseText(rawLeft, leftLang, useOriginalDivineName);
+  const rightText = formatVerseText(rawRight, rightLang, useOriginalDivineName);
+  const singleText = formatVerseText(rawSingle, singleLang, useOriginalDivineName);
+
   return (
     <div
       id={`verse-row-${verse.v}`}
@@ -139,7 +166,7 @@ const VerseRowItem = React.memo<VerseRowItemProps>(({
         touchAction: 'pan-y'
       }}
       className={`verse-row select-none relative transition-all border-b border-dashed border-[var(--line)] ${
-        readingLayout === 'parallel' ? 'grid grid-cols-2' : 'flex flex-col'
+        isParallel ? 'grid grid-cols-2' : 'flex flex-col'
       } ${isSelected ? 'selected' : ''} ${
         isBeingSpoken ? 'bg-[#C9A227]/20 border-l-4 border-l-[#C9A227] shadow-xs' : ''
       } ${highlightColor ? `highlight-${highlightColor}` : ''}`}
@@ -156,31 +183,45 @@ const VerseRowItem = React.memo<VerseRowItemProps>(({
         </div>
       )}
 
-      {/* Cebuano Cell (Left) */}
-      {(readingLayout === 'parallel' || readingLayout === 'cebuano') && (
-        <div
-          style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}
-          className={`verse-cell verse-cell-ceb select-none flex items-start gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 leading-relaxed text-[var(--slate)] min-w-0 ${
-            readingLayout === 'parallel' ? 'border-r border-[var(--line)]' : ''
-          }`}
-        >
-          <span className="verse-num inline-block min-w-[24px] sm:min-w-[26px] text-[#C9A227] font-bold text-xs sm:text-sm flex-shrink-0 text-right select-none pt-0.5">
-            {verse.v}
-          </span>
-          <span
+      {isParallel ? (
+        <>
+          {/* Left Parallel Cell */}
+          <div
             style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}
-            className="verse-text select-none flex-1 min-w-0 break-words font-normal"
+            className="verse-cell verse-cell-left select-none flex items-start gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 leading-relaxed text-[var(--slate)] min-w-0 border-r border-[var(--line)]"
           >
-            {verse.ceb}
-          </span>
-        </div>
-      )}
+            <span className="verse-num inline-block min-w-[24px] sm:min-w-[26px] text-[#C9A227] font-bold text-xs sm:text-sm flex-shrink-0 text-right select-none pt-0.5">
+              {verse.v}
+            </span>
+            <span
+              style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}
+              className="verse-text select-none flex-1 min-w-0 break-words font-normal"
+            >
+              {leftText}
+            </span>
+          </div>
 
-      {/* English Cell (Right) */}
-      {(readingLayout === 'parallel' || readingLayout === 'english') && (
+          {/* Right Parallel Cell */}
+          <div
+            style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}
+            className="verse-cell verse-cell-right select-none flex items-start gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 leading-relaxed text-[var(--slate)] min-w-0"
+          >
+            <span className="verse-num inline-block min-w-[24px] sm:min-w-[26px] text-[#C9A227] font-bold text-xs sm:text-sm flex-shrink-0 text-right select-none pt-0.5">
+              {verse.v}
+            </span>
+            <span
+              style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}
+              className="verse-text select-none flex-1 min-w-0 break-words font-normal"
+            >
+              {rightText}
+            </span>
+          </div>
+        </>
+      ) : (
+        /* Standalone Single Cell */
         <div
           style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}
-          className="verse-cell verse-cell-eng select-none flex items-start gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 leading-relaxed text-[var(--slate)] min-w-0"
+          className="verse-cell verse-cell-single select-none flex items-start gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 leading-relaxed text-[var(--slate)] min-w-0"
         >
           <span className="verse-num inline-block min-w-[24px] sm:min-w-[26px] text-[#C9A227] font-bold text-xs sm:text-sm flex-shrink-0 text-right select-none pt-0.5">
             {verse.v}
@@ -189,7 +230,7 @@ const VerseRowItem = React.memo<VerseRowItemProps>(({
             style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}
             className="verse-text select-none flex-1 min-w-0 break-words font-normal"
           >
-            {verse.en}
+            {singleText}
           </span>
         </div>
       )}
@@ -214,7 +255,8 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
   targetVerseToScroll,
   isSpeaking = false,
   speakingVerse = null,
-  onToggleContinuousReading
+  onToggleContinuousReading,
+  useOriginalDivineName = false
 }) => {
   const currentBookInfo = getBookInfo(currentBook);
   const totalChapters = currentBookInfo?.chapters || 1;
@@ -418,30 +460,62 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
         id="reading-pane"
         className="reading-pane flex-1 min-h-0 overflow-y-auto px-2 sm:px-3 pb-20 scroll-smooth"
       >
-        {/* Sticky Header Row (Cebuano on left, English on right) */}
+        {/* Sticky Header Row */}
         <div className="reading-header-row sticky top-0 z-10 bg-[var(--ivory)] border-b-2 border-[#C9A227] mb-1 pt-2 pb-1">
-          <div className={`grid ${readingLayout === 'parallel' ? 'grid-cols-2' : 'grid-cols-1'} items-center`}>
-            {(readingLayout === 'parallel' || readingLayout === 'cebuano') && (
-              <div className="reading-col-header reading-col-header-ceb flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-0.5 min-w-0 overflow-hidden">
-                <span className="col-flag font-sans text-[9px] sm:text-[10px] font-bold text-white bg-[#1B3A6B] px-1 sm:px-1.5 py-0.5 rounded flex-shrink-0">
-                  CEB
-                </span>
-                <span className="font-serif font-bold text-[11px] sm:text-xs md:text-sm text-[var(--ink)] truncate whitespace-nowrap">
-                  Cebuano <em className="font-normal font-sans text-[10px] sm:text-xs text-[var(--slate-soft)]">(Bugna)</em>
-                </span>
+          {(() => {
+            const isParallel =
+              readingLayout === 'parallel' ||
+              readingLayout === 'parallel-ceb-tag' ||
+              readingLayout === 'parallel-eng-tag';
+
+            if (isParallel) {
+              const leftFlag = readingLayout === 'parallel-eng-tag' ? 'ENG' : 'CEB';
+              const leftName = readingLayout === 'parallel-eng-tag' ? 'English' : 'Cebuano';
+              const leftSub = readingLayout === 'parallel-eng-tag' ? '(KJV)' : '(Bugna)';
+
+              const rightFlag = readingLayout === 'parallel' ? 'ENG' : 'TAG';
+              const rightName = readingLayout === 'parallel' ? 'English' : 'Filipino (Tagalog)';
+              const rightSub = readingLayout === 'parallel' ? '(KJV)' : '(ADB 1905)';
+
+              return (
+                <div className="grid grid-cols-2 items-center">
+                  <div className="reading-col-header flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-0.5 min-w-0 overflow-hidden border-r border-[var(--line)]">
+                    <span className="col-flag font-sans text-[9px] sm:text-[10px] font-bold text-white bg-[#1B3A6B] px-1 sm:px-1.5 py-0.5 rounded flex-shrink-0">
+                      {leftFlag}
+                    </span>
+                    <span className="font-serif font-bold text-[11px] sm:text-xs md:text-sm text-[var(--ink)] truncate whitespace-nowrap">
+                      {leftName} <em className="font-normal font-sans text-[10px] sm:text-xs text-[var(--slate-soft)]">{leftSub}</em>
+                    </span>
+                  </div>
+                  <div className="reading-col-header flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-0.5 min-w-0 overflow-hidden">
+                    <span className="col-flag font-sans text-[9px] sm:text-[10px] font-bold text-white bg-[#1B3A6B] px-1 sm:px-1.5 py-0.5 rounded flex-shrink-0">
+                      {rightFlag}
+                    </span>
+                    <span className="font-serif font-bold text-[11px] sm:text-xs md:text-sm text-[var(--ink)] truncate whitespace-nowrap">
+                      {rightName} <em className="font-normal font-sans text-[10px] sm:text-xs text-[var(--slate-soft)]">{rightSub}</em>
+                    </span>
+                  </div>
+                </div>
+              );
+            }
+
+            const flag = readingLayout === 'cebuano' ? 'CEB' : readingLayout === 'english' ? 'ENG' : 'TAG';
+            const name = readingLayout === 'cebuano' ? 'Cebuano' : readingLayout === 'english' ? 'English' : 'Filipino (Tagalog)';
+            const sub = readingLayout === 'cebuano' ? '(Bugna)' : readingLayout === 'english' ? '(KJV)' : '(Ang Dating Biblia 1905)';
+
+            return (
+              <div className="grid grid-cols-1 items-center">
+                <div className="reading-col-header flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-0.5 min-w-0 overflow-hidden">
+                  <span className="col-flag font-sans text-[9px] sm:text-[10px] font-bold text-white bg-[#1B3A6B] px-1 sm:px-1.5 py-0.5 rounded flex-shrink-0">
+                    {flag}
+                  </span>
+                  <span className="font-serif font-bold text-[11px] sm:text-xs md:text-sm text-[var(--ink)] truncate whitespace-nowrap">
+                    {name} <em className="font-normal font-sans text-[10px] sm:text-xs text-[var(--slate-soft)]">{sub}</em>
+                  </span>
+                </div>
               </div>
-            )}
-            {(readingLayout === 'parallel' || readingLayout === 'english') && (
-              <div className="reading-col-header reading-col-header-eng flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-0.5 min-w-0 overflow-hidden">
-                <span className="col-flag font-sans text-[9px] sm:text-[10px] font-bold text-white bg-[#1B3A6B] px-1 sm:px-1.5 py-0.5 rounded flex-shrink-0">
-                  ENG
-                </span>
-                <span className="font-serif font-bold text-[11px] sm:text-xs md:text-sm text-[var(--ink)] truncate whitespace-nowrap">
-                  English <em className="font-normal font-sans text-[10px] sm:text-xs text-[var(--slate-soft)]">(KJV)</em>
-                </span>
-              </div>
-            )}
-          </div>
+            );
+          })()}
         </div>
 
         {/* Verses List */}
@@ -483,6 +557,7 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
                   highlightColor={highlightData?.color}
                   isBookmarked={isBookmarked}
                   hasNote={hasNote}
+                  useOriginalDivineName={useOriginalDivineName}
                   onSelectVerse={onSelectVerse}
                 />
               );

@@ -15,6 +15,7 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
   fontSize: 'medium',
   readingLayout: 'parallel',
   showVerseNumbers: true,
+  useOriginalDivineName: false,
   enableSpeechAutoplay: false,
   dailyVerseNotification: true,
   notificationTime: '07:00'
@@ -27,7 +28,8 @@ export function getStoredPreferences(): UserPreferences {
     const parsed = JSON.parse(raw);
     const validTheme = (parsed.theme === 'light' || parsed.theme === 'dark' || parsed.theme === 'blue') ? parsed.theme : 'blue';
     const validFont = (parsed.font === 'Times' || parsed.font === 'ComicSans' || parsed.font === 'Arial') ? parsed.font : 'Times';
-    return { ...DEFAULT_PREFERENCES, ...parsed, theme: validTheme, font: validFont };
+    const validUseOriginalDivineName = typeof parsed.useOriginalDivineName === 'boolean' ? parsed.useOriginalDivineName : false;
+    return { ...DEFAULT_PREFERENCES, ...parsed, theme: validTheme, font: validFont, useOriginalDivineName: validUseOriginalDivineName };
   } catch (e) {
     return DEFAULT_PREFERENCES;
   }

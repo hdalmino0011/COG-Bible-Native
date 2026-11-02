@@ -1,6 +1,12 @@
 export type ScreenType = 'books' | 'bible' | 'lessons' | 'quiz' | 'dictionary' | 'bookmarks' | 'settings';
 
-export type ReadingLayout = 'parallel' | 'cebuano' | 'english';
+export type ReadingLayout =
+  | 'parallel' // Cebuano + English
+  | 'parallel-ceb-tag' // Cebuano + Filipino (Tagalog)
+  | 'parallel-eng-tag' // English + Filipino (Tagalog)
+  | 'cebuano' // Cebuano only
+  | 'english' // English only
+  | 'tagalog'; // Tagalog only
 
 export type AppTheme = 'light' | 'dark' | 'blue';
 
@@ -14,6 +20,7 @@ export interface VerseItem {
   v: number;
   en: string;
   ceb: string;
+  tag?: string;
 }
 
 export type ChapterVerses = VerseItem[];
@@ -35,6 +42,7 @@ export interface SavedHighlight {
   timestamp: number;
   cebText: string;
   enText: string;
+  tagText?: string;
 }
 
 export interface Bookmark {
@@ -105,6 +113,7 @@ export interface UserPreferences {
   fontSize: FontSize;
   readingLayout: ReadingLayout;
   showVerseNumbers: boolean;
+  useOriginalDivineName?: boolean;
   enableSpeechAutoplay?: boolean;
   dailyVerseNotification?: boolean;
   notificationTime?: string;

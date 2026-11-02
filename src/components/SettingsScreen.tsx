@@ -13,7 +13,8 @@ import {
   Info,
   ChevronRight,
   ArrowLeft,
-  Check
+  Check,
+  BookOpen
 } from 'lucide-react';
 import { AppTheme, BibleData, FontFamily, FontSize, UserPreferences } from '../types';
 import {
@@ -193,7 +194,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#C9A227]/10 text-[#C9A227] hidden sm:inline-block">
-                    {getThemeLabel()} • {getFontSizeLabel()}
+                    {getThemeLabel()} • {preferences.useOriginalDivineName ? 'Original Divine Name' : 'Ginoo / Lord'}
                   </span>
                   <ChevronRight className="w-4 h-4 text-[var(--slate-soft)] group-hover:text-[#C9A227] group-hover:translate-x-0.5 transition-all" />
                 </div>
@@ -293,6 +294,48 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         {/* ================= 2. DISPLAY SETTINGS ================= */}
         {activeSection === 'display' && (
           <div className="space-y-5">
+            {/* Divine Name Setting Card */}
+            <div className="bg-[var(--paper)] border border-[var(--line)] rounded-2xl p-5 shadow-xs space-y-3">
+              <div className="flex items-start justify-between gap-3">
+                <div className="space-y-1 pr-2">
+                  <h3 className="font-serif font-bold text-base flex items-center gap-2 text-[var(--ink)]">
+                    <BookOpen className="w-4 h-4 text-[#C9A227]" />
+                    Use original divine name (Jehovah/Jehova)
+                  </h3>
+                  <p className="text-xs text-[var(--slate-soft)] leading-relaxed">
+                    When ON: text displays the original &ldquo;Jehovah&rdquo; / &ldquo;Jehova&rdquo; as it exists in the source text. When OFF: replaced with &ldquo;Ginoo&rdquo; (Cebuano), &ldquo;Lord&rdquo; (English), and &ldquo;Panginoon&rdquo; (Tagalog) with appropriate grammatical corrections.
+                  </p>
+                </div>
+
+                <label className="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+                  <input
+                    type="checkbox"
+                    checked={!!preferences.useOriginalDivineName}
+                    onChange={(e) => {
+                      const checked = e.target.checked;
+                      onUpdatePreferences({ useOriginalDivineName: checked });
+                      onShowToast?.(
+                        checked
+                          ? 'Using original divine name (Jehovah / Jehova)'
+                          : 'Using translated titles (Ginoo / Lord / Panginoon)'
+                      );
+                    }}
+                    className="sr-only peer"
+                  />
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#1B3A6B] dark:peer-checked:bg-[#C9A227]"></div>
+                </label>
+              </div>
+
+              <div className="p-2.5 rounded-xl bg-[var(--ivory)] border border-[var(--line)] text-[11px] text-[var(--slate)] flex items-center justify-between">
+                <span className="font-medium">Current Setting:</span>
+                <span className="font-bold text-[#C9A227]">
+                  {preferences.useOriginalDivineName
+                    ? 'ON (Original: Jehovah / Jehova)'
+                    : 'OFF (Ginoo / Lord / Panginoon)'}
+                </span>
+              </div>
+            </div>
+
             {/* Visual Theme Card */}
             <div className="bg-[var(--paper)] border border-[var(--line)] rounded-2xl p-5 shadow-xs space-y-3">
               <h3 className="font-serif font-bold text-base flex items-center gap-2 text-[var(--ink)]">

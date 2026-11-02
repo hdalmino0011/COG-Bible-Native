@@ -1,6 +1,7 @@
 export interface BibleBookInfo {
   name: string;
   cebName: string;
+  tagName: string;
   testament: 'Old' | 'New';
   chapters: number;
   category: string;
@@ -8,88 +9,88 @@ export interface BibleBookInfo {
 
 export const BIBLE_BOOKS: BibleBookInfo[] = [
   // Old Testament - Law / Pentateuch
-  { name: "Genesis", cebName: "Genesis", testament: "Old", chapters: 50, category: "Pentateuch" },
-  { name: "Exodus", cebName: "Exodo", testament: "Old", chapters: 40, category: "Pentateuch" },
-  { name: "Leviticus", cebName: "Levitico", testament: "Old", chapters: 27, category: "Pentateuch" },
-  { name: "Numbers", cebName: "Numeros", testament: "Old", chapters: 36, category: "Pentateuch" },
-  { name: "Deuteronomy", cebName: "Deuteronomio", testament: "Old", chapters: 34, category: "Pentateuch" },
+  { name: "Genesis", cebName: "Genesis", tagName: "Genesis", testament: "Old", chapters: 50, category: "Pentateuch" },
+  { name: "Exodus", cebName: "Exodo", tagName: "Exodo", testament: "Old", chapters: 40, category: "Pentateuch" },
+  { name: "Leviticus", cebName: "Levitico", tagName: "Levitico", testament: "Old", chapters: 27, category: "Pentateuch" },
+  { name: "Numbers", cebName: "Numeros", tagName: "Mga Bilang", testament: "Old", chapters: 36, category: "Pentateuch" },
+  { name: "Deuteronomy", cebName: "Deuteronomio", tagName: "Deuteronomio", testament: "Old", chapters: 34, category: "Pentateuch" },
 
   // Historical Books
-  { name: "Joshua", cebName: "Josue", testament: "Old", chapters: 24, category: "Historical" },
-  { name: "Judges", cebName: "Maghuhukom", testament: "Old", chapters: 21, category: "Historical" },
-  { name: "Ruth", cebName: "Rut", testament: "Old", chapters: 4, category: "Historical" },
-  { name: "1 Samuel", cebName: "1 Samuel", testament: "Old", chapters: 31, category: "Historical" },
-  { name: "2 Samuel", cebName: "2 Samuel", testament: "Old", chapters: 24, category: "Historical" },
-  { name: "1 Kings", cebName: "1 Mga Hari", testament: "Old", chapters: 22, category: "Historical" },
-  { name: "2 Kings", cebName: "2 Mga Hari", testament: "Old", chapters: 25, category: "Historical" },
-  { name: "1 Chronicles", cebName: "1 Mga Cronicas", testament: "Old", chapters: 29, category: "Historical" },
-  { name: "2 Chronicles", cebName: "2 Mga Cronicas", testament: "Old", chapters: 36, category: "Historical" },
-  { name: "Ezra", cebName: "Esdras", testament: "Old", chapters: 10, category: "Historical" },
-  { name: "Nehemiah", cebName: "Nehemias", testament: "Old", chapters: 13, category: "Historical" },
-  { name: "Esther", cebName: "Ester", testament: "Old", chapters: 10, category: "Historical" },
+  { name: "Joshua", cebName: "Josue", tagName: "Josue", testament: "Old", chapters: 24, category: "Historical" },
+  { name: "Judges", cebName: "Maghuhukom", tagName: "Mga Hukom", testament: "Old", chapters: 21, category: "Historical" },
+  { name: "Ruth", cebName: "Rut", tagName: "Ruth", testament: "Old", chapters: 4, category: "Historical" },
+  { name: "1 Samuel", cebName: "1 Samuel", tagName: "1 Samuel", testament: "Old", chapters: 31, category: "Historical" },
+  { name: "2 Samuel", cebName: "2 Samuel", tagName: "2 Samuel", testament: "Old", chapters: 24, category: "Historical" },
+  { name: "1 Kings", cebName: "1 Mga Hari", tagName: "1 Mga Hari", testament: "Old", chapters: 22, category: "Historical" },
+  { name: "2 Kings", cebName: "2 Mga Hari", tagName: "2 Mga Hari", testament: "Old", chapters: 25, category: "Historical" },
+  { name: "1 Chronicles", cebName: "1 Mga Cronicas", tagName: "1 Mga Cronica", testament: "Old", chapters: 29, category: "Historical" },
+  { name: "2 Chronicles", cebName: "2 Mga Cronicas", tagName: "2 Mga Cronica", testament: "Old", chapters: 36, category: "Historical" },
+  { name: "Ezra", cebName: "Esdras", tagName: "Ezra", testament: "Old", chapters: 10, category: "Historical" },
+  { name: "Nehemiah", cebName: "Nehemias", tagName: "Nehemias", testament: "Old", chapters: 13, category: "Historical" },
+  { name: "Esther", cebName: "Ester", tagName: "Ester", testament: "Old", chapters: 10, category: "Historical" },
 
   // Poetic / Wisdom
-  { name: "Job", cebName: "Job", testament: "Old", chapters: 42, category: "Poetry" },
-  { name: "Psalms", cebName: "Mga Salmo", testament: "Old", chapters: 150, category: "Poetry" },
-  { name: "Proverbs", cebName: "Mga Panultihon", testament: "Old", chapters: 31, category: "Poetry" },
-  { name: "Ecclesiastes", cebName: "Manugwali", testament: "Old", chapters: 12, category: "Poetry" },
-  { name: "Song of Solomon", cebName: "Awit sa mga Awit", testament: "Old", chapters: 8, category: "Poetry" },
+  { name: "Job", cebName: "Job", tagName: "Job", testament: "Old", chapters: 42, category: "Poetry" },
+  { name: "Psalms", cebName: "Mga Salmo", tagName: "Mga Awit", testament: "Old", chapters: 150, category: "Poetry" },
+  { name: "Proverbs", cebName: "Mga Panultihon", tagName: "Mga Kawikaan", testament: "Old", chapters: 31, category: "Poetry" },
+  { name: "Ecclesiastes", cebName: "Manugwali", tagName: "Mangangaral", testament: "Old", chapters: 12, category: "Poetry" },
+  { name: "Song of Solomon", cebName: "Awit sa mga Awit", tagName: "Awit ni Solomon", testament: "Old", chapters: 8, category: "Poetry" },
 
   // Major Prophets
-  { name: "Isaiah", cebName: "Isaias", testament: "Old", chapters: 66, category: "Major Prophets" },
-  { name: "Jeremiah", cebName: "Jeremias", testament: "Old", chapters: 52, category: "Major Prophets" },
-  { name: "Lamentations", cebName: "Mga Bakho", testament: "Old", chapters: 5, category: "Major Prophets" },
-  { name: "Ezekiel", cebName: "Ezequiel", testament: "Old", chapters: 48, category: "Major Prophets" },
-  { name: "Daniel", cebName: "Daniel", testament: "Old", chapters: 12, category: "Major Prophets" },
+  { name: "Isaiah", cebName: "Isaias", tagName: "Isaias", testament: "Old", chapters: 66, category: "Major Prophets" },
+  { name: "Jeremiah", cebName: "Jeremias", tagName: "Jeremias", testament: "Old", chapters: 52, category: "Major Prophets" },
+  { name: "Lamentations", cebName: "Mga Bakho", tagName: "Mga Panaghoy", testament: "Old", chapters: 5, category: "Major Prophets" },
+  { name: "Ezekiel", cebName: "Ezequiel", tagName: "Ezekiel", testament: "Old", chapters: 48, category: "Major Prophets" },
+  { name: "Daniel", cebName: "Daniel", tagName: "Daniel", testament: "Old", chapters: 12, category: "Major Prophets" },
 
   // Minor Prophets
-  { name: "Hosea", cebName: "Oseas", testament: "Old", chapters: 14, category: "Minor Prophets" },
-  { name: "Joel", cebName: "Joel", testament: "Old", chapters: 3, category: "Minor Prophets" },
-  { name: "Amos", cebName: "Amos", testament: "Old", chapters: 9, category: "Minor Prophets" },
-  { name: "Obadiah", cebName: "Abdias", testament: "Old", chapters: 1, category: "Minor Prophets" },
-  { name: "Jonah", cebName: "Jonas", testament: "Old", chapters: 4, category: "Minor Prophets" },
-  { name: "Micah", cebName: "Miqueas", testament: "Old", chapters: 7, category: "Minor Prophets" },
-  { name: "Nahum", cebName: "Nahum", testament: "Old", chapters: 3, category: "Minor Prophets" },
-  { name: "Habakkuk", cebName: "Habacuc", testament: "Old", chapters: 3, category: "Minor Prophets" },
-  { name: "Zephaniah", cebName: "Sofonias", testament: "Old", chapters: 3, category: "Minor Prophets" },
-  { name: "Haggai", cebName: "Hageo", testament: "Old", chapters: 2, category: "Minor Prophets" },
-  { name: "Zechariah", cebName: "Zacarias", testament: "Old", chapters: 14, category: "Minor Prophets" },
-  { name: "Malachi", cebName: "Malaquias", testament: "Old", chapters: 4, category: "Minor Prophets" },
+  { name: "Hosea", cebName: "Oseas", tagName: "Oseas", testament: "Old", chapters: 14, category: "Minor Prophets" },
+  { name: "Joel", cebName: "Joel", tagName: "Joel", testament: "Old", chapters: 3, category: "Minor Prophets" },
+  { name: "Amos", cebName: "Amos", tagName: "Amos", testament: "Old", chapters: 9, category: "Minor Prophets" },
+  { name: "Obadiah", cebName: "Abdias", tagName: "Obadias", testament: "Old", chapters: 1, category: "Minor Prophets" },
+  { name: "Jonah", cebName: "Jonas", tagName: "Jonas", testament: "Old", chapters: 4, category: "Minor Prophets" },
+  { name: "Micah", cebName: "Miqueas", tagName: "Mikas", testament: "Old", chapters: 7, category: "Minor Prophets" },
+  { name: "Nahum", cebName: "Nahum", tagName: "Nahum", testament: "Old", chapters: 3, category: "Minor Prophets" },
+  { name: "Habakkuk", cebName: "Habacuc", tagName: "Habacuc", testament: "Old", chapters: 3, category: "Minor Prophets" },
+  { name: "Zephaniah", cebName: "Sofonias", tagName: "Zefanias", testament: "Old", chapters: 3, category: "Minor Prophets" },
+  { name: "Haggai", cebName: "Hageo", tagName: "Hagai", testament: "Old", chapters: 2, category: "Minor Prophets" },
+  { name: "Zechariah", cebName: "Zacarias", tagName: "Zacarias", testament: "Old", chapters: 14, category: "Minor Prophets" },
+  { name: "Malachi", cebName: "Malaquias", tagName: "Malakias", testament: "Old", chapters: 4, category: "Minor Prophets" },
 
   // New Testament - Gospels & Acts
-  { name: "Matthew", cebName: "Mateo", testament: "New", chapters: 28, category: "Gospels" },
-  { name: "Mark", cebName: "Marcos", testament: "New", chapters: 16, category: "Gospels" },
-  { name: "Luke", cebName: "Lucas", testament: "New", chapters: 24, category: "Gospels" },
-  { name: "John", cebName: "Juan", testament: "New", chapters: 21, category: "Gospels" },
-  { name: "Acts", cebName: "Mga Buhat", testament: "New", chapters: 28, category: "Acts" },
+  { name: "Matthew", cebName: "Mateo", tagName: "Mateo", testament: "New", chapters: 28, category: "Gospels" },
+  { name: "Mark", cebName: "Marcos", tagName: "Marcos", testament: "New", chapters: 16, category: "Gospels" },
+  { name: "Luke", cebName: "Lucas", tagName: "Lucas", testament: "New", chapters: 24, category: "Gospels" },
+  { name: "John", cebName: "Juan", tagName: "Juan", testament: "New", chapters: 21, category: "Gospels" },
+  { name: "Acts", cebName: "Mga Buhat", tagName: "Mga Gawa", testament: "New", chapters: 28, category: "Acts" },
 
   // Epistles of Paul
-  { name: "Romans", cebName: "Roma", testament: "New", chapters: 16, category: "Pauline Epistles" },
-  { name: "1 Corinthians", cebName: "1 Corinto", testament: "New", chapters: 16, category: "Pauline Epistles" },
-  { name: "2 Corinthians", cebName: "2 Corinto", testament: "New", chapters: 13, category: "Pauline Epistles" },
-  { name: "Galatians", cebName: "Galacia", testament: "New", chapters: 6, category: "Pauline Epistles" },
-  { name: "Ephesians", cebName: "Efeso", testament: "New", chapters: 6, category: "Pauline Epistles" },
-  { name: "Philippians", cebName: "Filipos", testament: "New", chapters: 4, category: "Pauline Epistles" },
-  { name: "Colossians", cebName: "Colosas", testament: "New", chapters: 4, category: "Pauline Epistles" },
-  { name: "1 Thessalonians", cebName: "1 Tesalonica", testament: "New", chapters: 5, category: "Pauline Epistles" },
-  { name: "2 Thessalonians", cebName: "2 Tesalonica", testament: "New", chapters: 3, category: "Pauline Epistles" },
-  { name: "1 Timothy", cebName: "1 Timoteo", testament: "New", chapters: 6, category: "Pauline Epistles" },
-  { name: "2 Timothy", cebName: "2 Timoteo", testament: "New", chapters: 4, category: "Pauline Epistles" },
-  { name: "Titus", cebName: "Tito", testament: "New", chapters: 3, category: "Pauline Epistles" },
-  { name: "Philemon", cebName: "Filemon", testament: "New", chapters: 1, category: "Pauline Epistles" },
+  { name: "Romans", cebName: "Roma", tagName: "Mga Romano", testament: "New", chapters: 16, category: "Pauline Epistles" },
+  { name: "1 Corinthians", cebName: "1 Corinto", tagName: "1 Mga Corinto", testament: "New", chapters: 16, category: "Pauline Epistles" },
+  { name: "2 Corinthians", cebName: "2 Corinto", tagName: "2 Mga Corinto", testament: "New", chapters: 13, category: "Pauline Epistles" },
+  { name: "Galatians", cebName: "Galacia", tagName: "Mga Taga-Galacia", testament: "New", chapters: 6, category: "Pauline Epistles" },
+  { name: "Ephesians", cebName: "Efeso", tagName: "Mga Taga-Efeso", testament: "New", chapters: 6, category: "Pauline Epistles" },
+  { name: "Philippians", cebName: "Filipos", tagName: "Mga Taga-Filipos", testament: "New", chapters: 4, category: "Pauline Epistles" },
+  { name: "Colossians", cebName: "Colosas", tagName: "Mga Taga-Colosas", testament: "New", chapters: 4, category: "Pauline Epistles" },
+  { name: "1 Thessalonians", cebName: "1 Tesalonica", tagName: "1 Mga Taga-Tesalonica", testament: "New", chapters: 5, category: "Pauline Epistles" },
+  { name: "2 Thessalonians", cebName: "2 Tesalonica", tagName: "2 Mga Taga-Tesalonica", testament: "New", chapters: 3, category: "Pauline Epistles" },
+  { name: "1 Timothy", cebName: "1 Timoteo", tagName: "1 Timoteo", testament: "New", chapters: 6, category: "Pauline Epistles" },
+  { name: "2 Timothy", cebName: "2 Timoteo", tagName: "2 Timoteo", testament: "New", chapters: 4, category: "Pauline Epistles" },
+  { name: "Titus", cebName: "Tito", tagName: "Tito", testament: "New", chapters: 3, category: "Pauline Epistles" },
+  { name: "Philemon", cebName: "Filemon", tagName: "Filemon", testament: "New", chapters: 1, category: "Pauline Epistles" },
 
   // General Epistles
-  { name: "Hebrews", cebName: "Hebreohanon", testament: "New", chapters: 13, category: "General Epistles" },
-  { name: "James", cebName: "Santiago", testament: "New", chapters: 5, category: "General Epistles" },
-  { name: "1 Peter", cebName: "1 Pedro", testament: "New", chapters: 5, category: "General Epistles" },
-  { name: "2 Peter", cebName: "2 Pedro", testament: "New", chapters: 3, category: "General Epistles" },
-  { name: "1 John", cebName: "1 Juan", testament: "New", chapters: 5, category: "General Epistles" },
-  { name: "2 John", cebName: "2 Juan", testament: "New", chapters: 1, category: "General Epistles" },
-  { name: "3 John", cebName: "3 Juan", testament: "New", chapters: 1, category: "General Epistles" },
-  { name: "Jude", cebName: "Judas", testament: "New", chapters: 1, category: "General Epistles" },
+  { name: "Hebrews", cebName: "Hebreohanon", tagName: "Mga Hebreo", testament: "New", chapters: 13, category: "General Epistles" },
+  { name: "James", cebName: "Santiago", tagName: "Santiago", testament: "New", chapters: 5, category: "General Epistles" },
+  { name: "1 Peter", cebName: "1 Pedro", tagName: "1 Pedro", testament: "New", chapters: 5, category: "General Epistles" },
+  { name: "2 Peter", cebName: "2 Pedro", tagName: "2 Pedro", testament: "New", chapters: 3, category: "General Epistles" },
+  { name: "1 John", cebName: "1 Juan", tagName: "1 Juan", testament: "New", chapters: 5, category: "General Epistles" },
+  { name: "2 John", cebName: "2 Juan", tagName: "2 Juan", testament: "New", chapters: 1, category: "General Epistles" },
+  { name: "3 John", cebName: "3 Juan", tagName: "3 Juan", testament: "New", chapters: 1, category: "General Epistles" },
+  { name: "Jude", cebName: "Judas", tagName: "Judas", testament: "New", chapters: 1, category: "General Epistles" },
 
   // Prophecy
-  { name: "Revelation", cebName: "Bugna", testament: "New", chapters: 22, category: "Prophecy" }
+  { name: "Revelation", cebName: "Bugna", tagName: "Pahayag", testament: "New", chapters: 22, category: "Prophecy" }
 ];
 
 export const OLD_TESTAMENT_BOOKS = BIBLE_BOOKS.filter(b => b.testament === 'Old').map(b => b.name);
@@ -100,7 +101,8 @@ export function getBookInfo(bookName: string): BibleBookInfo | undefined {
   const clean = bookName.trim().toLowerCase();
   return BIBLE_BOOKS.find(b =>
     b.name.toLowerCase() === clean ||
-    b.cebName.toLowerCase() === clean
+    b.cebName.toLowerCase() === clean ||
+    b.tagName.toLowerCase() === clean
   );
 }
 
@@ -400,8 +402,42 @@ const BOOK_ALIASES: Record<string, string> = {
   'zech': 'Zechariah',
   'zec': 'Zechariah',
   'malaquias': 'Malachi',
+  'malakias': 'Malachi',
   'malachi': 'Malachi',
-  'mal': 'Malachi'
+  'mal': 'Malachi',
+
+  // Tagalog (Ang Dating Biblia 1905) aliases
+  'pahayag': 'Revelation',
+  'ang pahayag': 'Revelation',
+  'mga gawa': 'Acts',
+  'gawa': 'Acts',
+  'mga awit': 'Psalms',
+  'mga kawikaan': 'Proverbs',
+  'kawikaan': 'Proverbs',
+  'mangangaral': 'Ecclesiastes',
+  'ang mangangaral': 'Ecclesiastes',
+  'awit ni solomon': 'Song of Solomon',
+  'ang awit ni solomon': 'Song of Solomon',
+  'mga panaghoy': 'Lamentations',
+  'panaghoy': 'Lamentations',
+  'mga bilang': 'Numbers',
+  'bilang': 'Numbers',
+  'mga hukom': 'Judges',
+  'mga romano': 'Romans',
+  '1 mga corinto': '1 Corinthians',
+  '2 mga corinto': '2 Corinthians',
+  'mga taga galacia': 'Galatians',
+  'mga taga efeso': 'Ephesians',
+  'mga taga filipos': 'Philippians',
+  'mga taga colosas': 'Colossians',
+  '1 mga taga tesalonica': '1 Thessalonians',
+  '2 mga taga tesalonica': '2 Thessalonians',
+  'mga hebreo': 'Hebrews',
+  '1 mga cronica': '1 Chronicles',
+  '2 mga cronica': '2 Chronicles',
+  'zefanias': 'Zephaniah',
+  'hagai': 'Haggai',
+  'mikas': 'Micah'
 };
 
 export function normalizeBookName(input: string): string | null {
@@ -421,10 +457,13 @@ export function normalizeBookName(input: string): string | null {
   const found = BIBLE_BOOKS.find(b =>
     b.name.toLowerCase() === rawClean ||
     b.cebName.toLowerCase() === rawClean ||
+    b.tagName.toLowerCase() === rawClean ||
     b.name.toLowerCase() === clean ||
     b.cebName.toLowerCase() === clean ||
+    b.tagName.toLowerCase() === clean ||
     b.name.toLowerCase().replace(/\s+/g, '') === compact ||
-    b.cebName.toLowerCase().replace(/\s+/g, '') === compact
+    b.cebName.toLowerCase().replace(/\s+/g, '') === compact ||
+    b.tagName.toLowerCase().replace(/\s+/g, '') === compact
   );
 
   return found ? found.name : null;

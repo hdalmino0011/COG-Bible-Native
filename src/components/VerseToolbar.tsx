@@ -12,7 +12,7 @@ interface VerseToolbarProps {
   } | null;
   onClose: () => void;
   onHighlight: (color: HighlightColor | 'none') => void;
-  onCopy: (mode: 'cebuano' | 'english' | 'both') => void;
+  onCopy: (mode: 'cebuano' | 'english' | 'tagalog' | 'both') => void;
   onToggleBookmark: () => void;
   isBookmarked: boolean;
   onOpenNoteModal: () => void;
@@ -35,7 +35,7 @@ export const VerseToolbar: React.FC<VerseToolbarProps> = ({
 
   if (!selectedVerse) return null;
 
-  const handleCopyClick = (mode: 'cebuano' | 'english' | 'both') => {
+  const handleCopyClick = (mode: 'cebuano' | 'english' | 'tagalog' | 'both') => {
     onCopy(mode);
     setCopiedType(mode);
     setTimeout(() => setCopiedType(null), 1500);
@@ -158,9 +158,17 @@ export const VerseToolbar: React.FC<VerseToolbarProps> = ({
               ENG
             </button>
             <button
+              onClick={() => handleCopyClick('tagalog')}
+              className="px-2 py-1 text-[11px] font-medium bg-[#1B3A6B] hover:bg-[#10203D] text-white rounded-md flex items-center gap-1 transition-colors shadow-xs"
+              title="Copy Filipino (Tagalog) verse"
+            >
+              {copiedType === 'tagalog' ? <Check className="w-3 h-3 text-green-300" /> : <Copy className="w-3 h-3" />}
+              TAG
+            </button>
+            <button
               onClick={() => handleCopyClick('both')}
               className="px-2.5 py-1 text-[11px] font-semibold bg-[#C9A227] hover:bg-[#B38F1E] text-white rounded-md flex items-center gap-1 transition-colors shadow-xs"
-              title="Copy Parallel (Both Cebuano and English)"
+              title="Copy Parallel (Current Layout)"
             >
               {copiedType === 'both' ? <Check className="w-3 h-3 text-green-200" /> : <Copy className="w-3 h-3" />}
               Both
