@@ -1,7 +1,10 @@
 package org.cog.tjrbible;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.getcapacitor.BridgeActivity;
@@ -41,6 +44,17 @@ public class MainActivity extends BridgeActivity {
                 settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
                 settings.setCacheMode(WebSettings.LOAD_DEFAULT);
                 webView.setLayerType(WebView.LAYER_TYPE_HARDWARE, null);
+
+                webView.setDownloadListener(new DownloadListener() {
+                    @Override
+                    public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                        try {
+                            Intent i = new Intent(Intent.ACTION_VIEW);
+                            i.setData(Uri.parse(url));
+                            startActivity(i);
+                        } catch (Exception ignored) {}
+                    }
+                });
             }
         } catch (Exception ignored) {
         }

@@ -8,7 +8,7 @@ import {
   Search,
   FileCheck,
   Image as ImageIcon,
-  File,
+  File as FileIcon,
   ExternalLink,
   X,
   Calendar,
@@ -22,6 +22,7 @@ import {
   detectFileType
 } from '../utils/supabase';
 import { PdfViewer } from './PdfViewer';
+import { Capacitor } from '@capacitor/core';
 
 interface LessonsScreenProps {
   onShowToast: (msg: string) => void;
@@ -80,20 +81,72 @@ export const LessonsScreen: React.FC<LessonsScreenProps> = ({ onShowToast }) => 
   const handleDownload = async (lesson: LessonItem) => {
     try {
       onShowToast(`Downloading ${lesson.file_name}...`);
+
+      // 1. Native Capacitor on Android/iOS: open URL directly with system download manager / browser
+      if (Capacitor.isNativePlatform()) {
+        try {
+          window.open(lesson.file_url, '_system');
+          onShowToast(`Downloading ${lesson.file_name}...`);
+          return;
+        } catch (nativeErr) {
+          console.warn('Native _system open failed, trying fetch fallback:', nativeErr);
+        }
+      }
+
+      // 2. Fetch the file blob
       const response = await fetch(lesson.file_url);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch file: ${response.statusText}`);
+      }
       const blob = await response.blob();
+
+      // 3. If mobile device supports Web Share API with files (Android / iOS / PWA)
+      if (typeof navigator !== 'undefined' && 'canShare' in navigator) {
+        try {
+          const file = new File([blob], lesson.file_name || `${lesson.title}.pdf`, {
+            type: blob.type || 'application/pdf'
+          });
+          if (navigator.canShare({ files: [file] })) {
+            await navigator.share({
+              files: [file],
+              title: lesson.title,
+              text: `Download ${lesson.file_name}`
+            });
+            onShowToast(`File ready: ${lesson.file_name}`);
+            return;
+          }
+        } catch (shareErr: any) {
+          if (shareErr?.name === 'AbortError') return;
+        }
+      }
+
+      // 4. Standard Browser / Web fallback with delayed revoke
       const blobUrl = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = blobUrl;
-      link.download = lesson.file_name || `${lesson.title}.pdf`;
+      link.setAttribute('download', lesson.file_name || `${lesson.title}.pdf`);
+      link.setAttribute('target', '_blank');
+      link.style.display = 'none';
       document.body.appendChild(link);
       link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(blobUrl);
       onShowToast(`Downloaded: ${lesson.file_name}`);
-    } catch {
-      window.open(lesson.file_url, '_blank');
-      onShowToast(`Opening ${lesson.file_name} for download...`);
+
+      // Do NOT revoke immediately! Keep URL alive for 15 seconds so download can finish
+      setTimeout(() => {
+        try {
+          document.body.removeChild(link);
+          window.URL.revokeObjectURL(blobUrl);
+        } catch {}
+      }, 15000);
+    } catch (err) {
+      console.warn('Direct blob download failed, falling back to window.open:', err);
+      try {
+        const target = Capacitor.isNativePlatform() ? '_system' : '_blank';
+        window.open(lesson.file_url, target);
+        onShowToast(`Opening ${lesson.file_name} for download...`);
+      } catch {
+        onShowToast(`Could not download ${lesson.file_name}. Please try again.`);
+      }
     }
   };
 
@@ -120,7 +173,7 @@ export const LessonsScreen: React.FC<LessonsScreenProps> = ({ onShowToast }) => 
       case 'doc':
         return <FileCheck className="w-5 h-5 text-blue-500" />;
       default:
-        return <File className="w-5 h-5 text-gray-400" />;
+        return <FileIcon className="w-5 h-5 text-gray-400" />;
     }
   };
 
