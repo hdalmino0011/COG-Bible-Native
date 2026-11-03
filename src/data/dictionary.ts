@@ -1874,5 +1874,101 @@ export const DICTIONARY_DATA: DictionaryEntry[] = [
         'Jeremiah 17:7-8'
       ]
     }
+  },
+  {
+    id: 'christmas',
+    term: 'Christmas',
+    category: 'False Belief',
+    shortDefinition: 'A non-biblical holiday celebrated on December 25 claiming to mark Christ\'s birth; derived from ancient Roman pagan winter solstice celebrations (Saturnalia, Sol Invictus) with no biblical command or apostolic sanction.',
+    origin: 'Old English (Crīstesmæsse); Roman Paganism (Saturnalia & Dies Natalis Solis Invicti)',
+    references: 'Luke 2:8, Luke 1:5, 26, 36, 1 Chronicles 24:10, Jeremiah 10:2-5, Deuteronomy 12:29-32, Colossians 2:8',
+    article: {
+      sections: [
+        {
+          heading: 'Scriptural Proof: Christ Was Not Born in December',
+          content: 'The Holy Scriptures clearly reveal that Jesus Christ was not born in December. In Judea, late December is the rainy, bitterly cold winter season (Ezra 10:9, 13; Song of Solomon 2:11). Shepherds in ancient Palestine kept their flocks outdoors in open pastures from late March until late October. During the winter, sheep were always kept indoors in protected folds. Yet Luke 2:8 records that when Jesus was born: "there were in the same country shepherds abiding in the field, keeping watch over their flock by night." Furthermore, Caesar Augustus would never have ordered a nationwide census requiring all Judeans to travel long journeys to their ancestral towns on foot or donkeys during the cold winter rainy season (Luke 2:1-4; Matthew 24:20).'
+        },
+        {
+          heading: 'Priestly Division of Abijah and the Autumn Birth',
+          content: 'Scripture provides the exact chronological timeline through Zechariah the priest, who served in the eighth priestly course of Abijah (1 Chronicles 24:10; Luke 1:5). This course served in the temple during early summer (late Sivan, around June). Elizabeth conceived John the Baptist shortly thereafter in late June. In the sixth month of Elizabeth\'s pregnancy (late December/January), the angel Gabriel announced the conception of Jesus to Mary (Luke 1:26, 36). Adding a full nine months of human gestation places the birth of Jesus Christ in the early autumn (late September to early October, during the biblical season of the Feast of Tabernacles / Ethanim/Tishri). This perfectly aligns with Christ\'s 3.5-year ministry that began when He was "about thirty years of age" (Luke 3:23) and ended at Passover in the spring (Nisan).'
+        },
+        {
+          heading: 'Pagan Origins: Saturnalia and Sol Invictus',
+          content: 'December 25 was originally celebrated in pagan Rome as "Dies Natalis Solis Invicti" (the Birthday of the Unconquered Sun) marking the winter solstice, alongside the conclusion of Saturnalia (December 17–23), a riotous pagan festival honoring Saturn characterized by drunken revelry, role reversals, and gift exchanges. In 336 AD, under Emperor Constantine and later ratified by Bishop Julius I in 350 AD, the Roman Catholic church designated December 25 as the feast of the Nativity to absorb and "Christianize" these popular pagan celebrations without scriptural authority.'
+        },
+        {
+          heading: 'Pagan Customs Adopted Into Christmas',
+          content: 'The customs associated with Christmas originated entirely in pagan heathenism: 1) Decorated Trees: Heathen nations brought evergreen boughs and decorated trees into their dwellings during the solstice as symbols of fertility and sun worship, a practice God condemned in Jeremiah 10:2-5 ("Learn not the way of the heathen... For one cutteth a tree out of the forest... They deck it with silver and with gold; they fasten it with nails and with hammers, that it move not"). 2) Mistletoe & Holly: Revered in Druidic and Norse paganism as magical fertility charms. 3) Yule Log: Norse pagan celebration for the winter festival of Jól. 4) Gift-Giving: Inherited directly from Roman Saturnalia gift-exchanges (strenae).'
+        },
+        {
+          heading: 'Apostolic Precedent and Church of God Teaching',
+          content: 'Neither Jesus Christ, the Apostles, nor the first-century New Testament Church ever celebrated or instituted Christ\'s birthday. Believers were commanded only to remember Christ\'s death through the annual Passover (1 Corinthians 11:23-26). God expressly forbids adopting pagan customs into true worship: "Take heed to thyself that thou be not snared by following them... enquire not after their gods, saying, How did these nations serve their gods? even so will I do likewise. Thou shalt not do so unto the LORD thy God" (Deuteronomy 12:30-31; Matthew 15:7-9).'
+        }
+      ],
+      bibleReferences: [
+        'Luke 2:1-8',
+        'Luke 1:5, 26, 36',
+        '1 Chronicles 24:10',
+        'Jeremiah 10:1-5',
+        'Deuteronomy 12:29-32',
+        'Colossians 2:8',
+        '1 Corinthians 11:23-26',
+        'Matthew 15:7-9',
+        '2 Corinthians 6:14-17'
+      ],
+      externalLinks: [
+        { label: 'Encyclopaedia Britannica - Christmas Origins & History', url: 'https://www.britannica.com/topic/Christmas' },
+        { label: 'Catholic Encyclopedia - Christmas', url: 'https://www.newadvent.org/cathen/03724b.htm' },
+        { label: 'History.com - History of Christmas Traditions', url: 'https://www.history.com/topics/christmas/history-of-christmas' }
+      ]
+    }
+  },
+  {
+    id: 'halloween',
+    term: 'Halloween (All Hallows\' Eve)',
+    category: 'False Belief',
+    shortDefinition: 'A pagan festival originating in the ancient Celtic celebration of Samhain honoring the lord of the dead; condemned in Scripture for promoting spiritism, witchcraft, and necromancy.',
+    origin: 'Celtic (Samhain) / Middle English (All Hallows\' Eve)',
+    references: 'Deuteronomy 18:10-12, Leviticus 19:31, Isaiah 8:19-20, Ephesians 5:11, 1 Thessalonians 5:22',
+    article: {
+      sections: [
+        {
+          heading: 'Origins in the Celtic Festival of Samhain',
+          content: 'Halloween originated over 2,000 years ago in the ancient Celtic festival of Samhain (pronounced sow-in), celebrated from sundown on October 31 to November 1 across ancient Ireland, Scotland, and northern France. The Celts marked this day as the transition from the harvest season to the dark, harsh winter—a season historically tied to human mortality. They believed that on this night, the boundary between the living and the realm of the dead dissolved, allowing ghosts, evil spirits, and demons to roam freely upon the earth to torment the living and destroy crops.'
+        },
+        {
+          heading: 'Pagan Rituals, Sacrifices, and Costumes',
+          content: 'During Samhain, Celtic Druid priests built sacred bonfires and offered animal sacrifices to appease pagan deities and wandering spirits. People dressed in grotesque costumes made of animal heads and skins to disguise themselves from vengeful spirits, deceive ghosts into mistaking them for fellow phantoms, and avoid demonic harm. Households left bowls of food, wine, and sweet cakes outside their doorways to appease wandering demons so they would pass by peacefully—the direct historical ancestor of modern "trick-or-treat" demands.'
+        },
+        {
+          heading: 'Syncretism: The Catholic "All Hallows\' Eve"',
+          content: 'In 609 AD, Pope Boniface IV established the Catholic feast of All Martyrs Day. In the 8th century, Pope Gregory III moved this observance to November 1 to honor "All Saints" (All Hallows). In an intentional attempt to absorb and "Christianize" the deeply entrenched pagan Celtic Samhain, the evening of October 31 became designated as "All Hallows\' Eve," which over time was shortened to "Halloween." In 1000 AD, November 2 was created as "All Souls\' Day," reinforcing unbiblical pagan doctrines regarding prayers for the dead in purgatory.'
+        },
+        {
+          heading: 'The Origin of the Jack-o\'-Lantern',
+          content: 'The carved lantern tradition derives from an ancient Irish folklore legend about "Stingy Jack," a notorious drunkard who bargained with the devil. When Jack died, heaven refused him and the devil barred him from hell, consigning him to wander eternally in darkness with only a burning coal inside a carved turnip to light his way. The Irish carved grotesque demon faces into turnips, beets, and potatoes to frighten away Jack\'s wandering spirit and evil demons. Immigrants to America substituted native pumpkins, continuing the pagan talisman tradition.'
+        },
+        {
+          heading: 'Biblical Condemnation of Occultism and Spiritism',
+          content: 'The Holy Scriptures strictly forbid God\'s people from engaging in any ritual, celebration, or custom connected with witchcraft, divination, or communion with the dead: "There shall not be found among you any one that... useth divination, or an observer of times, or an enchanter, or a witch, or a charmer, or a consulter with familiar spirits, or a wizard, or a necromancer. For all that do these things are an abomination unto the LORD" (Deuteronomy 18:10-12). Christians are instructed: "And have no fellowship with the unfruitful works of darkness, but rather reprove them" (Ephesians 5:11), and "Abstain from all appearance of evil" (1 Thessalonians 5:22).'
+        }
+      ],
+      bibleReferences: [
+        'Deuteronomy 18:10-12',
+        'Leviticus 19:31',
+        'Leviticus 20:6',
+        'Isaiah 8:19-20',
+        'Ephesians 5:11-12',
+        '1 Thessalonians 5:22',
+        '1 Corinthians 10:20-21',
+        '2 Corinthians 6:14-17'
+      ],
+      externalLinks: [
+        { label: 'Encyclopaedia Britannica - Halloween Origins & Customs', url: 'https://www.britannica.com/topic/Halloween' },
+        { label: 'History.com - History of Halloween Traditions', url: 'https://www.history.com/topics/halloween/history-of-halloween' },
+        { label: 'Library of Congress - The Origins of Halloween', url: 'https://blogs.loc.gov/headlinesandheroes/2021/10/the-origins-of-halloween-traditions/' }
+      ]
+    }
   }
 ];
+

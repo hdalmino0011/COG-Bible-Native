@@ -244,9 +244,21 @@ export async function sendDailyVerseNotification(
 }
 
 /**
+ * Cancels any existing scheduled daily recurring notifications.
+ */
+export async function cancelNativeDailyRecurringNotification(): Promise<void> {
+  if (!Capacitor.isNativePlatform()) return;
+  try {
+    await LocalNotifications.cancel({ notifications: [{ id: 777 }] });
+  } catch (err) {
+    console.warn('Error cancelling native local notification:', err);
+  }
+}
+
+/**
  * Schedules recurring daily native scripture notification on device
- * using Android's native AlarmManager / JobScheduler so it fires every morning
- * accurately and consistently even when app is closed or after reboot.
+ * using Android's native AlarmManager / JobScheduler so it fires precisely at the
+ * user-selected time (e.g. 07:00 AM) and repeats daily without random triggers.
  */
 export async function scheduleNativeDailyRecurringNotification(
   timeStr: string,
@@ -257,15 +269,9 @@ export async function scheduleNativeDailyRecurringNotification(
     const perm = await LocalNotifications.checkPermissions();
     if (perm.display !== 'granted') return false;
 
-    const [hour, minute] = (timeStr || '07:00').split(':').map(Number);
-    const now = new Date();
-    const scheduledDate = new Date();
-    scheduledDate.setHours(isNaN(hour) ? 7 : hour, isNaN(minute) ? 0 : minute, 0, 0);
-
-    // If today's scheduled time has already passed, set for tomorrow
-    if (scheduledDate.getTime() <= now.getTime()) {
-      scheduledDate.setDate(scheduledDate.getDate() + 1);
-    }
+    const [rawHour, rawMinute] = (timeStr || '07:00').split(':').map(Number);
+    const targetHour = isNaN(rawHour) ? 7 : Math.min(Math.max(rawHour, 0), 23);
+    const targetMinute = isNaN(rawMinute) ? 0 : Math.min(Math.max(rawMinute, 0), 59);
 
     const v = verse || getTodayVerse();
     const title = `📖 Daily Verse: ${v.book} ${v.chapter}:${v.verse}`;
@@ -276,10 +282,12 @@ export async function scheduleNativeDailyRecurringNotification(
       bodyText = v.ceb || v.en || '';
     }
 
+    // Always cancel previous alarm ID 777 first so there is no duplicate or conflicting schedule
     try {
       await LocalNotifications.cancel({ notifications: [{ id: 777 }] });
     } catch {}
 
+    // Use schedule.on with exact hour and minute for precise daily recurrence
     await LocalNotifications.schedule({
       notifications: [
         {
@@ -291,9 +299,11 @@ export async function scheduleNativeDailyRecurringNotification(
           smallIcon: 'ic_stat_cog_bible',
           iconColor: '#C9A227',
           schedule: {
-            at: scheduledDate,
+            on: {
+              hour: targetHour,
+              minute: targetMinute
+            },
             repeats: true,
-            every: 'day',
             allowWhileIdle: true
           },
           extra: {
@@ -311,4 +321,5 @@ export async function scheduleNativeDailyRecurringNotification(
     return false;
   }
 }
+
 

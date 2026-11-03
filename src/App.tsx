@@ -70,7 +70,8 @@ import {
   shouldPromptForNotifications,
   recordNotificationDecision,
   checkHasNotificationPermission,
-  scheduleNativeDailyRecurringNotification
+  scheduleNativeDailyRecurringNotification,
+  cancelNativeDailyRecurringNotification
 } from './utils/notifications';
 import { speakVerseText, stopSpeakingVerse, readChapterContinuously } from './utils/speech';
 import { formatVerseText } from './utils/divineName';
@@ -436,20 +437,17 @@ export default function App() {
             if (state === 'granted') {
               handleUpdatePreferences({ dailyVerseNotification: true });
               scheduleNativeDailyRecurringNotification(preferences.notificationTime || '07:00');
-              const verse = getRandomDailyVerse(bibleDataRef.current);
-              sendDailyVerseNotification(
-                verse,
-                `📖 Daily Verse: ${verse.book} ${verse.chapter}:${verse.verse}`
-              );
             }
           } catch (e) {
             console.error('Error requesting native permissions:', e);
           }
         } else {
-          // If already granted, ensure native recurring daily alarm is armed
+          // If already granted, ensure native recurring daily alarm is armed if enabled, or canceled if disabled
           const hasPerm = await checkHasNotificationPermission();
           if (hasPerm && preferences.dailyVerseNotification) {
             scheduleNativeDailyRecurringNotification(preferences.notificationTime || '07:00');
+          } else if (!preferences.dailyVerseNotification) {
+            cancelNativeDailyRecurringNotification();
           }
         }
       } else {
@@ -467,16 +465,10 @@ export default function App() {
     const granted = await requestNotificationPermission();
     if (granted === 'granted') {
       handleUpdatePreferences({ dailyVerseNotification: true });
-      showToast('🔔 Daily Verse Notifications enabled!');
+      showToast('🔔 Daily Scripture notifications enabled!');
       if (Capacitor.isNativePlatform()) {
         scheduleNativeDailyRecurringNotification(preferences.notificationTime || '07:00');
       }
-      // Dispatch immediate welcoming random daily verse
-      const verse = getRandomDailyVerse(bibleDataRef.current);
-      sendDailyVerseNotification(
-        verse,
-        `📖 Daily Verse: ${verse.book} ${verse.chapter}:${verse.verse}`
-      );
     } else {
       showToast('You can enable notifications anytime in Settings.');
     }
@@ -501,6 +493,7 @@ export default function App() {
   }, [handleNavigateToVerse]);
 
   // Daily notification scheduled trigger
+  // Only fires when the exact scheduled time is reached, never randomly hours later on app open
   useEffect(() => {
     if (!preferences.dailyVerseNotification || typeof window === 'undefined') return;
 
@@ -516,18 +509,16 @@ export default function App() {
         const currentHour = now.getHours();
         const currentMin = now.getMinutes();
 
-        // Check if today's scheduled time has arrived or passed
-        const isTimeToSend = currentHour > targetHour || (currentHour === targetHour && currentMin >= targetMin);
+        // Exact match check: Only trigger when current clock matches the exact scheduled hour & minute
+        const isExactTimeToNotify = currentHour === targetHour && currentMin === targetMin;
 
-        if (isTimeToSend && lastSentDate !== todayStr) {
+        if (isExactTimeToNotify && lastSentDate !== todayStr) {
+          // Record today immediately to prevent any duplicate trigger during this minute
+          localStorage.setItem(lastSentKey, todayStr);
           checkHasNotificationPermission().then((hasPerm) => {
             if (hasPerm) {
               const verse = getRandomDailyVerse(bibleDataRef.current);
-              sendDailyVerseNotification(verse, `📖 Daily Verse: ${verse.book} ${verse.chapter}:${verse.verse}`).then(sent => {
-                if (sent) {
-                  localStorage.setItem(lastSentKey, todayStr);
-                }
-              });
+              sendDailyVerseNotification(verse, `📖 Daily Verse: ${verse.book} ${verse.chapter}:${verse.verse}`);
             }
           });
         }
@@ -536,11 +527,11 @@ export default function App() {
       }
     };
 
-    const initialTimer = setTimeout(checkAndTriggerDailyVerse, 3000);
-    const intervalTimer = setInterval(checkAndTriggerDailyVerse, 60000); // Check every minute so it fires right when scheduled
+    // Check every 30 seconds for exact minute alignment
+    const intervalTimer = setInterval(checkAndTriggerDailyVerse, 30000);
+    checkAndTriggerDailyVerse();
 
     return () => {
-      clearTimeout(initialTimer);
       clearInterval(intervalTimer);
     };
   }, [preferences.dailyVerseNotification, preferences.notificationTime]);

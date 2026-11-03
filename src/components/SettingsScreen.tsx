@@ -24,7 +24,8 @@ import {
   requestNotificationPermission,
   sendDailyVerseNotification,
   isNotificationSupported,
-  scheduleNativeDailyRecurringNotification
+  scheduleNativeDailyRecurringNotification,
+  cancelNativeDailyRecurringNotification
 } from '../utils/notifications';
 import { getRandomDailyVerse } from '../data/dailyVerses';
 import { EMBEDDED_LOGO_DATA_URI } from '../data/logoAsset';
@@ -100,15 +101,12 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
     onUpdatePreferences({ dailyVerseNotification: nextState });
     if (nextState) {
       scheduleNativeDailyRecurringNotification(preferences.notificationTime || '07:00');
-      const randomVerse = getRandomDailyVerse(bibleData);
-      sendDailyVerseNotification(
-        randomVerse,
-        `📖 Daily Verse: ${randomVerse.book} ${randomVerse.chapter}:${randomVerse.verse}`
-      );
+    } else {
+      cancelNativeDailyRecurringNotification();
     }
     const currentStatus = await getAsyncNotificationPermissionStatus();
     setPermStatus(currentStatus);
-    onShowToast?.(nextState ? '🔔 Daily Verse Notifications enabled' : 'Daily Verse Notifications turned off');
+    onShowToast?.(nextState ? `🔔 Daily notifications set for ${preferences.notificationTime || '07:00'}` : 'Daily Scripture Notifications turned off');
   };
 
   const handleTestNotification = async () => {
@@ -482,6 +480,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
                           onUpdatePreferences({ notificationTime: newTime });
                           if (preferences.dailyVerseNotification) {
                             scheduleNativeDailyRecurringNotification(newTime);
+                            onShowToast?.(`Daily notification set for ${newTime}`);
                           }
                         }}
                         className="w-24 sm:w-28 max-w-[120px] px-2 py-1.5 text-xs font-semibold rounded-lg border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] font-mono focus:outline-none focus:ring-1 focus:ring-[#C9A227] cursor-pointer text-center shadow-2xs"

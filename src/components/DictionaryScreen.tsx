@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Search, ArrowLeft, ExternalLink, BookOpen } from 'lucide-react';
 import { DICTIONARY_DATA } from '../data/dictionary';
@@ -13,7 +13,23 @@ export const DictionaryScreen: React.FC<DictionaryScreenProps> = ({ onNavigateTo
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [activeArticle, setActiveArticle] = useState<DictionaryEntry | null>(null);
 
-  const categories = ['All', 'Divine Name', 'False God', 'Title', 'Place', 'Object', 'Doctrine', 'Concept', 'Feast'];
+  // Preserve scroll position when reading an article and returning to list
+  const listScrollRef = useRef<HTMLDivElement>(null);
+  const articleScrollRef = useRef<HTMLDivElement>(null);
+  const savedScrollPos = useRef<number>(0);
+
+  const categories = [
+    'All',
+    'Divine Name',
+    'False God',
+    'False Belief',
+    'Doctrine',
+    'Feast',
+    'Title',
+    'Place',
+    'Object',
+    'Concept'
+  ];
 
   const filteredEntries = DICTIONARY_DATA.filter((entry) => {
     const matchesSearch =
@@ -32,6 +48,8 @@ export const DictionaryScreen: React.FC<DictionaryScreenProps> = ({ onNavigateTo
         return 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border-amber-300';
       case 'False God':
         return 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 border-rose-300 font-bold';
+      case 'False Belief':
+        return 'bg-amber-100 dark:bg-amber-950/70 text-amber-900 dark:text-amber-200 border-amber-400 font-bold';
       case 'Title':
         return 'bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 border-blue-300';
       case 'Place':
@@ -45,21 +63,131 @@ export const DictionaryScreen: React.FC<DictionaryScreenProps> = ({ onNavigateTo
     }
   };
 
+  const handleOpenArticle = (entry: DictionaryEntry) => {
+    if (listScrollRef.current) {
+      savedScrollPos.current = listScrollRef.current.scrollTop;
+    }
+    setActiveArticle(entry);
+    // Ensure article view starts at top
+    requestAnimationFrame(() => {
+      if (articleScrollRef.current) {
+        articleScrollRef.current.scrollTop = 0;
+      }
+    });
+  };
+
+  const handleCloseArticle = () => {
+    setActiveArticle(null);
+    // Restore exact scroll position
+    requestAnimationFrame(() => {
+      if (listScrollRef.current) {
+        listScrollRef.current.scrollTop = savedScrollPos.current;
+      }
+    });
+  };
+
+  // Double-check restore on layout effect when article is dismissed
+  useLayoutEffect(() => {
+    if (!activeArticle && listScrollRef.current) {
+      listScrollRef.current.scrollTop = savedScrollPos.current;
+    }
+  }, [activeArticle]);
+
   return (
-    <div className="flex-1 overflow-y-auto px-3 sm:px-6 py-4 max-w-4xl mx-auto w-full pb-28">
-      <AnimatePresence mode="wait">
-        {/* ================= 1. ARTICLE DETAIL VIEW ================= */}
-        {activeArticle ? (
+    <div className="flex-1 relative min-h-0 flex flex-col bg-[var(--ivory)] overflow-hidden">
+      {/* ================= 1. DICTIONARY LIST VIEW (always mounted to preserve scroll) ================= */}
+      <div
+        ref={listScrollRef}
+        onScroll={(e) => {
+          savedScrollPos.current = e.currentTarget.scrollTop;
+        }}
+        className="flex-1 overflow-y-auto px-3 sm:px-6 py-4 max-w-4xl mx-auto w-full pb-28 space-y-4"
+      >
+        {/* Search Input */}
+        <div className="relative">
+          <input
+            id="dict-search-input"
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search Biblical terms, definitions, YHWH, Christmas, Halloween..."
+            className="w-full pl-10 pr-4 py-3 bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-2xl text-sm text-[#0E1B33] dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C9A227] shadow-xs"
+          />
+          <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+        </div>
+
+        {/* Category Filter Pills */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-3 py-1 text-xs font-semibold rounded-full whitespace-nowrap transition-all border cursor-pointer ${
+                selectedCategory === cat
+                  ? 'bg-[#1B3A6B] text-white border-[#1B3A6B] shadow-xs'
+                  : 'bg-white dark:bg-[#142036] text-gray-600 dark:text-gray-300 border-[#E2DED2] dark:border-[#22314E] hover:border-[#C9A227]'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Dictionary List */}
+        <div className="space-y-3 pt-1">
+          {filteredEntries.length === 0 ? (
+            <div className="text-center py-16 bg-white dark:bg-[#142036] rounded-2xl border border-dashed border-gray-300 dark:border-slate-700">
+              <p className="font-serif text-sm italic text-gray-500">
+                No dictionary entries found matching "{searchTerm}".
+              </p>
+            </div>
+          ) : (
+            filteredEntries.map((entry) => (
+              <div
+                key={entry.id}
+                onClick={() => handleOpenArticle(entry)}
+                className="bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] hover:border-[#C9A227] rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-md transition-all cursor-pointer group"
+              >
+                <div className="flex items-start justify-between gap-2 mb-1.5">
+                  <h3 className="font-serif text-base sm:text-lg font-bold text-[#1B3A6B] dark:text-[#E4C765] group-hover:text-[#C9A227] transition-colors">
+                    {entry.term}
+                  </h3>
+                  <span className={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full border ${getCategoryBadgeClass(entry.category)}`}>
+                    {entry.category}
+                  </span>
+                </div>
+
+                <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 line-clamp-2 leading-relaxed">
+                  {entry.shortDefinition}
+                </p>
+
+                <div className="flex items-center justify-between mt-3 pt-2 border-t border-gray-100 dark:border-slate-700/60 text-[11px] text-gray-500 dark:text-gray-400">
+                  <span>Ref: {entry.references}</span>
+                  <span className="text-[#C9A227] font-semibold group-hover:translate-x-1 transition-transform">
+                    Read article &rarr;
+                  </span>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+
+      {/* ================= 2. ARTICLE DETAIL VIEW (Overlay preserving list scroll) ================= */}
+      <AnimatePresence>
+        {activeArticle && (
           <motion.div
             key="article-view"
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            className="space-y-6"
+            exit={{ opacity: 0, x: 24 }}
+            transition={{ duration: 0.18, ease: 'easeOut' }}
+            ref={articleScrollRef}
+            className="absolute inset-0 z-20 overflow-y-auto px-3 sm:px-6 py-4 bg-[var(--ivory)] max-w-4xl mx-auto w-full pb-28 space-y-6"
           >
             {/* Back button */}
             <button
-              onClick={() => setActiveArticle(null)}
+              onClick={handleCloseArticle}
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-xl bg-[#1B3A6B] text-white hover:bg-[#10203D] shadow-xs transition-colors cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -145,86 +273,9 @@ export const DictionaryScreen: React.FC<DictionaryScreenProps> = ({ onNavigateTo
               )}
             </div>
           </motion.div>
-        ) : (
-          /* ================= 2. DICTIONARY LIST VIEW ================= */
-          <motion.div
-            key="list-view"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="space-y-4"
-          >
-            {/* Search Input */}
-            <div className="relative">
-              <input
-                id="dict-search-input"
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search Biblical terms, definitions, YHWH, Baal, Ark..."
-                className="w-full pl-10 pr-4 py-3 bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-2xl text-sm text-[#0E1B33] dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C9A227] shadow-xs"
-              />
-              <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-            </div>
-
-            {/* Category Filter Pills */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-3 py-1 text-xs font-semibold rounded-full whitespace-nowrap transition-all border cursor-pointer ${
-                    selectedCategory === cat
-                      ? 'bg-[#1B3A6B] text-white border-[#1B3A6B] shadow-xs'
-                      : 'bg-white dark:bg-[#142036] text-gray-600 dark:text-gray-300 border-[#E2DED2] dark:border-[#22314E] hover:border-[#C9A227]'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-
-            {/* Dictionary List */}
-            <div className="space-y-3 pt-1">
-              {filteredEntries.length === 0 ? (
-                <div className="text-center py-16 bg-white dark:bg-[#142036] rounded-2xl border border-dashed border-gray-300 dark:border-slate-700">
-                  <p className="font-serif text-sm italic text-gray-500">
-                    No dictionary entries found matching "{searchTerm}".
-                  </p>
-                </div>
-              ) : (
-                filteredEntries.map((entry) => (
-                  <div
-                    key={entry.id}
-                    onClick={() => setActiveArticle(entry)}
-                    className="bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] hover:border-[#C9A227] rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-md transition-all cursor-pointer group"
-                  >
-                    <div className="flex items-start justify-between gap-2 mb-1.5">
-                      <h3 className="font-serif text-base sm:text-lg font-bold text-[#1B3A6B] dark:text-[#E4C765] group-hover:text-[#C9A227] transition-colors">
-                        {entry.term}
-                      </h3>
-                      <span className={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full border ${getCategoryBadgeClass(entry.category)}`}>
-                        {entry.category}
-                      </span>
-                    </div>
-
-                    <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 line-clamp-2 leading-relaxed">
-                      {entry.shortDefinition}
-                    </p>
-
-                    <div className="flex items-center justify-between mt-3 pt-2 border-t border-gray-100 dark:border-slate-700/60 text-[11px] text-gray-500 dark:text-gray-400">
-                      <span>Ref: {entry.references}</span>
-                      <span className="text-[#C9A227] font-semibold group-hover:translate-x-1 transition-transform">
-                        Read article &rarr;
-                      </span>
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-          </motion.div>
         )}
       </AnimatePresence>
     </div>
   );
 };
+

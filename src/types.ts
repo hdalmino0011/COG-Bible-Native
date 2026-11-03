@@ -77,7 +77,7 @@ export interface DictionaryExternalLink {
 export interface DictionaryEntry {
   id: string;
   term: string;
-  category: 'Divine Name' | 'False God' | 'Title' | 'Place' | 'Object' | 'Concept' | 'Doctrine' | 'Person' | 'Feast';
+  category: 'Divine Name' | 'False God' | 'Title' | 'Place' | 'Object' | 'Concept' | 'Doctrine' | 'Person' | 'Feast' | 'False Belief';
   shortDefinition: string;
   origin: string;
   references: string;
