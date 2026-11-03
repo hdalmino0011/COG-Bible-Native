@@ -141,14 +141,15 @@ export async function speakVerseText(
     return { success: false, message: 'No verse text to read' };
   }
 
-  const langTag = language === 'cebuano' ? 'fil-PH' : 'en-US';
+  const isTagalog = language === 'tagalog';
+  const langTag = isTagalog ? 'fil-PH' : (language === 'cebuano' ? 'fil-PH' : 'en-US');
   currentlySpeaking = true;
 
-  // Wise Man Reader Voice Calibration:
-  // - Pitch: 0.68 (deep, resonant, reverent baritone of a wise elder)
-  // - Rate: 0.84 (steady, articulate, measured scripture pace)
-  const WISE_MAN_PITCH = 0.68;
-  const WISE_MAN_RATE = 0.84;
+  // Voice Calibration:
+  // - English: Pitch 0.68, Rate 0.84 (deep elder baritone)
+  // - Tagalog: Pitch 0.92, Rate 0.88 (clear, dignified reverent cadence)
+  const WISE_MAN_PITCH = isTagalog ? 0.92 : 0.68;
+  const WISE_MAN_RATE = isTagalog ? 0.88 : 0.84;
 
   // 1. Try Native Capacitor TTS first
   try {
@@ -157,34 +158,34 @@ export async function speakVerseText(
       try {
         const supported = await TextToSpeech.getSupportedVoices();
         if (supported?.voices?.length) {
-          const langPrefix = langTag.slice(0, 2).toLowerCase();
+          const langPrefix = isTagalog ? 'fil' : 'en';
           const voices = supported.voices;
 
           // Step A: Wise male voice in target language (checking BOTH name and voiceURI)
           let foundIdx = voices.findIndex(v => {
             const l = (v.lang || '').toLowerCase();
-            return l.startsWith(langPrefix) && isWiseMaleVoice(v.name || '', v.voiceURI || '');
+            return (l.startsWith(langPrefix) || (isTagalog && l.startsWith('tl'))) && isWiseMaleVoice(v.name || '', v.voiceURI || '');
           });
 
-          // Step B: Wise male voice in any English dialect
-          if (foundIdx === -1) {
+          // Step B: Any voice in target language (for Tagalog/Filipino)
+          if (foundIdx === -1 && isTagalog) {
+            foundIdx = voices.findIndex(v => {
+              const l = (v.lang || '').toLowerCase();
+              return l.startsWith('fil') || l.startsWith('tl');
+            });
+          }
+
+          // Step C: Wise male voice in any English dialect
+          if (foundIdx === -1 && !isTagalog) {
             foundIdx = voices.findIndex(v => {
               const l = (v.lang || '').toLowerCase();
               return l.startsWith('en') && isWiseMaleVoice(v.name || '', v.voiceURI || '');
             });
           }
 
-          // Step C: Any voice anywhere with male identification
+          // Step D: Any voice anywhere with male identification
           if (foundIdx === -1) {
             foundIdx = voices.findIndex(v => isWiseMaleVoice(v.name || '', v.voiceURI || ''));
-          }
-
-          // Step D: Strictly non-female voice in target language
-          if (foundIdx === -1) {
-            foundIdx = voices.findIndex(v => {
-              const l = (v.lang || '').toLowerCase();
-              return l.startsWith(langPrefix) && !isFemaleVoice(v.name || '', v.voiceURI || '');
-            });
           }
 
           if (foundIdx !== -1) {
@@ -197,9 +198,9 @@ export async function speakVerseText(
 
       await TextToSpeech.speak({
         text,
-        lang: 'en-US', // Enforce US English locale so Android does not default to British female
+        lang: isTagalog ? 'fil-PH' : 'en-US',
         rate: WISE_MAN_RATE,
-        pitch: WISE_MAN_PITCH, // Deep, dignified baritone of a wise man
+        pitch: WISE_MAN_PITCH,
         volume: 1.0,
         voice: maleVoiceIndex
       });
@@ -219,8 +220,8 @@ export async function speakVerseText(
 
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.rate = WISE_MAN_RATE;
-        utterance.pitch = WISE_MAN_PITCH; // Deep elder baritone
-        utterance.lang = 'en-US';
+        utterance.pitch = WISE_MAN_PITCH;
+        utterance.lang = isTagalog ? 'fil-PH' : 'en-US';
 
         let voices = window.speechSynthesis.getVoices?.() || [];
         if ((!voices || voices.length === 0) && cachedWebVoices.length > 0) {
@@ -300,11 +301,11 @@ export async function readChapterContinuously(
     }
 
     const currentVerse = verses[currentIndex];
-    // Voice reader strictly reads the English KJV version
-    const text = currentVerse.en || currentVerse.ceb || '';
+    const isTag = language === 'tagalog';
+    const text = isTag ? (currentVerse.tag || currentVerse.en || '') : (currentVerse.en || currentVerse.ceb || '');
     onVerseChange(currentVerse.v);
 
-    const res = await speakVerseText(text, 'english', () => {
+    const res = await speakVerseText(text, isTag ? 'tagalog' : 'english', () => {
       if (!cancelContinuousFlag) {
         currentIndex++;
         // Natural breath pause between verses (300ms)

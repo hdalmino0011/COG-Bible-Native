@@ -36,7 +36,8 @@ interface BibleReaderProps {
   targetVerseToScroll?: number | null;
   isSpeaking?: boolean;
   speakingVerse?: number | null;
-  onToggleContinuousReading?: () => void;
+  speakingLanguage?: 'english' | 'tagalog';
+  onToggleContinuousReading?: (startVerse?: number, lang?: 'english' | 'tagalog') => void;
   useOriginalDivineName?: boolean;
 }
 
@@ -255,6 +256,7 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
   targetVerseToScroll,
   isSpeaking = false,
   speakingVerse = null,
+  speakingLanguage = 'english',
   onToggleContinuousReading,
   useOriginalDivineName = false
 }) => {
@@ -390,28 +392,75 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
         {/* Audio continuous read trigger & Prev / Next chapter controls */}
         <div className="flex items-center gap-1.5 pt-3">
           {onToggleContinuousReading && (
-            <button
-              onClick={onToggleContinuousReading}
-              className={`p-2 rounded-xl border transition-all shadow-xs flex items-center gap-1 text-xs font-semibold cursor-pointer ${
-                isSpeaking
-                  ? 'border-rose-400 bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-300 ring-2 ring-rose-400/40 animate-pulse'
-                  : 'border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] active:scale-95'
-              }`}
-              title={isSpeaking ? 'Stop Chapter Audio' : 'Listen to Chapter Continuously'}
-              aria-label="Toggle Continuous Audio Reading"
-            >
-              {isSpeaking ? (
-                <>
-                  <Square className="w-3.5 h-3.5 fill-current" />
-                  <span className="hidden sm:inline">Stop</span>
-                </>
+            <>
+              {readingLayout === 'parallel-eng-tag' ? (
+                <div className="flex items-center rounded-xl border border-[var(--line)] bg-[var(--paper)] p-0.5 shadow-xs">
+                  <button
+                    onClick={() => onToggleContinuousReading(undefined, 'english')}
+                    className={`px-2 py-1.5 rounded-lg transition-all flex items-center gap-1 text-xs font-semibold cursor-pointer ${
+                      isSpeaking && speakingLanguage === 'english'
+                        ? 'bg-rose-500 text-white ring-2 ring-rose-400/40 animate-pulse'
+                        : 'text-[var(--ink)] hover:text-[#C9A227] active:scale-95'
+                    }`}
+                    title={isSpeaking && speakingLanguage === 'english' ? 'Stop KJV Audio' : 'Listen to Chapter in English (KJV)'}
+                    aria-label="Toggle English KJV Audio"
+                  >
+                    {isSpeaking && speakingLanguage === 'english' ? (
+                      <Square className="w-3.5 h-3.5 fill-current" />
+                    ) : (
+                      <Volume2 className="w-3.5 h-3.5 text-[#C9A227]" />
+                    )}
+                    <span>KJV</span>
+                  </button>
+                  <button
+                    onClick={() => onToggleContinuousReading(undefined, 'tagalog')}
+                    className={`px-2 py-1.5 rounded-lg transition-all flex items-center gap-1 text-xs font-semibold cursor-pointer ${
+                      isSpeaking && speakingLanguage === 'tagalog'
+                        ? 'bg-rose-500 text-white ring-2 ring-rose-400/40 animate-pulse'
+                        : 'text-[var(--ink)] hover:text-[#C9A227] active:scale-95'
+                    }`}
+                    title={isSpeaking && speakingLanguage === 'tagalog' ? 'Stop Tagalog Audio' : 'Listen to Chapter in Filipino (ADB 1905)'}
+                    aria-label="Toggle Filipino Tagalog Audio"
+                  >
+                    {isSpeaking && speakingLanguage === 'tagalog' ? (
+                      <Square className="w-3.5 h-3.5 fill-current" />
+                    ) : (
+                      <Volume2 className="w-3.5 h-3.5 text-[#C9A227]" />
+                    )}
+                    <span>TAG</span>
+                  </button>
+                </div>
               ) : (
-                <>
-                  <Volume2 className="w-4 h-4 text-[#C9A227]" />
-                  <span className="hidden sm:inline">Read</span>
-                </>
+                <button
+                  onClick={() => onToggleContinuousReading(undefined, readingLayout === 'tagalog' || readingLayout === 'parallel-ceb-tag' ? 'tagalog' : 'english')}
+                  className={`p-2 rounded-xl border transition-all shadow-xs flex items-center gap-1 text-xs font-semibold cursor-pointer ${
+                    isSpeaking
+                      ? 'border-rose-400 bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-300 ring-2 ring-rose-400/40 animate-pulse'
+                      : 'border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] active:scale-95'
+                  }`}
+                  title={
+                    isSpeaking
+                      ? 'Stop Chapter Audio'
+                      : `Listen to Chapter (${readingLayout === 'tagalog' || readingLayout === 'parallel-ceb-tag' ? 'Tagalog ADB 1905' : 'English KJV'})`
+                  }
+                  aria-label="Toggle Continuous Audio Reading"
+                >
+                  {isSpeaking ? (
+                    <>
+                      <Square className="w-3.5 h-3.5 fill-current" />
+                      <span className="hidden sm:inline">Stop</span>
+                    </>
+                  ) : (
+                    <>
+                      <Volume2 className="w-4 h-4 text-[#C9A227]" />
+                      <span className="hidden sm:inline">
+                        {readingLayout === 'tagalog' || readingLayout === 'parallel-ceb-tag' ? 'Read (TAG)' : 'Read (KJV)'}
+                      </span>
+                    </>
+                  )}
+                </button>
               )}
-            </button>
+            </>
           )}
 
           <button
@@ -439,12 +488,12 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
           <div className="flex items-center gap-2 min-w-0">
             <Volume2 className="w-4 h-4 text-[#E4C765] animate-pulse shrink-0" />
             <span className="truncate">
-              Reading aloud <strong>{currentBook} {currentChapter}:{speakingVerse || 1}</strong> (KJV)
+              Reading aloud <strong>{currentBook} {currentChapter}:{speakingVerse || 1}</strong> ({speakingLanguage === 'tagalog' ? 'Filipino ADB 1905' : 'English KJV'})
             </span>
           </div>
           {onToggleContinuousReading && (
             <button
-              onClick={onToggleContinuousReading}
+              onClick={() => onToggleContinuousReading()}
               className="flex items-center gap-1 px-2.5 py-1 bg-rose-600 hover:bg-rose-700 text-white rounded-lg text-xs font-bold shrink-0 transition-all cursor-pointer shadow-xs active:scale-95"
             >
               <Square className="w-3 h-3 fill-white" />

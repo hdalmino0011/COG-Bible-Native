@@ -6,31 +6,48 @@ interface SplashProps {
 }
 
 export const Splash: React.FC<SplashProps> = ({ onComplete }) => {
-  // Splash launches immediately with logo and stays for exactly 1.5 seconds (1500ms)
-  const [stage, setStage] = useState<'visible' | 'fading'>('visible');
+  // Stages:
+  // 'black'   -> All black screen for exactly 1.5 seconds (1500ms) as requested
+  // 'visible' -> Smooth fade-in of emblem and branding for 2.2 seconds
+  // 'fading'  -> Matched 600ms smooth fade-out transition into the app
+  const [stage, setStage] = useState<'black' | 'visible' | 'fading'>('black');
 
   const onCompleteRef = useRef(onComplete);
   onCompleteRef.current = onComplete;
 
-  const stayTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const fadeOutTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const isFadingRef = useRef(false);
+  const blackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const stayTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const fadeOutTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const triggerFadeOut = () => {
-    if (stage === 'fading') return;
+    if (isFadingRef.current) return;
+    isFadingRef.current = true;
+
+    // Clear any pending timers
+    if (blackTimerRef.current) clearTimeout(blackTimerRef.current);
+    if (stayTimerRef.current) clearTimeout(stayTimerRef.current);
+
     setStage('fading');
-    // Smooth 350ms GPU fade-out transition into the app
+    // Matched 600ms fade-out transition before invoking onComplete
     fadeOutTimerRef.current = setTimeout(() => {
       onCompleteRef.current();
-    }, 350);
+    }, 600);
   };
 
   useEffect(() => {
-    // Splash screen stays for exactly 1.5 seconds (1500ms)
-    stayTimerRef.current = setTimeout(() => {
-      triggerFadeOut();
+    // 1. Initial pure black screen for exactly 1.5 seconds (1500ms)
+    blackTimerRef.current = setTimeout(() => {
+      setStage('visible');
+
+      // 2. Splash screen displays smoothly for 2.2 seconds
+      stayTimerRef.current = setTimeout(() => {
+        triggerFadeOut();
+      }, 2200);
     }, 1500);
 
     return () => {
+      if (blackTimerRef.current) clearTimeout(blackTimerRef.current);
       if (stayTimerRef.current) clearTimeout(stayTimerRef.current);
       if (fadeOutTimerRef.current) clearTimeout(fadeOutTimerRef.current);
     };
@@ -48,7 +65,7 @@ export const Splash: React.FC<SplashProps> = ({ onComplete }) => {
       }}
       style={{
         opacity: isFading ? 0 : 1,
-        transition: 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
+        transition: 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
         pointerEvents: isFading ? 'none' : 'auto',
         willChange: 'opacity',
         backgroundColor: '#000000'
@@ -91,6 +108,8 @@ export const Splash: React.FC<SplashProps> = ({ onComplete }) => {
                 } else if (!target.dataset.triedPng) {
                   target.dataset.triedPng = 'true';
                   target.src = './logo.png';
+                } else {
+                  target.onerror = null;
                 }
               }}
             />

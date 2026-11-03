@@ -17,8 +17,9 @@ interface VerseToolbarProps {
   onToggleBookmark: () => void;
   isBookmarked: boolean;
   onOpenNoteModal: () => void;
-  onSpeak: () => void;
+  onSpeak: (lang?: 'english' | 'tagalog') => void;
   isSpeaking: boolean;
+  speakingLanguage?: 'english' | 'tagalog';
 }
 
 export const VerseToolbar: React.FC<VerseToolbarProps> = ({
@@ -31,7 +32,8 @@ export const VerseToolbar: React.FC<VerseToolbarProps> = ({
   isBookmarked,
   onOpenNoteModal,
   onSpeak,
-  isSpeaking
+  isSpeaking,
+  speakingLanguage = 'english'
 }) => {
   const [copiedType, setCopiedType] = useState<string | null>(null);
 
@@ -73,16 +75,51 @@ export const VerseToolbar: React.FC<VerseToolbarProps> = ({
           </div>
 
           <div className="flex items-center gap-1">
-            <button
-              onClick={onSpeak}
-              className={`p-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 transition-colors ${
-                isSpeaking ? 'text-[#C9A227] animate-pulse' : ''
-              }`}
-              title="Listen to Verse (Audio TTS)"
-              aria-label="Speak verse aloud"
-            >
-              <Volume2 className="w-4 h-4" />
-            </button>
+            {readingLayout === 'parallel-eng-tag' ? (
+              <div className="flex items-center rounded-lg border border-gray-200 dark:border-slate-700 p-0.5">
+                <button
+                  onClick={() => onSpeak('english')}
+                  className={`px-1.5 py-1 rounded text-[10px] font-bold flex items-center gap-1 transition-colors ${
+                    isSpeaking && speakingLanguage === 'english'
+                      ? 'bg-[#1B3A6B] text-white animate-pulse'
+                      : 'hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200'
+                  }`}
+                  title="Listen in English (KJV)"
+                  aria-label="Speak verse in English"
+                >
+                  <Volume2 className="w-3.5 h-3.5" />
+                  <span>ENG</span>
+                </button>
+                <button
+                  onClick={() => onSpeak('tagalog')}
+                  className={`px-1.5 py-1 rounded text-[10px] font-bold flex items-center gap-1 transition-colors ${
+                    isSpeaking && speakingLanguage === 'tagalog'
+                      ? 'bg-[#1B3A6B] text-white animate-pulse'
+                      : 'hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200'
+                  }`}
+                  title="Listen in Filipino (ADB 1905)"
+                  aria-label="Speak verse in Tagalog"
+                >
+                  <Volume2 className="w-3.5 h-3.5" />
+                  <span>TAG</span>
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => onSpeak(readingLayout === 'tagalog' || readingLayout === 'parallel-ceb-tag' ? 'tagalog' : 'english')}
+                className={`p-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 transition-colors ${
+                  isSpeaking ? 'text-[#C9A227] animate-pulse' : ''
+                }`}
+                title={
+                  readingLayout === 'tagalog' || readingLayout === 'parallel-ceb-tag'
+                    ? 'Listen to Verse in Filipino (ADB 1905)'
+                    : 'Listen to Verse in English (KJV)'
+                }
+                aria-label="Speak verse aloud"
+              >
+                <Volume2 className="w-4 h-4" />
+              </button>
+            )}
             <button
               onClick={onToggleBookmark}
               className={`p-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors ${

@@ -115,6 +115,7 @@ export default function App() {
   // Speech TTS state
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [speakingVerse, setSpeakingVerse] = useState<number | null>(null);
+  const [speakingLanguage, setSpeakingLanguage] = useState<'english' | 'tagalog'>('english');
 
   // Toast feedback
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -650,7 +651,10 @@ export default function App() {
   };
 
   // Continuous Audio Reading with Male Voice
-  const handleToggleContinuousReading = async (startVerseNum?: number) => {
+  const handleToggleContinuousReading = async (
+    startVerseNum?: number,
+    targetLanguage?: 'english' | 'tagalog'
+  ) => {
     const chapterVerses = bibleData[currentBook]?.[currentChapter] || [];
 
     if (isSpeaking) {
@@ -667,12 +671,19 @@ export default function App() {
     }
 
     const startV = startVerseNum || selectedVerse?.verse || 1;
-    // Voice reader strictly reads the English KJV version only
-    const lang: 'cebuano' | 'english' | 'tagalog' = 'english';
+    // Determine language: explicit choice or fallback based on current reading layout
+    const lang: 'english' | 'tagalog' = targetLanguage || (
+      readingLayout === 'tagalog' || readingLayout === 'parallel-ceb-tag' ? 'tagalog' : 'english'
+    );
+    setSpeakingLanguage(lang);
 
     setIsSpeaking(true);
     setSpeakingVerse(startV);
-    showToast(`Reading ${currentBook} ${currentChapter} aloud (KJV) from verse ${startV}...`);
+    showToast(
+      `Reading ${currentBook} ${currentChapter} aloud (${
+        lang === 'tagalog' ? 'Filipino ADB 1905' : 'English KJV'
+      }) from verse ${startV}...`
+    );
 
     const formattedVerses: VerseItem[] = chapterVerses.map(v => ({
       v: v.v,
@@ -739,7 +750,7 @@ export default function App() {
 
   return (
     <div
-      style={{ backgroundColor: showSplash ? '#000000' : 'var(--ivory)' }}
+      style={{ backgroundColor: 'var(--ivory)' }}
       className="flex flex-col h-screen w-full max-w-5xl mx-auto overflow-hidden shadow-2xl relative"
     >
       {/* 1. Splash Screen on first load */}
@@ -815,7 +826,8 @@ export default function App() {
             targetVerseToScroll={targetVerseToScroll}
             isSpeaking={isSpeaking}
             speakingVerse={speakingVerse}
-            onToggleContinuousReading={() => handleToggleContinuousReading()}
+            speakingLanguage={speakingLanguage}
+            onToggleContinuousReading={(startV, lang) => handleToggleContinuousReading(startV, lang)}
             useOriginalDivineName={preferences.useOriginalDivineName}
           />
         </div>
@@ -883,8 +895,9 @@ export default function App() {
         onToggleBookmark={handleToggleBookmark}
         isBookmarked={isSelectedVerseBookmarked}
         onOpenNoteModal={() => setActiveNoteVerse(selectedVerse?.verse || null)}
-        onSpeak={() => handleToggleContinuousReading(selectedVerse?.verse)}
+        onSpeak={(lang) => handleToggleContinuousReading(selectedVerse?.verse, lang)}
         isSpeaking={isSpeaking}
+        speakingLanguage={speakingLanguage}
       />
 
       {/* 5. Study Note Modal */}
