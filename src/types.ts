@@ -88,15 +88,21 @@ export interface DictionaryEntry {
   };
 }
 
+export type QuizQuestionType = 'multiple_choice' | 'identification' | 'guess_the_book';
+export type QuizDifficulty = 'easy' | 'medium' | 'hard' | 'difficult';
+
 export interface QuizQuestion {
   id: string;
-  category: 'old' | 'new' | 'all' | 'doctrine' | 'characters';
+  category: 'old' | 'new' | 'all';
   categoryLabel?: string;
+  type: QuizQuestionType;
+  difficulty: QuizDifficulty;
   q: string;
-  options: string[];
-  answer: number;
+  options?: string[];
+  answer: number | string;
+  acceptableAnswers?: string[];
   explanation: string;
-  reference?: string;
+  reference: string;
 }
 
 export interface QuizStats {
