@@ -38,19 +38,41 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
   onSaveScrollPosition
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isScrollRestoredRef = useRef(false);
+  const scrollSaveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [testamentFilter, setTestamentFilter] = useState<'all' | 'Old' | 'New'>('all');
 
-  // Restore scroll position on mount or when returning
+  // Restore scroll position ONCE on initial mount so it never fights active gestures
   useEffect(() => {
-    if (scrollContainerRef.current && typeof savedScrollPosition === 'number' && savedScrollPosition > 0) {
+    if (!isScrollRestoredRef.current && scrollContainerRef.current && typeof savedScrollPosition === 'number' && savedScrollPosition > 0) {
       scrollContainerRef.current.scrollTop = savedScrollPosition;
+      isScrollRestoredRef.current = true;
     }
-  }, [savedScrollPosition]);
+  }, []);
 
+  // Save scroll position with debouncing to prevent high-frequency root re-renders during active scroll
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
-    onSaveScrollPosition?.(e.currentTarget.scrollTop);
+    const pos = e.currentTarget.scrollTop;
+    if (scrollSaveTimeoutRef.current) {
+      clearTimeout(scrollSaveTimeoutRef.current);
+    }
+    scrollSaveTimeoutRef.current = setTimeout(() => {
+      onSaveScrollPosition?.(pos);
+    }, 180);
   };
+
+  // Ensure latest position is saved when unmounting or switching view
+  useEffect(() => {
+    return () => {
+      if (scrollSaveTimeoutRef.current) {
+        clearTimeout(scrollSaveTimeoutRef.current);
+      }
+      if (scrollContainerRef.current) {
+        onSaveScrollPosition?.(scrollContainerRef.current.scrollTop);
+      }
+    };
+  }, [onSaveScrollPosition]);
 
   // Search results state
   const [isSearching, setIsSearching] = useState(false);
@@ -168,7 +190,7 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
     <div
       ref={scrollContainerRef}
       onScroll={handleScroll}
-      className="flex flex-col flex-1 min-h-0 bg-[var(--ivory)] text-[var(--slate)] overflow-y-auto"
+      className="flex flex-col flex-1 min-h-0 bg-[var(--ivory)] text-[var(--slate)] overflow-y-auto overscroll-y-contain [webkit-overflow-scrolling:touch]"
     >
       {/* 1. Header Hero / Search Banner */}
       <div className="bg-gradient-to-b from-[#142B50] via-[#1B3A6B] to-[#142B50] text-white px-4 py-4 sm:py-5 border-b border-[#C9A227]/30 shadow-md">
@@ -385,7 +407,7 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
                   <div
                     key={book.name}
                     onClick={() => onSelectBook(book.name)}
-                    className="p-3 sm:p-3.5 bg-[var(--paper)] backdrop-blur-xl hover:bg-[#C9A227]/[0.08] active:bg-[#C9A227]/[0.15] border border-[var(--line)] hover:border-[#C9A227]/60 rounded-2xl shadow-2xs hover:shadow-md transition-all cursor-pointer flex items-center justify-between gap-3 group"
+                    className="p-3 sm:p-3.5 bg-[var(--paper)] hover:bg-[#C9A227]/[0.08] active:bg-[#C9A227]/[0.15] border border-[var(--line)] hover:border-[#C9A227]/60 rounded-2xl shadow-2xs hover:shadow-md transition-colors cursor-pointer flex items-center justify-between gap-3 group"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       {/* Order number circle */}

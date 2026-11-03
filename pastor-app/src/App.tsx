@@ -315,7 +315,7 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#081226] text-white flex flex-col relative overflow-x-hidden">
+    <div className="h-screen h-[100dvh] bg-[#081226] text-white flex flex-col relative overflow-hidden">
       {/* Background Ambient iOS Light Spheres */}
       <div className="ambient-glow-navy -top-24 -left-20" />
       <div className="ambient-glow-gold top-1/4 -right-24" />
@@ -411,12 +411,15 @@ export default function App() {
       {/* 3. LOGIN SCREEN (If not authenticated) */}
       {/* ========================================================= */}
       {!isAuthenticated ? (
-        <div className="min-h-screen flex flex-col justify-center items-center px-4 py-8 relative z-10">
+        <div
+          className="flex-1 overflow-y-auto overscroll-y-contain flex flex-col justify-center items-center px-4 py-8 relative z-10"
+          style={{
+            paddingTop: 'calc(max(var(--sat), 36px) + 1rem)',
+            paddingBottom: 'calc(max(var(--sab), 24px) + 1rem)'
+          }}
+        >
           <div
             className="w-full max-w-md glass-panel rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden"
-            style={{
-              marginTop: 'max(var(--sat), 12px)'
-            }}
           >
             {/* Top Glowing Gold Accent Line */}
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#C9A227] via-[#F3D77B] to-[#C9A227]" />
@@ -525,12 +528,12 @@ export default function App() {
         /* ========================================================= */
         /* 4. MAIN PORTAL (AUTHENTICATED) */
         /* ========================================================= */
-        <div className="flex-1 flex flex-col relative z-10">
-          {/* iOS Frosted Glass Header */}
+        <div className="flex-1 flex flex-col min-h-0 relative z-10 overflow-hidden">
+          {/* Top Fixed Header with status bar protection */}
           <header
-            className="sticky top-0 z-30 bg-[#081226]/80 backdrop-blur-2xl border-b border-white/10 px-4 transition-all"
+            className="shrink-0 z-30 bg-[#081226]/95 backdrop-blur-2xl border-b border-white/10 px-4 shadow-lg select-none"
             style={{
-              paddingTop: 'calc(max(var(--sat), 32px) + 0.5rem)',
+              paddingTop: 'calc(max(var(--sat), 36px) + 0.5rem)',
               paddingBottom: '0.75rem'
             }}
           >
@@ -605,9 +608,9 @@ export default function App() {
 
           {/* Main Workspace Body */}
           <main
-            className="flex-1 max-w-4xl w-full mx-auto p-4 space-y-4"
+            className="flex-1 overflow-y-auto overscroll-y-contain max-w-4xl w-full mx-auto p-4 space-y-4"
             style={{
-              paddingBottom: 'calc(max(var(--sab), 20px) + 2rem)'
+              paddingBottom: 'calc(max(var(--sab), 24px) + 2rem)'
             }}
           >
             {/* Status Toast Alert */}
