@@ -21,6 +21,7 @@ import {
   formatFileSize,
   detectFileType
 } from '../utils/supabase';
+import { PdfViewer } from './PdfViewer';
 
 interface LessonsScreenProps {
   onShowToast: (msg: string) => void;
@@ -381,19 +382,17 @@ export const LessonsScreen: React.FC<LessonsScreenProps> = ({ onShowToast }) => 
             </div>
 
             {/* Modal Body: File Viewer */}
-            <div className="flex-1 bg-gray-900 flex items-center justify-center overflow-auto p-2">
+            <div className="flex-1 min-h-0 bg-gray-950 flex flex-col overflow-hidden">
               {viewingLesson.file_type === 'image' || detectFileType(viewingLesson.file_name) === 'image' ? (
-                <img
-                  src={viewingLesson.file_url}
-                  alt={viewingLesson.title}
-                  className="max-w-full max-h-full object-contain rounded-lg"
-                />
+                <div className="flex-1 flex items-center justify-center p-2 overflow-auto">
+                  <img
+                    src={viewingLesson.file_url}
+                    alt={viewingLesson.title}
+                    className="max-w-full max-h-full object-contain rounded-lg"
+                  />
+                </div>
               ) : viewingLesson.file_type === 'pdf' || detectFileType(viewingLesson.file_name) === 'pdf' ? (
-                <iframe
-                  src={`${viewingLesson.file_url}#toolbar=1`}
-                  title={viewingLesson.title}
-                  className="w-full h-full border-none rounded-lg bg-white"
-                />
+                <PdfViewer url={viewingLesson.file_url} />
               ) : (
                 <div className="text-center p-8 text-white max-w-md">
                   <FileText className="w-16 h-16 text-[#C9A227] mx-auto mb-3" />
