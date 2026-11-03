@@ -466,10 +466,10 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
               {preferences.dailyVerseNotification && (
                 <div className="pt-3 border-t border-[var(--line)] space-y-3.5">
                   {/* Scheduled Time Row */}
-                  <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 p-3 rounded-xl bg-[var(--ivory)] border border-[var(--line)]">
-                    <div className="flex items-center gap-2 min-w-0 flex-1">
+                  <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-[var(--ivory)] border border-[var(--line)]">
+                    <div className="flex items-center gap-2 min-w-0">
                       <Clock className="w-4 h-4 text-[#C9A227] shrink-0" />
-                      <span className="text-xs font-semibold text-[var(--slate)] truncate">
+                      <span className="text-xs sm:text-sm font-semibold text-[var(--slate)] whitespace-nowrap">
                         Scheduled Daily Time
                       </span>
                     </div>
@@ -484,7 +484,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
                             scheduleNativeDailyRecurringNotification(newTime);
                           }
                         }}
-                        className="px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-lg border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] font-mono focus:outline-none focus:ring-1 focus:ring-[#C9A227] cursor-pointer text-center shadow-2xs"
+                        className="w-24 sm:w-28 max-w-[120px] px-2 py-1.5 text-xs font-semibold rounded-lg border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] font-mono focus:outline-none focus:ring-1 focus:ring-[#C9A227] cursor-pointer text-center shadow-2xs"
                       />
                     </div>
                   </div>

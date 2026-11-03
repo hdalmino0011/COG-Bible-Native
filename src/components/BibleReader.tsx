@@ -321,12 +321,12 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
   return (
     <div className="flex flex-col flex-1 min-h-0 bg-[var(--ivory)] text-[var(--slate)]">
       {/* Selectors Bar */}
-      <div className="selectors flex items-center justify-between gap-3 px-3 sm:px-5 py-2.5 bg-[var(--paper)] border-b border-[var(--line)] shadow-xs flex-shrink-0">
-        <div className="flex items-center gap-2 sm:gap-3 flex-1 max-w-xl">
+      <div className="selectors flex items-center justify-between gap-1.5 sm:gap-3 px-2 sm:px-4 py-2 sm:py-2.5 bg-[var(--paper)] border-b border-[var(--line)] shadow-xs flex-shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 flex-1 min-w-0 max-w-xl">
           {onOpenBooksList && (
             <button
               onClick={onOpenBooksList}
-              className="mt-4 p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] hover:text-[#C9A227] active:scale-95 transition-all shadow-xs flex items-center gap-1.5 flex-shrink-0 cursor-pointer"
+              className="mt-3.5 sm:mt-4 p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] hover:text-[#C9A227] active:scale-95 transition-all shadow-xs flex items-center gap-1.5 shrink-0 cursor-pointer"
               title="All Books (Genesis to Revelation)"
               aria-label="All Books"
             >
@@ -336,7 +336,7 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
           )}
 
           {/* Book Select */}
-          <div className="select-wrap relative flex-1">
+          <div className="select-wrap relative flex-1 min-w-[85px] sm:min-w-[130px]">
             <span className="select-label block text-[10px] sm:text-[11px] font-semibold text-[var(--slate-soft)] uppercase tracking-wider pl-1 mb-0.5">
               Book
             </span>
@@ -345,7 +345,7 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
                 id="book-select"
                 value={currentBook}
                 onChange={(e) => onBookChange(e.target.value)}
-                className="select-control w-full appearance-none pl-3 pr-8 py-1.5 sm:py-2 bg-[var(--paper)] border border-[var(--line)] rounded-xl text-xs sm:text-sm font-semibold text-[var(--ink)] focus:outline-none focus:border-[#C9A227] shadow-xs cursor-pointer"
+                className="select-control w-full appearance-none pl-2 sm:pl-3 pr-6 sm:pr-8 py-1.5 sm:py-2 bg-[var(--paper)] border border-[var(--line)] rounded-xl text-xs sm:text-sm font-semibold text-[var(--ink)] focus:outline-none focus:border-[#C9A227] shadow-xs cursor-pointer truncate"
               >
                 <optgroup label="Old Testament">
                   {BIBLE_BOOKS.filter(b => b.testament === 'Old').map(b => (
@@ -362,12 +362,12 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
                   ))}
                 </optgroup>
               </select>
-              <ChevronDown className="select-caret w-4 h-4 text-[#C9A227] absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <ChevronDown className="select-caret w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C9A227] absolute right-1.5 sm:right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
           </div>
 
           {/* Chapter Select */}
-          <div className="select-wrap relative w-24 sm:w-36">
+          <div className="select-wrap relative w-[68px] sm:w-28 shrink-0">
             <span className="select-label block text-[10px] sm:text-[11px] font-semibold text-[var(--slate-soft)] uppercase tracking-wider pl-1 mb-0.5">
               Chapter
             </span>
@@ -376,7 +376,7 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
                 id="chapter-select"
                 value={currentChapter}
                 onChange={(e) => onChapterChange(Number(e.target.value))}
-                className="select-control w-full appearance-none pl-3 pr-8 py-1.5 sm:py-2 bg-[var(--paper)] border border-[var(--line)] rounded-xl text-xs sm:text-sm font-semibold text-[var(--ink)] focus:outline-none focus:border-[#C9A227] shadow-xs cursor-pointer"
+                className="select-control w-full appearance-none pl-2 sm:pl-3 pr-5 sm:pr-7 py-1.5 sm:py-2 bg-[var(--paper)] border border-[var(--line)] rounded-xl text-xs sm:text-sm font-semibold text-[var(--ink)] focus:outline-none focus:border-[#C9A227] shadow-xs cursor-pointer"
               >
                 {Array.from({ length: totalChapters }, (_, i) => i + 1).map(num => (
                   <option key={num} value={num}>
@@ -384,20 +384,20 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
                   </option>
                 ))}
               </select>
-              <ChevronDown className="select-caret w-4 h-4 text-[#C9A227] absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <ChevronDown className="select-caret w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C9A227] absolute right-1.5 sm:right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
           </div>
         </div>
 
         {/* Audio continuous read trigger & Prev / Next chapter controls */}
-        <div className="flex items-center gap-1.5 pt-3">
+        <div className="flex items-center gap-1 sm:gap-1.5 pt-3.5 sm:pt-4 shrink-0">
           {onToggleContinuousReading && (
             <>
               {readingLayout === 'parallel-eng-tag' ? (
-                <div className="flex items-center rounded-xl border border-[var(--line)] bg-[var(--paper)] p-0.5 shadow-xs">
+                <div className="flex items-center rounded-xl border border-[var(--line)] bg-[var(--paper)] p-0.5 shadow-xs shrink-0">
                   <button
                     onClick={() => onToggleContinuousReading(undefined, 'english')}
-                    className={`px-2 py-1.5 rounded-lg transition-all flex items-center gap-1 text-xs font-semibold cursor-pointer ${
+                    className={`px-1.5 sm:px-2 py-1 sm:py-1.5 rounded-lg transition-all flex items-center gap-0.5 sm:gap-1 text-[11px] sm:text-xs font-semibold cursor-pointer ${
                       isSpeaking && speakingLanguage === 'english'
                         ? 'bg-rose-500 text-white ring-2 ring-rose-400/40 animate-pulse'
                         : 'text-[var(--ink)] hover:text-[#C9A227] active:scale-95'
@@ -406,15 +406,15 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
                     aria-label="Toggle English KJV Audio"
                   >
                     {isSpeaking && speakingLanguage === 'english' ? (
-                      <Square className="w-3.5 h-3.5 fill-current" />
+                      <Square className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" />
                     ) : (
-                      <Volume2 className="w-3.5 h-3.5 text-[#C9A227]" />
+                      <Volume2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#C9A227]" />
                     )}
                     <span>KJV</span>
                   </button>
                   <button
                     onClick={() => onToggleContinuousReading(undefined, 'tagalog')}
-                    className={`px-2 py-1.5 rounded-lg transition-all flex items-center gap-1 text-xs font-semibold cursor-pointer ${
+                    className={`px-1.5 sm:px-2 py-1 sm:py-1.5 rounded-lg transition-all flex items-center gap-0.5 sm:gap-1 text-[11px] sm:text-xs font-semibold cursor-pointer ${
                       isSpeaking && speakingLanguage === 'tagalog'
                         ? 'bg-rose-500 text-white ring-2 ring-rose-400/40 animate-pulse'
                         : 'text-[var(--ink)] hover:text-[#C9A227] active:scale-95'
@@ -423,9 +423,9 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
                     aria-label="Toggle Filipino Tagalog Audio"
                   >
                     {isSpeaking && speakingLanguage === 'tagalog' ? (
-                      <Square className="w-3.5 h-3.5 fill-current" />
+                      <Square className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" />
                     ) : (
-                      <Volume2 className="w-3.5 h-3.5 text-[#C9A227]" />
+                      <Volume2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#C9A227]" />
                     )}
                     <span>TAG</span>
                   </button>
@@ -433,7 +433,7 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
               ) : (
                 <button
                   onClick={() => onToggleContinuousReading(undefined, readingLayout === 'tagalog' || readingLayout === 'parallel-ceb-tag' ? 'tagalog' : 'english')}
-                  className={`p-2 rounded-xl border transition-all shadow-xs flex items-center gap-1 text-xs font-semibold cursor-pointer ${
+                  className={`p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl border transition-all shadow-xs flex items-center gap-1 text-xs font-semibold cursor-pointer shrink-0 ${
                     isSpeaking
                       ? 'border-rose-400 bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-300 ring-2 ring-rose-400/40 animate-pulse'
                       : 'border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] active:scale-95'
@@ -452,7 +452,7 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
                     </>
                   ) : (
                     <>
-                      <Volume2 className="w-4 h-4 text-[#C9A227]" />
+                      <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C9A227]" />
                       <span className="hidden sm:inline">
                         {readingLayout === 'tagalog' || readingLayout === 'parallel-ceb-tag' ? 'Read (TAG)' : 'Read (KJV)'}
                       </span>
@@ -465,19 +465,19 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
 
           <button
             onClick={handlePrevChapter}
-            className="p-2 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] active:scale-95 transition-all shadow-xs cursor-pointer"
+            className="p-1.5 sm:p-2 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] active:scale-95 transition-all shadow-xs cursor-pointer shrink-0"
             title="Previous Chapter"
             aria-label="Previous Chapter"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
           <button
             onClick={handleNextChapter}
-            className="p-2 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] active:scale-95 transition-all shadow-xs cursor-pointer"
+            className="p-1.5 sm:p-2 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:border-[#C9A227] active:scale-95 transition-all shadow-xs cursor-pointer shrink-0"
             title="Next Chapter"
             aria-label="Next Chapter"
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
         </div>
       </div>
