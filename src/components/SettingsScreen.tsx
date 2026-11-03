@@ -525,7 +525,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         {/* ================= 4. PRIVACY & POLICY ================= */}
         {activeSection === 'privacy' && (
           <div className="space-y-4">
-            <div className="bg-[var(--paper)] border border-[var(--line)] rounded-2xl p-5 shadow-xs space-y-3.5">
+            <div className="bg-[var(--paper)] border border-[var(--line)] rounded-2xl p-5 shadow-xs space-y-4">
               <div className="flex items-center gap-2.5 pb-2 border-b border-[var(--line)]">
                 <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
                   <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
@@ -535,37 +535,44 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
                     Privacy &amp; Policy
                   </h3>
                   <p className="text-[11px] text-[var(--slate-soft)]">
-                    Your personal data and spiritual study remain completely private.
+                    Your personal spiritual study remains 100% private and protected.
                   </p>
                 </div>
               </div>
 
-              <div className="space-y-3 text-xs text-[var(--slate)] leading-relaxed">
+              <div className="space-y-3.5 text-xs text-[var(--slate)] leading-relaxed">
                 <div className="flex items-start gap-2.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
                   <p>
-                    <strong className="text-[var(--ink)]">Zero Data Collection:</strong> This application does not collect, record, track, or monitor any personal user information or usage statistics.
+                    <strong className="text-[var(--ink)]">Zero Data Collection:</strong> This application does not collect, record, track, monitor, or transmit any personal user information, device IDs, or usage statistics.
                   </p>
                 </div>
 
                 <div className="flex items-start gap-2.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
                   <p>
-                    <strong className="text-[var(--ink)]">No Third-Party Sharing:</strong> We do not distribute, sell, or share any user details, preferences, or reading activity to any third parties, advertisers, or analytics services.
+                    <strong className="text-[var(--ink)]">Lessons &amp; Sermons Database (Supabase):</strong> The Church Lessons page connects to a secure Supabase cloud database to deliver official scripture lessons, study outlines, and sermon files uploaded by authorized Pastors and Ministers of The Church of God (Truth, Justice, and Righteousness). Browsing and downloading these lessons does not collect, track, or store any user data, personal identity, or reading activity.
                   </p>
                 </div>
 
                 <div className="flex items-start gap-2.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
                   <p>
-                    <strong className="text-[var(--ink)]">100% Local On-Device Storage:</strong> All your personal bookmarks, verse highlights, study notes, quiz scores, and app preferences remain stored exclusively on your device's local storage.
+                    <strong className="text-[var(--ink)]">100% Local On-Device Storage:</strong> All your personal bookmarks, verse highlights, study notes, quiz scores, and reading preferences are stored exclusively on your device's local storage and never sent to external servers.
                   </p>
                 </div>
 
                 <div className="flex items-start gap-2.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
                   <p>
-                    <strong className="text-[var(--ink)]">Offline Protection:</strong> The entire Bible, search engine, and quiz operate offline without requiring an account, sign-in, or external internet connection.
+                    <strong className="text-[var(--ink)]">No Third-Party Sharing:</strong> We do not distribute, sell, or share user activity with any third parties, advertisers, or telemetry networks.
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
+                  <p>
+                    <strong className="text-[var(--ink)]">Offline Protection:</strong> The entire Bible, dictionary, and quiz engine work offline without requiring an account, sign-in, or internet connection.
                   </p>
                 </div>
               </div>
@@ -607,27 +614,68 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
                 </div>
               </div>
 
-              <div className="space-y-2 text-xs">
-                <div className="flex justify-between py-1 border-b border-[var(--line)]">
+              {/* App Overview */}
+              <div className="space-y-2 text-xs text-[var(--slate)] leading-relaxed">
+                <p>
+                  <strong>COG (T.J.R) Bible</strong> is a comprehensive, offline-capable Holy Bible application crafted for deep scriptural study, personal devotion, and ministry.
+                </p>
+              </div>
+
+              {/* Specifications Table */}
+              <div className="space-y-2 text-xs border-t border-b border-[var(--line)] py-3">
+                <div className="flex justify-between py-1 border-b border-[var(--line)]/50">
                   <span className="text-[var(--slate-soft)]">Application:</span>
                   <span className="font-semibold text-[var(--ink)]">COG (T.J.R) Bible</span>
                 </div>
-                <div className="flex justify-between py-1 border-b border-[var(--line)]">
+                <div className="flex justify-between py-1 border-b border-[var(--line)]/50">
                   <span className="text-[var(--slate-soft)]">Version:</span>
                   <span className="font-semibold text-[var(--ink)]">1.2 (Build 3)</span>
                 </div>
-                <div className="flex justify-between py-1 border-b border-[var(--line)]">
-                  <span className="text-[var(--slate-soft)]">Bible Versions:</span>
+                <div className="flex justify-between py-1 border-b border-[var(--line)]/50">
+                  <span className="text-[var(--slate-soft)]">Included Translations:</span>
                   <span className="font-semibold text-[var(--ink)] text-right">
-                    Cebuano (Bugna) &amp; English (KJV)
+                    Cebuano (Bugna 1917)<br />
+                    English (King James Version)<br />
+                    Tagalog (Ang Dating Biblia 1905)
+                  </span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[var(--line)]/50">
+                  <span className="text-[var(--slate-soft)]">Published By:</span>
+                  <span className="font-semibold text-[var(--ink)] text-right">
+                    The Church of God (T.J.R) with the help of God
                   </span>
                 </div>
                 <div className="flex justify-between py-1">
-                  <span className="text-[var(--slate-soft)]">Operation:</span>
+                  <span className="text-[var(--slate-soft)]">Availability:</span>
                   <span className="font-semibold text-emerald-600 dark:text-emerald-400">
                     100% Offline Capable
                   </span>
                 </div>
+              </div>
+
+              {/* Features List */}
+              <div className="space-y-2">
+                <h4 className="font-serif font-bold text-xs uppercase tracking-wider text-[#C9A227]">
+                  Key Study Features
+                </h4>
+                <ul className="text-xs text-[var(--slate)] space-y-1.5 list-disc pl-4 leading-relaxed">
+                  <li><strong>Parallel &amp; Single Reader:</strong> Read Cebuano, English, and Tagalog side-by-side or individually.</li>
+                  <li><strong>Divine Name Toggle:</strong> Accurately choose between &ldquo;Jehovah / Jehova&rdquo; and &ldquo;Ginoo / Lord / Panginoon&rdquo; with grammar-correct article adjustments.</li>
+                  <li><strong>Church Lessons:</strong> Access official spiritual lessons and sermon resources shared by church ministers.</li>
+                  <li><strong>Bible Dictionary:</strong> Comprehensive biblical definitions, divine names, doctrines, and historical places.</li>
+                  <li><strong>Bible Quiz:</strong> Interactive knowledge challenges across Old and New Testaments.</li>
+                  <li><strong>Personal Study Tools:</strong> Highlighting in multiple colors, bookmarks, and personal verse notes.</li>
+                  <li><strong>Audio Scripture:</strong> Continuous reverent text-to-speech reading with dignified cadence.</li>
+                  <li><strong>Daily Scripture Notifications:</strong> Daily inspirational verses delivered at your chosen time.</li>
+                </ul>
+              </div>
+
+              {/* No Copyright / Public Domain Notice */}
+              <div className="p-3 rounded-xl bg-[var(--ivory)] border border-[var(--line)] text-[11px] text-[var(--slate-soft)] leading-relaxed space-y-1">
+                <p className="font-bold text-[var(--ink)]">Notice of No Copyright &amp; Christian Use</p>
+                <p>
+                  The scripture translations contained in this application (Cebuano Bugna 1917, King James Version, and Tagalog Ang Dating Biblia 1905) are in the public domain. This application is published by The Church of God (Truth, Justice, and Righteousness) with the help of God, and is distributed freely for Christian worship, discipleship, and spiritual study without commercial interest. All glory, honor, and praise belong to God.
+                </p>
               </div>
             </div>
           </div>
