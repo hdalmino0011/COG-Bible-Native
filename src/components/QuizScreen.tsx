@@ -264,110 +264,170 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
           </div>
 
           {/* Settings Section: Quiz Controls */}
-          <div className="bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-2xl p-4 sm:p-5 shadow-xs space-y-4">
+          <div className="bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-2xl p-4 sm:p-5 shadow-xs space-y-6">
             {/* Setting 1: Question Format / Type */}
             <div>
-              <label className="flex items-center gap-1.5 text-xs font-bold uppercase text-[var(--slate-soft)] tracking-wider mb-2">
+              <label className="flex items-center gap-1.5 text-xs font-bold uppercase text-[var(--slate-soft)] tracking-wider mb-2.5">
                 <Sliders className="w-3.5 h-3.5 text-[#C9A227]" />
                 Quiz Format / Type:
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <div className="flex flex-col gap-2">
                 {[
-                  { id: 'all', label: 'All Formats' },
-                  { id: 'multiple_choice', label: 'Multiple Choice' },
-                  { id: 'identification', label: 'Identification' },
-                  { id: 'guess_the_book', label: 'Guess the Book' }
-                ].map((opt) => (
-                  <button
-                    key={opt.id}
-                    onClick={() => setSelectedType(opt.id as any)}
-                    className={`py-2 px-2 rounded-xl text-xs font-bold border transition-all text-center cursor-pointer ${
-                      selectedType === opt.id
-                        ? 'bg-[#1B3A6B] text-white border-[#1B3A6B] shadow-xs'
-                        : 'bg-[var(--paper)] text-[var(--slate)] border-[var(--line)] hover:border-[#C9A227]'
-                    }`}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
+                  { id: 'all', label: 'All Formats', desc: 'Mix of multiple choice, identification, and book trivia' },
+                  { id: 'multiple_choice', label: 'Multiple Choice', desc: 'Select 1 correct biblical answer out of 4 options' },
+                  { id: 'identification', label: 'Identification', desc: 'Type in biblical names, places, and events' },
+                  { id: 'guess_the_book', label: 'Guess the Book', desc: 'Identify Bible book order, authors, and themes' }
+                ].map((opt) => {
+                  const isSelected = selectedType === opt.id;
+                  return (
+                    <button
+                      key={opt.id}
+                      onClick={() => setSelectedType(opt.id as any)}
+                      className={`w-full py-2.5 px-3.5 rounded-xl border flex items-center justify-between text-left transition-all cursor-pointer ${
+                        isSelected
+                          ? 'bg-[#1B3A6B] text-white border-[#1B3A6B] shadow-xs ring-1 ring-[#C9A227]/70'
+                          : 'bg-[var(--paper)] text-[var(--slate)] border-[var(--line)] hover:border-[#C9A227]'
+                      }`}
+                    >
+                      <div className="flex flex-col">
+                        <span className="font-bold text-xs sm:text-sm">{opt.label}</span>
+                        <span className={`text-[11px] mt-0.5 ${isSelected ? 'text-blue-100/90' : 'text-[var(--slate-soft)]'}`}>
+                          {opt.desc}
+                        </span>
+                      </div>
+                      <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ml-3 ${
+                        isSelected ? 'border-white bg-[#C9A227]' : 'border-gray-300 dark:border-slate-600'
+                      }`}>
+                        {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-[#0E1B33]" />}
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
             {/* Setting 2: Difficulty Mode */}
             <div>
-              <label className="flex items-center gap-1.5 text-xs font-bold uppercase text-[var(--slate-soft)] tracking-wider mb-2">
+              <label className="flex items-center gap-1.5 text-xs font-bold uppercase text-[var(--slate-soft)] tracking-wider mb-2.5">
                 <Sparkles className="w-3.5 h-3.5 text-[#C9A227]" />
                 Difficulty Mode:
               </label>
-              <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
+              <div className="flex flex-col gap-2">
                 {[
-                  { id: 'all', label: 'Any / Mixed' },
-                  { id: 'easy', label: 'Easy' },
-                  { id: 'medium', label: 'Medium' },
-                  { id: 'hard', label: 'Hard' },
-                  { id: 'difficult', label: 'Difficult' }
-                ].map((opt) => (
-                  <button
-                    key={opt.id}
-                    onClick={() => setSelectedDifficulty(opt.id as any)}
-                    className={`py-2 px-1.5 rounded-xl text-xs font-bold border transition-all text-center cursor-pointer ${
-                      selectedDifficulty === opt.id
-                        ? 'bg-[#1B3A6B] text-white border-[#1B3A6B] shadow-xs'
-                        : 'bg-[var(--paper)] text-[var(--slate)] border-[var(--line)] hover:border-[#C9A227]'
-                    }`}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
+                  { id: 'all', label: 'Any / Mixed Difficulty', desc: 'All difficulty levels combined' },
+                  { id: 'easy', label: 'Easy', desc: 'Foundational Bible stories & well-known facts' },
+                  { id: 'medium', label: 'Medium', desc: 'Familiar scripture accounts, prophets & apostles' },
+                  { id: 'hard', label: 'Hard', desc: 'Detailed timelines, numbers, kings & epistles' },
+                  { id: 'difficult', label: 'Difficult', desc: 'In-depth scriptural trivia & historical context' }
+                ].map((opt) => {
+                  const isSelected = selectedDifficulty === opt.id;
+                  return (
+                    <button
+                      key={opt.id}
+                      onClick={() => setSelectedDifficulty(opt.id as any)}
+                      className={`w-full py-2.5 px-3.5 rounded-xl border flex items-center justify-between text-left transition-all cursor-pointer ${
+                        isSelected
+                          ? 'bg-[#1B3A6B] text-white border-[#1B3A6B] shadow-xs ring-1 ring-[#C9A227]/70'
+                          : 'bg-[var(--paper)] text-[var(--slate)] border-[var(--line)] hover:border-[#C9A227]'
+                      }`}
+                    >
+                      <div className="flex flex-col">
+                        <span className="font-bold text-xs sm:text-sm">{opt.label}</span>
+                        <span className={`text-[11px] mt-0.5 ${isSelected ? 'text-blue-100/90' : 'text-[var(--slate-soft)]'}`}>
+                          {opt.desc}
+                        </span>
+                      </div>
+                      <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ml-3 ${
+                        isSelected ? 'border-white bg-[#C9A227]' : 'border-gray-300 dark:border-slate-600'
+                      }`}>
+                        {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-[#0E1B33]" />}
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
             {/* Setting 3: Number of Questions */}
             <div>
-              <label className="flex items-center gap-1.5 text-xs font-bold uppercase text-[var(--slate-soft)] tracking-wider mb-2">
+              <label className="flex items-center gap-1.5 text-xs font-bold uppercase text-[var(--slate-soft)] tracking-wider mb-2.5">
                 <Layers className="w-3.5 h-3.5 text-[#C9A227]" />
                 Number of Questions:
               </label>
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
-                {[5, 10, 15, 20, 25, 'all'].map((count) => (
-                  <button
-                    key={String(count)}
-                    onClick={() => setSelectedCount(count as any)}
-                    className={`py-2 px-2 rounded-xl text-xs font-bold border transition-all text-center cursor-pointer ${
-                      selectedCount === count
-                        ? 'bg-[#1B3A6B] text-white border-[#1B3A6B] shadow-xs'
-                        : 'bg-[var(--paper)] text-[var(--slate)] border-[var(--line)] hover:border-[#C9A227]'
-                    }`}
-                  >
-                    {count === 'all' ? 'All' : `${count} Qs`}
-                  </button>
-                ))}
+              <div className="flex flex-col gap-2">
+                {[
+                  { count: 5, label: '5 Questions', desc: 'Quick 3-minute study' },
+                  { count: 10, label: '10 Questions (Recommended)', desc: 'Standard Bible challenge session' },
+                  { count: 15, label: '15 Questions', desc: 'Extended scripture review' },
+                  { count: 20, label: '20 Questions', desc: 'Comprehensive knowledge test' },
+                  { count: 25, label: '25 Questions', desc: 'Advanced biblical assessment' },
+                  { count: 'all', label: 'All Available Questions', desc: 'Marathon through all matching questions' }
+                ].map((opt) => {
+                  const isSelected = selectedCount === opt.count;
+                  return (
+                    <button
+                      key={String(opt.count)}
+                      onClick={() => setSelectedCount(opt.count as any)}
+                      className={`w-full py-2.5 px-3.5 rounded-xl border flex items-center justify-between text-left transition-all cursor-pointer ${
+                        isSelected
+                          ? 'bg-[#1B3A6B] text-white border-[#1B3A6B] shadow-xs ring-1 ring-[#C9A227]/70'
+                          : 'bg-[var(--paper)] text-[var(--slate)] border-[var(--line)] hover:border-[#C9A227]'
+                      }`}
+                    >
+                      <div className="flex flex-col">
+                        <span className="font-bold text-xs sm:text-sm">{opt.label}</span>
+                        <span className={`text-[11px] mt-0.5 ${isSelected ? 'text-blue-100/90' : 'text-[var(--slate-soft)]'}`}>
+                          {opt.desc}
+                        </span>
+                      </div>
+                      <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ml-3 ${
+                        isSelected ? 'border-white bg-[#C9A227]' : 'border-gray-300 dark:border-slate-600'
+                      }`}>
+                        {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-[#0E1B33]" />}
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
             {/* Setting 4: Bible Category */}
             <div>
-              <label className="block text-xs font-bold uppercase text-[var(--slate-soft)] tracking-wider mb-2">
+              <label className="flex items-center gap-1.5 text-xs font-bold uppercase text-[var(--slate-soft)] tracking-wider mb-2.5">
+                <BookOpen className="w-3.5 h-3.5 text-[#C9A227]" />
                 Scripture Testament:
               </label>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="flex flex-col gap-2">
                 {[
-                  { id: 'all', label: 'All 66 Books' },
-                  { id: 'old', label: 'Old Testament' },
-                  { id: 'new', label: 'New Testament' }
-                ].map((cat) => (
-                  <button
-                    key={cat.id}
-                    onClick={() => setSelectedCategory(cat.id as any)}
-                    className={`py-2 px-2 rounded-xl text-xs font-bold border transition-all text-center cursor-pointer ${
-                      selectedCategory === cat.id
-                        ? 'bg-[#1B3A6B] text-white border-[#1B3A6B] shadow-xs'
-                        : 'bg-[var(--paper)] text-[var(--slate)] border-[var(--line)] hover:border-[#C9A227]'
-                    }`}
-                  >
-                    {cat.label}
-                  </button>
-                ))}
+                  { id: 'all', label: 'All 66 Books', desc: 'Genesis through Revelation' },
+                  { id: 'old', label: 'Old Testament Only', desc: 'Law, History, Poetry & Prophets (39 books)' },
+                  { id: 'new', label: 'New Testament Only', desc: 'Gospels, Acts, Epistles & Revelation (27 books)' }
+                ].map((cat) => {
+                  const isSelected = selectedCategory === cat.id;
+                  return (
+                    <button
+                      key={cat.id}
+                      onClick={() => setSelectedCategory(cat.id as any)}
+                      className={`w-full py-2.5 px-3.5 rounded-xl border flex items-center justify-between text-left transition-all cursor-pointer ${
+                        isSelected
+                          ? 'bg-[#1B3A6B] text-white border-[#1B3A6B] shadow-xs ring-1 ring-[#C9A227]/70'
+                          : 'bg-[var(--paper)] text-[var(--slate)] border-[var(--line)] hover:border-[#C9A227]'
+                      }`}
+                    >
+                      <div className="flex flex-col">
+                        <span className="font-bold text-xs sm:text-sm">{cat.label}</span>
+                        <span className={`text-[11px] mt-0.5 ${isSelected ? 'text-blue-100/90' : 'text-[var(--slate-soft)]'}`}>
+                          {cat.desc}
+                        </span>
+                      </div>
+                      <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ml-3 ${
+                        isSelected ? 'border-white bg-[#C9A227]' : 'border-gray-300 dark:border-slate-600'
+                      }`}>
+                        {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-[#0E1B33]" />}
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
