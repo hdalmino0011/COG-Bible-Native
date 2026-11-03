@@ -29,13 +29,13 @@ export const NotificationPermissionModal: React.FC<NotificationPermissionModalPr
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-md">
         <motion.div
           initial={{ opacity: 0, scale: 0.92, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 12 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="relative w-full max-w-md bg-white dark:bg-[#121E36] rounded-3xl shadow-2xl border border-[#E2DED2] dark:border-[#223354] overflow-hidden"
+          className="relative w-full max-w-md bg-white/95 dark:bg-[#0E2240]/90 backdrop-blur-2xl rounded-3xl shadow-2xl border border-[#E2DED2] dark:border-white/20 overflow-hidden"
           role="dialog"
           aria-modal="true"
         >

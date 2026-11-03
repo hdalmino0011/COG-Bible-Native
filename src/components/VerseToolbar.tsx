@@ -61,10 +61,10 @@ export const VerseToolbar: React.FC<VerseToolbarProps> = ({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 20, scale: 0.95 }}
         transition={{ duration: 0.2 }}
-        className="fixed bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 z-40 w-[95%] max-w-xl bg-white dark:bg-[#1E293B] border border-[#E3DFD3] dark:border-slate-700 shadow-2xl rounded-2xl p-3 flex flex-col gap-2.5 backdrop-blur-md"
+        className="fixed bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 z-40 w-[95%] max-w-xl bg-white/90 dark:bg-[#0E2240]/90 border border-white/20 shadow-2xl rounded-3xl p-3.5 flex flex-col gap-2.5 backdrop-blur-2xl"
       >
         {/* Header with reference and close */}
-        <div className="flex items-center justify-between pb-1.5 border-b border-gray-100 dark:border-slate-700">
+        <div className="flex items-center justify-between pb-1.5 border-b border-gray-200/50 dark:border-white/10">
           <div className="flex items-center gap-2">
             <span className="font-serif font-bold text-xs sm:text-sm text-[#1B3A6B] dark:text-[#E4C765]">
               {selectedVerse.book} {selectedVerse.chapter}:{selectedVerse.verse}

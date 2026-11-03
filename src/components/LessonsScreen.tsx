@@ -191,7 +191,7 @@ export const LessonsScreen: React.FC<LessonsScreenProps> = ({ onShowToast }) => 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search lessons by title, minister, or topic..."
-              className="w-full pl-9 pr-4 py-2 bg-white dark:bg-[#0E2240] border border-[#E3DFD3] dark:border-[#1D3D6F] rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-[#C9A227]"
+              className="w-full pl-9 pr-4 py-2 bg-white/80 dark:bg-[#0E2240]/80 backdrop-blur-md border border-[#E3DFD3] dark:border-white/15 rounded-2xl text-sm focus:outline-hidden focus:ring-2 focus:ring-[#C9A227]"
             />
             {searchQuery && (
               <button
@@ -214,10 +214,10 @@ export const LessonsScreen: React.FC<LessonsScreenProps> = ({ onShowToast }) => 
               <button
                 key={f.id}
                 onClick={() => setSelectedCategory(f.id)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                   selectedCategory === f.id
                     ? 'bg-[#1B3A6B] dark:bg-[#C9A227] text-white shadow-xs'
-                    : 'bg-white dark:bg-[#0E2240] border border-[#E3DFD3] dark:border-[#1D3D6F] text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5'
+                    : 'bg-white/80 dark:bg-[#0E2240]/80 backdrop-blur-md border border-[#E3DFD3] dark:border-white/15 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/10'
                 }`}
               >
                 {f.label}
@@ -237,7 +237,7 @@ export const LessonsScreen: React.FC<LessonsScreenProps> = ({ onShowToast }) => 
             </p>
           </div>
         ) : filteredLessons.length === 0 ? (
-          <div className="bg-white dark:bg-[#0E2240] rounded-2xl border border-[#E3DFD3] dark:border-[#1D3D6F] p-8 text-center my-6 shadow-xs">
+          <div className="bg-white/80 dark:bg-[#0E2240]/80 backdrop-blur-xl rounded-3xl border border-[#E3DFD3] dark:border-white/15 p-8 text-center my-6 shadow-xs">
             <FileText className="w-12 h-12 text-gray-400 mx-auto mb-3 opacity-60" />
             <h3 className="text-base font-bold font-serif text-[#1B3A6B] dark:text-[#E4C765]">
               No Lessons Found
@@ -263,7 +263,7 @@ export const LessonsScreen: React.FC<LessonsScreenProps> = ({ onShowToast }) => 
               return (
                 <div
                   key={lesson.id}
-                  className="bg-white dark:bg-[#0E2240] rounded-2xl border border-[#E3DFD3] dark:border-[#1D3D6F] p-4 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
+                  className="bg-white/80 dark:bg-[#0E2240]/80 backdrop-blur-xl rounded-3xl border border-[#E3DFD3] dark:border-white/15 p-4 sm:p-5 shadow-lg hover:shadow-xl transition-all flex flex-col justify-between"
                 >
                   <div>
                     {/* Top Row: Type Badge & Date */}

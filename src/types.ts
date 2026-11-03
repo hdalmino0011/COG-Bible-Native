@@ -10,7 +10,7 @@ export type ReadingLayout =
 
 export type AppTheme = 'light' | 'dark' | 'blue';
 
-export type FontFamily = 'Times' | 'ComicSans' | 'Arial';
+export type FontFamily = 'Times' | 'ComicSans' | 'Arial' | 'PlusJakartaSans';
 
 export type FontSize = 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
 

@@ -49,10 +49,10 @@ export const SavedScreen: React.FC<SavedScreenProps> = ({
         </h2>
       </div>
 
-      <div className="flex p-1 bg-white/90 dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-xl mb-4 shadow-2xs gap-1">
+      <div className="flex p-1 bg-white/70 dark:bg-white/5 backdrop-blur-md border border-[#E2DED2] dark:border-white/10 rounded-2xl mb-4 shadow-sm gap-1">
         <button
           onClick={() => setActiveTab('highlights')}
-          className={`flex-1 py-1.5 px-2 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
+          className={`flex-1 py-1.5 px-2 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
             activeTab === 'highlights'
               ? 'bg-[#1B3A6B] dark:bg-[#1B2D4D] text-white dark:text-[#F3DE8A] border border-transparent dark:border-[#C9A227]/40 shadow-xs'
               : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'

@@ -234,7 +234,7 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
 
           {/* Stats Bar */}
           <div className="grid grid-cols-3 gap-2.5">
-            <div className="bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-xl p-3 text-center shadow-xs">
+            <div className="bg-white/80 dark:bg-[#0E2240]/80 backdrop-blur-md border border-[#E2DED2] dark:border-white/15 rounded-2xl p-3 text-center shadow-xs">
               <span className="block font-serif text-xl sm:text-2xl font-bold text-[#1B3A6B] dark:text-[#E4C765]">
                 {quizStats.total}
               </span>
@@ -243,7 +243,7 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
               </span>
             </div>
 
-            <div className="bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-xl p-3 text-center shadow-xs">
+            <div className="bg-white/80 dark:bg-[#0E2240]/80 backdrop-blur-md border border-[#E2DED2] dark:border-white/15 rounded-2xl p-3 text-center shadow-xs">
               <span className="block font-serif text-xl sm:text-2xl font-bold text-emerald-600 dark:text-emerald-400">
                 {accuracy}%
               </span>
@@ -252,7 +252,7 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
               </span>
             </div>
 
-            <div className="bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-xl p-3 text-center shadow-xs">
+            <div className="bg-white/80 dark:bg-[#0E2240]/80 backdrop-blur-md border border-[#E2DED2] dark:border-white/15 rounded-2xl p-3 text-center shadow-xs">
               <div className="flex items-center justify-center gap-1 font-serif text-xl sm:text-2xl font-bold text-amber-600 dark:text-amber-400">
                 <Flame className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-500 text-amber-500" />
                 {quizStats.streak}
@@ -264,7 +264,7 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
           </div>
 
           {/* Settings Section: Quiz Controls */}
-          <div className="bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-2xl p-4 sm:p-5 shadow-xs space-y-6">
+          <div className="bg-white/80 dark:bg-[#0E2240]/80 backdrop-blur-xl border border-[#E2DED2] dark:border-white/15 rounded-3xl p-4 sm:p-6 shadow-xl space-y-6">
             {/* Setting 1: Question Format / Type */}
             <div>
               <label className="flex items-center gap-1.5 text-xs font-bold uppercase text-[var(--slate-soft)] tracking-wider mb-2.5">

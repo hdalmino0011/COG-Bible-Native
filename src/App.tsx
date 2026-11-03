@@ -744,6 +744,11 @@ export default function App() {
       style={{ backgroundColor: 'var(--ivory)' }}
       className="flex flex-col h-screen w-full max-w-5xl mx-auto overflow-hidden shadow-2xl relative"
     >
+      {/* Background Ambient iOS Light Glows */}
+      <div className="ambient-glow-navy -top-24 -left-20" />
+      <div className="ambient-glow-gold top-1/3 -right-24" />
+      <div className="ambient-glow-navy bottom-24 -left-16" />
+
       {/* 1. Splash Screen on first load */}
       {showSplash && (
         <Splash

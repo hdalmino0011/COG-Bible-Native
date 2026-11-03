@@ -61,7 +61,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
     <nav
       id="main-bottom-nav"
       aria-label="Main Navigation"
-      className="fixed bottom-0 left-0 right-0 z-30 bg-white/95 dark:bg-[#182234]/95 border-t border-[#E3DFD3] dark:border-[#2A3552] backdrop-blur-md px-2 pt-1.5 sm:pt-2 flex items-center justify-around shadow-lg select-none"
+      className="fixed bottom-0 left-0 right-0 z-30 bg-[#0E1B33]/85 backdrop-blur-2xl border-t border-white/10 px-2 pt-1.5 sm:pt-2 flex items-center justify-around shadow-2xl select-none"
       style={{
         paddingBottom: 'calc(max(var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px)), var(--sab-fallback, 0px)) + 0.375rem)'
       }}
@@ -72,16 +72,16 @@ export const BottomNav: React.FC<BottomNavProps> = ({
           <button
             key={item.id}
             onClick={() => onSelectScreen(item.id)}
-            className={`relative flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl transition-all ${
+            className={`relative flex flex-col items-center gap-0.5 py-1.5 px-3 rounded-2xl transition-all cursor-pointer ${
               isActive
-                ? 'text-[#1B3A6B] dark:text-[#E4C765] font-bold scale-105'
-                : 'text-gray-400 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-200'
+                ? 'text-[#E4C765] font-extrabold bg-white/10 shadow-sm border border-white/10 scale-105'
+                : 'text-slate-400 hover:text-white'
             }`}
           >
             <div className="relative">
               {item.icon}
               {item.badge && item.badge > 0 && (
-                <span className="absolute -top-1.5 -right-2 min-w-[15px] h-3.5 px-1 bg-[#C9A227] text-white text-[8px] font-bold rounded-full flex items-center justify-center shadow-xs">
+                <span className="absolute -top-1.5 -right-2 min-w-[15px] h-3.5 px-1 bg-[#C9A227] text-white text-[8px] font-extrabold rounded-full flex items-center justify-center shadow-xs">
                   {item.badge}
                 </span>
               )}
@@ -90,7 +90,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
               {item.label}
             </span>
             {isActive && (
-              <span className="w-1 h-1 rounded-full bg-[#C9A227] mt-0.5" />
+              <span className="w-1 h-1 rounded-full bg-[#E4C765] mt-0.5 shadow-sm shadow-[#E4C765]" />
             )}
           </button>
         );

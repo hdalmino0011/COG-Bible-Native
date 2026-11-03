@@ -42,15 +42,15 @@ export const NoteModal: React.FC<NoteModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-md">
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="w-full max-w-lg bg-white dark:bg-[#1E293B] rounded-2xl shadow-2xl border border-gray-200 dark:border-slate-700 overflow-hidden flex flex-col max-h-[90vh]"
+        className="w-full max-w-lg bg-white/95 dark:bg-[#0E2240]/90 backdrop-blur-2xl rounded-3xl shadow-2xl border border-gray-200 dark:border-white/20 overflow-hidden flex flex-col max-h-[90vh]"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-3.5 bg-[#1B3A6B] text-white">
+        <div className="flex items-center justify-between px-5 py-3.5 bg-[#0A1832]/90 border-b border-white/10 text-white">
           <div className="flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-[#E4C765]" />
             <h3 className="font-serif font-bold text-base">

@@ -111,7 +111,7 @@ export const DictionaryScreen: React.FC<DictionaryScreenProps> = ({ onNavigateTo
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search Biblical terms, definitions, YHWH, Christmas, Halloween..."
-            className="w-full pl-10 pr-4 py-3 bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] rounded-2xl text-sm text-[#0E1B33] dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C9A227] shadow-xs"
+            className="w-full pl-10 pr-4 py-3 bg-white/80 dark:bg-[#0E2240]/80 backdrop-blur-md border border-[#E2DED2] dark:border-white/15 rounded-2xl text-sm text-[#0E1B33] dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C9A227] shadow-sm"
           />
           <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
         </div>
@@ -122,10 +122,10 @@ export const DictionaryScreen: React.FC<DictionaryScreenProps> = ({ onNavigateTo
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1 text-xs font-semibold rounded-full whitespace-nowrap transition-all border cursor-pointer ${
+              className={`px-3 py-1.5 text-xs font-semibold rounded-full whitespace-nowrap transition-all border cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-[#1B3A6B] text-white border-[#1B3A6B] shadow-xs'
-                  : 'bg-white dark:bg-[#142036] text-gray-600 dark:text-gray-300 border-[#E2DED2] dark:border-[#22314E] hover:border-[#C9A227]'
+                  ? 'bg-[#1B3A6B] dark:bg-[#C9A227] text-white border-transparent shadow-xs'
+                  : 'bg-white/80 dark:bg-[#0E2240]/80 backdrop-blur-md text-gray-600 dark:text-gray-300 border-[#E2DED2] dark:border-white/15 hover:border-[#C9A227]'
               }`}
             >
               {cat}
@@ -136,7 +136,7 @@ export const DictionaryScreen: React.FC<DictionaryScreenProps> = ({ onNavigateTo
         {/* Dictionary List */}
         <div className="space-y-3 pt-1">
           {filteredEntries.length === 0 ? (
-            <div className="text-center py-16 bg-white dark:bg-[#142036] rounded-2xl border border-dashed border-gray-300 dark:border-slate-700">
+            <div className="text-center py-16 bg-white/80 dark:bg-[#0E2240]/80 backdrop-blur-xl rounded-3xl border border-dashed border-gray-300 dark:border-slate-700">
               <p className="font-serif text-sm italic text-gray-500">
                 No dictionary entries found matching "{searchTerm}".
               </p>
@@ -146,7 +146,7 @@ export const DictionaryScreen: React.FC<DictionaryScreenProps> = ({ onNavigateTo
               <div
                 key={entry.id}
                 onClick={() => handleOpenArticle(entry)}
-                className="bg-white dark:bg-[#142036] border border-[#E2DED2] dark:border-[#22314E] hover:border-[#C9A227] rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-md transition-all cursor-pointer group"
+                className="bg-white/80 dark:bg-[#0E2240]/80 backdrop-blur-xl border border-[#E2DED2] dark:border-white/15 hover:border-[#C9A227] rounded-3xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-all cursor-pointer group"
               >
                 <div className="flex items-start justify-between gap-2 mb-1.5">
                   <h3 className="font-serif text-base sm:text-lg font-bold text-[#1B3A6B] dark:text-[#E4C765] group-hover:text-[#C9A227] transition-colors">

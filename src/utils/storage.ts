@@ -27,7 +27,7 @@ export function getStoredPreferences(): UserPreferences {
     if (!raw) return DEFAULT_PREFERENCES;
     const parsed = JSON.parse(raw);
     const validTheme = (parsed.theme === 'light' || parsed.theme === 'dark' || parsed.theme === 'blue') ? parsed.theme : 'blue';
-    const validFont = (parsed.font === 'Times' || parsed.font === 'ComicSans' || parsed.font === 'Arial') ? parsed.font : 'Times';
+    const validFont = (parsed.font === 'Times' || parsed.font === 'ComicSans' || parsed.font === 'Arial' || parsed.font === 'PlusJakartaSans') ? parsed.font : 'Times';
     const validUseOriginalDivineName = typeof parsed.useOriginalDivineName === 'boolean' ? parsed.useOriginalDivineName : false;
     return { ...DEFAULT_PREFERENCES, ...parsed, theme: validTheme, font: validFont, useOriginalDivineName: validUseOriginalDivineName };
   } catch (e) {

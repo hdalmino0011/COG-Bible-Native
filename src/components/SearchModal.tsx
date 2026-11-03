@@ -139,15 +139,15 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-xs pt-16 sm:pt-20">
+    <div className="fixed inset-0 z-50 flex items-start justify-center p-3 sm:p-6 bg-black/65 backdrop-blur-md pt-16 sm:pt-20">
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: -20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="w-full max-w-2xl bg-white dark:bg-[#142036] rounded-2xl shadow-2xl border border-[#E2DED2] dark:border-[#22314E] overflow-hidden flex flex-col max-h-[85vh]"
+        className="w-full max-w-2xl bg-white/95 dark:bg-[#0E2240]/90 backdrop-blur-2xl rounded-3xl shadow-2xl border border-[#E2DED2] dark:border-white/20 overflow-hidden flex flex-col max-h-[85vh]"
       >
         {/* Search Input Bar */}
-        <div className="flex items-center gap-2.5 px-4 py-3.5 border-b border-[#E2DED2] dark:border-[#22314E] bg-white dark:bg-[#10243E]">
+        <div className="flex items-center gap-2.5 px-4 py-3.5 border-b border-[#E2DED2] dark:border-white/10 bg-white/60 dark:bg-white/5">
           {isSearching ? (
             <Loader2 className="w-5 h-5 text-[#C9A227] animate-spin flex-shrink-0" />
           ) : (

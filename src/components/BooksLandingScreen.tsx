@@ -337,12 +337,12 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
           <div className="space-y-3.5">
             {/* Filter Tabs (All, Old Testament, New Testament) */}
             <div className="flex flex-col items-center justify-center gap-1.5 w-full">
-              <div className="flex items-center justify-center gap-1 bg-[var(--paper)] p-1 rounded-xl border border-[var(--line)] shadow-2xs mx-auto">
+              <div className="flex items-center justify-center gap-1 bg-white/70 dark:bg-white/5 backdrop-blur-md p-1 rounded-2xl border border-[var(--line)] shadow-2xs mx-auto">
                 <button
                   onClick={() => setTestamentFilter('all')}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium text-center transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-xl text-[11px] font-bold text-center transition-all cursor-pointer ${
                     testamentFilter === 'all'
-                      ? 'bg-[#1B3A6B] text-white shadow-xs font-semibold'
+                      ? 'bg-[#1B3A6B] dark:bg-[#C9A227] text-white shadow-xs'
                       : 'text-[var(--slate-soft)] hover:text-[var(--ink)]'
                   }`}
                 >
@@ -350,9 +350,9 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
                 </button>
                 <button
                   onClick={() => setTestamentFilter('Old')}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium text-center transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-xl text-[11px] font-bold text-center transition-all cursor-pointer ${
                     testamentFilter === 'Old'
-                      ? 'bg-[#1B3A6B] text-white shadow-xs font-semibold'
+                      ? 'bg-[#1B3A6B] dark:bg-[#C9A227] text-white shadow-xs'
                       : 'text-[var(--slate-soft)] hover:text-[var(--ink)]'
                   }`}
                 >
@@ -360,9 +360,9 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
                 </button>
                 <button
                   onClick={() => setTestamentFilter('New')}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium text-center transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-xl text-[11px] font-bold text-center transition-all cursor-pointer ${
                     testamentFilter === 'New'
-                      ? 'bg-[#1B3A6B] text-white shadow-xs font-semibold'
+                      ? 'bg-[#1B3A6B] dark:bg-[#C9A227] text-white shadow-xs'
                       : 'text-[var(--slate-soft)] hover:text-[var(--ink)]'
                   }`}
                 >
@@ -385,7 +385,7 @@ export const BooksLandingScreen: React.FC<BooksLandingScreenProps> = ({
                   <div
                     key={book.name}
                     onClick={() => onSelectBook(book.name)}
-                    className="p-3 sm:p-3.5 bg-[var(--paper)] hover:bg-[#C9A227]/[0.08] active:bg-[#C9A227]/[0.15] border border-[var(--line)] hover:border-[#C9A227]/60 rounded-xl shadow-2xs hover:shadow-xs transition-all cursor-pointer flex items-center justify-between gap-3 group"
+                    className="p-3 sm:p-3.5 bg-[var(--paper)] backdrop-blur-xl hover:bg-[#C9A227]/[0.08] active:bg-[#C9A227]/[0.15] border border-[var(--line)] hover:border-[#C9A227]/60 rounded-2xl shadow-2xs hover:shadow-md transition-all cursor-pointer flex items-center justify-between gap-3 group"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       {/* Order number circle */}

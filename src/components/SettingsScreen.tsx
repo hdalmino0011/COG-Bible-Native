@@ -72,6 +72,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   ];
 
   const fonts: Array<{ id: FontFamily; label: string }> = [
+    { id: 'PlusJakartaSans', label: 'Plus Jakarta Sans (iOS Modern)' },
     { id: 'Times', label: 'Times New Roman' },
     { id: 'ComicSans', label: 'Comic Sans' },
     { id: 'Arial', label: 'Arial' }

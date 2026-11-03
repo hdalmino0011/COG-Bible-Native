@@ -105,7 +105,7 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header
       id="main-app-header"
-      className="sticky top-0 z-30 flex flex-col bg-gradient-to-r from-[#10203D] via-[#1B3A6B] to-[#2C548F] text-white shadow-md select-none w-full"
+      className="sticky top-0 z-30 flex flex-col bg-[#0A1832]/80 backdrop-blur-2xl border-b border-white/10 text-white shadow-lg select-none w-full"
       style={{
         paddingTop: 'calc(max(var(--safe-area-inset-top, env(safe-area-inset-top, 0px)), var(--sat-fallback, 0px)) + 0.625rem)',
         paddingBottom: '0.625rem'
@@ -174,83 +174,83 @@ export const Header: React.FC<HeaderProps> = ({
                 </button>
 
                 {showLayoutMenu && (
-                  <div className="absolute right-0 top-full mt-1.5 w-60 sm:w-64 bg-[var(--paper)] text-[var(--slate)] border border-[var(--line)] rounded-xl shadow-2xl z-50 py-1.5 overflow-hidden animate-fadeIn text-xs">
-                    <div className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--slate-soft)] border-b border-[var(--line)]">
+                  <div className="absolute right-0 top-full mt-1.5 w-60 sm:w-64 bg-[#0E2240]/95 backdrop-blur-2xl text-white border border-white/20 rounded-2xl shadow-2xl z-50 py-2 overflow-hidden animate-fadeIn text-xs">
+                    <div className="px-3.5 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-300 border-b border-white/10">
                       Parallel Reading
                     </div>
                     <button
                       onClick={() => { onLayoutChange('parallel-eng-tag'); setShowLayoutMenu(false); }}
-                      className={`w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--line)]/40 transition-colors cursor-pointer ${
-                        readingLayout === 'parallel-eng-tag' ? 'bg-[#C9A227]/15 font-bold text-[var(--ink)]' : 'text-[var(--slate)]'
+                      className={`w-full flex items-center justify-between px-3.5 py-2 text-left hover:bg-white/10 transition-colors cursor-pointer ${
+                        readingLayout === 'parallel-eng-tag' ? 'bg-[#C9A227]/20 font-bold text-[#E4C765]' : 'text-slate-200'
                       }`}
                     >
                       <div className="flex flex-col">
                         <span>English + Filipino (Tagalog)</span>
-                        <span className="text-[10px] text-[var(--slate-soft)]">KJV & Ang Dating Biblia</span>
+                        <span className="text-[10px] text-slate-400">KJV & Ang Dating Biblia</span>
                       </div>
                       {readingLayout === 'parallel-eng-tag' && <Check className="w-4 h-4 text-[#C9A227]" />}
                     </button>
                     <button
                       onClick={() => { onLayoutChange('parallel-ceb-tag'); setShowLayoutMenu(false); }}
-                      className={`w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--line)]/40 transition-colors cursor-pointer ${
-                        readingLayout === 'parallel-ceb-tag' ? 'bg-[#C9A227]/15 font-bold text-[var(--ink)]' : 'text-[var(--slate)]'
+                      className={`w-full flex items-center justify-between px-3.5 py-2 text-left hover:bg-white/10 transition-colors cursor-pointer ${
+                        readingLayout === 'parallel-ceb-tag' ? 'bg-[#C9A227]/20 font-bold text-[#E4C765]' : 'text-slate-200'
                       }`}
                     >
                       <div className="flex flex-col">
                         <span>Cebuano + Filipino (Tagalog)</span>
-                        <span className="text-[10px] text-[var(--slate-soft)]">Bugna & Ang Dating Biblia</span>
+                        <span className="text-[10px] text-slate-400">Bugna & Ang Dating Biblia</span>
                       </div>
                       {readingLayout === 'parallel-ceb-tag' && <Check className="w-4 h-4 text-[#C9A227]" />}
                     </button>
                     <button
                       onClick={() => { onLayoutChange('parallel'); setShowLayoutMenu(false); }}
-                      className={`w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--line)]/40 transition-colors cursor-pointer ${
-                        readingLayout === 'parallel' ? 'bg-[#C9A227]/15 font-bold text-[var(--ink)]' : 'text-[var(--slate)]'
+                      className={`w-full flex items-center justify-between px-3.5 py-2 text-left hover:bg-white/10 transition-colors cursor-pointer ${
+                        readingLayout === 'parallel' ? 'bg-[#C9A227]/20 font-bold text-[#E4C765]' : 'text-slate-200'
                       }`}
                     >
                       <div className="flex flex-col">
                         <span>Cebuano + English</span>
-                        <span className="text-[10px] text-[var(--slate-soft)]">Bugna & King James Version</span>
+                        <span className="text-[10px] text-slate-400">Bugna & King James Version</span>
                       </div>
                       {readingLayout === 'parallel' && <Check className="w-4 h-4 text-[#C9A227]" />}
                     </button>
 
-                    <div className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--slate-soft)] border-t border-b border-[var(--line)] mt-1">
+                    <div className="px-3.5 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-300 border-t border-b border-white/10 mt-1">
                       Standalone Versions
                     </div>
                     <button
                       onClick={() => { onLayoutChange('tagalog'); setShowLayoutMenu(false); }}
-                      className={`w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--line)]/40 transition-colors cursor-pointer ${
-                        readingLayout === 'tagalog' ? 'bg-[#C9A227]/15 font-bold text-[var(--ink)]' : 'text-[var(--slate)]'
+                      className={`w-full flex items-center justify-between px-3.5 py-2 text-left hover:bg-white/10 transition-colors cursor-pointer ${
+                        readingLayout === 'tagalog' ? 'bg-[#C9A227]/20 font-bold text-[#E4C765]' : 'text-slate-200'
                       }`}
                     >
                       <div className="flex flex-col">
                         <span>Filipino Only (Tagalog)</span>
-                        <span className="text-[10px] text-[var(--slate-soft)]">Ang Dating Biblia (1905)</span>
+                        <span className="text-[10px] text-slate-400">Ang Dating Biblia (1905)</span>
                       </div>
                       {readingLayout === 'tagalog' && <Check className="w-4 h-4 text-[#C9A227]" />}
                     </button>
                     <button
                       onClick={() => { onLayoutChange('cebuano'); setShowLayoutMenu(false); }}
-                      className={`w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--line)]/40 transition-colors cursor-pointer ${
-                        readingLayout === 'cebuano' ? 'bg-[#C9A227]/15 font-bold text-[var(--ink)]' : 'text-[var(--slate)]'
+                      className={`w-full flex items-center justify-between px-3.5 py-2 text-left hover:bg-white/10 transition-colors cursor-pointer ${
+                        readingLayout === 'cebuano' ? 'bg-[#C9A227]/20 font-bold text-[#E4C765]' : 'text-slate-200'
                       }`}
                     >
                       <div className="flex flex-col">
                         <span>Cebuano Only</span>
-                        <span className="text-[10px] text-[var(--slate-soft)]">Bugna Edition</span>
+                        <span className="text-[10px] text-slate-400">Bugna Edition</span>
                       </div>
                       {readingLayout === 'cebuano' && <Check className="w-4 h-4 text-[#C9A227]" />}
                     </button>
                     <button
                       onClick={() => { onLayoutChange('english'); setShowLayoutMenu(false); }}
-                      className={`w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--line)]/40 transition-colors cursor-pointer ${
-                        readingLayout === 'english' ? 'bg-[#C9A227]/15 font-bold text-[var(--ink)]' : 'text-[var(--slate)]'
+                      className={`w-full flex items-center justify-between px-3.5 py-2 text-left hover:bg-white/10 transition-colors cursor-pointer ${
+                        readingLayout === 'english' ? 'bg-[#C9A227]/20 font-bold text-[#E4C765]' : 'text-slate-200'
                       }`}
                     >
                       <div className="flex flex-col">
                         <span>English Only</span>
-                        <span className="text-[10px] text-[var(--slate-soft)]">King James Version (KJV)</span>
+                        <span className="text-[10px] text-slate-400">King James Version (KJV)</span>
                       </div>
                       {readingLayout === 'english' && <Check className="w-4 h-4 text-[#C9A227]" />}
                     </button>
