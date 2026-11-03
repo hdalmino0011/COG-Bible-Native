@@ -11,6 +11,7 @@ interface NoteModalProps {
   verse: number;
   cebText: string;
   enText: string;
+  tagText?: string;
   initialNote?: string;
   onSaveNote: (text: string) => void;
   onDeleteNote?: () => void;
@@ -24,6 +25,7 @@ export const NoteModal: React.FC<NoteModalProps> = ({
   verse,
   cebText,
   enText,
+  tagText,
   initialNote = '',
   onSaveNote,
   onDeleteNote
@@ -75,6 +77,12 @@ export const NoteModal: React.FC<NoteModalProps> = ({
             <span className="font-bold text-[#1B3A6B] dark:text-[#E4C765]">KJV: </span>
             {enText}
           </p>
+          {tagText && (
+            <p>
+              <span className="font-bold text-[#1B3A6B] dark:text-[#E4C765]">ADB: </span>
+              {tagText}
+            </p>
+          )}
         </div>
 
         {/* Text area */}

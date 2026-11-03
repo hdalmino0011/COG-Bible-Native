@@ -918,6 +918,13 @@ export default function App() {
               preferences.useOriginalDivineName
             )
           }
+          tagText={
+            formatVerseText(
+              bibleData[currentBook]?.[currentChapter]?.find(v => v.v === activeNoteVerse)?.tag || '',
+              'tagalog',
+              preferences.useOriginalDivineName
+            )
+          }
           initialNote={activeNoteForVerse?.text || ''}
           onSaveNote={handleSaveNote}
           onDeleteNote={activeNoteForVerse ? () => handleDeleteNote(activeNoteForVerse.id) : undefined}

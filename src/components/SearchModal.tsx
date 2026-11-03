@@ -81,13 +81,14 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           verse: verse || 1,
           isDirectRef: true,
           ceb: verseItem?.ceb || `Ablihi ang ${bookInfo?.cebName || bookName} Kapitulo ${validChapter}`,
-          en: verseItem?.en || `Jump to ${bookName} Chapter ${validChapter}`
+          en: verseItem?.en || `Jump to ${bookName} Chapter ${validChapter}`,
+          tag: verseItem?.tag
         }];
       }
     }
 
     // Full text keyword search across all books in memory
-    const results: Array<{ book: string; chapter: number; verse: number; ceb: string; en: string }> = [];
+    const results: Array<{ book: string; chapter: number; verse: number; ceb: string; en: string; tag?: string }> = [];
     const books = Object.keys(bibleData);
 
     for (const book of books) {
@@ -98,14 +99,16 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           for (const v of verses) {
             const matchEn = v.en && v.en.toLowerCase().includes(q);
             const matchCeb = v.ceb && v.ceb.toLowerCase().includes(q);
+            const matchTag = v.tag && v.tag.toLowerCase().includes(q);
 
-            if (matchEn || matchCeb) {
+            if (matchEn || matchCeb || matchTag) {
               results.push({
                 book,
                 chapter: ch,
                 verse: v.v,
                 ceb: v.ceb,
-                en: v.en
+                en: v.en,
+                tag: v.tag
               });
               if (results.length >= 60) break;
             }
@@ -309,6 +312,12 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   <p className="text-xs text-gray-600 dark:text-gray-300 line-clamp-2 italic">
                     <span className="text-[10px] font-semibold text-gray-400 mr-1">[KJV]</span>
                     {formatVerseText(res.en, 'english', useOriginalDivineName)}
+                  </p>
+                )}
+                {res.tag && (
+                  <p className="text-xs text-gray-700 dark:text-gray-200 line-clamp-2">
+                    <span className="text-[10px] font-semibold text-gray-400 mr-1">[ADB]</span>
+                    {formatVerseText(res.tag, 'tagalog', useOriginalDivineName)}
                   </p>
                 )}
               </button>
